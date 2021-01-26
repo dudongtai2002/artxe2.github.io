@@ -57,8 +57,8 @@ const Sissela = {
         return "<b class='heal'>" + total + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 40 + q * 20, 0.3, 1);
             const damage2 = calcSkillDamage(character, enemy, 60 + q * 30, 0.5, 1);
             const cost = 50 + q * 10;
@@ -69,8 +69,8 @@ const Sissela = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 30 + w * 60, 0.7, 1);
             const cost = 60 + w * 20;
             const cool = 10000 / ((21 - w * 2) * (100 - character.cooldown_reduction) + 150);
@@ -80,8 +80,8 @@ const Sissela = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             const damage = calcSkillDamage(character, enemy, 40 + e * 50, 0.6, 1);
             const shield = 60 + e * 50 + character.attack_power * 0.5;
             const cool = 10000 / ((14 - e * 1) * (100 - character.cooldown_reduction));
@@ -91,14 +91,14 @@ const Sissela = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
 
             const sissela_t = character.DIV.querySelector('.sissela_t');
             const skill_amplification = character.skill_amplification;
             character.skill_amplification = round(character.calc_skill_amplification + 
                 (2 + character.T_LEVEL.selectedIndex * 3) * (sissela_t.value < 10 ? 0 : (sissela_t.value >= 90 ? 5 : sissela_t.value / 20 + 0.5)), 1);
 
-            const r = character.R_LEVEL.selectedIndex;
             const bonus = character.DIV.querySelector('.sissela_t').value * 2;
             const min = calcSkillDamage(character, enemy, (150 + r * 125 + bonus) * 0.5, 1 * 0.5, 1);
             const max = calcSkillDamage(character, enemy, 150 + r * 125 + bonus, 1, 1);
@@ -169,10 +169,10 @@ const Sissela = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
@@ -190,18 +190,28 @@ const Sissela = {
                 } else if (c === 'A') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                 } else if (c === 'q') {
-                    damage += calcSkillDamage(character, enemy, 60 + q * 30, 0.5, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 60 + q * 30, 0.5, 1);
+                    }
                 } else if (c === 'Q') {
-                    damage += calcSkillDamage(character, enemy, 40 + q * 20, 0.3, 1) + calcSkillDamage(character, enemy, 60 + q * 30, 0.5, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 40 + q * 20, 0.3, 1) + calcSkillDamage(character, enemy, 60 + q * 30, 0.5, 1);
+                    }
                 } else if (c === 'w' || c === 'W') {
-                    damage += calcSkillDamage(character, enemy, 30 + w * 60, 0.7, 1);
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 30 + w * 60, 0.7, 1);
+                    }
                 } else if (c === 'e' || c === 'E') {
-                    damage += calcSkillDamage(character, enemy, 40 + e * 50, 0.6, 1);
+                    if (e >= 0) {
+                        damage += calcSkillDamage(character, enemy, 40 + e * 50, 0.6, 1);
+                    }
                 } else if (c === 'r' || c === 'R') {
-                    const bonus = character.DIV.querySelector('.sissela_t').value * 2;
-                    damage += calcSkillDamage(character, enemy, 150 + r * 125 + bonus, 1, 1);
-                    character.skill_amplification = round(character.calc_skill_amplification + 
-                        (2 + t * 3) * (sissela_t.value < 10 ? 0 : (sissela_t.value >= 90 ? 5 : sissela_t.value / 20 + 0.5)) * 2, 1);
+                    if (r >= 0) {
+                        const bonus = character.DIV.querySelector('.sissela_t').value * 2;
+                        damage += calcSkillDamage(character, enemy, 150 + r * 125 + bonus, 1, 1);
+                        character.skill_amplification = round(character.calc_skill_amplification + 
+                            (2 + t * 3) * (sissela_t.value < 10 ? 0 : (sissela_t.value >= 90 ? 5 : sissela_t.value / 20 + 0.5)) * 2, 1);
+                    }
                 } else if (c === 'd') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
@@ -220,13 +230,44 @@ const Sissela = {
                 } else if (c === 'T') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1) + 
                         calcSkillDamage(character, enemy, 28 + character.LEVEL.selectedIndex * 10, 0.2, 1);
+                } else if (c === 'p' || c === 'P') {
+                    if (character.trap) {
+                        damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+                    }
                 }
             }
 
             character.skill_amplification = skill_amplification;
 
-            return "<b class='damage'>" + damage + '</b><b> _ : ' + (enemy.max_hp ? (damage / enemy.max_hp * 10000 | 0) / 100 : '-') + '%</b>';
+            const heal = enemy.hp_regen ? calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
+                (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) : 0;
+            const percent = (enemy.max_hp ? ((damage - character.DIV.querySelector('.combo_time').value * heal) / enemy.max_hp  * 10000 | 0) / 100 : '-');
+            return "<b class='damage'>" + damage + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + '%</b>';
         }
         return '-';
+    }
+    ,COMBO_Option: 'tQrqeDdddawtQa'
+    ,COMBO_Help: (character) => {
+        if (!character.character) {
+            return 'select character plz';
+        }
+        if (!character.weapon) {
+            return 'select weapon plz';
+        }
+        const weapon = character.weapon.Type;
+        const d = 
+            weapon === 'Throws' ? 'd & D: 데미지 없음\n' : 
+            weapon === 'Shuriken' ? 'd: 무스 추가타 데미지\n' + 'D: 무스 첫타 데미지\n' : 
+            '';
+        return 'a: 기본공격 데미지\n' + 
+            'A: 치명타 데미지\n' +
+            'q: Q스킬 2타 데미지\n' + 
+            'Q: Q스킬 최대 데미지\n' + 
+            'w & W: W스킬 데미지\n' +  
+            'e & E: E스킬 1타 데미지, 재사용시 2타 데미지\n' + 
+            'r & R: R스킬 데미지\n' + 
+            't & T: 패시브 데미지\n' + 
+            d + 
+            'p & P: 트랩 데미지';
     }
 };

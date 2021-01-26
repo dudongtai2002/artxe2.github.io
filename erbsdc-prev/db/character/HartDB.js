@@ -69,8 +69,8 @@ const Hart = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const min = calcSkillDamage(character, enemy, 80 + q * 20, 0.3, 1);
             const max = calcSkillDamage(character, enemy, 160 + q * 40, 0.6, 1);
             const cool = 10000 / (4 * (100 - character.cooldown_reduction));
@@ -85,12 +85,12 @@ const Hart = {
     ,W_Option:  "<b> _up</b><input type='checkbox' class='hart_w' onchange='hartUp(1, 0)'/><input type='checkbox' class='hart_ww' onchange='hartUp(1, 1)'/>" + 
         "<b> _use</b><input type='checkbox' class='hart_w_u' onchange='updateDisplay()'>"
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
 
             const skill_amplification_percent = character.skill_amplification_percent;
             character.skill_amplification_percent = character.calc_skill_amplification_percent;
 
-            const e = character.E_LEVEL.selectedIndex;
             const sap = character.DIV.querySelector('.hart_ee').checked ? 25 : character.DIV.querySelector('.hart_e').checked ? 15 : 0;
             character.skill_amplification_percent += sap;
             const damage1 = calcSkillDamage(character, enemy, 20 + e * 10, 0.4, 1);
@@ -98,7 +98,7 @@ const Hart = {
             const damage2 = calcSkillDamage(character, enemy, 20 + e * 10, 0.4, 1);
             character.skill_amplification_percent += sap;
             const damage3 = calcSkillDamage(character, enemy, 20 + e * 10, 0.4, 1);
-            const cool = 10000 / ((17 - e * 2) * (100 - character.cooldown_reduction) + 50);
+            const cool = 10000 / ((17 - e * 2) * (100 - character.cooldown_reduction) + 46);
 
             character.skill_amplification_percent = skill_amplification_percent;
 
@@ -109,8 +109,8 @@ const Hart = {
     ,E_Option:  "<b> __up</b><input type='checkbox' class='hart_e' onchange='hartUp(2, 0)'/><input type='checkbox' class='hart_ee' onchange='hartUp(2, 1)'/>" + 
         "_ <input type='number' class='stack hart_e_s' value='0' onchange='fixLimitNum(this, 3)'><b>Stack</b>"
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             const regen = calcHeal(character.hp_regen * (character.hp_regen_percent + 100) / 100 + 
                 (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy);
             const heal = calcHeal(30 + r * 10 + (character.max_hp * (0.02 + r * 0.01)), 1, enemy);
@@ -188,13 +188,13 @@ const Hart = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
             const sap = character.DIV.querySelector('.hart_ee').checked ? 25 : character.DIV.querySelector('.hart_e').checked ? 15 : 0;
-            let stack = 0;
+            let ww = false, stack = 0;
 
             const hart_w = character.DIV.querySelector('.hart_w');
             const hart_ww = character.DIV.querySelector('.hart_ww');
@@ -228,25 +228,43 @@ const Hart = {
                         }
                     }
                 } else if (c === 'q') {
-                    damage += calcSkillDamage(character, enemy, 80 + q * 20, 0.3, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 80 + q * 20, 0.3, 1);
+                    }
                 } else if (c === 'Q') {
-                    damage += calcSkillDamage(character, enemy, 160 + q * 40, 0.6, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 160 + q * 40, 0.6, 1);
+                    }
                 } else if (c === 'w' || c === 'W') {
-                    character.attack_power = character.calc_attack_power * (1 + 0.12 + w * 0.07) | 0;
-                    if (enemy.defense) {
-                        enemy.defense = enemy.calc_defense * (1 - (hart_ww.checked ? 0.3 : hart_w.checked ? 0.15 : 0)) | 0;
+                    if (w >= 0) {
+                        if (ww) {
+                            character.attack_power = character.calc_attack_power | 0;
+                            enemy.defense = enemy.calc_defense;
+                        } else {
+                            character.attack_power = character.calc_attack_power * (1 + 0.12 + w * 0.07) | 0;
+                            if (enemy.defense) {
+                                enemy.defense = enemy.calc_defense * (1 - (hart_ww.checked ? 0.3 : hart_w.checked ? 0.15 : 0)) | 0;
+                            }
+                        }
+                        ww = !ww;
                     }
                 } else if (c === 'e' || c === 'E') {
-                    if (stack < 3) {
-                        stack++;
-                        character.skill_amplification_percent = round(character.calc_skill_amplification_percent + stack * sap);
+                    if (e >= 0) {
+                        if (stack < 3) {
+                            stack++;
+                            character.skill_amplification_percent = round(character.calc_skill_amplification_percent + stack * sap);
+                        }
+                        damage += calcSkillDamage(character, enemy, 20 + e * 10, 0.4, 1);
                     }
-                    damage += calcSkillDamage(character, enemy, 20 + e * 10, 0.4, 1);
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Guitar') {
                             damage += calcSkillDamage(character, enemy, 0, character.WEAPON_MASTERY.selectedIndex < 13 ? 1.5 : 2.5, 1)
                         }
+                    }
+                } else if (c === 'p' || c === 'P') {
+                    if (character.trap) {
+                        damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
                     }
                 }
             }
@@ -257,8 +275,34 @@ const Hart = {
                 enemy.defense = enemy_defense;
             }
 
-            return "<b class='damage'>" + damage + '</b><b> _ : ' + (enemy.max_hp ? (damage / enemy.max_hp * 10000 | 0) / 100 : '-') + '%</b>';
+            const heal = enemy.hp_regen ? calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
+                (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) : 0;
+            const percent = (enemy.max_hp ? ((damage - character.DIV.querySelector('.combo_time').value * heal) / enemy.max_hp  * 10000 | 0) / 100 : '-');
+            return "<b class='damage'>" + damage + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + '%</b>';
         }
         return '-';
+    }
+    ,COMBO_Option: 'waeeeadQa'
+    ,COMBO_Help: (character) => {
+        if (!character.character) {
+            return 'select character plz';
+        }
+        if (!character.weapon) {
+            return 'select weapon plz';
+        }
+        const weapon = character.weapon.Type;
+        const d = 
+            weapon === 'Guitar' ? 'd & D: D스킬 데미지\n' : 
+            '';
+        return 'a: 기본공격 데미지\n' + 
+            'A: 치명타 데미지\n' +
+            'q: Q스킬 즉발 데미지\n' + 
+            'Q: Q스킬 최대 데미지\n' + 
+            'w & W: W스킬 On / Off\n' +  
+            'e & E: E스킬 데미지\n' + 
+            'r & R: 데미지 없음\n' + 
+            't & T: 데미지 없음\n' + 
+            d + 
+            'p & P: 트랩 데미지';
     }
 };

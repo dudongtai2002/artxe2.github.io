@@ -75,8 +75,8 @@ const Aya = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 0, 1, 1);
             const damage2 = calcSkillDamage(character, enemy, 20 + q * 40, 0.5, 1);
             const cool = 10000 / ((7 - q * 0.5) * (100 - character.cooldown_reduction));
@@ -86,8 +86,8 @@ const Aya = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1);
             const cool = 10000 / ((18 - w * 1.5) * (100 - character.cooldown_reduction) + 317);
             return "<b class='damage'>" + damage * 10 + '</b> ( ' + damage + " x 10 )<b> __sd/s: </b><b class='damage'>" + round(damage * 10 * cool) / 100 + '</b>';
@@ -100,8 +100,11 @@ const Aya = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            return "<b class='damage'>" + calcSkillDamage(character, enemy, 200 + character.R_LEVEL.selectedIndex * 150, 0.7, 1) + "</b>";
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
+            const min = calcSkillDamage(character, enemy, 200 + r * 100, 0.7, 1);
+            const max = calcSkillDamage(character, enemy, 400 + r * 200, 1.4, 1);
+            return "<b class='damage'>" + min + ' ~ ' + max + "</b>";
         }
         return '-';
     }
@@ -175,16 +178,16 @@ const Aya = {
             'Q: "합산 데미지" ( "1타 데미지", "2타 데미지" )\n' + 
             'W: "합산 데미지" ( "1발당 데미지" x "타수" )\n' + 
             'E: "데미지 없음"\n' + 
-            'R: "스킬 데미지"\n' + 
+            'R: "최소 데미지" ~ "최대 데미지"\n' + 
             'D: ' + skill + '\n' + 
             'T: _s: "쉴드량" __s/s: "초당 쉴드량"\n';
     }
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
             const combo = character.COMBO_OPTION.value;
@@ -205,23 +208,68 @@ const Aya = {
                         damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                     }
                 } else if (c === 'q' || c === 'Q') {
-                    damage +=calcSkillDamage(character, enemy, 0, 1, 1) + calcSkillDamage(character, enemy, 20 + q * 40, 0.5, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 0, 1, 1) + calcSkillDamage(character, enemy, 20 + q * 40, 0.5, 1);
+                    }
                 } else if (c === 'w') {
-                    damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 5;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 5;
+                    }
                 } else if (c === 'W') {
-                    damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 10;
-                } else if (c === 'r' || c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 200 + character.R_LEVEL.selectedIndex * 150, 0.7, 1);
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 10;
+                    }
+                } else if (c === 'r') {
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 200 + r * 100, 0.7, 1);
+                    }
+                } else if (c === 'R') {
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 400 + r * 200, 1.4, 1);
+                    }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'SniperRifle') {
                             damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 2.5 : 3, 1);
                         }
                     }
+                } else if (c === 'p' || c === 'P') {
+                    if (character.trap) {
+                        damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+                    }
                 }
             }
-            return "<b class='damage'>" + damage + '</b><b> _ : ' + (enemy.max_hp ? (damage / enemy.max_hp * 10000 | 0) / 100 : '-') + '%</b>';
+            const heal = enemy.hp_regen ? calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
+                (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) : 0;
+            const percent = (enemy.max_hp ? ((damage - character.DIV.querySelector('.combo_time').value * heal) / enemy.max_hp  * 10000 | 0) / 100 : '-');
+            return "<b class='damage'>" + damage + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + '%</b>';
         }
         return '-';
+    }
+    ,COMBO_Option: 'aqrwaaaq'
+    ,COMBO_Help: (character) => {
+        if (!character.character) {
+            return 'select character plz';
+        }
+        if (!character.weapon) {
+            return 'select weapon plz';
+        }
+        const weapon = character.weapon.Type;
+        const d = 
+            weapon === 'Pistol' ? 'd & D: 데미지 없음\n' : 
+            weapon === 'AssaultRifle' ? 'd & D: 데미지 없음\n' : 
+            weapon === 'SniperRifle' ? 'd & D: 무스 1회 데미지\n' : 
+            '';
+        return 'a: 기본공격 데미지\n' + 
+            'A: 치명타 데미지\n' +
+            'q & Q: Q스킬 데미지\n' + 
+            'w: W스킬 1.5초간 데미지\n' + 
+            'W: W스킬 3초간 데미지\n' + 
+            'e & E: 데미지 없음\n' + 
+            'r: R스킬 즉발 데미지\n' + 
+            'R: R스킬 최대 데미지\n' + 
+            't & T: 데미지 없음\n' + 
+            d + 
+            'p & P: 트랩 데미지';
     }
 };

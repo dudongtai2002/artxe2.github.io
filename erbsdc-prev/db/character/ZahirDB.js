@@ -52,45 +52,52 @@ const Zahir = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const t = character.T_LEVEL.selectedIndex;
             const min = calcSkillDamage(character, enemy, 40 + q * 60, 0.5, 1);
             const max = calcSkillDamage(character, enemy, 75 + q * 75, 0.5, 1);
-            const bonus = calcSkillDamage(character, enemy, 10 + character.T_LEVEL.selectedIndex * 25, 0.3, 1);
-            const w = calcSkillDamage(character, enemy, 25 + character.W_LEVEL.selectedIndex * 25, 0.3, 1);
+            const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
+            const ww = w >= 0 ? calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1) : 0;
             const cool = 10000 / ((8 - q * 0.5) * (100 - character.cooldown_reduction) + 20);
-            return "<b class='damage'>" + min + ' - ' + (max + bonus)  + '</b> ( ' + max + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round(((min + max) / 2 + bonus * 1.5 + w * 2) * cool) / 100 + '</b>';
+            return "<b class='damage'>" + min + ' - ' + (max + bonus)  + '</b> ( ' + max + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round(((min + max) / 2 + bonus * 1.5 + ww * 2) * cool) / 100 + '</b>';
         }
         return '-';
     }
     ,Q_Option: " _ <input type='number' class='stack zahir_q' value='0' onchange='fixLimitNum(this, 7)'><b>Stack"
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const damage = calcSkillDamage(character, enemy, 25 + character.W_LEVEL.selectedIndex * 25, 0.3, 1);
-            const bonus = calcSkillDamage(character, enemy, 10 + character.T_LEVEL.selectedIndex * 25, 0.3, 1);
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
+            const t = character.T_LEVEL.selectedIndex;
+            const damage = calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1);
+            const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
             return "<b class='damage'>" + damage + ' - ' + (damage + bonus)  + '</b> ( ' + damage + ', ' + bonus + ' )';
         }
         return '-';
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
-            const damage = calcSkillDamage(character, enemy, 80 +e * 30, 0.5, 1);
-            const bonus = calcSkillDamage(character, enemy, 10 + character.T_LEVEL.selectedIndex * 25, 0.3, 1);
-            const w = calcSkillDamage(character, enemy, 25 + character.W_LEVEL.selectedIndex * 25, 0.3, 1);
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const t = character.T_LEVEL.selectedIndex;
+            const damage = calcSkillDamage(character, enemy, 80 + e * 30, 0.5, 1);
+            const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
+            const ww = w >= 0 ? calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1) : 0;
             const cool = 10000 / ((20 - e * 2) * (100 - character.cooldown_reduction) + 17);
-            return "<b class='damage'>" + damage + ' - ' + (damage + bonus)  + '</b> ( ' + damage + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round((damage + bonus * 1.5 + w * 2) * cool) / 100 + '</b>';
+            return "<b class='damage'>" + damage + ' - ' + (damage + bonus)  + '</b> ( ' + damage + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round((damage + bonus * 1.5 + ww * 2) * cool) / 100 + '</b>';
         }
         return '-';
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
+            const t = character.T_LEVEL.selectedIndex;
             const damage = calcSkillDamage(character, enemy, 60 + r * 90, 0.5, 1);
             const add = calcSkillDamage(character, enemy, 30 + r * 45, 0.5, 1);
-            const bonus = calcSkillDamage(character, enemy, 10 + character.T_LEVEL.selectedIndex * 25, 0.3, 1);
+            const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
             return "<b class='damage'>" + (damage + add * 4) + ' - ' + (damage + bonus + add * 4) + '</b> ( ' + damage + ', ' + bonus + ', ' + add + ' x 4, )';
         }
         return '-';
@@ -146,5 +153,117 @@ const Zahir = {
             'R: "합산 데미지" - "강화 데미지" ( "1타 데미지", "패시브 데미지", "추가 데미지" x "타수" )\n' + 
             'D: ' + skill + '\n' + 
             'T: "스킬 데미지"\n';
+    }
+    ,COMBO: (character, enemy) => {
+        if (character.weapon) {
+            const type = character.weapon.Type;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
+            const t = character.T_LEVEL.selectedIndex;
+            const wm = character.WEAPON_MASTERY.selectedIndex;
+            let damage = 0, c;
+            const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
+            let tt = false;
+            const combo = character.COMBO_OPTION.value;
+            for (let i = 0; i < combo.length; i++) {
+                c = combo.charAt(i);
+                if (c === 'a') {
+                    damage += baseAttackDamage(character, enemy, 0, 1, 0, 1);
+                } else if (c === 'A') {
+                    damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
+                } else if (c === 'q' || c === 'Q') {
+                    if (q >= 0) {
+                        if (tt) {
+                            tt = false;
+                            damage += calcSkillDamage(character, enemy, 75 + q * 75, 0.5, 1) + bonus;
+                        } else {
+                            tt = true;
+                            damage += calcSkillDamage(character, enemy, 40 + q * 60, 0.5, 1);
+                        }
+                    }
+                } else if (c === 'w' || c === 'W') {
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1);
+                        if (tt) {
+                            tt = false;
+                            damage += bonus;
+                        } else {
+                            tt = true;
+                        }
+                    }
+                } else if (c === 'e' || c === 'E') {
+                    if (e >= 0) {
+                        damage += calcSkillDamage(character, enemy, 80 + e * 30, 0.5, 1);
+                        if (tt) {
+                            tt = false;
+                            damage += bonus;
+                        } else {
+                            tt = true;
+                        }
+                    }
+                } else if (c === 'r') {
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 30 + r * 45, 0.5, 1);
+                    }
+                } else if (c === 'R') {
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 60 + r * 90, 0.5, 1);
+                        if (tt) {
+                            tt = false;
+                            damage += bonus;
+                        } else {
+                            tt = true;
+                        }
+                    }
+                } else if (c === 'd') {
+                    if (wm > 5) {
+                        if (type === 'Shuriken') {
+                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                        }
+                    }
+                } else if (c === 'D') {
+                    if (wm > 5) {
+                        if (type === 'Shuriken') {
+                            damage += calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
+                        }
+                    }
+                } else if (c === 'p' || c === 'P') {
+                    if (character.trap) {
+                        damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+                    }
+                }
+            }
+            const heal = enemy.hp_regen ? calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
+                (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) : 0;
+            const percent = (enemy.max_hp ? ((damage - character.DIV.querySelector('.combo_time').value * heal) / enemy.max_hp  * 10000 | 0) / 100 : '-');
+            return "<b class='damage'>" + damage + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + '%</b>';
+        }
+        return '-';
+    }
+    ,COMBO_Option: 'qawweRwawwawq'
+    ,COMBO_Help: (character) => {
+        if (!character.character) {
+            return 'select character plz';
+        }
+        if (!character.weapon) {
+            return 'select weapon plz';
+        }
+        const weapon = character.weapon.Type;
+        const d = 
+            weapon === 'Throws' ? 'd & D: 데미지 없음\n' : 
+            weapon === 'Shuriken' ? 'd: 무스 추가타 데미지\n' + 'D: 무스 첫타 데미지\n' : 
+            '';
+        return 'a: 기본공격 데미지\n' + 
+            'A: 치명타 데미지\n' +
+            'q & Q: Q스킬 데미지, 패시브 발동\n' + 
+            'w & W: W스킬 데미지, 패시브 발동\n' +  
+            'e & E: E스킬 1타 데미지, 재사용시 2타 데미지, 패시브 발동\n' + 
+            'r: R스킬 추가타 데미지\n' + 
+            'R: R스킬 첫타 데미지, 패시브 발동\n' + 
+            't & T: 데미지 없음\n' + 
+            d + 
+            'p & P: 트랩 데미지';
     }
 };

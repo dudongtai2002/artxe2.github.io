@@ -58,8 +58,8 @@ const Nadine = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const stack = parseInt(character.DIV.querySelector('.nadine_t').value);
             const min = calcSkillDamage(character, enemy, 70 + q * 45 + stack, 0.6, 1);
             const max = calcSkillDamage(character, enemy, 140 + q * 90 + stack, 1.2, 1);
@@ -70,8 +70,8 @@ const Nadine = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 100 + w * 70, 0.6, 1);
             const damage2 = calcSkillDamage(character, enemy, 100 + w * 40, 0.6, 1);
             return "<b class='damage'>" + (damage1 * 2 + damage2) + '</b> ( ' + damage1 + ', ' + damage1 + ", <b class='damage'>" +  + damage2 + '</b> )';
@@ -84,22 +84,26 @@ const Nadine = {
     }
     ,E_Option: "<b> _use</b><input type='checkbox' class='nadine_e' onchange='updateDisplay()'>"
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            return "<b class='damage'>" + calcSkillDamage(character, enemy, 50 + character.R_LEVEL.selectedIndex * 50 + parseInt(character.DIV.querySelector('.nadine_t').value), 0.5, 1) + '</b>';
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
+            const stack = parseInt(character.DIV.querySelector('.nadine_t').value);
+            const damage = calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
+            return "<b class='damage'>" + damage + '</b>';
         }
         return '-';
     }
     ,R_Option: "<b> _use</b><input type='checkbox' class='nadine_r' onchange='updateDisplay()'>"
     ,D_Skill: (character, enemy) => {
-        if (character.weapon && character.WEAPON_MASTERY.selectedIndex > 5) {
+        const wm = character.WEAPON_MASTERY.selectedIndex;
+        if (character.weapon && wm > 5) {
             const type = character.weapon.Type;
             if (type === 'Bow') {
-                const min = calcSkillDamage(character, enemy, character.WEAPON_MASTERY.selectedIndex < 13 ? 150 : 250, 1, 1);
-                const max = calcSkillDamage(character, enemy, character.WEAPON_MASTERY.selectedIndex < 13 ? 300 : 500, 2, 1);
+                const min = calcSkillDamage(character, enemy, wm < 13 ? 150 : 250, 1, 1);
+                const max = calcSkillDamage(character, enemy, wm < 13 ? 300 : 500, 2, 1);
                 return "<b class='damage'>" + min + ' - ' + max + '</b>';
             }
             if (type === 'Crossbow') {
-                const damage = calcSkillDamage(character, enemy, 0, character.WEAPON_MASTERY.selectedIndex < 13 ? 0.6 : 1, 1);
+                const damage = calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1);
                 return "<b class='damage'>" + damage * 2 + '</b> ( ' + damage + ', ' + damage + ' )';
             }
         }
@@ -138,5 +142,116 @@ const Nadine = {
             'R: "스킬 데미지" _use "스킬 사용"\n' + 
             'D: ' + skill + '\n' + 
             'T: "스택"\n';
+    }
+    ,COMBO: (character, enemy) => {
+        if (character.weapon) {
+            const type = character.weapon.Type;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
+            const wm = character.WEAPON_MASTERY.selectedIndex;
+            let damage = 0, c;
+            const stack = parseInt(character.DIV.querySelector('.nadine_t').value);
+            let rr = 0;
+            const combo = character.COMBO_OPTION.value;
+            for (let i = 0; i < combo.length; i++) {
+                c = combo.charAt(i);
+                if (c === 'a') {
+                    damage += baseAttackDamage(character, enemy, 0, 1, 0, 1);
+                    if (r >= 0) {
+                        if (rr === 3) {
+                            rr = 1;
+                            damage += calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
+                        } else if (rr) {
+                            rr++;
+                        }
+                    }
+                } else if (c === 'A') {
+                    damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);;
+                    if (r >= 0) {
+                        if (rr === 3) {
+                            rr = 1;
+                            damage += calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
+                        } else if (rr) {
+                            rr++;
+                        }
+                    }
+                } else if (c === 'q') {;
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 70 + q * 45 + stack, 0.6, 1)
+                    }
+                } else if (c === 'Q') {;
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 140 + q * 90 + stack, 1.2, 1);
+                    }
+                } else if (c === 'w') {;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 100 + w * 40, 0.6, 1);
+                    }
+                } else if (c === 'W') {;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 100 + w * 70, 0.6, 1);
+                    }
+                } else if (c === 'r' || c === 'R') {;
+                    if (r >= 0) {
+                        if (rr) {
+                            rr = 0;
+                        } else {
+                            rr = 3;
+                        }
+                    }
+                } else if (c === 'd') {
+                    if (wm > 5) {
+                        if (type === 'Bow') {
+                            damage += calcSkillDamage(character, enemy, wm < 13 ? 150 : 250, 1, 1);
+                        } else if (type === 'Crossbow') {
+                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1);
+                        }
+                    }
+                } else if (c === 'D') {
+                    if (wm > 5) {
+                        if (type === 'Bow') {
+                            damage += calcSkillDamage(character, enemy, wm < 13 ? 300 : 500, 2, 1);
+                        } else if (type === 'Crossbow') {
+                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1) * 2;
+                        }
+                    }
+                } else if (c === 'p' || c === 'P') {
+                    if (character.trap) {
+                        damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+                    }
+                }
+            }
+            const heal = enemy.hp_regen ? calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
+                (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) : 0;
+            const percent = (enemy.max_hp ? ((damage - character.DIV.querySelector('.combo_time').value * heal) / enemy.max_hp  * 10000 | 0) / 100 : '-');
+            return "<b class='damage'>" + damage + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + '%</b>';
+        }
+        return '-';
+    }
+    ,COMBO_Option: 'raWaWwaaQ'
+    ,COMBO_Help: (character) => {
+        if (!character.character) {
+            return 'select character plz';
+        }
+        if (!character.weapon) {
+            return 'select weapon plz';
+        }
+        const weapon = character.weapon.Type;
+        const d = 
+            weapon === 'Bow' ? 'd: 무스 외곽 데미지\n' + 'D: 무스 중앙 데미지\n' : 
+            weapon === 'Crossbow' ? 'd: 무스 데미지\n' + 'D: 무스 벽꿍 데미지\n' : 
+            '';
+        return 'a: 기본공격 데미지\n' + 
+            'A: 치명타 데미지\n' +
+            'q: Q스킬 즉발 데미지\n' + 
+            'Q: Q스킬 최대 데미지\n' + 
+            'w: W스킬 설치 데미지\n' +  
+            'W: W스킬 덫 데미지\n' +  
+            'e & E: 데미지 없음\n' + 
+            'r & R: R스킬 On / Off\n' + 
+            't && T: 데미지 없음\n' + 
+            d + 
+            'p & P: 트랩 데미지';
     }
 };

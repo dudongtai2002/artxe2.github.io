@@ -1,31 +1,27 @@
-const Hyejin = {
-     Attack_Power: 29
-    ,Attack_Power_Growth: 2.5
-    ,Health: 500
-    ,Health_Growth: 64
-    ,Health_Regen: 0.6
-    ,Health_Regen_Growth: 0.03
-    ,Stamina: 400
-    ,Stamina_Growth: 26
-    ,Stamina_Regen: 2
-    ,Stamina_Regen_Growth: 0.08
-    ,Defense: 22
-    ,Defense_Growth: 1.7
-    ,Atk_Speed: 0.12
+const Rozzi = {
+     Attack_Power: 28
+    ,Attack_Power_Growth: 2
+    ,Health: 479
+    ,Health_Growth: 62
+    ,Health_Regen: 0.5
+    ,Health_Regen_Growth: 0.02
+    ,Stamina: 440
+    ,Stamina_Growth: 22
+    ,Stamina_Regen: 2.1
+    ,Stamina_Regen_Growth: 0.02
+    ,Defense: 20
+    ,Defense_Growth: 1.4
+    ,Atk_Speed: 0.1
     ,Crit_Rate: 0
-    ,Move_Speed: 3
+    ,Move_Speed: 3.0
     ,Sight_Range: 8
     ,Attack_Range: 0.4
-    ,weapons: [Shuriken, Bow]
+    ,weapons: [Pistol]
     ,correction: {
-        Shuriken: [
-            [12, 5, 0],
-            [-10, -7, -7]
+        Pistol: [
+            [0, -9, -18],
+            [0, 0, 0]
         ],
-        Bow: [
-            [0, -13, -18],
-            [-6, -3, -3]
-        ]
     }
     ,Base_Attack: (character, enemy) => {
         if (character.weapon) {
@@ -39,10 +35,14 @@ const Hyejin = {
     ,Base_Attack_Option: ''
     ,DPS: (character, enemy) => {
         if (character.weapon) {
-            const ba = baseAttackDamage(character, enemy, 0, 1, character.critical_strike_chance, 1);
-            const damage = round(ba * character.attack_speed * 100) / 100;
-            const life = calcHeal(ba * (character.life_steal / 100), character.attack_speed, enemy);
-            return "<b class='damage'>" + damage + "</b><b> __h/s: </b><b class='heal'>" + life + '</b>';
+            const as = 10 / (9.5 / character.attack_speed + 2);
+            const shot = baseAttackDamage(character, enemy, 0, 0.32, character.critical_strike_chance, 1) * 2 + 
+                baseAttackDamage(character, enemy, 0, 0.48, character.critical_strike_chance, 1);
+            const damage1 = round(shot * as * 100) / 100;
+            const damage2 = round(shot * character.attack_speed * 100) / 100;
+            const life1 = calcHeal(shot * (character.life_steal / 100), as, enemy);
+            const life2 = calcHeal(shot * (character.life_steal / 100), character.attack_speed, enemy);
+            return "<b class='damage'>" + damage1 + '</b> - ' + damage2 + "<b> __h/s: </b><b class='heal'>" + life1 + '</b> - ' + life2;
         }
         return '-';
     }
@@ -54,8 +54,8 @@ const Hyejin = {
     ,Q_Skill: (character, enemy) => {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
-            const damage = calcSkillDamage(character, enemy, 100 + q * 25, 0.4, 1);
-            const cool = 10000 / ((20 - q * 3) * (100 - character.cooldown_reduction));
+            const damage = calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
+            const cool = 10000 / (6 * (100 - character.cooldown_reduction) - 200);
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
         return '-';
@@ -64,10 +64,9 @@ const Hyejin = {
     ,W_Skill: (character, enemy) => {
         const w = character.W_LEVEL.selectedIndex - 1;
         if (character.weapon && w >= 0) {
-            const min = calcSkillDamage(character, enemy, 15 + w * 5, 0.5, 1);
-            const max = calcSkillDamage(character, enemy, 140 + w * 65, 0.5, 1);
-            const cool = 10000 / ((22 - w * 3) * (100 - character.cooldown_reduction));
-            return "<b class='damage'>" + min + ' ~ ' + max + "</b><b> __sd/s: </b><b class='damage'>" + round(min * cool) / 100 + '</b>';
+            const damage = calcSkillDamage(character, enemy, 70 + w * 40, 0.35, 1);
+            const cool = 10000 / ((9 - w * 0.5) * (100 - character.cooldown_reduction) + 30);
+            return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
         return '-';
     }
@@ -75,9 +74,9 @@ const Hyejin = {
     ,E_Skill: (character, enemy) => {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
-            const damage1 = calcSkillDamage(character, enemy, 45 + e * 25, 0.3, 1);
-            const damage2 = calcSkillDamage(character, enemy, 50 + e * 25, 0.5, 1);
-            const cool = 10000 / (12 * (100 - character.cooldown_reduction) + 50);
+            const damage1 = calcSkillDamage(character, enemy, 50 + e * 20, 0.4, 1);
+            const damage2 = calcSkillDamage(character, enemy, 50 + e * 20, 0.45, 1);
+            const cool = 10000 / ((18 - e * 2) * (100 - character.cooldown_reduction) + 50);
             return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + " )<b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2) * cool) / 100 + '</b>';
         }
         return '-';
@@ -86,9 +85,9 @@ const Hyejin = {
     ,R_Skill: (character, enemy) => {
         const r = character.R_LEVEL.selectedIndex - 1;
         if (character.weapon && r >= 0) {
-            const damage1 = calcSkillDamage(character, enemy, 150 + r * 125, 0.7, 1);
-            const damage2 = calcSkillDamage(character, enemy, 80 + r * 50, 0.5, 1);
-            return "<b class='damage'>" + (damage1 + damage2 * 5) + '</b> ( ' + damage1 + ', ' + damage2 + ' x 5 )';
+            const damage1 = calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1);
+            const damage2 = calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.04 + r * 0.04) : 0);
+            return "<b class='damage'>" + damage1 + ' - ' + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + ' )';
         }
         return '-';
     }
@@ -97,23 +96,27 @@ const Hyejin = {
         const wm = character.WEAPON_MASTERY.selectedIndex;
         if (character.weapon && wm > 5) {
             const type = character.weapon.Type;
-            if (type === 'Shuriken') {
-                const damage = calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
-                const add = calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
-                return "<b class='damage'>" + damage + ' ~ ' + (damage + add * 11) + '</b> ( ' + damage + ', ' + add + ' x 11 )';
-            }
-            if (type === 'Bow') {
-                const min = calcSkillDamage(character, enemy, wm < 13 ? 150 : 250, 1, 1);
-                const max = calcSkillDamage(character, enemy, wm < 13 ? 300 : 500, 2, 1);
-                return "<b class='damage'>" + min + ' - ' + max + '</b>';
+            if (type === 'Pistol') {
+                return '-';
             }
         }
-        return '-';
+        return ' -';
     }
     ,D_Option: (character, enemy) => {
         return '';
     }
     ,T_Skill: (character, enemy) => {
+        if (character.weapon) {
+            const t = character.T_LEVEL.selectedIndex;
+            const coe = 0.6 + t * 0.1;
+            const damage1 = baseAttackDamage(character, enemy, 0, 0.7, character.critical_strike_chance, 1);
+            const damage2 = baseAttackDamage(character, enemy, 0, coe, character.critical_strike_chance, 1);
+            const min1 = baseAttackDamage(character, enemy, 0, 0.7, 0, 1);
+            const min2 = baseAttackDamage(character, enemy, 0, coe, 0, 1);
+            const max1 = baseAttackDamage(character, enemy, 0, 0.7, 100, 1);
+            const max2 = baseAttackDamage(character, enemy, 0, coe, 100, 1);
+            return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' +  min1 + ', ' + min2 + ' - ' + max1 + ', ' + max2 + ' ) ';
+        }
         return '-';
     }
     ,T_Option: ''
@@ -126,33 +129,31 @@ const Hyejin = {
         }
         const weapon = character.weapon.Type;
         const type = 
-            weapon === 'Shuriken' ? '암기' : 
-            weapon === 'Bow' ? '보우' : 
+            weapon === 'Pistol' ? '권총' : 
             '';
         const skill = 
-            weapon === 'Shuriken' ? '"1타 데미지" ~ "합산 데미지" ( "1타 데미지", "추가 데미지" x "타수" )' : 
-            weapon === 'Bow' ? '"최소 데미지" - "최대 데미지"' : 
+            weapon === 'Pistol' ? '"데미지 없음"' :  
             '';
-        return '혜진 ( ' + type + ' )\n' + 
-            'A: "평균 데미지" ( "평타 데미지" - "치명타 데미지" )\n' + 
+        return '로지 ( ' + type + ' )\n' + 
+            'A: "평균 데미지" ( "최소 데미지" - "치명타 데미지" )\n' + 
             'DPS: "초당 데미지" __h/s: "초당 흡혈량"\n' + 
             'HPS: "초당 회복량"\n' + 
             'Q: "스킬 데미지"\n' + 
-            'W: "최소 데미지" ~ "최대 데미지"\n' + 
+            'W: "스킬 데미지"\n' + 
             'E: "합산 데미지" ( "1타 데미지", "2타 데미지" )\n' + 
-            'R: "합산 데미지" ( "폭발 데미지", "구체 데미지" x "타수" )\n' + 
+            'R: "최소 데미지" - "최대 데미지"\n' + 
             'D: ' + skill + '\n' + 
-            'T: "데미지 없음"\n';
+            'T: "평균 데미지" ( "1타 데미지", "2타 데미지" - "1타 치명타", "2타 치명타" )\n';
     }
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
-            const type = character.weapon.Type;
             const q = character.Q_LEVEL.selectedIndex - 1;
             const w = character.W_LEVEL.selectedIndex - 1;
             const e = character.E_LEVEL.selectedIndex - 1;
             const r = character.R_LEVEL.selectedIndex - 1;
-            const wm = character.WEAPON_MASTERY.selectedIndex;
+            const t = character.T_LEVEL.selectedIndex;
             let damage = 0, c;
+            const coe = 0.6 + t * 0.1;
             let ee = false;
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
@@ -163,50 +164,37 @@ const Hyejin = {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                 } else if (c === 'q' || c === 'Q') {
                     if (q >= 0) {
-                        damage += calcSkillDamage(character, enemy, 100 + q * 25, 0.4, 1);
+                        damage += calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
                     }
-                } else if (c === 'w') {
+                } else if (c === 'w' || c === 'W') {
                     if (w >= 0) {
-                        damage += calcSkillDamage(character, enemy, 15 + w * 5, 0.5, 1);
-                    }
-                } else if (c === 'W') {
-                    if (w >= 0) {
-                        damage += calcSkillDamage(character, enemy, 140 + w * 65, 0.5, 1);
+                        damage += calcSkillDamage(character, enemy, 70 + w * 40, 0.35, 1);
                     }
                 } else if (c === 'e' || c === 'E') {
                     if (e >= 0) {
                         if (ee) {
                             ee = false;
-                            damage += calcSkillDamage(character, enemy, 50 + e * 25, 0.5, 1);
+                            damage += calcSkillDamage(character, enemy, 50 + e * 20, 0.4, 1);
                         } else {
                             ee = true;
-                            damage += calcSkillDamage(character, enemy, 45 + e * 25, 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, 50 + e * 20, 0.45, 1);
                         }
                     }
                 } else if (c === 'r') {
                     if (r >= 0) {
-                        damage += calcSkillDamage(character, enemy, 80 + r * 50, 0.5, 1);
+                        damage += calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1);
                     }
                 } else if (c === 'R') {
                     if (r >= 0) {
-                        damage += calcSkillDamage(character, enemy, 150 + r * 125, 0.7, 1);
+                        damage += calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1) + 
+                            calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.04 + r * 0.04) : 0);
                     }
-                } else if (c === 'd') {
-                    if (wm > 5) {
-                        if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
-                        } else if (type === 'Bow') {
-                            damage += calcSkillDamage(character, enemy, wm < 13 ? 150 : 250, 1, 1);
-                        }
-                    }
-                } else if (c === 'D') {
-                    if (wm > 5) {
-                        if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
-                        } else if (type === 'Bow') {
-                            damage += calcSkillDamage(character, enemy, wm < 13 ? 300 : 500, 2, 1);
-                        }
-                    }
+                } else if (c === 't') {
+                    damage += baseAttackDamage(character, enemy, 0, 0.7, 0, 1) + 
+                        baseAttackDamage(character, enemy, 0, coe, 0, 1);
+                } else if (c === 'T') {
+                    damage += baseAttackDamage(character, enemy, 0, 0.7, 100, 1) + 
+                        baseAttackDamage(character, enemy, 0, coe, 100, 1);
                 } else if (c === 'p' || c === 'P') {
                     if (character.trap) {
                         damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
@@ -220,7 +208,7 @@ const Hyejin = {
         }
         return '-';
     }
-    ,COMBO_Option: 'qweaeRrqdara'
+    ,COMBO_Option: 'tetRetwtqtdqtwt'
     ,COMBO_Help: (character) => {
         if (!character.character) {
             return 'select character plz';
@@ -230,18 +218,17 @@ const Hyejin = {
         }
         const weapon = character.weapon.Type;
         const d = 
-            weapon === 'Shuriken' ? 'd: 무스 추가타 데미지\n' + 'D: 무스 첫타 데미지\n' : 
-            weapon === 'Bow' ? 'd: 무스 외곽 데미지\n' + 'D: 무스 중앙 데미지\n' : 
+            weapon === 'Pistol' ? 'd & D: 데미지 없음\n' : 
             '';
         return 'a: 기본공격 데미지\n' + 
             'A: 치명타 데미지\n' +
             'q & Q: Q스킬 데미지\n' + 
-            'w: W스킬 즉발 데미지\n' +  
-            'w: W스킬 최대 데미지\n' +  
+            'w & W: W스킬 데미지\n' +  
             'e & E: E스킬 1타 데미지, 재사용시 2타 데미지\n' + 
-            'r: R스킬 구체 데미지\n' + 
-            'R: R스킬 폭발 데미지\n' + 
-            't & T: 데미지 없음\n' + 
+            'r: R스킬 최소 데미지\n' + 
+            'R: R스킬 최대 데미지\n' + 
+            't: 패시브 데미지\n' + 
+            'T: 패시브 치명타 데미지\n' + 
             d + 
             'p & P: 트랩 데미지';
     }

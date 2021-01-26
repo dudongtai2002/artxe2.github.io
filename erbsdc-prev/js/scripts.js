@@ -8,10 +8,30 @@ document.addEventListener('DOMContentLoaded', (e) => {
     );
     characters[0].setEnemy(characters[1]);
     characters[1].setEnemy(characters[0]);
+    const basePreset = [
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 3, 4, 0, 2, 3, 2, 1, 1, 3, 0, 2, 1, 1, 0, 0 ],
+        [ 6, 4, 2, 8, 4, 7, 2, 2, 6, 0, 1, 1, 3, 1, 1 ],
+        [ 10, 7, 6, 10, 7, 8, 6, 7, 6, 0, 1, 1, 5, 2, 2 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 16, 14, 17, 12, 12, 17, 12, 12, 7, 1, 5, 2, 5, 3, 2 ],
+        [ 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 5, 5, 5, 3, 2 ],
+    ]
+    for (let i = 0; i < 10; i++) {
+        const preset = getCookie('preset' + i);
+        if (!preset) {
+            setCookie('preset' + i, JSON.stringify(basePreset[i]), 7);
+        }
+    }
+    characters[0].setPreset(decodeURIComponent(getCookie('preset0')));
+    characters[1].setPreset(decodeURIComponent(getCookie('preset0')));
 });
 
 function baseAttackDamage(character, enemy, base, coe, cri, onhit) {
-    return (((base + character.attack_power * coe) * (1 + cri / 100 * (1 + character.critical_strike_damage / 100)) / (1 + (!enemy.defense ? 0 : enemy.defense / 100)) + 
+    return (((base + character.attack_power * coe) * (1 + cri / 100 * (1 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100)) / (1 + (!enemy.defense ? 0 : enemy.defense / 100)) + 
         (character.extra_normal_attack_damage - (!enemy.normal_attack_damage_reduction ? 0 : enemy.normal_attack_damage_reduction)) * onhit) * 
         (1 + (character.extra_normal_attack_damage_percent - (!enemy.normal_attack_damage_reduction_percent ? 0 : enemy.normal_attack_damage_reduction_percent)) / 100)) * 
         (1 + (character.weapon ? character.character.correction[character.weapon.Type][0][character.MODE.selectedIndex] / 100 : 0)) * 
@@ -29,12 +49,12 @@ function calcEquip(character, name, n) {
             coe *= 10;
         }
     }
-    let result = (!character.weapon ? 0 : round6(character.weapon[name] * coe)) + 
-        (!character.chest ? 0 : round6(character.chest[name] * coe)) + 
-        (!character.head ? 0 : round6(character.head[name] * coe)) + 
-        (!character.arm ? 0 : round6(character.arm[name] * coe)) + 
-        (!character.leg ? 0 : round6(character.leg[name] * coe)) + 
-        (!character.accessory ? 0 : round6(character.accessory[name] * coe));
+    let result = (!character.weapon || !character.weapon[name] ? 0 : round6(character.weapon[name] * coe)) + 
+        (!character.chest || !character.chest[name] ? 0 : round6(character.chest[name] * coe)) + 
+        (!character.head || !character.head[name] ? 0 : round6(character.head[name] * coe)) + 
+        (!character.arm || !character.arm[name] ? 0 : round6(character.arm[name] * coe)) + 
+        (!character.leg || !character.leg[name] ? 0 : round6(character.leg[name] * coe)) + 
+        (!character.accessory || !character.accessory[name] ? 0 : round6(character.accessory[name] * coe));
     if (n) {
         for (let i = 0; i < n; i++) {
             result /= 10;
@@ -42,7 +62,6 @@ function calcEquip(character, name, n) {
     }
     return result;
 }
-
 
 function calcHeal(heal, ps, enemy) {
     return round(heal * (enemy.heal_reduction ? 0.6 : 1) * ps * 100) / 100;
@@ -160,4 +179,27 @@ function updateDisplay() {
     for (let i = 0; i < characters.length; i++) {
         characters[i].updateDisplay();
     }
+}
+
+function setCookie(name, value, days) {
+	value = escape(value)
+	if (days) {    			
+		const exDate = new Date();
+		exDate.setDate(exDate.getDate() + days);
+		value += '; expires=' + exDate;
+	}
+	document.cookie = name + '=' + escape(value);
+}
+function getCookie(name) {
+	let key, value, values = document.cookie + '; ';
+	values = values.split('; ');
+	for (let i = 0; i < values.length; i++) {
+		key = values[i].substr(0, values[i].indexOf('='));
+		if (key == name) {
+			value = unescape(values[i].substr(key.length + 1));
+			value = value.substr(0, value.indexOf(';'));
+			return value;
+		}
+	}
+	return null;
 }

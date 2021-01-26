@@ -2,16 +2,8 @@
 <html lang='ko'>
 <head>
     <meta charset="UTF-8">
-    <title>Eternal Return: Black Survival Damage Calculator 0.23.2</title>
-    <style type="text/css">
-        #d_qm_setting select {
-            float: right;
-        }
-        #d_qm_setting p {
-            text-align: left;
-            margin: 5px;
-        }
-    
+    <title>Eternal Return: Black Survival Damage Calculator 0.24.2</title>
+    <style type="text/css">    
         @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
         body {
               font-family: "Noto Sans KR", sans-serif;
@@ -20,13 +12,23 @@
             position: absolute;
             width: 80px;
             font-size: 18px;
-            margin-top: -36px;
+            margin-top: -56px;
         }
         .help {
             position: absolute;
             width: 80px;
             font-size: 18px;
-            margin-top: 18px;
+            margin-top: -14px;
+        }
+        .combo {
+            position: absolute;
+            width: 80px;
+            font-size: 18px;
+            margin-top: 28px;
+        }
+        .divider {
+            width: 100%;
+            float: left;
         }
         .subject {
             white-space: nowrap;
@@ -73,9 +75,10 @@
         .item_list {
             background-color: #CCCCCC;
             position: absolute;
+            padding: 10px;
             display: none;
             /* white-space: nowrap; */
-            font-size: 32px;
+            font-size: 24px;
             z-index: 1;
         }
         .Common {
@@ -117,7 +120,7 @@
             font-size: 20px;
         }
         .combo_option {
-            width: 100px;
+            width: 120px;
         }
     </style>
     <script type="text/javascript" src='./db/armor/AccessoryDB.js'></script>
@@ -166,282 +169,20 @@
     <script type="text/javascript" src='./db/character/SilviaDB.js'></script>
     <script type="text/javascript" src='./db/character/EmmaDB.js'></script>
     <script type="text/javascript" src='./db/character/LenoxDB.js'></script>
+    <script type="text/javascript" src='./db/character/RozziDB.js'></script>
     <script type="text/javascript" src='./db/consumable/FoodDB.js'></script>
     <script type="text/javascript" src='./db/consumable/TrapDB.js'></script>
     <script type="text/javascript" src='./class/Character.js'></script>
     <script type="text/javascript" src='./js/scripts.js'></script>
-
-    <script type="text/javascript" src = './js/quickMastery.js'></script>
 </head>
 <body>
     <h3 class='subject'>
-        Eternal Return: Black Survival Damage Calculator 0.23.2
+        Eternal Return: Black Survival Damage Calculator 0.24.2
         <img class='hit_count' alt='hit' 
             src='https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fartxe2.github.io%2Ferbsdc%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false' 
             align='middle'
         />
-        <button onclick='quickMastery()'>quick mastery</button>&nbsp;
-        <button onclick='settingQm()'>setting</button>
-    </h3>
-
-
-    <div id = 'd_qm_setting' style = 'width:160px; background-color: #CCCCCC; position: absolute; display: none; margin-left: 720px; margin-top: -40px; z-index: 1;'>
-        <span onclick = 'closeQmSetting()' style = 'float: right; cursor: pointer'>(X)</span><br>
-        <p>
-            Character
-            <select id = 'c_level'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <br>
-        <p>
-            Weapon
-            <select id = 'c_weapon_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <br>
-        <p>
-            Hunt
-            <select id = 'c_hunt_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <p>
-            Craft
-            <select id = 'c_craft_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <p>
-            Search
-            <select id = 'c_search_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <p>
-            Move
-            <select id = 'c_move_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <br>
-        <p>
-            Health
-            <select id = 'c_health_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <p>
-            Defense
-            <select id = 'c_defense_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <p>
-            Meditation
-            <select id = 'c_meditation_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-        <p>
-            Trap
-            <select id = 'c_trap_mastery'>
-                <option>Lv 01</option>
-                <option>Lv 02</option>
-                <option>Lv 03</option>
-                <option>Lv 04</option>
-                <option>Lv 05</option>
-                <option>Lv 06</option>
-                <option>Lv 07</option>
-                <option>Lv 08</option>
-                <option>Lv 09</option>
-                <option>Lv 10</option>
-                <option>Lv 11</option>
-                <option>Lv 12</option>
-                <option>Lv 13</option>
-                <option>Lv 14</option>
-                <option>Lv 15</option>
-                <option>Lv 16</option>
-                <option>Lv 17</option>
-                <option>Lv 18</option>
-                <option>Lv 19</option>
-                <option>Lv 20</option>
-            </select>
-        </p>
-    </div>
-    
+    </h3>    
     
     <div id='character0'>
         <div class='item_list'>
@@ -725,14 +466,16 @@
                         <span class='label' title='Out of Combat Movement Speed'> 비속 : <span class='stat out_of_combat_movement_speed'></span></span><br>
                         <span class='label' title='Vision Range'> 시야 : <span class='stat vision_range'></span></span><br>
                         <span class='label' title='Attack Range'> 사거리 : <span class='stat attack_range'></span></span><br>
+                        <span class='label' title='Critical Strike Damage Reduction'> 치감 : <span class='stat critical_strike_damage_reduction'>%</span></span><br>
                     </td>
                     <td class='trap equip_image'>
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan='3'>
+                    <td rowspan='2'>
                         <button class='info'>info</button>
                         <button class='help'>help</button>
+                        <button class='combo'>combo</button>
                     </td>
                 </tr>
                 <tr></tr>
@@ -760,6 +503,7 @@
                             <option>Silvia</option>
                             <option>Emma</option>
                             <option>Lenox</option>
+                            <option>Rozzi</option>
                             <option></option>
                         </select>
                     </td>
@@ -789,6 +533,7 @@
                     </td>
                     <td>
                         <select class='q_level' style='width: 80px;'>
+                            <option>Q lv 0</option>
                             <option>Q lv 1</option>
                             <option>Q lv 2</option>
                             <option>Q lv 3</option>
@@ -798,6 +543,7 @@
                     </td>
                     <td>
                         <select class='w_level' style='width: 80px;'>
+                            <option>W lv 0</option>
                             <option>W lv 1</option>
                             <option>W lv 2</option>
                             <option>W lv 3</option>
@@ -807,6 +553,7 @@
                     </td>
                     <td>
                         <select class='e_level' style='width: 80px;'>
+                            <option>E lv 0</option>
                             <option>E lv 1</option>
                             <option>E lv 2</option>
                             <option>E lv 3</option>
@@ -816,6 +563,7 @@
                     </td>
                     <td>
                         <select class='r_level' style='width: 80px;'>
+                            <option>R lv 0</option>
                             <option>R lv 1</option>
                             <option>R lv 2</option>
                             <option>R lv 3</option>
@@ -826,6 +574,20 @@
                             <option>T lv 1</option>
                             <option>T lv 2</option>
                             <option>T lv 3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class='preset' style='width: 80px;'>
+                            <option>Min spec</option>
+                            <option>4 Drone</option>
+                            <option>1st Night</option>
+                            <option>2nd Day</option>
+                            <option>preset 05</option>
+                            <option>preset 06</option>
+                            <option>preset 07</option>
+                            <option>preset 08</option>
+                            <option>Last area</option>
+                            <option>Max spec</option>
                         </select>
                     </td>
                 </tr>
@@ -842,23 +604,24 @@
             <b>R : </b><span class='r_damage'></span><span class='r_option'></span><br>
             <b>D : </b><span class='d_damage'></span><span class='d_option'></span><br>
             <b>T : </b><span class='t_damage'></span><span class='t_option'></span><br>
-            <b>Trap : </b><span class='trap_damage'></span><br>
-            <b>Combo : </b><input class='combo_option' readOnly><br>
+            <b>Trap: P: </b><span class='trap_damage'></span><br>
+            <b>Combo : </b><input class='combo_option'>&nbsp;<input class='stack combo_time' type='number'><b>s</b><br>
             <b>ㄴDamage : </b><span class='combo_damage'></span>
         </div>
     </div>
     
-    <br>
-    <div style='height: 8px;'></div>
-    <b>
-        - - - - - - - - - - Select Mode: 
-        <select id='mode' onchange='updateDisplay()'>
-            <option selected>SOLO</option>
-            <option>DUO</option>
-            <option>SQUAD</option>
-        </select>
-    </b>
-    <div style='height: 12px;'></div>
+    <div class='divider'>
+        <div style='height: 8px;'></div>
+        <b>
+            - - - - - - - - - - Select Mode: 
+            <select id='mode' onchange='updateDisplay()'>
+                <option selected>SOLO</option>
+                <option>DUO</option>
+                <option>SQUAD</option>
+            </select>
+        </b>
+        <div style='height: 12px;'></div>
+    </div>
     
     <div id='character1'>
         <div class='item_list'>
@@ -1142,14 +905,16 @@
                         <span class='label' title='Out of Combat Movement Speed'> 비속 : <span class='stat out_of_combat_movement_speed'></span></span><br>
                         <span class='label' title='Vision Range'> 시야 : <span class='stat vision_range'></span></span><br>
                         <span class='label' title='Attack Range'> 사거리 : <span class='stat attack_range'></span></span><br>
+                        <span class='label' title='Critical Strike Damage Reduction'> 치감 : <span class='stat critical_strike_damage_reduction'>%</span></span><br>
                     </td>
                     <td class='trap equip_image'>
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan='3'>
+                    <td rowspan='2'>
                         <button class='info'>info</button>
                         <button class='help'>help</button>
+                        <button class='combo'>combo</button>
                     </td>
                 </tr>
                 <tr></tr>
@@ -1177,6 +942,7 @@
                             <option>Silvia</option>
                             <option>Emma</option>
                             <option>Lenox</option>
+                            <option>Rozzi</option>
                             <option></option>
                         </select>
                     </td>
@@ -1206,6 +972,7 @@
                     </td>
                     <td>
                         <select class='q_level' style='width: 80px;'>
+                            <option>Q lv 0</option>
                             <option>Q lv 1</option>
                             <option>Q lv 2</option>
                             <option>Q lv 3</option>
@@ -1215,6 +982,7 @@
                     </td>
                     <td>
                         <select class='w_level' style='width: 80px;'>
+                            <option>W lv 0</option>
                             <option>W lv 1</option>
                             <option>W lv 2</option>
                             <option>W lv 3</option>
@@ -1224,6 +992,7 @@
                     </td>
                     <td>
                         <select class='e_level' style='width: 80px;'>
+                            <option>E lv 0</option>
                             <option>E lv 1</option>
                             <option>E lv 2</option>
                             <option>E lv 3</option>
@@ -1233,6 +1002,7 @@
                     </td>
                     <td>
                         <select class='r_level' style='width: 80px;'>
+                            <option>R lv 0</option>
                             <option>R lv 1</option>
                             <option>R lv 2</option>
                             <option>R lv 3</option>
@@ -1243,6 +1013,20 @@
                             <option>T lv 1</option>
                             <option>T lv 2</option>
                             <option>T lv 3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class='preset' style='width: 80px;'>
+                            <option>Min spec</option>
+                            <option>4 Drone</option>
+                            <option>1st Night</option>
+                            <option>2nd Day</option>
+                            <option>preset 05</option>
+                            <option>preset 06</option>
+                            <option>preset 07</option>
+                            <option>preset 08</option>
+                            <option>Last area</option>
+                            <option>Max spec</option>
                         </select>
                     </td>
                 </tr>
@@ -1259,12 +1043,14 @@
             <b>R : </b><span class='r_damage'></span><span class='r_option'></span><br>
             <b>D : </b><span class='d_damage'></span><span class='d_option'></span><br>
             <b>T : </b><span class='t_damage'></span><span class='t_option'></span><br>
-            <b>Trap : </b><span class='trap_damage'></span><br>
-            <b>Combo : </b><input class='combo_option' readOnly><br>
+            <b>Trap: P: </b><span class='trap_damage'></span><br>
+            <b>Combo : </b><input class='combo_option'>&nbsp;<input class='stack combo_time' type='number'><b>s</b><br>
             <b>ㄴDamage : </b><span class='combo_damage'></span>
         </div>
     </div>
     <br/>
-    <h3>업데이트 이후 에러 발생시 Shift + F5키를 누르세요.</h3>
+    <div style='width:100%;float:left;'>
+        <h3>업데이트 이후 에러 발생시 Shift + F5키를 누르세요.</h3>
+    </div>
 </body>
 </html>
