@@ -408,22 +408,82 @@ class Character {
             updateDisplay();
         });
         this.Q_LEVEL.addEventListener('change', (e) => {
+            const level = this.LEVEL.selectedIndex
+            let skills = this.Q_LEVEL.selectedIndex + 
+                this.W_LEVEL.selectedIndex + 
+                this.E_LEVEL.selectedIndex + 
+                this.R_LEVEL.selectedIndex + 
+                this.T_LEVEL.selectedIndex - 1;
+            while (skills-- > level) {
+                e.target.selectedIndex--;
+            }
+            while (e.target.selectedIndex > (level / 2 | 0) + 1) {
+                e.target.selectedIndex--;
+            }
             this.savePreset()
             updateDisplay();
         });
         this.W_LEVEL.addEventListener('change', (e) => {
+            const level = this.LEVEL.selectedIndex
+            let skills = this.Q_LEVEL.selectedIndex + 
+                this.W_LEVEL.selectedIndex + 
+                this.E_LEVEL.selectedIndex + 
+                this.R_LEVEL.selectedIndex + 
+                this.T_LEVEL.selectedIndex - 1;
+            while (skills-- > level) {
+                e.target.selectedIndex--;
+            }
+            while (e.target.selectedIndex > (level / 2 | 0) + 1) {
+                e.target.selectedIndex--;
+            }
             this.savePreset()
             updateDisplay();
         });
         this.E_LEVEL.addEventListener('change', (e) => {
+            const level = this.LEVEL.selectedIndex
+            let skills = this.Q_LEVEL.selectedIndex + 
+                this.W_LEVEL.selectedIndex + 
+                this.E_LEVEL.selectedIndex + 
+                this.R_LEVEL.selectedIndex + 
+                this.T_LEVEL.selectedIndex - 1;
+            while (skills-- > level) {
+                e.target.selectedIndex--;
+            }
+            while (e.target.selectedIndex > (level / 2 | 0) + 1) {
+                e.target.selectedIndex--;
+            }
             this.savePreset()
             updateDisplay();
         });
         this.R_LEVEL.addEventListener('change', (e) => {
+            const level = this.LEVEL.selectedIndex
+            let skills = this.Q_LEVEL.selectedIndex + 
+                this.W_LEVEL.selectedIndex + 
+                this.E_LEVEL.selectedIndex + 
+                this.R_LEVEL.selectedIndex + 
+                this.T_LEVEL.selectedIndex - 1;
+            while (skills-- > level) {
+                e.target.selectedIndex--;
+            }
+            while (e.target.selectedIndex > (level / 5 | 0)) {
+                e.target.selectedIndex--;
+            }
             this.savePreset()
             updateDisplay();
         });
         this.T_LEVEL.addEventListener('change', (e) => {
+            const level = this.LEVEL.selectedIndex
+            let skills = this.Q_LEVEL.selectedIndex + 
+                this.W_LEVEL.selectedIndex + 
+                this.E_LEVEL.selectedIndex + 
+                this.R_LEVEL.selectedIndex + 
+                this.T_LEVEL.selectedIndex - 1;
+            while (skills-- > level) {
+                e.target.selectedIndex--;
+            }
+            while (e.target.selectedIndex > ((level + 1) / 5 | 0)) {
+                e.target.selectedIndex--;
+            }
             this.savePreset()
             updateDisplay();
         });
