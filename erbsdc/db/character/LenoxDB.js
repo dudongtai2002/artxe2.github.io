@@ -19,7 +19,7 @@ const Lenox = {
     ,weapons: [Whip]
     ,correction: {
         Whip: [
-            [0, 0, 0],
+            [0, 0, -6],
             [0, 0, 0]
         ],
     }

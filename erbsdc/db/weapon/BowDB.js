@@ -331,7 +331,7 @@ const Bow = [
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 20
-        ,Cooldown_Reduction: 0
+        ,Cooldown_Reduction: 10
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
@@ -348,14 +348,14 @@ const Bow = [
         ,Attack_Range: 0
         ,Base_Range: 5.85
         ,Atk_Speed: 0.65
-        ,Title: "Golden-Ratio Bow\n\nAttack Power +68\nSkill Amplification +20%"
+        ,Title: "Golden-Ratio Bow\n\nAttack Power +68\nSkill Amplification +20%\nCooldown Reduction +10%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Bow"
         ,Name: "Twinbow"
         ,Attack_Power: 70
-        ,Attack_Speed: 50
+        ,Attack_Speed: 55
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -380,7 +380,7 @@ const Bow = [
         ,Attack_Range: 0
         ,Base_Range: 5.85
         ,Atk_Speed: 0.65
-        ,Title: "Twinbow\n\nAttack Power +70\nAttack Speed +50%\nHealing Reduction (Normal Attacks) -40%"
+        ,Title: "Twinbow\n\nAttack Power +70\nAttack Speed +55%\nHealing Reduction (Normal Attacks) -40%"
         ,Rarity: "Epic"
     }
     ,{

@@ -1,6 +1,6 @@
 const Li_Dailin = {
      Attack_Power: 33
-    ,Attack_Power_Growth: 1.9
+    ,Attack_Power_Growth: 2.2
     ,Health: 550
     ,Health_Growth: 84
     ,Health_Regen: 1.1

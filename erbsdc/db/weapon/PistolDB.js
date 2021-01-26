@@ -207,7 +207,7 @@ const Pistol = [
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 40
+        ,Skill_Amplification: 42
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
@@ -226,7 +226,7 @@ const Pistol = [
         ,Attack_Range: 0
         ,Base_Range: 4.2
         ,Atk_Speed: 0.505
-        ,Title: "Devil`s Marksman\n\nAttack Power +35\nAttack Speed +10%\nMovement Speed +0.1\nSkill Amplification +40"
+        ,Title: "Devil`s Marksman\n\nAttack Power +35\nAttack Speed +10%\nMovement Speed +0.1\nSkill Amplification +42"
         ,Rarity: "Epic"
         ,Ammo: 7
     }

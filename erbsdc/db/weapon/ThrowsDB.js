@@ -322,7 +322,7 @@ const Throws = [
     ,{
          Type: "Throws"
         ,Name: "Incendiary_Bomb"
-        ,Attack_Power: 75
+        ,Attack_Power: 70
         ,Attack_Speed: 50
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -331,7 +331,7 @@ const Throws = [
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
+        ,Cooldown_Reduction: 8
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
@@ -348,7 +348,7 @@ const Throws = [
         ,Attack_Range: 0
         ,Base_Range: 5.8
         ,Atk_Speed: 0.51
-        ,Title: "Incendiary Bomb\n\nAttack Power +75\nAttack Speed +50%"
+        ,Title: "Incendiary Bomb\n\nAttack Power +70\nAttack Speed +50%\nCooldown Reduction +8%"
         ,Rarity: "Epic"
     }
     ,{
@@ -359,7 +359,7 @@ const Throws = [
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 80
+        ,Extra_Normal_Attack_Damage: 85
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
@@ -380,14 +380,14 @@ const Throws = [
         ,Attack_Range: 0
         ,Base_Range: 5.8
         ,Atk_Speed: 0.51
-        ,Title: "Grenade of Antioch\n\nAttack Power +85\nExtra Normal Attack Damage +80"
+        ,Title: "Grenade of Antioch\n\nAttack Power +85\nExtra Normal Attack Damage +85"
         ,Rarity: "Epic"
 
     }
     ,{
          Type: "Throws"
         ,Name: "David`s_Sling"
-        ,Attack_Power: 75
+        ,Attack_Power: 71
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -413,7 +413,7 @@ const Throws = [
         ,Attack_Range: 0
         ,Base_Range: 5.8
         ,Atk_Speed: 0.51
-        ,Title: "David`s Sling\n\nAttack Power +75\nHP Regen +150%\nExtra Normal Attack Damage +27"
+        ,Title: "David`s Sling\n\nAttack Power +71\nHP Regen +150%\nExtra Normal Attack Damage +27"
         ,Rarity: "Epic"
     }
     ,{
@@ -491,7 +491,7 @@ const Throws = [
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 22
+        ,Skill_Amplification_Percent: 26
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
@@ -509,7 +509,7 @@ const Throws = [
         ,Attack_Range: 0
         ,Base_Range: 5.8
         ,Atk_Speed: 0.51
-        ,Title: "Ruthenium Marble\n\nAttack Power +80\nSkill Amplification +22%\nHealing Reduction (Skills) -40%"
+        ,Title: "Ruthenium Marble\n\nAttack Power +80\nSkill Amplification +26%\nHealing Reduction (Skills) -40%"
         ,Rarity: "Epic"
     }
 ];

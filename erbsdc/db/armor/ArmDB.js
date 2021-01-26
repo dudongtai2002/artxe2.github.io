@@ -692,7 +692,7 @@ const Arm = [
         ,Defense: 35
         ,Max_HP: 0
         ,Max_SP: 0
-        ,HP_Regen: 1.5
+        ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
@@ -701,7 +701,7 @@ const Arm = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Auto-arms\n\nAttack Power +40\nDefense +35\nHP Regen +1.5"
+        ,Title: "Auto-arms\n\nAttack Power +40\nDefense +35\nHP Regen +1"
         ,Rarity: "Legendary"
     }
 ];

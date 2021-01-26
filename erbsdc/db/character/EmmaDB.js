@@ -81,10 +81,10 @@ const Emma = {
     ,R_Skill: (character, enemy) => {
         const r = character.R_LEVEL.selectedIndex - 1;
         if (character.weapon && r >= 0) {
-            const min = calcSkillDamage(character, enemy, 150 + r * 50, 0.45, 1);
-            const max = calcSkillDamage(character, enemy, 200 + r * 50, 0.75, 1);
+            const min = calcSkillDamage(character, enemy, 175 + r * 25, 0.45, 1);
+            const max = calcSkillDamage(character, enemy, 225 + r * 25, 0.75, 1);
             const heal = calcHeal(8 + r * 3, 1, enemy);
-            const cool = 10000 / ((18 - r * 3) * (100 - character.cooldown_reduction));
+            const cool = 10000 / ((18 - r * 1.5) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + min + "</b><b> / </b><b class='damage'>" + max + ' - ' + max * 2 + '</b> ( ' + max + " x 2 )<b> __h: </b><b class='heal'>" + heal + ' ~ ' + heal * 2 + "</b><b> __sd/s: </b><b class='damage'>" + round(max * cool) / 100 + '</b>';
         }
         return '-';
@@ -173,11 +173,11 @@ const Emma = {
                     }
                 } else if (c === 'r') {
                     if (r >= 0) {
-                        damage += calcSkillDamage(character, enemy, 150 + r * 50, 0.45, 1);
+                        damage += calcSkillDamage(character, enemy, 175 + r * 25, 0.45, 1);
                     }
                 } else if (c === 'R') {
                     if (r >= 0) {
-                        damage += calcSkillDamage(character, enemy, 200 + r * 50, 0.75, 1);
+                        damage += calcSkillDamage(character, enemy, 225 + r * 25, 0.75, 1);
                     }
                 } else if (c === 'd') {
                     if (wm > 5) {

@@ -77,7 +77,7 @@ const Hyejin = {
         if (character.weapon && e >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 45 + e * 25, 0.3, 1);
             const damage2 = calcSkillDamage(character, enemy, 50 + e * 25, 0.5, 1);
-            const cool = 10000 / (12 * (100 - character.cooldown_reduction) + 50);
+            const cool = 10000 / ((19 - e * 2) * (100 - character.cooldown_reduction) + 50);
             return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + " )<b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2) * cool) / 100 + '</b>';
         }
         return '-';

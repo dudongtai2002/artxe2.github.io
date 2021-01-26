@@ -11,7 +11,7 @@ const Rozzi = {
     ,Stamina_Regen_Growth: 0.02
     ,Defense: 20
     ,Defense_Growth: 1.4
-    ,Atk_Speed: 0.1
+    ,Atk_Speed: 0.11
     ,Crit_Rate: 0
     ,Move_Speed: 3.0
     ,Sight_Range: 8
@@ -19,7 +19,7 @@ const Rozzi = {
     ,weapons: [Pistol]
     ,correction: {
         Pistol: [
-            [0, -9, -18],
+            [0, -3, -6],
             [0, 0, 0]
         ],
     }

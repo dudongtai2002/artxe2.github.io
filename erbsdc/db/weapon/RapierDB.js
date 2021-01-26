@@ -133,7 +133,7 @@ const Rapier = [
         ,Attack_Power: 55
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 10
-        ,Critical_Strike_Damage: 25
+        ,Critical_Strike_Damage: 30
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
@@ -156,7 +156,7 @@ const Rapier = [
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.615
-        ,Title: "Durendal Mk2\n\nAttack Power +55\nVision Range +3\nCritical Strike Chance +10%\nCritical Damage +25%\nCooldown Reduction +10%"
+        ,Title: "Durendal Mk2\n\nAttack Power +55\nVision Range +3\nCritical Strike Chance +10%\nCritical Damage +30%\nCooldown Reduction +10%"
         ,Rarity: "Epic"
     }
     ,{

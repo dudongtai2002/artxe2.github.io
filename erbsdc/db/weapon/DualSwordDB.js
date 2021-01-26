@@ -130,7 +130,7 @@ const DualSwords = [
     ,{
          Type: "DualSwords"
         ,Name: "Dioscuri"
-        ,Attack_Power: 43
+        ,Attack_Power: 46
         ,Attack_Speed: 50
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -156,14 +156,14 @@ const DualSwords = [
         ,Attack_Range: 0
         ,Base_Range: 1.05
         ,Atk_Speed: 0.47
-        ,Title: "Dioscuri\n\nAttack Power +43\nAttack Speed +50%"
+        ,Title: "Dioscuri\n\nAttack Power +46\nAttack Speed +50%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "DualSwords"
         ,Name: "Lloigor_&_Zahr"
         ,Attack_Power: 38
-        ,Attack_Speed: 20
+        ,Attack_Speed: 15
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -188,7 +188,7 @@ const DualSwords = [
         ,Attack_Range: 0
         ,Base_Range: 1.05
         ,Atk_Speed: 0.47
-        ,Title: "Lloigor & Zahr\n\nAttack Power +38\nAttack Speed +20%\nSkill Amplification +36"
+        ,Title: "Lloigor & Zahr\n\nAttack Power +38\nAttack Speed +15%\nSkill Amplification +36"
         ,Rarity: "Epic"
     }
 ];

@@ -738,7 +738,7 @@ const Accessory = [
     ,{
          Type: "Accessory"
         ,Name: "Laced_Quiver"
-        ,Attack_Power: 10
+        ,Attack_Power: 13
         ,Attack_Speed: 30
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -764,13 +764,13 @@ const Accessory = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Laced Quiver\n\nAttack Power +10\nAttack Speed +30%\nMovement Speed +0.1"
+        ,Title: "Laced Quiver\n\nAttack Power +13\nAttack Speed +30%\nMovement Speed +0.1"
         ,Rarity: "Rare"
     }
     ,{
          Type: "Accessory"
         ,Name: "Revenge_of_Goujian"
-        ,Attack_Power: 10
+        ,Attack_Power: 13
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -796,7 +796,7 @@ const Accessory = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Revenge of Goujian\n\nAttack Power +10\nSkill Amplification +20%"
+        ,Title: "Revenge of Goujian\n\nAttack Power +13\nSkill Amplification +20%"
         ,Rarity: "Rare"
     }
     ,{

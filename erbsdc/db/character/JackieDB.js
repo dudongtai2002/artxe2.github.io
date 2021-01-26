@@ -91,11 +91,11 @@ const Jackie = {
             if (character.DIV.querySelector('.jackie_w').checked && w >= 0) {
                 const heal = calcHeal(12 + w * 7 + character.attack_power * 0.1, 2, enemy);
                 damage1 = calcSkillDamage(character, enemy, 20 + q * 20, 0.45 + 0.1 + w * 0.025, 1);
-                damage2 = calcSkillDamage(character, enemy, 30 + q * 20, 0.65 + 0.1 + w * 0.025, 1);
+                damage2 = calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1);
                 return "<b class='damage'>" + (damage1 + damage2 + damage3 * 5) + '</b> ( ' + damage1 + ', ' + damage2 + ', [ ' + damage3 + " x 5 ] ) <b> __h: </b><b class='heal'>" + heal + "</b><b> __sd/s: </b><b class='damage'>" +round((damage1 + damage2 + damage3 * 5) * cool) / 100 + '</b>';
             } else {
                 damage1 = calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1);
-                damage2 = calcSkillDamage(character, enemy, 30 + q * 20, 0.65, 1);
+                damage2 = calcSkillDamage(character, enemy, 30 + q * 25, 0.65, 1);
                 return "<b class='damage'>" + (damage1 + damage2 + damage3 * 5) + '</b> ( ' + damage1 + ', ' + damage2 + ', [ ' + damage3 + " x 5 ] )<b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2 + damage3 * 5) * cool) / 100 + '</b>';
             }
         }
@@ -324,16 +324,16 @@ const Jackie = {
                         if (ww && w >= 0) {
                             if (qq || rr > 1) {
                                 damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45 + 0.1 + w * 0.025, 1) + 
-                                    calcSkillDamage(character, enemy, 30 + q * 20, 0.65 + 0.1 + w * 0.025, 1) + 
+                                    calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1) + 
                                     calcTrueDamage(character, enemy, 16 + q * 6) * 5
                             } else {
                                 damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
-                                    calcSkillDamage(character, enemy, 30 + q * 20, 0.65 + 0.1 + w * 0.025, 1) + 
+                                    calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1) + 
                                     calcTrueDamage(character, enemy, 16 + q * 6) * 5
                             }
                         } else {
                             damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
-                                calcSkillDamage(character, enemy, 30 + q * 20, 0.65, 1) + 
+                                calcSkillDamage(character, enemy, 30 + q * 25, 0.65, 1) + 
                                 calcTrueDamage(character, enemy, 16 + q * 6) * 5
                         }
                         qq = true;
