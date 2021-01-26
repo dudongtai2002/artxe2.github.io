@@ -73,8 +73,9 @@ const Yuki = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
+            const t = character.T_LEVEL.selectedIndex - 1;
             const base = 20 + q * 25;
             const coe = character.weapon.Type === 'DualSwords' ? 2 : 1;
             const damage = baseAttackDamage(character, enemy, base, coe, character.critical_strike_chance, 1);
@@ -83,7 +84,7 @@ const Yuki = {
             const life = calcHeal(damage * (character.life_steal / 100), 1, enemy);
             const cool = 10000 / ((9 - q * 1) * (100 - character.cooldown_reduction) + 23);
             if (character.DIV.querySelector('.yuki_t').checked) {
-                const bonus = calcTrueDamage(character, enemy, 15 + 15 * character.T_LEVEL.selectedIndex);
+                const bonus = calcTrueDamage(character, enemy, 15 + t * 15);
                 return "<b class='damage'>" + (damage + bonus) + '</b> ( ' +  min + ', ' + bonus + ' - ' + max + ', ' + bonus + " )<b> __h: </b><b class='heal'>" + life + "</b><b> __sd/s: </b><b class='damage'>" + round((damage + bonus) * cool) / 100 + '</b>';
             }
             return "<b class='damage'>" + damage + '</b> ( ' +  min + ' - ' + max + " )<b> __h: </b><b class='heal'>" + life + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -92,29 +93,31 @@ const Yuki = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const t = character.T_LEVEL.selectedIndex;
-            const damage = calcSkillDamage(character, enemy, 70 + character.E_LEVEL.selectedIndex * 50, 0.4, 1);
-            const cool = (600 + w * 50) / ((15 - e * 1) * (100 - character.cooldown_reduction)) * 
-                10000 / ((18 - w * 2) * (100 - character.cooldown_reduction));
-            if (character.DIV.querySelector('.yuki_t').checked) {
-                const bonus = calcTrueDamage(character, enemy, 15 + 15 * t);
-                return "<b> _sd/s: </b><b class='damage'>" + round((damage + bonus) * cool) / 100 + '</b>';
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
+            const e = character.E_LEVEL.selectedIndex - 1;
+            if (e >= 0) {
+                const t = character.T_LEVEL.selectedIndex;
+                const damage = calcSkillDamage(character, enemy, 70 + character.E_LEVEL.selectedIndex * 50, 0.4, 1);
+                const cool = (600 + w * 50) / ((15 - e * 1) * (100 - character.cooldown_reduction)) * 
+                    10000 / ((18 - w * 2) * (100 - character.cooldown_reduction));
+                if (character.DIV.querySelector('.yuki_t').checked) {
+                    const bonus = calcTrueDamage(character, enemy, 15 + t * 15);
+                    return "<b> _sd/s: </b><b class='damage'>" + round((damage + bonus) * cool) / 100 + '</b>';
+                }
+                return "<b> _sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
             }
-            return "<b> _sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
         return '-';
     }
     ,W_Option: "<b> _use</b><input type='checkbox' class='yuki_w' onchange='updateDisplay()'>"
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             const damage = calcSkillDamage(character, enemy, 70 + e * 50, 0.4, 1);
-            const cool = 10000 / ((15 - e * 1) * (100 - character.cooldown_reduction) + 23);
+            const cool = 10000 / ((15 - e * 1) * (100 - character.cooldown_reduction));
             if (character.DIV.querySelector('.yuki_t').checked) {
-                const bonus = calcTrueDamage(character, enemy, 15 + 15 * character.T_LEVEL.selectedIndex);
+                const bonus = calcTrueDamage(character, enemy, 15 + t * 15);
                 return "<b class='damage'>" + (damage + bonus) + '</b> ( ' + damage + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round((damage + bonus) * cool) / 100 + '</b>';
             }
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -123,12 +126,13 @@ const Yuki = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
+            const t = character.T_LEVEL.selectedIndex;
             const damage1 = calcSkillDamage(character, enemy, 250 + r * 125, 1.5, 1);
             const damage2 = calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.15 + r * 0.05) : 0);
             if (character.DIV.querySelector('.yuki_t').checked) {
-                const bonus = calcTrueDamage(character, enemy, 15 + 15 * character.T_LEVEL.selectedIndex);
+                const bonus = calcTrueDamage(character, enemy, 15 + t * 15);
                 return "<b class='damage'>" + (damage1 + bonus + damage2) + '</b> ( ' + damage1 + ', ' + bonus + ', ' + damage2 + ' )';
             }
             return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + ' )';
@@ -191,9 +195,10 @@ const Yuki = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
@@ -230,31 +235,41 @@ const Yuki = {
                         }
                     }
                 } else if (c === 'q') {
-                    damage += baseAttackDamage(character, enemy, base, coe, 0, 1);
-                    if (tt) {
-                        tt--;
-                        damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                    if (q >= 0) {
+                        damage += baseAttackDamage(character, enemy, base, coe, 0, 1);
+                        if (tt) {
+                            tt--;
+                            damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                        }
                     }
                 } else if (c === 'Q') {
-                    damage += baseAttackDamage(character, enemy, base, coe, 100, 1);
-                    if (tt) {
-                        tt--;
-                        damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                    if (q >= 0) {
+                        damage += baseAttackDamage(character, enemy, base, coe, 100, 1);
+                        if (tt) {
+                            tt--;
+                            damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                    }
                     }
                 } else if (c === 'w' || c === 'W') {
-                    tt = 4;
+                    if (w >= 0) {
+                        tt = 4;
+                    }
                 } else if (c === 'e' || c === 'E') {
-                    damage += calcSkillDamage(character, enemy, 70 + e * 50, 0.4, 1);
-                    if (tt) {
-                        tt--;
-                        damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                    if (e >= 0) {
+                        damage += calcSkillDamage(character, enemy, 70 + e * 50, 0.4, 1);
+                        if (tt) {
+                            tt--;
+                            damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                        }
                     }
                 } else if (c === 'r' || c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 250 + r * 125, 1.5, 1) + 
-                        calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.15 + r * 0.05) : 0);
-                    if (tt) {
-                        tt--;
-                        damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 250 + r * 125, 1.5, 1) + 
+                            calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.15 + r * 0.05) : 0);
+                        if (tt) {
+                            tt--;
+                            damage += calcTrueDamage(character, enemy, 15 + 15 * t);
+                        }
                     }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {

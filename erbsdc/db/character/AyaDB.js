@@ -75,8 +75,8 @@ const Aya = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 0, 1, 1);
             const damage2 = calcSkillDamage(character, enemy, 20 + q * 40, 0.5, 1);
             const cool = 10000 / ((7 - q * 0.5) * (100 - character.cooldown_reduction));
@@ -86,8 +86,8 @@ const Aya = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1);
             const cool = 10000 / ((18 - w * 1.5) * (100 - character.cooldown_reduction) + 317);
             return "<b class='damage'>" + damage * 10 + '</b> ( ' + damage + " x 10 )<b> __sd/s: </b><b class='damage'>" + round(damage * 10 * cool) / 100 + '</b>';
@@ -100,8 +100,8 @@ const Aya = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             const min = calcSkillDamage(character, enemy, 200 + r * 100, 0.7, 1);
             const max = calcSkillDamage(character, enemy, 400 + r * 200, 1.4, 1);
             return "<b class='damage'>" + min + ' ~ ' + max + "</b>";
@@ -185,9 +185,9 @@ const Aya = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
             const combo = character.COMBO_OPTION.value;
@@ -208,15 +208,25 @@ const Aya = {
                         damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                     }
                 } else if (c === 'q' || c === 'Q') {
-                    damage += calcSkillDamage(character, enemy, 0, 1, 1) + calcSkillDamage(character, enemy, 20 + q * 40, 0.5, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 0, 1, 1) + calcSkillDamage(character, enemy, 20 + q * 40, 0.5, 1);
+                    }
                 } else if (c === 'w') {
-                    damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 5;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 5;
+                    }
                 } else if (c === 'W') {
-                    damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 10;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 22 + w * 22, 0.3 + w * 0.05, 1) * 10;
+                    }
                 } else if (c === 'r') {
-                    damage += calcSkillDamage(character, enemy, 200 + r * 100, 0.7, 1);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 200 + r * 100, 0.7, 1);
+                    }
                 } else if (c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 400 + r * 200, 1.4, 1);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 400 + r * 200, 1.4, 1);
+                    }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'SniperRifle') {

@@ -33,10 +33,11 @@ const Fiora = {
     }
     ,Base_Attack: (character, enemy) => {
         if (character.weapon) {
+            const r = character.R_LEVEL.selectedIndex - 1;
             const damage = baseAttackDamage(character, enemy, 0, 1, character.critical_strike_chance, 1);
             const min = baseAttackDamage(character, enemy, 0, 1, 0, 1);
             const max = baseAttackDamage(character, enemy, 0, 1, 100, 1);
-            if (character.DIV.querySelector('.fiora_r').checked) {
+            if (character.DIV.querySelector('.fiora_r').checked && r >= 0) {
                 const r = character.R_LEVEL.selectedIndex;
                 const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1)
                 return "<b class='damage'>" + (damage + bonus) + '</b> ( ' +  min + ', ' + bonus + ' - ' + max + ', ' + bonus + ' ) ';
@@ -48,10 +49,11 @@ const Fiora = {
     ,Base_Attack_Option: ''
     ,DPS: (character, enemy) => {
         if (character.weapon) {
+            const r = character.R_LEVEL.selectedIndex - 1;
             const ba = baseAttackDamage(character, enemy, 0, 1, character.critical_strike_chance, 1);
             const life = calcHeal(ba * (character.life_steal / 100), character.attack_speed, enemy);
             let damage;
-            if (character.DIV.querySelector('.fiora_r').checked) {
+            if (character.DIV.querySelector('.fiora_r').checked && r >= 0) {
                 const r = character.R_LEVEL.selectedIndex;
                 const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1)
                 damage = round((ba + bonus) * character.attack_speed * 100) / 100;
@@ -68,8 +70,8 @@ const Fiora = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const min = calcSkillDamage(character, enemy, 60 + q * 60, 0.25, 1);
             const max = calcSkillDamage(character, enemy, (60 + q * 60) * (1.2 +character.critical_strike_damage / 100), 0.25 * (1.2 + character.critical_strike_damage / 100), 1);
             const cool = 10000 / ((9 - q * 1) * (100 - character.cooldown_reduction));
@@ -79,8 +81,9 @@ const Fiora = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
+            const r = character.R_LEVEL.selectedIndex - 1;
             const damage1 = baseAttackDamage(character, enemy, 0, 0.6 + w * 0.1, character.critical_strike_chance, 1);
             const damage2 = baseAttackDamage(character, enemy, 0, 0.2 + w * 0.1, character.critical_strike_chance, 1);
             const min1 = baseAttackDamage(character, enemy, 0, 0.6 + w * 0.1, 0, 1);
@@ -88,8 +91,7 @@ const Fiora = {
             const max1 = baseAttackDamage(character, enemy, 0, 0.6 + w * 0.1, 100, 1);
             const max2 = baseAttackDamage(character, enemy, 0, 0.2 + w * 0.1, 100, 1);
             const cool = 10000 / ((20 - w * 3) * (100 - character.cooldown_reduction));
-            if (character.DIV.querySelector('.fiora_r').checked) {
-                const r = character.R_LEVEL.selectedIndex;
+            if (character.DIV.querySelector('.fiora_r').checked && r >= 0) {
                 const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1);
                 return "<b class='damage'>" + (damage1 + damage2 + bonus * 2) + '</b> ( ' +  min1 + ', ' + min2 + ', ' + bonus + ' - ' + max1 + ', ' + max2 + ', ' + bonus + " ) <b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2 + bonus * 2) * cool) / 100 + '</b>';
             }
@@ -99,8 +101,8 @@ const Fiora = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             const min = calcSkillDamage(character, enemy, 90 + e * 40, 0.4, 1);
             const max = calcSkillDamage(character, enemy, (90 + e * 40) * (1.2 +character.critical_strike_damage / 100), 0.4 * (1.2 + character.critical_strike_damage / 100), 1);
             const cool = 10000 / ((16 - e * 2) * (100 - character.cooldown_reduction) + 200);
@@ -110,8 +112,8 @@ const Fiora = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             return "<b class='damage'>" + calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1) + '</b>';
         }
         return '-';
@@ -187,10 +189,10 @@ const Fiora = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
@@ -202,43 +204,61 @@ const Fiora = {
                 if (c === 'a') {
                     f++;
                     damage += baseAttackDamage(character, enemy, 0, 1, 0, 1);
-                    if (rr) {
-                        damage += bonus;
+                    if (r >= 0) {
+                        if (rr) {
+                            damage += bonus;
+                        }
                     }
                 } else if (c === 'A') {
                     f++;
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
-                    if (rr) {
-                        damage += bonus;
+                    if (r >= 0) {
+                        if (rr) {
+                            damage += bonus;
+                        }
                     }
                 } else if (c === 'q' || c === 'Q') {
-                    if (f >= 3 && t === 2 || f >= 4 && t === 1 || f >= 5 && t === 0) {
-                        damage += calcSkillDamage(character, enemy, (60 + q * 60) * (1.2 +character.critical_strike_damage / 100), 0.25 * (1.2 + character.critical_strike_damage / 100), 1);
-                    } else {
-                        damage += calcSkillDamage(character, enemy, 60 + q * 60, 0.25, 1);
+                    if (q >= 0) {
+                        if (f >= 3 && t === 2 || f >= 4 && t === 1 || f >= 5 && t === 0) {
+                            damage += calcSkillDamage(character, enemy, (60 + q * 60) * (1.2 +character.critical_strike_damage / 100), 0.25 * (1.2 + character.critical_strike_damage / 100), 1);
+                        } else {
+                            damage += calcSkillDamage(character, enemy, 60 + q * 60, 0.25, 1);
+                        }
                     }
                 } else if (c === 'w') {
-                    f += 2;
-                    damage += baseAttackDamage(character, enemy, 0, 0.6 + w * 0.1, 0, 1) + 
-                        baseAttackDamage(character, enemy, 0, 0.2 + w * 0.1, 0, 1);
-                    if (rr) {
-                        damage += bonus * 2;
+                    if (w >= 0) {
+                        f += 2;
+                        damage += baseAttackDamage(character, enemy, 0, 0.6 + w * 0.1, 0, 1) + 
+                            baseAttackDamage(character, enemy, 0, 0.2 + w * 0.1, 0, 1);
+                        if (r >= 0) {
+                            if (rr) {
+                                damage += bonus * 2;
+                            }
+                        }
                     }
                 } else if (c === 'W') {
-                    f += 2;
-                    damage += baseAttackDamage(character, enemy, 0, 0.6 + w * 0.1, 100, 1) + 
-                        baseAttackDamage(character, enemy, 0, 0.2 + w * 0.1, 100, 1);
-                    if (rr) {
-                        damage += bonus * 2;
+                    if (w >= 0) {
+                        f += 2;
+                        damage += baseAttackDamage(character, enemy, 0, 0.6 + w * 0.1, 100, 1) + 
+                            baseAttackDamage(character, enemy, 0, 0.2 + w * 0.1, 100, 1);
+                        if (r >= 0) {
+                            if (rr) {
+                                damage += bonus * 2;
+                            }
+                        }
                     }
                 } else if (c === 'e' || c === 'E') {
-                    if (f >= 3 && t === 2 || f >= 4 && t === 1 || f >= 5 && t === 0) {
-                        damage += calcSkillDamage(character, enemy, (90 + e * 40) * (1.2 +character.critical_strike_damage / 100), 0.4 * (1.2 + character.critical_strike_damage / 100), 1);
-                    } else {
-                        damage += calcSkillDamage(character, enemy, 90 + e * 40, 0.4, 1);
+                    if (e >= 0) {
+                        if (f >= 3 && t === 2 || f >= 4 && t === 1 || f >= 5 && t === 0) {
+                            damage += calcSkillDamage(character, enemy, (90 + e * 40) * (1.2 +character.critical_strike_damage / 100), 0.4 * (1.2 + character.critical_strike_damage / 100), 1);
+                        } else {
+                            damage += calcSkillDamage(character, enemy, 90 + e * 40, 0.4, 1);
+                        }
                     }
                 } else if (c === 'r' || c === 'R') {
-                    rr = !rr;
+                    if (r >= 0) {
+                        rr = !rr;
+                    }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'TwoHandedSword') {

@@ -52,14 +52,14 @@ const Zahir = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const min = calcSkillDamage(character, enemy, 40 + q * 60, 0.5, 1);
             const max = calcSkillDamage(character, enemy, 75 + q * 75, 0.5, 1);
             const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
-            const ww = calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1);
+            const ww = w >= 0 ? calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1) : 0;
             const cool = 10000 / ((8 - q * 0.5) * (100 - character.cooldown_reduction) + 20);
             return "<b class='damage'>" + min + ' - ' + (max + bonus)  + '</b> ( ' + max + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round(((min + max) / 2 + bonus * 1.5 + ww * 2) * cool) / 100 + '</b>';
         }
@@ -67,8 +67,8 @@ const Zahir = {
     }
     ,Q_Option: " _ <input type='number' class='stack zahir_q' value='0' onchange='fixLimitNum(this, 7)'><b>Stack"
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const t = character.T_LEVEL.selectedIndex;
             const damage = calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1);
             const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
@@ -78,13 +78,13 @@ const Zahir = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
-            const damage = calcSkillDamage(character, enemy, 80 +e * 30, 0.5, 1);
+            const damage = calcSkillDamage(character, enemy, 80 + e * 30, 0.5, 1);
             const bonus = calcSkillDamage(character, enemy, 10 + t * 25, 0.3, 1);
-            const ww = calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1);
+            const ww = w >= 0 ? calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1) : 0;
             const cool = 10000 / ((20 - e * 2) * (100 - character.cooldown_reduction) + 17);
             return "<b class='damage'>" + damage + ' - ' + (damage + bonus)  + '</b> ( ' + damage + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round((damage + bonus * 1.5 + ww * 2) * cool) / 100 + '</b>';
         }
@@ -92,8 +92,8 @@ const Zahir = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             const t = character.T_LEVEL.selectedIndex;
             const damage = calcSkillDamage(character, enemy, 60 + r * 90, 0.5, 1);
             const add = calcSkillDamage(character, enemy, 30 + r * 45, 0.5, 1);
@@ -157,10 +157,10 @@ const Zahir = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
@@ -174,38 +174,48 @@ const Zahir = {
                 } else if (c === 'A') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                 } else if (c === 'q' || c === 'Q') {
-                    if (tt) {
-                        tt = false;
-                        damage += calcSkillDamage(character, enemy, 75 + q * 75, 0.5, 1) + bonus;
-                    } else {
-                        tt = true;
-                        damage += calcSkillDamage(character, enemy, 40 + q * 60, 0.5, 1);
+                    if (q >= 0) {
+                        if (tt) {
+                            tt = false;
+                            damage += calcSkillDamage(character, enemy, 75 + q * 75, 0.5, 1) + bonus;
+                        } else {
+                            tt = true;
+                            damage += calcSkillDamage(character, enemy, 40 + q * 60, 0.5, 1);
+                        }
                     }
                 } else if (c === 'w' || c === 'W') {
-                    damage += calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1);
-                    if (tt) {
-                        tt = false;
-                        damage += bonus;
-                    } else {
-                        tt = true;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 25 + w * 25, 0.3, 1);
+                        if (tt) {
+                            tt = false;
+                            damage += bonus;
+                        } else {
+                            tt = true;
+                        }
                     }
                 } else if (c === 'e' || c === 'E') {
-                    damage += calcSkillDamage(character, enemy, 80 +e * 30, 0.5, 1);
-                    if (tt) {
-                        tt = false;
-                        damage += bonus;
-                    } else {
-                        tt = true;
+                    if (e >= 0) {
+                        damage += calcSkillDamage(character, enemy, 80 + e * 30, 0.5, 1);
+                        if (tt) {
+                            tt = false;
+                            damage += bonus;
+                        } else {
+                            tt = true;
+                        }
                     }
                 } else if (c === 'r') {
-                    damage += calcSkillDamage(character, enemy, 30 + r * 45, 0.5, 1);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 30 + r * 45, 0.5, 1);
+                    }
                 } else if (c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 60 + r * 90, 0.5, 1);
-                    if (tt) {
-                        tt = false;
-                        damage += bonus;
-                    } else {
-                        tt = true;
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 60 + r * 90, 0.5, 1);
+                        if (tt) {
+                            tt = false;
+                            damage += bonus;
+                        } else {
+                            tt = true;
+                        }
                     }
                 } else if (c === 'd') {
                     if (wm > 5) {

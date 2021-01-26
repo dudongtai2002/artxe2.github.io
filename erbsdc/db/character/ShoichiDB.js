@@ -62,20 +62,22 @@ const Shoichi = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const t = character.T_LEVEL.selectedIndex;
             const damage = calcSkillDamage(character, enemy, 10 + q * 50, 0.45, 1);
-            const w = calcSkillDamage(character, enemy, 10 + character.W_LEVEL.selectedIndex * 30, 0.3, 1);
-            const t = calcSkillDamage(character, enemy, 25 + character.T_LEVEL.selectedIndex * 35, 0.3, 1);
+            const ww = w >= 0 ? calcSkillDamage(character, enemy, 10 + w * 30, 0.3, 1) : 0;
+            const tt = calcSkillDamage(character, enemy, 25 + t * 35, 0.3, 1);
             const cool = 10000 / (6 * (100 - character.cooldown_reduction));
-            return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round((damage + (t + w) / 2) * cool) / 100 + '</b>';
+            return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round((damage + (tt + ww) / 2) * cool) / 100 + '</b>';
         }
         return '-';
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 10 + w * 30, 0.3, 1);
             const cool = 10000 / ((17 - w * 2) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -84,24 +86,28 @@ const Shoichi = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const t = character.T_LEVEL.selectedIndex;
             const damage = calcSkillDamage(character, enemy, 20 + e * 40, 0.3, 1);
-            const w = calcSkillDamage(character, enemy, 10 + character.W_LEVEL.selectedIndex * 30, 0.3, 1);
-            const t = calcSkillDamage(character, enemy, 25 + character.T_LEVEL.selectedIndex * 35, 0.3, 1);
+            const ww = w >= 0 ? calcSkillDamage(character, enemy, 10 + w * 30, 0.3, 1) : 0;
+            const tt = calcSkillDamage(character, enemy, 25 + t * 35, 0.3, 1);
             const cool = 10000 / ((18 - e * 2) * (100 - character.cooldown_reduction));
-            return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round((damage + t + w) * cool) / 100 + '</b>';
+            return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round((damage + tt + ww) * cool) / 100 + '</b>';
         }
         return '-';
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const t = character.T_LEVEL.selectedIndex;
             const damage1 = calcSkillDamage(character, enemy, 50 + r * 100, 0.3, 1);
             const damage2 = calcSkillDamage(character, enemy, 25 + r * 35, 0.3, 1);
-            const tt = calcSkillDamage(character, enemy, 25 + character.T_LEVEL.selectedIndex * 35, 0.3, 1);
-            const ww = calcSkillDamage(character, enemy, 10 + character.W_LEVEL.selectedIndex * 30, 0.3, 1);
+            const ww = w >= 0 ? calcSkillDamage(character, enemy, 10 + w * 30, 0.3, 1) : 0;
+            const tt = calcSkillDamage(character, enemy, 25 + t * 35, 0.3, 1);
             return "<b class='damage'>" + (damage1 + damage2 + tt * 4 + ww * 2) + '</b> ( ' + damage1 + ', ' + damage2 + ', ' + tt + ' x 4, ' + ww + ' x 2 )';
         }
         return '-';
@@ -157,10 +163,10 @@ const Shoichi = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
@@ -181,35 +187,43 @@ const Shoichi = {
                         damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                     }
                 } else if (c === 'q' || c === 'Q') {
-                    if (tt < 5) {
-                        tt++;
+                    if (q >= 0) {
+                        if (tt < 5) {
+                            tt++;
+                        }
+                        damage += calcSkillDamage(character, enemy, 10 + q * 50, 0.45, 1);
                     }
-                    damage += calcSkillDamage(character, enemy, 10 + q * 50, 0.45, 1);
                 } else if (c === 'w' || c === 'W') {
-                    if (tt < 5) {
-                        tt++;
+                    if (w >= 0) {
+                        if (tt < 5) {
+                            tt++;
+                        }
+                        damage += calcSkillDamage(character, enemy, 10 + w * 30, 0.3, 1);
                     }
-                    damage += calcSkillDamage(character, enemy, 10 + w * 30, 0.3, 1);
                 } else if (c === 'e' || c === 'E') {
-                    if (tt < 5) {
-                        tt++;
+                    if (e >= 0) {
+                        if (tt < 5) {
+                            tt++;
+                        }
+                        damage += calcSkillDamage(character, enemy, 20 + e * 40, 0.3, 1);
                     }
-                    damage += calcSkillDamage(character, enemy, 20 + e * 40, 0.3, 1);
                 } else if (c === 'r' || c === 'R') {
-                    if (tt < 5) {
-                        tt++;
+                    if (r >= 0) {
+                        if (tt < 5) {
+                            tt++;
+                        }
+                        if (tt < 5) {
+                            tt++;
+                        }
+                        damage += calcSkillDamage(character, enemy, 50 + r * 100, 0.3, 1) + 
+                            calcSkillDamage(character, enemy, 25 + r * 35, 0.3, 1);
                     }
-                    if (tt < 5) {
-                        tt++;
-                    }
-                    damage += calcSkillDamage(character, enemy, 50 + r * 100, 0.3, 1) + 
-                        calcSkillDamage(character, enemy, 25 + r * 35, 0.3, 1);
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Dagger') {
                             const lost = enemy.max_hp ? damage - calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
                                 (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * character.DIV.querySelector('.combo_time').value * (i / combo.length) : 0;
-                            damage += baseAttackDamage(character, enemy, 0, 1, 100, 1) + (lost ? (enemy.max_hp - lost) / 10 : 0) | 0;
+                            damage += baseAttackDamage(character, enemy, 0, 1, 100, 1) + (enemy.max_hp ? (enemy.max_hp - lost) / 10 : 0) | 0;
                         }
                     }
                 } else if (c === 't' || c === 'T') {

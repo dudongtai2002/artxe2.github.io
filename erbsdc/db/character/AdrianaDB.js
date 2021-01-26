@@ -48,8 +48,9 @@ const Adriana = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        console.log(q ? q : 'false');
+        if (character.weapon && q >= 0) {
             const damage = calcTrueDamage(character, enemy, 12 + q * 3 + character.attack_power * (0.1 + q * 0.05));
             const cool = 10000 / ((7 - q * 0.5) * (100 - character.cooldown_reduction) + 200);
             return "<b class='damage'>" + damage + ' ~ ' + damage * 9 + '</b> ( ' + damage + " x 9 )<b> __sd/s: </b><b class='damage'>" + round(damage * 9 * cool) / 100 + '</b>';
@@ -62,7 +63,8 @@ const Adriana = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             const t = character.T_LEVEL.selectedIndex;
             const damage1 = calcSkillDamage(character, enemy, 4 + t * 3, 0.15, 1);
             let damage2 = damage1;
@@ -75,8 +77,8 @@ const Adriana = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             const damage = calcSkillDamage(character, enemy, 70 + r * 60, 0.4, 1);
             const cool = 10000 / ((40 - r * 7) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage + ' - ' + damage * 3 + '</b> ( ' + damage + " x 3 )<b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -85,7 +87,8 @@ const Adriana = {
     }
     ,R_Option: ''
     ,D_Skill: (character, enemy) => {
-        if (character.weapon && character.WEAPON_MASTERY.selectedIndex > 5) {
+        const wm = character.WEAPON_MASTERY.selectedIndex;
+        if (character.weapon && wm > 5) {
             const type = character.weapon.Type;
             if (type === 'Throws') {
                 return '-';
@@ -134,8 +137,10 @@ const Adriana = {
     }
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             let damage = 0, c;
             let ww = 0, f = false, td = 0, tt = 0;
@@ -147,35 +152,125 @@ const Adriana = {
                 } else if (c === 'A') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                 } else if (c === 'q') {
-                    td = 0;
-                    damage += calcTrueDamage(character, enemy, 12 + q * 3 + character.attack_power * (0.1 + q * 0.05)) * 5;
-                    if (ww) {
-                        damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                        td++;
-                        ww--;
-                        tt = 1;
-                        while (tt >= 0.56) {
+                    if (q >= 0) {
+                        td = 0;
+                        damage += calcTrueDamage(character, enemy, 12 + q * 3 + character.attack_power * (0.1 + q * 0.05)) * 5;
+                        if (ww) {
                             damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                            if (td < 10) {
-                                td++;
+                            td++;
+                            ww--;
+                            tt = 1;
+                            while (tt >= 0.56) {
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                                if (td < 10) {
+                                    td++;
+                                }
+                                tt -= 0.56;
                             }
-                            tt -= 0.56;
+                            f = true;
+                        } else {
+                            f = false;
+                            tt = 0;
                         }
-                        f = true;
-                    } else {
-                        f = false;
-                        tt = 0;
                     }
                 } else if (c === 'Q') {
-                    damage += calcTrueDamage(character, enemy, 12 + q * 3 + character.attack_power * (0.1 + q * 0.05)) * 9;
-                    if (ww) {
+                    if (q >= 0) {
+                        damage += calcTrueDamage(character, enemy, 12 + q * 3 + character.attack_power * (0.1 + q * 0.05)) * 9;
+                        if (ww) {
+                            if (!tt) {
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                                if (td < 10) {
+                                    td++;
+                                }
+                            }
+                            ww--;
+                            tt++;
+                            while (tt >= 0.56) {
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                                if (td < 10) {
+                                    td++;
+                                }
+                                tt -= 0.56;
+                            }
+                            f = true;
+                        } else {
+                            f = false;
+                            tt = 0;
+                        }
+                    }
+                } else if (c === 'w') {
+                    if (w >= 0) {
+                        td = 0;
+                        if (f) {
+                            damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                            td++;
+                            ww = 4;
+                            tt = 1;
+                            while (tt >= 0.56) {
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                                if (td < 10) {
+                                    td++;
+                                }
+                                tt -= 0.56;
+                            }
+                        } else {
+                            ww = 5;
+                            tt = 0;
+                        }
+                    }
+                } else if (c === 'W') {
+                    if (w >= 0) {
+                        if (f) {
+                            if (!tt) {
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                                if (td < 10) {
+                                    td++;
+                                }
+                            }
+                            ww = 4;
+                            tt++;
+                            while (tt >= 0.56) {
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1)
+                                if (td < 10) {
+                                    td++;
+                                }
+                                tt -= 0.56;
+                            }
+                        } else {
+                            ww = 5;
+                            td = 0;
+                            tt = 0;
+                        }
+                    }
+                } else if (c === 'e') {
+                    if (e >= 0) {
+                        td = 0;
+                        damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                        td++;
+                        if (ww) {
+                            ww--;
+                        }
+                        tt = 1;
+                        while (tt >= 0.56) {
+                            tt -= 0.56;
+                            damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                            if (td < 10) {
+                                td++;
+                            }
+                        }
+                        f = true;
+                    }
+                } else if (c === 'E') {
+                    if (e >= 0) {
                         if (!tt) {
                             damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
                             if (td < 10) {
                                 td++;
                             }
                         }
-                        ww--;
+                        if (ww) {
+                            ww--;
+                        }
                         tt++;
                         while (tt >= 0.56) {
                             damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
@@ -185,126 +280,52 @@ const Adriana = {
                             tt -= 0.56;
                         }
                         f = true;
-                    } else {
-                        f = false;
-                        tt = 0;
                     }
-                } else if (c === 'w') {
-                    td = 0;
-                    if (f) {
+                } else if (c === 'r') {
+                    if (r >= 0) {
+                        td = 0;
+                        damage += calcSkillDamage(character, enemy, 70 + r * 60, 0.4, 1);
                         damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
                         td++;
-                        ww = 4;
-                        tt = 1;
-                        while (tt >= 0.56) {
-                            damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                            if (td < 10) {
-                                td++;
+                        if (ww) {
+                            ww--;
+                            tt = 1;
+                            while (tt >= 0.56) {
+                                tt -= 0.56;
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                                if (td < 10) {
+                                    td++;
+                                }
                             }
-                            tt -= 0.56;
+                        } else {
+                            tt = 0;
                         }
-                    } else {
-                        ww = 5;
-                        tt = 0;
+                        f = true;
                     }
-                } else if (c === 'W') {
-                    if (f) {
+                } else if (c === 'R') {
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 70 + r * 60, 0.4, 1);
                         if (!tt) {
                             damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
                             if (td < 10) {
                                 td++;
                             }
                         }
-                        ww = 4;
-                        tt++;
-                        while (tt >= 0.56) {
-                            damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1)
-                            if (td < 10) {
-                                td++;
+                        if (ww) {
+                            ww--;
+                            tt++;
+                            while (tt >= 0.56) {
+                                tt -= 0.56;
+                                damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
+                                if (td < 10) {
+                                    td++;
+                                }
                             }
-                            tt -= 0.56;
+                        } else {
+                            tt = 0;
                         }
-                    } else {
-                        ww = 5;
-                        td = 0;
-                        tt = 0;
+                        f = true;
                     }
-                } else if (c === 'e') {
-                    td = 0;
-                    damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                    td++;
-                    if (ww) {
-                        ww--;
-                    }
-                    tt = 1;
-                    while (tt >= 0.56) {
-                        tt -= 0.56;
-                        damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                        if (td < 10) {
-                            td++;
-                        }
-                    }
-                    f = true;
-                } else if (c === 'E') {
-                    if (!tt) {
-                        damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                        if (td < 10) {
-                            td++;
-                        }
-                    }
-                    if (ww) {
-                        ww--;
-                    }
-                    tt++;
-                    while (tt >= 0.56) {
-                        damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                        if (td < 10) {
-                            td++;
-                        }
-                        tt -= 0.56;
-                    }
-                    f = true;
-                } else if (c === 'r') {
-                    td = 0;
-                    damage += calcSkillDamage(character, enemy, 70 + r * 60, 0.4, 1);
-                    damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                    td++;
-                    if (ww) {
-                        ww--;
-                        tt = 1;
-                        while (tt >= 0.56) {
-                            tt -= 0.56;
-                            damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                            if (td < 10) {
-                                td++;
-                            }
-                        }
-                    } else {
-                        tt = 0;
-                    }
-                    f = true;
-                } else if (c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 70 + r * 60, 0.4, 1);
-                    if (!tt) {
-                        damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                        if (td < 10) {
-                            td++;
-                        }
-                    }
-                    if (ww) {
-                        ww--;
-                        tt++;
-                        while (tt >= 0.56) {
-                            tt -= 0.56;
-                            damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);
-                            if (td < 10) {
-                                td++;
-                            }
-                        }
-                    } else {
-                        tt = 0;
-                    }
-                    f = true;
                 } else if (c === 't') {
                     td = 0;
                     damage += calcSkillDamage(character, enemy, (4 + t * 3) * (1 + td * 0.2), 0.15 * (1 + td * 0.2), 1);

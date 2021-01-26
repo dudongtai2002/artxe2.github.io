@@ -606,12 +606,16 @@ class Character {
     calcStat() {
         if (this.character) {
             const level = this.LEVEL.selectedIndex;
-            const q = this.Q_LEVEL.selectedIndex;
-            const w = this.W_LEVEL.selectedIndex;
-            const e = this.E_LEVEL.selectedIndex;
-            const r = this.R_LEVEL.selectedIndex;
+            const w = this.W_LEVEL.selectedIndex - 1;
+            const e = this.E_LEVEL.selectedIndex - 1;
+            const r = this.R_LEVEL.selectedIndex - 1;
             const t = this.T_LEVEL.selectedIndex;
             const wm = this.WEAPON_MASTERY.selectedIndex;
+            const ew = this.enemy.W_LEVEL.selectedIndex - 1;
+            const ee = this.enemy.E_LEVEL.selectedIndex - 1;
+            const er = this.enemy.R_LEVEL.selectedIndex - 1;
+            const et = this.enemy.T_LEVEL.selectedIndex;
+            const ewm = this.enemy.WEAPON_MASTERY.selectedIndex;
 
             this.heal_reduction = 
                 this.weapon && (
@@ -641,7 +645,7 @@ class Character {
                 (jackie_t_w ? (jackie_t_w.checked ? jackie_tw[ t ] : 0) + 
                 (jackie_t_s.checked ? jackie_ts[ t ] : 0) : 0) + 
                 (axe_d_s ? axe_d_s.value * (axe_d_u.checked ? 0.05 + this.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02) : 0) + 
-                (hart_w_u && hart_w_u.checked ? 0.12 + w * 0.07 : 0);
+                (hart_w_u && w >= 0 && hart_w_u.checked ? 0.12 + w * 0.07 : 0);
             this.attack_power = 
                 (this.character.Attack_Power + this.character.Attack_Power_Growth * level + 
                     calcEquip(this, 'Attack_Power', 2)) * attack_power_percent | 0;
@@ -656,7 +660,7 @@ class Character {
             const silvia_t = this.DIV.querySelector('.silvia_t');
             const attack_speed_bonus = 
                 (jackie_r && jackie_r.checked ? 20 + r * 5 : 0) + 
-                (nadine_e ? (10 + e * 5) * (nadine_e.checked ? 2 : 1) : 0) + 
+                (nadine_e && e >= 0 ? (10 + e * 5) * (nadine_e.checked ? 2 : 1) : 0) + 
                 (lida_w && lida_w.checked ? 10 + t * 15 : 0) + 
                 (silvia_t ? silvia_t.value * (1 + t * 1) : 0);
             this.attack_speed = 
@@ -697,7 +701,7 @@ class Character {
                 (sissela_t ? (2 + t * 3) * 
                     (sissela_t.value < 10 ? 0 : (sissela_t.value >= 90 ? 5 : sissela_t.value / 20 + 0.5)) * 
                     (this.DIV.querySelector('.sissela_r').checked ? 2 : 1) : 0);
-            const skill_amplification_percent_bonus = (hart_e ? hart_e_s.value * (hart_ee.checked ? 25 : hart_e.checked ? 15 : 0) : 0) + 
+            const skill_amplification_percent_bonus = (hart_e && e >= 0 ? hart_e_s.value * (hart_ee.checked ? 25 : hart_e.checked ? 15 : 0) : 0) + 
                 (silvia_t && silvia_t.value == 15 ? 15 : 0);
             this.skill_amplification = 
                 round(calcEquip(this, 'Skill_Amplification', 2) + skill_amplification_bonus, 1);
@@ -718,7 +722,7 @@ class Character {
             this.COOLDOWN_REDUCTION.innerText = this.cooldown_reduction + '%';
 
             this.sp_regen = 
-                round(this.character.Stamina_Regen + this.character.Stamina_Regen_Growth * this.LEVEL.selectedIndex + 
+                round(this.character.Stamina_Regen + this.character.Stamina_Regen_Growth * level + 
                     calcEquip(this, 'SP_Regen', 2), 1);
             
             this.sp_regen_percent = 
@@ -729,7 +733,7 @@ class Character {
             this.skill_damage_reduction = 
                 calcEquip(this, 'Skill_Damage_Reduction');
             this.skill_damage_reduction_percent = 
-                round((1 + this.DEFENSE_MASTERY.selectedIndex) * 1 + 
+                round((1 + wm) * 1 + 
                     calcEquip(this, 'Skill_Damage_Reduction_Percent'));
             this.SKILL_DAMAGE_REDUCTION.innerText = 
                 this.skill_damage_reduction + '| ' + this.skill_damage_reduction_percent + '%';
@@ -749,45 +753,46 @@ class Character {
             const silvia_r = this.DIV.querySelector('.silvia_r');
             const defense_percent = 1 + 
                 (magnus_t ? magnus_t.value * (0.002 + t * 0.0015) : 0) + 
-                (hyunwoo_w && hyunwoo_w.checked ? 0.1 : 0) + (yuki_w && yuki_w.checked ? 0.5 : 0);
+                (hyunwoo_w && w >= 0 && hyunwoo_w.checked ? 0.1 : 0) + 
+                (yuki_w && w >= 0 && yuki_w.checked ? 0.5 : 0);
             const defense_minus = 1 - 
-                (hammer_d && hammer_d.checked && this.enemy.WEAPON_MASTERY.selectedIndex > 5? this.enemy.WEAPON_MASTERY.selectedIndex < 13 ? 0.25 : 0.4 : 0) - 
+                (hammer_d && hammer_d.checked && ewm > 5? ewm < 13 ? 0.25 : 0.4 : 0) - 
                 (zahir_q ? 0.1 * zahir_q.value : 0) -
-                (hyunwoo_e && hyunwoo_e.checked ? 0.07 + this.enemy.E_LEVEL.selectedIndex * 0.02 : 0) - 
-                (hart_w_u && hart_w_u.checked ? hart_ww.checked ? 0.3 : hart_w.checked ? 0.15 : 0 : 0) - 
-                (isol_t && isol_t.checked ? 0.05 + this.enemy.T_LEVEL.selectedIndex * 0.1 : 0) - 
-                (xiukai_r && xiukai_r.checked ? 0.1 + this.enemy.R_LEVEL.selectedIndex * 0.05 : 0) - 
-                (chiara_t ? chiara_t.value * (0.02 + this.enemy.T_LEVEL.selectedIndex * 0.02) : 0);
+                (hyunwoo_e && ee >= 0 && hyunwoo_e.checked ? 0.07 + ee * 0.02 : 0) - 
+                (hart_w_u && ew >= 0 && hart_w_u.checked ? hart_ww.checked ? 0.3 : hart_w.checked ? 0.15 : 0 : 0) - 
+                (isol_t && isol_t.checked ? 0.05 + et * 0.1 : 0) - 
+                (xiukai_r && xiukai_r.checked ? 0.1 + er * 0.05 : 0) - 
+                (chiara_t ? chiara_t.value * (0.02 + et * 0.02) : 0);
             const defense_bonus = (hyunwoo_w && hyunwoo_w.checked ? 4 + w * 14 : 0) + 
-                (silvia_r && silvia_r.checked ? 2 + this.R_LEVEL.selectedIndex * 14 : 0)
+                (silvia_r && r >= 0 && silvia_r.checked ? 2 + er * 14 : 0)
             this.defense = 
-                (this.character.Defense + this.character.Defense_Growth * this.LEVEL.selectedIndex + 
+                (this.character.Defense + this.character.Defense_Growth * level + 
                     calcEquip(this, 'Defense', 2) + defense_bonus) * defense_percent * defense_minus | 0;
             this.DEFENSE.innerText = this.defense;
             this.pure_defense = 
-                this.character.Defense + this.character.Defense_Growth * this.LEVEL.selectedIndex + 
+                this.character.Defense + this.character.Defense_Growth * level + 
                     calcEquip(this, 'Defense', 2);
             this.calc_defense = 
-                (this.character.Defense + this.character.Defense_Growth * this.LEVEL.selectedIndex + 
+                (this.character.Defense + this.character.Defense_Growth * level + 
                     calcEquip(this, 'Defense', 2) + defense_bonus) * defense_percent;
 
             const xiukai_t = this.DIV.querySelector('.xiukai_t');
             const chiara_r = this.DIV.querySelector('.chiara_r');
             const hp_bonus = 
                 (xiukai_t ? xiukai_t.value * 7 : 0) + 
-                (chiara_r && chiara_r.checked ? 100 + this.R_LEVEL.selectedIndex * 100 : 0);
+                (chiara_r && chiara_r.checked ? 100 + r * 100 : 0);
             this.max_hp = 
-                (this.character.Health + this.character.Health_Growth * this.LEVEL.selectedIndex + hp_bonus + 
+                (this.character.Health + this.character.Health_Growth * level + hp_bonus + 
                     calcEquip(this, 'Max_HP', 2)) * (1 + (1 + this.HEALTH_MASTERY.selectedIndex) * 0.01) | 0;
             this.MAX_HP.innerText = this.max_hp;
 
             this.max_sp = 
-                (this.character.Stamina + this.character.Stamina_Growth * this.LEVEL.selectedIndex + 
+                (this.character.Stamina + this.character.Stamina_Growth * level + 
                     calcEquip(this, 'Max_SP', 2)) * (1 + (1 + this.MEDITATION_MASTERY.selectedIndex) * 0.017) | 0;
             this.MAX_SP.innerText = this.max_sp;
 
             this.hp_regen = 
-                round(this.character.Health_Regen + this.character.Health_Regen_Growth * this.LEVEL.selectedIndex + 
+                round(this.character.Health_Regen + this.character.Health_Regen_Growth * level + 
                     calcEquip(this, 'HP_Regen', 2), 1);
 
             this.hp_regen_percent = 
@@ -805,11 +810,11 @@ class Character {
             const jackie_w = this.DIV.querySelector('.jackie_w');
             chiara_t = this.DIV.querySelector('.chiara_t');
             const move_percent = 1 + 
-                (jackie_w && jackie_w.checked ? 0.06 + this.W_LEVEL.selectedIndex * 0.03 : 0) + 
-                (chiara_t && chiara_t.value == 4 ? 0.04 + this.T_LEVEL.selectedIndex * 0.02 : 0) + 
+                (jackie_w && jackie_w.checked ? 0.06 + w * 0.03 : 0) + 
+                (chiara_t && chiara_t.value == 4 ? 0.04 + t * 0.02 : 0) + 
                 (silvia_r && silvia_r.checked ? 0.7 : 0);
             const move_bonus = 
-                (silvia_r && silvia_r.checked ? 0.2 + this.R_LEVEL.selectedIndex * 0.05 : 0);
+                (silvia_r && silvia_r.checked ? 0.2 + r * 0.05 : 0);
             this.movement_speed = 
                 round((this.character.Move_Speed + move_bonus + 
                     (1 + this.MOVE_MASTERY.selectedIndex) * 0.01 + 
@@ -843,6 +848,7 @@ class Character {
             this.heal_reduction = '';
 
             this.attack_power = '';
+            this.calc_attack_power = '';
             this.ATTACK_POWER.innerText = '';
 
             this.attack_speed = '';		
@@ -863,6 +869,8 @@ class Character {
                 
             this.skill_amplification = '';
             this.skill_amplification_percent = '';
+            this.calc_skill_amplification = '';
+            this.calc_skill_amplification_percent = '';
             this.SKILL_AMPLIFICATION.innerText = '| %';
 
             this.cooldown_reduction = '';
@@ -877,6 +885,8 @@ class Character {
             this.SKILL_DAMAGE_REDUCTION.innerText = '| %';
 
             this.defense = '';
+            this.pure_defense = '';
+            this.calc_defense = '';
             this.DEFENSE.innerText = '';
 
             this.max_hp = '';

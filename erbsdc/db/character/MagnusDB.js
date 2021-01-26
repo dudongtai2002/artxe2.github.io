@@ -52,8 +52,8 @@ const Magnus = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const damage = calcSkillDamage(character, enemy, 40 + q * 60, 0.6, 1);
             const cool = 10000 / ((18 - q * 2) * (100 - character.cooldown_reduction) + 80);
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -62,8 +62,8 @@ const Magnus = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, (1.5 + w * 0.5 | 0) * 10 + character.defense * 0.3, 0.3, 1);
             const cool = 10000 / (10 * (100 - character.cooldown_reduction) + 400);
             return "<b class='damage'>" + damage * (6 + w * 0.5 | 0) + '</b> ( ' + damage + ' x ' + (6 + w * 0.5 | 0) + " )<b> __sd/s: </b><b class='damage'>" + round((damage * (6 + w * 0.5 | 0)) * cool) / 100 + '</b>';
@@ -72,8 +72,8 @@ const Magnus = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             const damage = calcSkillDamage(character, enemy, 60 + e * 55, 0.4, 1);
             const cool = 10000 / ((12 - e * 1) * (100 - character.cooldown_reduction) + 20);
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -82,8 +82,10 @@ const Magnus = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            return "<b class='damage'>" + calcSkillDamage(character, enemy, 200 + character.R_LEVEL.selectedIndex * 200, 2, 1) + '</b>';
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
+            const damage = calcSkillDamage(character, enemy, 200 + r * 200, 2, 1);
+            return "<b class='damage'>" + damage + '</b>';
         }
         return '-';
     }
@@ -138,10 +140,10 @@ const Magnus = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
@@ -161,14 +163,22 @@ const Magnus = {
                 } else if (c === 'A') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                 } else if (c === 'q' || c === 'Q') {
-                    damage += calcSkillDamage(character, enemy, 40 + q * 60, 0.6, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 40 + q * 60, 0.6, 1);
+                    }
                 } else if (c === 'w' || c === 'W') {
-                    damage += calcSkillDamage(character, enemy, (1.5 + w * 0.5 | 0) * 10 + character.defense * 0.3, 0.3, 1) * 
-                        (6 + w * 0.5 | 0);
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, (1.5 + w * 0.5 | 0) * 10 + character.defense * 0.3, 0.3, 1) * 
+                            (6 + w * 0.5 | 0);
+                    }
                 } else if (c === 'e' || c === 'E') {
-                    damage += calcSkillDamage(character, enemy, 60 + e * 55, 0.4, 1);
+                    if (e >= 0) {
+                        damage += calcSkillDamage(character, enemy, 60 + e * 55, 0.4, 1);
+                    }
                 } else if (c === 'r' || c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 200 + r * 200, 2, 1);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 200 + r * 200, 2, 1);
+                    }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Hammer') {

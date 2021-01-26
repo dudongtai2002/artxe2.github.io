@@ -71,8 +71,8 @@ const Isol = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const stack = parseInt(character.DIV.querySelector('.isol_q').value);
             const min = calcSkillDamage(character, enemy, 50 + q * 25, 0.5, 1);
             const max = calcSkillDamage(character, enemy, 50 + q * 25 + (8 + q * 4) * stack, 0.5 + stack * 0.3, 1);
@@ -83,8 +83,8 @@ const Isol = {
     }
     ,Q_Option: "<span> </span><input type='number' class='stack isol_q' value='0' onchange='fixLimitNum(this, 10)'><b>Stack</b>"
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 18 + w * 9, 0.5, 1);
             const cool = 10000 / ((16 - w * 1.5) * (100 - character.cooldown_reduction) + 200);
             return "<b class='damage'>" + damage * 4 + '</b> ( ' + damage + " x 4 )<b> __sd/s: </b><b class='damage'>" + round((damage * 4) * cool) / 100 + '</b>';
@@ -97,8 +97,8 @@ const Isol = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             const damage = (100 + r * 50 + character.attack_power * 0.3) * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
             const cool = 10000 / ((30 - r * 5) * (100 - character.cooldown_reduction) + 54);
             return "<b class='damage'>" + damage + "</b><b> __d/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -164,9 +164,9 @@ const Isol = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             let damage = 0, c;
             let qq = 0, pp = false;
@@ -207,24 +207,29 @@ const Isol = {
                         damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                     }
                 } else if (c === 'q' || c === 'Q') {
-                    if (qq) {
-                        qq--;
-                        damage += calcSkillDamage(character, enemy, 50 + q * 25 + (8 + q * 4) * (qq - 1), 0.5 + (qq - 1) * 0.3, 1);
-                        qq = 0;
-                    } else {
-                        qq = 1;
+                    if (q >= 0) {
+                        if (qq) {
+                            damage += calcSkillDamage(character, enemy, 50 + q * 25 + (8 + q * 4) * (qq - 1), 0.5 + (qq - 1) * 0.3, 1);
+                            qq = 0;
+                        } else {
+                            qq = 1;
+                        }
                     }
                 } else if (c === 'w' || c === 'W') {
-                    if (qq) {
-                        qq += 4;
+                    if (w >= 0) {
+                        if (qq) {
+                            qq += 4;
+                        }
+                        damage += calcSkillDamage(character, enemy, 18 + w * 9, 0.5, 1) * 4;
                     }
-                    damage += calcSkillDamage(character, enemy, 18 + w * 9, 0.5, 1) * 4;
                 } else if (c === 'r' || c === 'R') {
-                    if (!pp && enemy.defense) {
-                        pp = true;
-                        enemy.defense = enemy.calc_defense * (1 - (0.05 + t * 0.1)) | 0;
+                    if (r >= 0) {
+                        if (!pp && enemy.defense) {
+                            pp = true;
+                            enemy.defense = enemy.calc_defense * (1 - (0.05 + t * 0.1)) | 0;
+                        }
+                        damage += (100 + r * 50 + character.attack_power * 0.3) * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
                     }
-                    damage += (100 + r * 50 + character.attack_power * 0.3) * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
                 } else if (c === 'p' || c === 'P') {
                     if (character.trap) {
                         if (!pp && enemy.defense) {

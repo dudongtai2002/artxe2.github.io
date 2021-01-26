@@ -58,8 +58,8 @@ const Nadine = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const stack = parseInt(character.DIV.querySelector('.nadine_t').value);
             const min = calcSkillDamage(character, enemy, 70 + q * 45 + stack, 0.6, 1);
             const max = calcSkillDamage(character, enemy, 140 + q * 90 + stack, 1.2, 1);
@@ -70,8 +70,8 @@ const Nadine = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 100 + w * 70, 0.6, 1);
             const damage2 = calcSkillDamage(character, enemy, 100 + w * 40, 0.6, 1);
             return "<b class='damage'>" + (damage1 * 2 + damage2) + '</b> ( ' + damage1 + ', ' + damage1 + ", <b class='damage'>" +  + damage2 + '</b> )';
@@ -84,8 +84,11 @@ const Nadine = {
     }
     ,E_Option: "<b> _use</b><input type='checkbox' class='nadine_e' onchange='updateDisplay()'>"
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            return "<b class='damage'>" + calcSkillDamage(character, enemy, 50 + character.R_LEVEL.selectedIndex * 50 + parseInt(character.DIV.querySelector('.nadine_t').value), 0.5, 1) + '</b>';
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
+            const stack = parseInt(character.DIV.querySelector('.nadine_t').value);
+            const damage = calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
+            return "<b class='damage'>" + damage + '</b>';
         }
         return '-';
     }
@@ -143,9 +146,9 @@ const Nadine = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
             const stack = parseInt(character.DIV.querySelector('.nadine_t').value);
@@ -155,33 +158,47 @@ const Nadine = {
                 c = combo.charAt(i);
                 if (c === 'a') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 0, 1);
-                    if (rr === 3) {
-                        rr = 1;
-                        damage += calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
-                    } else if (rr) {
-                        rr++;
+                    if (r >= 0) {
+                        if (rr === 3) {
+                            rr = 1;
+                            damage += calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
+                        } else if (rr) {
+                            rr++;
+                        }
                     }
                 } else if (c === 'A') {
-                    damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
-                    if (rr === 3) {
-                        rr = 1;
-                        damage += calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
-                    } else if (rr) {
-                        rr++;
+                    damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);;
+                    if (r >= 0) {
+                        if (rr === 3) {
+                            rr = 1;
+                            damage += calcSkillDamage(character, enemy, 50 + r * 50 + stack, 0.5, 1);
+                        } else if (rr) {
+                            rr++;
+                        }
                     }
-                } else if (c === 'q') {
-                    damage += calcSkillDamage(character, enemy, 70 + q * 45 + stack, 0.6, 1)
-                } else if (c === 'Q') {
-                    damage += calcSkillDamage(character, enemy, 140 + q * 90 + stack, 1.2, 1);
-                } else if (c === 'w') {
-                    damage += calcSkillDamage(character, enemy, 100 + w * 40, 0.6, 1);
-                } else if (c === 'W') {
-                    damage += calcSkillDamage(character, enemy, 100 + w * 70, 0.6, 1);
-                } else if (c === 'r' || c === 'R') {
-                    if (rr) {
-                        rr = 0;
-                    } else {
-                        rr = 3;
+                } else if (c === 'q') {;
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 70 + q * 45 + stack, 0.6, 1)
+                    }
+                } else if (c === 'Q') {;
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 140 + q * 90 + stack, 1.2, 1);
+                    }
+                } else if (c === 'w') {;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 100 + w * 40, 0.6, 1);
+                    }
+                } else if (c === 'W') {;
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 100 + w * 70, 0.6, 1);
+                    }
+                } else if (c === 'r' || c === 'R') {;
+                    if (r >= 0) {
+                        if (rr) {
+                            rr = 0;
+                        } else {
+                            rr = 3;
+                        }
                     }
                 } else if (c === 'd') {
                     if (wm > 5) {

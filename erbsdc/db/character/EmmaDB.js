@@ -48,8 +48,8 @@ const Emma = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const damage = calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
             const heal = calcHeal((60 + q * 10) * (0.08 + character.E_LEVEL.selectedIndex * 0.03), 1, enemy);
             const cool = 10000 / (5.5 * (100 - character.cooldown_reduction) + 13);
@@ -59,8 +59,8 @@ const Emma = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 100 + w * 50, 0.75, 1);
             const heal = calcHeal((60 + w * 10) * (0.08 + character.E_LEVEL.selectedIndex * 0.03), 1, enemy);
             const cool = 10000 / ((12 - w * 1) * (100 - character.cooldown_reduction) - 279);
@@ -70,8 +70,8 @@ const Emma = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             const heal = calcHeal((70 + e * 10) * (0.08 + e * 0.03), 1, enemy);
             return "<b> _h: </b><b class='heal'>" + heal + '</b>'
         }
@@ -79,8 +79,8 @@ const Emma = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             const min = calcSkillDamage(character, enemy, 150 + r * 50, 0.45, 1);
             const max = calcSkillDamage(character, enemy, 200 + r * 50, 0.75, 1);
             const heal = calcHeal(8 + r * 3, 1, enemy);
@@ -146,9 +146,9 @@ const Emma = {
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
             const type = character.weapon.Type;
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
             let damage = 0, c;
@@ -160,15 +160,25 @@ const Emma = {
                 } else if (c === 'A') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                 } else if (c === 'q') {
-                    damage += calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
+                    }
                 } else if (c === 'Q') {
-                    damage += calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1) * 2;
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1) * 2;
+                    }
                 } else if (c === 'w' || c === 'W') {
-                    damage += calcSkillDamage(character, enemy, 100 + w * 50, 0.75, 1);
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 100 + w * 50, 0.75, 1);
+                    }
                 } else if (c === 'r') {
-                    damage += calcSkillDamage(character, enemy, 150 + r * 50, 0.45, 1);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 150 + r * 50, 0.45, 1);
+                    }
                 } else if (c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 200 + r * 50, 0.75, 1);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 200 + r * 50, 0.75, 1);
+                    }
                 } else if (c === 'd') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {

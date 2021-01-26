@@ -53,8 +53,8 @@ const Silvia = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             let damage, cool;
             if (character.DIV.querySelector('.silvia_r').checked) {
                 damage = calcSkillDamage(character, enemy, 40 + q * 60, 0.6, 1);
@@ -75,8 +75,8 @@ const Silvia = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             let damage, cool;
             if (character.DIV.querySelector('.silvia_r').checked) {
                 damage = calcSkillDamage(character, enemy, 90 + w * 40, 0.6, 1);
@@ -91,8 +91,8 @@ const Silvia = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             let min, max, cool;
             if (character.DIV.querySelector('.silvia_r').checked) {
                 const move = character.movement_speed + character.out_of_combat_movement_speed;
@@ -110,9 +110,9 @@ const Silvia = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             if (character.DIV.querySelector('.silvia_r').checked) {
-                const r = character.R_LEVEL.selectedIndex;
                 const damage = baseAttackDamage(character, enemy, 0, 1.25 + r * 0.25, character.critical_strike_chance, 1);
                 const min = baseAttackDamage(character, enemy, 0, 1.25 + r * 0.25, 0, 1);
                 const max = baseAttackDamage(character, enemy, 0, 1.25 + r * 0.25, 100, 1);
@@ -120,11 +120,12 @@ const Silvia = {
             }
             return '-';
         }
-        return '';
+        return '-';
     }
     ,R_Option: "<b> _use</b><input type='checkbox' class='silvia_r' onchange='updateDisplay()'>"
     ,D_Skill: (character, enemy) => {
-        if (character.weapon && character.WEAPON_MASTERY.selectedIndex > 5) {
+        const wm = character.WEAPON_MASTERY.selectedIndex;
+        if (character.weapon && wm > 5) {
             const type = character.weapon.Type;
             if (type === 'Pistol') {
                 return '-';
@@ -178,10 +179,10 @@ const Silvia = {
     }
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             let damage = 0, c;
             let rr = 1;
             const combo = character.COMBO_OPTION.value;
@@ -202,36 +203,46 @@ const Silvia = {
                         damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                     }
                 } else if (c === 'q' || c === 'Q') {
-                    if (rr) {
-                        damage += calcSkillDamage(character, enemy, 30 + q * 35, 0.4, 1);
-                    } else {
-                        damage += calcSkillDamage(character, enemy, 40 + q * 60, 0.6, 1);
+                    if (q >= 0) {
+                        if (rr) {
+                            damage += calcSkillDamage(character, enemy, 30 + q * 35, 0.4, 1);
+                        } else {
+                            damage += calcSkillDamage(character, enemy, 40 + q * 60, 0.6, 1);
+                        }
                     }
                 } else if (c === 'w' || c === 'W') {
-                    if (rr) {
-                        damage += calcSkillDamage(character, enemy, 40 + w * 20, 0.3, 1);
-                    } else {
-                        damage += calcSkillDamage(character, enemy, 90 + w * 40, 0.6, 1);
+                    if (w >= 0) {
+                        if (rr) {
+                            damage += calcSkillDamage(character, enemy, 40 + w * 20, 0.3, 1);
+                        } else {
+                            damage += calcSkillDamage(character, enemy, 90 + w * 40, 0.6, 1);
+                        }
                     }
                 } else if (c === 'e') {
-                    if (rr) {
-                        damage += calcSkillDamage(character, enemy, 80 + e * 20, 0.5, 1);
-                    } else {
-                        const move = character.movement_speed + character.out_of_combat_movement_speed;
-                        damage += calcSkillDamage(character, enemy, 40 + e * 25 + move / 17 * 2 * (6 + e * 4), 0.6, 1);
+                    if (e >= 0) {
+                        if (rr) {
+                            damage += calcSkillDamage(character, enemy, 80 + e * 20, 0.5, 1);
+                        } else {
+                            const move = character.movement_speed + character.out_of_combat_movement_speed;
+                            damage += calcSkillDamage(character, enemy, 40 + e * 25 + move / 17 * 2 * (6 + e * 4), 0.6, 1);
+                        }
                     }
                 } else if (c === 'E') {
-                    if (rr) {
-                        damage += calcSkillDamage(character, enemy, 154 + e * 33, 1.32, 1);
-                    } else {
-                        const move = character.movement_speed + character.out_of_combat_movement_speed;
-                        damage += calcSkillDamage(character, enemy, 40 + e * 25 + move * (6 + e * 4), 0.6, 1);
+                    if (e >= 0) {
+                        if (rr) {
+                            damage += calcSkillDamage(character, enemy, 154 + e * 33, 1.32, 1);
+                        } else {
+                            const move = character.movement_speed + character.out_of_combat_movement_speed;
+                            damage += calcSkillDamage(character, enemy, 40 + e * 25 + move * (6 + e * 4), 0.6, 1);
+                        }
                     }
                 } else if (c === 'r' || c === 'R') {
-                    if (rr) {
-                        rr = 0;
-                    } else {
-                        rr = 2;
+                    if (r >= 0) {
+                        if (rr) {
+                            rr = 0;
+                        } else {
+                            rr = 2;
+                        }
                     }
                 } else if (c === 'p' || c === 'P') {
                     if (character.trap) {

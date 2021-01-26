@@ -52,8 +52,8 @@ const Rozzi = {
             (character.food ? character.food.HP_Regen / 30 : 0), 2, enemy) + '</b>';
     }
     ,Q_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
+        const q = character.Q_LEVEL.selectedIndex - 1;
+        if (character.weapon && q >= 0) {
             const damage = calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
             const cool = 10000 / (6 * (100 - character.cooldown_reduction) - 200);
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -62,8 +62,8 @@ const Rozzi = {
     }
     ,Q_Option: ''
     ,W_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const w = character.W_LEVEL.selectedIndex;
+        const w = character.W_LEVEL.selectedIndex - 1;
+        if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 70 + w * 40, 0.35, 1);
             const cool = 10000 / ((9 - w * 0.5) * (100 - character.cooldown_reduction) + 30);
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
@@ -72,8 +72,8 @@ const Rozzi = {
     }
     ,W_Option: ''
     ,E_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const e = character.E_LEVEL.selectedIndex;
+        const e = character.E_LEVEL.selectedIndex - 1;
+        if (character.weapon && e >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 50 + e * 20, 0.4, 1);
             const damage2 = calcSkillDamage(character, enemy, 50 + e * 20, 0.45, 1);
             const cool = 10000 / ((18 - e * 2) * (100 - character.cooldown_reduction) + 50);
@@ -83,8 +83,8 @@ const Rozzi = {
     }
     ,E_Option: ''
     ,R_Skill: (character, enemy) => {
-        if (character.weapon) {
-            const r = character.R_LEVEL.selectedIndex;
+        const r = character.R_LEVEL.selectedIndex - 1;
+        if (character.weapon && r >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1);
             const damage2 = calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.04 + r * 0.04) : 0);
             return "<b class='damage'>" + damage1 + ' - ' + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + ' )';
@@ -147,10 +147,10 @@ const Rozzi = {
     }
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
-            const q = character.Q_LEVEL.selectedIndex;
-            const w = character.W_LEVEL.selectedIndex;
-            const e = character.E_LEVEL.selectedIndex;
-            const r = character.R_LEVEL.selectedIndex;
+            const q = character.Q_LEVEL.selectedIndex - 1;
+            const w = character.W_LEVEL.selectedIndex - 1;
+            const e = character.E_LEVEL.selectedIndex - 1;
+            const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             let damage = 0, c;
             const coe = 0.6 + t * 0.1;
@@ -163,22 +163,32 @@ const Rozzi = {
                 } else if (c === 'A') {
                     damage += baseAttackDamage(character, enemy, 0, 1, 100, 1);
                 } else if (c === 'q' || c === 'Q') {
-                    damage += calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
+                    if (q >= 0) {
+                        damage += calcSkillDamage(character, enemy, 40 + q * 40, 0.3, 1);
+                    }
                 } else if (c === 'w' || c === 'W') {
-                    damage += calcSkillDamage(character, enemy, 70 + w * 40, 0.35, 1);
+                    if (w >= 0) {
+                        damage += calcSkillDamage(character, enemy, 70 + w * 40, 0.35, 1);
+                    }
                 } else if (c === 'e' || c === 'E') {
-                    if (ee) {
-                        ee = false;
-                        damage += calcSkillDamage(character, enemy, 50 + e * 20, 0.4, 1);
-                    } else {
-                        ee = true;
-                        damage += calcSkillDamage(character, enemy, 50 + e * 20, 0.45, 1);
+                    if (e >= 0) {
+                        if (ee) {
+                            ee = false;
+                            damage += calcSkillDamage(character, enemy, 50 + e * 20, 0.4, 1);
+                        } else {
+                            ee = true;
+                            damage += calcSkillDamage(character, enemy, 50 + e * 20, 0.45, 1);
+                        }
                     }
                 } else if (c === 'r') {
-                    damage += calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1);
+                    }
                 } else if (c === 'R') {
-                    damage += calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1) + 
-                        calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.04 + r * 0.04) : 0);
+                    if (r >= 0) {
+                        damage += calcSkillDamage(character, enemy, 100 + r * 100, 0.45, 1) + 
+                            calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * (0.04 + r * 0.04) : 0);
+                    }
                 } else if (c === 't') {
                     damage += baseAttackDamage(character, enemy, 0, 0.7, 0, 1) + 
                         baseAttackDamage(character, enemy, 0, coe, 0, 1);
