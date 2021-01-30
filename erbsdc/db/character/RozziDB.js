@@ -8,7 +8,7 @@ const Rozzi = {
     ,Stamina: 440
     ,Stamina_Growth: 22
     ,Stamina_Regen: 2.1
-    ,Stamina_Regen_Growth: 0.02
+    ,Stamina_Regen_Growth: 0.03
     ,Defense: 20
     ,Defense_Growth: 1.4
     ,Atk_Speed: 0.11
