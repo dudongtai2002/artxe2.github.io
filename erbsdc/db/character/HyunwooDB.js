@@ -155,7 +155,7 @@ const Hyunwoo = {
             const wm = character.WEAPON_MASTERY.selectedIndex;
             const et = enemy.T_LEVEL.selectedIndex;
             const time = character.DIV.querySelector('.combo_time').value;
-            let damage = 0, life = 0, heal = calcHeal(character.max_hp * (0.07 + t * 0.04), 1, enemy), shield = 0, c;
+            let damage = 0, life = calcHeal(character.max_hp * (0.07 + t * 0.04), heal = 0, 1, enemy), shield = 0, c;
             let ww = false, ee = false;
 
             const defense = character.defense;
