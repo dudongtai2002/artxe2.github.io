@@ -148,12 +148,12 @@ const Jackie = {
                     const w = character.W_LEVEL.selectedIndex - 1;
                     if (character.DIV.querySelector('.jackie_w').checked && w >= 0) {
                         damage = baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 100, 1);
-                        heal = calcHeal((damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) | 0) * (character.life_steal / 100) + 12 + w * 7 + character.attack_power * 0.1, 1, enemy);
+                        heal = calcHeal((damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) + 0.0001 | 0) * (character.life_steal / 100) + 12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                     } else {
                         damage = baseAttackDamage(character, enemy, 0, 1, 100, 1);
-                        heal = calcHeal((damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) | 0) * (character.life_steal / 100), 1, enemy);
+                        heal = calcHeal((damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) + 0.0001 | 0) * (character.life_steal / 100), 1, enemy);
                     }
-                    return "<b class='damage'>" + damage + ' ~ ' + (damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) | 0) + "</b><b> __h: </b><b class='heal'>" + heal + '</b>';
+                    return "<b class='damage'>" + damage + ' ~ ' + (damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) + 0.0001 | 0) + "</b><b> __h: </b><b class='heal'>" + heal + '</b>';
                 }
                 if (type === 'TwoHandedSword') {
                     const w = character.W_LEVEL.selectedIndex - 1;
@@ -249,7 +249,9 @@ const Jackie = {
             const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
-            let damage = 0, c;
+            const et = enemy.T_LEVEL.selectedIndex;
+            const time = character.DIV.querySelector('.combo_time').value;
+            let damage = 0, life = 0, heal = 0, shield = 0, c;
             const jackie_tw = [0.03, 0.08, 0.15];
             const jackie_ts = [0.05, 0.12, 0.25];
             let ap = 1, ba, qq = false, ww = false, rr = 0, tt = false, ttt = false, dd = false, stack = 0;
@@ -260,16 +262,38 @@ const Jackie = {
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
                 c = combo.charAt(i);
-                if (c === 'a') {
+                if (c === 'a' || c === 'A') {
                     if ((qq || rr > 1) && ww && w >= 0) {
-                        ba = baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 0, 1);
+                        ba = baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, c === 'a' ? 0 : 100, 1);
+                        life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                     } else {
-                        ba = baseAttackDamage(character, enemy, 0, 1, 0, 1);
+                        ba = baseAttackDamage(character, enemy, 0, 1, c === 'a' ? 0 : 100, 1);
+                    }
+                    damage += ba;
+                    life += calcHeal(
+                        ba
+                     * (character.life_steal / 100), 1, enemy);
+                    if (r >= 0) {
+                        if (rr === 1) {
+                            rr = 2;
+                        }
                     }
                     if (character.weapon.Type === 'DualSwords') {
-                        damage += ba * 2;
-                    } else {
+                        if ((qq || rr > 1) && ww && w >= 0) {
+                            ba = baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, c === 'a' ? 0 : 100, 1);
+                            life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy);
+                        } else {
+                            ba = baseAttackDamage(character, enemy, 0, 1, c === 'a' ? 0 : 100, 1);
+                        }
                         damage += ba;
+                        life += calcHeal(
+                            ba
+                         * (character.life_steal / 100), 1, enemy);
+                        if (r >= 0) {
+                            if (rr === 1) {
+                                rr = 2;
+                            }
+                        }
                     }
                     if (stack < 5 && type === 'Axe') {
                         stack++;
@@ -278,44 +302,16 @@ const Jackie = {
                         (ttt ? jackie_ts[ t ] : 0) + 
                         stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02);
                         character.attack_power = character.calc_attack_power * ap | 0;
-                    }
-                    if (r >= 0) {
-                        if (rr === 1) {
-                            rr = 2;
-                        }
-                    }
-                } else if (c === 'A') {
-                    if ((qq || rr > 1) && ww && w >= 0) {
-                        ba = baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 100, 1);
-                    } else {
-                        ba = baseAttackDamage(character, enemy, 0, 1, 100, 1);
-                    }
-                    if (character.weapon.Type === 'DualSwords') {
-                        damage += ba * 2;
-                    } else {
-                        damage += ba;
-                    }
-                    if (stack < 5 && type === 'Axe') {
-                        stack++;
-                        ap = 1 + 
-                        (tt ? jackie_tw[ t ] : 0) + 
-                        (ttt ? jackie_ts[ t ] : 0) + 
-                        stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02);
-                        character.attack_power = character.calc_attack_power * ap | 0;
-                    }
-                    if (r >= 0) {
-                        if (rr === 1) {
-                            rr = 2;
-                        }
                     }
                 } else if (c === 'q') {
                     if (q >= 0) {
                         if ((qq || rr > 1) && ww && w >= 0) {
                             damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45 + 0.1 + w * 0.025, 1) + 
-                                calcTrueDamage(character, enemy, 16 + q * 6) * 5
+                                calcTrueDamage(character, enemy, 16 + q * 6) * 5;
+                            life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                         } else {
                             damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
-                                calcTrueDamage(character, enemy, 16 + q * 6) * 5
+                                calcTrueDamage(character, enemy, 16 + q * 6) * 5;
                         }
                         qq = true;
                     }
@@ -325,16 +321,18 @@ const Jackie = {
                             if (qq || rr > 1) {
                                 damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45 + 0.1 + w * 0.025, 1) + 
                                     calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1) + 
-                                    calcTrueDamage(character, enemy, 16 + q * 6) * 5
+                                    calcTrueDamage(character, enemy, 16 + q * 6) * 5;
+                                life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy) * 2;
                             } else {
                                 damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
                                     calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1) + 
-                                    calcTrueDamage(character, enemy, 16 + q * 6) * 5
+                                    calcTrueDamage(character, enemy, 16 + q * 6) * 5;
+                                life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                             }
                         } else {
                             damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
                                 calcSkillDamage(character, enemy, 30 + q * 25, 0.65, 1) + 
-                                calcTrueDamage(character, enemy, 16 + q * 6) * 5
+                                calcTrueDamage(character, enemy, 16 + q * 6) * 5;
                         }
                         qq = true;
                     }
@@ -346,6 +344,7 @@ const Jackie = {
                     if (e >= 0) {
                         if ((qq || rr > 1) && ww && w >= 0) {
                             damage += calcSkillDamage(character, enemy, 10 + e * 60, 0.3 + e * 0.1 + 0.1 + w * 0.025, 1);
+                            life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                         } else {
                             damage += calcSkillDamage(character, enemy, 10 + e * 60, 0.3 + e * 0.1, 1);
                         }
@@ -376,12 +375,14 @@ const Jackie = {
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Dagger') {
-                            const lost = enemy.max_hp ? damage - calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
-                                (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * character.DIV.querySelector('.combo_time').value * (i / combo.length) : 0;
+                            let currHp = enemy.max_hp ? enemy.max_hp - damage + heal + shield : 0;
+                            if (currHp > enemy.max_hp) {
+                                currHp = enemy.max_hp;
+                            }
                             if ((qq || rr > 1) && ww) {
-                                damage += baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 100, 1) + (enemy.max_hp ? (enemy.max_hp - lost) / 10 : 0) | 0;
+                                damage += baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 100, 1) + (enemy.max_hp ? currHp / 10 : 0) + 0.0001 | 0;
                             } else {
-                                damage += baseAttackDamage(character, enemy, 0, 1, 100, 1) + (enemy.max_hp ? (enemy.max_hp - lost) / 10 : 0) | 0;
+                                damage += baseAttackDamage(character, enemy, 0, 1, 100, 1) + (enemy.max_hp ? currHp / 10 : 0) + 0.0001 | 0;
                             }
                         } else if (type === 'TwoHandedSword') {
                             if ((qq || rr > 1) && ww) {
@@ -409,14 +410,56 @@ const Jackie = {
                         damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
                     }
                 }
+                if (enemy.character) {
+                    if (enemy.character === Aya) {
+                        const cool = 30 * (100 - enemy.cooldown_reduction) / 100;
+                        let as;
+                        if (enemy.weapon) {
+                            if (enemy.weapon.Type === 'AssaultRifle') {
+                                as = 10 / (9.5 / enemy.attack_speed + 2) * 6;
+                            } else {
+                                as = enemy.weapon.Ammo / ((enemy.weapon.Ammo - 1) / enemy.attack_speed + 2) * 2;
+                            }
+                        } else {
+                            as = 1;
+                        }
+                        if (i === 0 || (as * (time * i / combo.length) / cool | 0) > (as * (time * (i - 1) / combo.length) / cool | 0)) {
+                            shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
+                        }
+                    } else if (enemy.character === Emma) {
+                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
+                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                        }
+                    } else if (enemy.character === Lenox) {
+                        const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;
+                        if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
+                            shield += enemy.max_hp * 0.1 + 0.0001 | 0;
+                        }
+                    } else if (enemy.character === Sissela) {
+                        let  lost = damage > heal ? 100 - (enemy.max_hp - damage + heal) / enemy.max_hp * 100 | 0 : 0;
+                        if (lost > 100) {
+                            lost = 100;
+                        }
+                        heal += calcHeal(lost < 10 ? 0 : 
+                            (lost >= 90 ? 26 + et * 10 : 2 + et * 2 + (3 + et) * ((lost / 10 | 0) - 1)) * (enemy.DIV.querySelector('.sissela_r').checked ? 2 : 1), 1, enemy)
+                         * time / combo.length;
+                    }
+                    heal += calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * time / combo.length;
+                }
             }
 
             character.attack_power = attack_power;
 
-            const heal = enemy.hp_regen ? calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
-                (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) : 0;
-            const percent = (enemy.max_hp ? ((damage - character.DIV.querySelector('.combo_time').value * heal) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            return "<b class='damage'>" + damage + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + '%</b>';
+            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
+            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            if (shield) {
+                return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
+            }
+            if (heal) {
+                return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
+            }
+            return "<b class='damage'>" + damage + "</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
         }
         return '-';
     }

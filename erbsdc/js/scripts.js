@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
             setCookie('preset' + i, JSON.stringify(basePreset[i]), 7);
         }
     }
-    characters[0].setPreset(decodeURIComponent(getCookie('preset0')));
-    characters[1].setPreset(decodeURIComponent(getCookie('preset0')));
+    characters[0].setPreset(JSON.parse(decodeURIComponent(getCookie('preset0'))));
+    characters[1].setPreset(JSON.parse(decodeURIComponent(getCookie('preset0'))));
 });
 
 function baseAttackDamage(character, enemy, base, coe, cri, onhit) {
@@ -35,15 +35,15 @@ function baseAttackDamage(character, enemy, base, coe, cri, onhit) {
         (character.extra_normal_attack_damage - (!enemy.normal_attack_damage_reduction ? 0 : enemy.normal_attack_damage_reduction)) * onhit) * 
         (1 + (character.extra_normal_attack_damage_percent - (!enemy.normal_attack_damage_reduction_percent ? 0 : enemy.normal_attack_damage_reduction_percent)) / 100)) * 
         (1 + (character.weapon ? character.character.correction[character.weapon.Type][0][character.MODE.selectedIndex] / 100 : 0)) * 
-        (1 + (enemy.weapon ? enemy.character.correction[enemy.weapon.Type][1][enemy.MODE.selectedIndex] / 100 : 0)) | 0;
+        (1 + (enemy.weapon ? enemy.character.correction[enemy.weapon.Type][1][enemy.MODE.selectedIndex] / 100 : 0)) + 0.0001 | 0;
 }
 
 function calcAttackSpeed(character, bonusAs) {
-    return character.attack_speed + (character.base_attack_speed * bonusAs | 0) / 100;
+    return character.attack_speed + (character.base_attack_speed * bonusAs + 0.0001 | 0) / 100;
 } 
 
 function calcEquip(character, name, n) {
-    let coe = 1.007 + character.CRAFT_MASTERY.selectedIndex * 0.007
+    let coe = 1.007 + character.CRAFT_MASTERY.selectedIndex * 0.007;
     if (n) {
         for (let i = 0; i < n; i++) {
             coe *= 10;
@@ -64,7 +64,9 @@ function calcEquip(character, name, n) {
 }
 
 function calcHeal(heal, ps, enemy) {
-    return round(heal * (enemy.heal_reduction ? 0.6 : 1) * ps * 100) / 100;
+    let coe = 1.007 + enemy.CRAFT_MASTERY.selectedIndex * 0.007;
+    const hr = enemy.heal_reduction ? (100 - round6(40 * coe)) / 100 : 1; 
+    return round(heal * hr * ps * 100) / 100;
 }
 
 function calcSkillDamage(character, enemy, base, coe, onhit) {	
@@ -72,13 +74,13 @@ function calcSkillDamage(character, enemy, base, coe, onhit) {
         (character.skill_amplification - (!enemy.skill_damage_reduction ? 0 : enemy.skill_damage_reduction)) * onhit) * 
         (1 + (character.skill_amplification_percent - (!enemy.skill_damage_reduction_percent ? 0 : enemy.skill_damage_reduction_percent)) / 100)) * 
         (1 + (character.weapon ? character.character.correction[character.weapon.Type][0][character.MODE.selectedIndex] / 100 : 0)) * 
-        (1 + (enemy.weapon ? enemy.character.correction[enemy.weapon.Type][1][enemy.MODE.selectedIndex] / 100 : 0)) | 0;
+        (1 + (enemy.weapon ? enemy.character.correction[enemy.weapon.Type][1][enemy.MODE.selectedIndex] / 100 : 0)) + 0.0001 | 0;
 }
 
 function calcTrueDamage(character, enemy, damage) {
     return damage * 
         (1 + (character.weapon ? character.character.correction[character.weapon.Type][0][character.MODE.selectedIndex] / 100 : 0)) * 
-        (1 + (enemy.weapon ? enemy.character.correction[enemy.weapon.Type][1][enemy.MODE.selectedIndex] / 100 : 0)) | 0;
+        (1 + (enemy.weapon ? enemy.character.correction[enemy.weapon.Type][1][enemy.MODE.selectedIndex] / 100 : 0)) + 0.0001 | 0;
 }
 
 function fixLimitNum(target, max) {

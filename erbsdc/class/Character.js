@@ -501,7 +501,6 @@ class Character {
         
         this.PRESET.addEventListener('change', (e) => {
             const preset = decodeURIComponent(getCookie('preset' + e.target.selectedIndex));
-            console.log(preset)
             if (preset) {
                 this.setPreset(JSON.parse(preset));
             } else {
@@ -537,6 +536,7 @@ class Character {
     }
 
     setPreset(preset) {
+        console.log('setPreset: ' + preset);
         this.LEVEL.selectedIndex = preset[0];
         this.WEAPON_MASTERY.selectedIndex = preset[1];
 
