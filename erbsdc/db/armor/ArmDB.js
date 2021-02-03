@@ -196,7 +196,7 @@ const Arm = [
        ,Name: "Broken_Watch"
        ,Cooldown_Reduction: 5
        ,Title: "Broken Watch\n\nCooldown Reduction +5%"
-       ,Rarity: "Epic"
+       ,Rarity: "Uncommon"
    }
     ,{
          Type: "Arm"
