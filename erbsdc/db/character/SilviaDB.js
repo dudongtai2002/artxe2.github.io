@@ -58,7 +58,7 @@ const Silvia = {
             let damage, cool;
             if (character.DIV.querySelector('.silvia_r').checked) {
                 damage = calcSkillDamage(character, enemy, 40 + q * 60, 0.6, 1);
-                cool = 10000 / ((2.5 - q * 0.25) * (100 - character.cooldown_reduction));
+                cool = 10000 / ((2.75 - q * 0.25) * (100 - character.cooldown_reduction));
                 return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
             }
             damage = calcSkillDamage(character, enemy, 30 + q * 35, 0.4, 1);
@@ -84,7 +84,7 @@ const Silvia = {
                 return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
             }
             damage = calcSkillDamage(character, enemy, 40 + w * 20, 0.3, 1);
-            cool = 10000 / (15 * (100 - character.cooldown_reduction));
+            cool = 10000 / ((15.5 - w * 0.5) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
         return '-';
@@ -282,7 +282,7 @@ const Silvia = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;
@@ -313,7 +313,7 @@ const Silvia = {
         }
         return '-';
     }
-    ,COMBO_Option: 'rEqwraqwaeadqaE'
+    ,COMBO_Option: 'rEqwraqwaeadqawE'
     ,COMBO_Help: (character) => {
         if (!character.character) {
             return 'select character plz';

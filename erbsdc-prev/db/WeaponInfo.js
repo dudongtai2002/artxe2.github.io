@@ -10,7 +10,7 @@ const WeaponInfo = {
     ,DualSwords:        [1.4, 2.8, 1.0]
     ,Pistol:            [3.0, 4.5, 2.4]
     ,AssaultRifle:      [4.0, 1.5, 2.0]
-    ,SniperRifle:       [0.0, 4.8, 2.0]
+    ,SniperRifle:       [0.0, 4.8, 2.3]
     ,Rapier:            [2.7, 4.0, 2.0]
     ,Spear:             [0.7, 4.2, 1.0]
     ,Hammer:            [0.4, 5.0, 1.5]

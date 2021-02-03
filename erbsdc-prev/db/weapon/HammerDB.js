@@ -226,7 +226,7 @@ const Hammer = [
     ,{
          Type: "Hammer"
         ,Name: "Evening_Star"
-        ,Attack_Power: 150
+        ,Attack_Power: 145
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -252,13 +252,13 @@ const Hammer = [
         ,Attack_Range: 0
         ,Base_Range: 1.25
         ,Atk_Speed: 0.455
-        ,Title: "Evening Star\n\nAttack Power +150"
+        ,Title: "Evening Star\n\nAttack Power +145"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Hammer"
         ,Name: "Magic_Stick"
-        ,Attack_Power: 65
+        ,Attack_Power: 60
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -284,7 +284,7 @@ const Hammer = [
         ,Attack_Range: 0
         ,Base_Range: 1.25
         ,Atk_Speed: 0.455
-        ,Title: "Magic Stick\n\nAttack Power +65\nLife Steal +30%\nSkill Amplification +27%"
+        ,Title: "Magic Stick\n\nAttack Power +60\nLife Steal +30%\nSkill Amplification +27%"
         ,Rarity: "Epic"
     }
 ];

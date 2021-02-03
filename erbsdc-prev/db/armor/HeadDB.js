@@ -531,7 +531,7 @@ const Head = [
          Type: "Head"
         ,Name: "Tactical_OPS_Helmet"
         ,Attack_Power: 0
-        ,Attack_Speed: 20
+        ,Attack_Speed: 23
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -557,7 +557,7 @@ const Head = [
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 10
-        ,Title: "Tactical OPS Helmet\n\nDefense +15\nMax HP +120\nAttack Speed +20%\nCritical Damage Reduction +10%\nCooldown Reduction +15%"
+        ,Title: "Tactical OPS Helmet\n\nDefense +15\nMax HP +120\nAttack Speed +23%\nCritical Damage Reduction +10%\nCooldown Reduction +15%"
         ,Rarity: "Epic"
     }
     ,{
@@ -577,7 +577,7 @@ const Head = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 11
-        ,Defense: 24
+        ,Defense: 28
         ,Max_HP: 0
         ,Max_SP: 200
         ,HP_Regen: 0
@@ -590,7 +590,7 @@ const Head = [
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 10
-        ,Title: "Helm of Banneret\n\nDefense +24\nMax SP +200\nMovement Speed +0.1\nCritical Damage Reduction +10%\nCooldown Reduction +10%\nSkill Damage Reduction +11%"
+        ,Title: "Helm of Banneret\n\nDefense +28\nMax SP +200\nMovement Speed +0.1\nCritical Damage Reduction +10%\nCooldown Reduction +10%\nSkill Damage Reduction +11%"
         ,Rarity: "Epic"
     }
     ,{

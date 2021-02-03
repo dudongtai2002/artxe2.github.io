@@ -354,7 +354,7 @@ const Spear = [
     ,{
          Type: "Spear"
         ,Name: "Dragon_Guandao"
-        ,Attack_Power: 110
+        ,Attack_Power: 115
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -380,7 +380,7 @@ const Spear = [
         ,Attack_Range: 0
         ,Base_Range: 2.15
         ,Atk_Speed: 0.445
-        ,Title: "Dragon Guandao\n\nAttack Power +110\nMax HP +300\nMovement Speed -0.05"
+        ,Title: "Dragon Guandao\n\nAttack Power +115\nMax HP +300\nMovement Speed -0.05"
         ,Rarity: "Epic"
     }
     ,{

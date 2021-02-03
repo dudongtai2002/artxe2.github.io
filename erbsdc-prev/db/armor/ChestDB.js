@@ -1072,7 +1072,7 @@ const Chest = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 45
+        ,Defense: 37
         ,Max_HP: 0
         ,Max_SP: 0
         ,HP_Regen: 3
@@ -1084,7 +1084,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Queen of Hearts\n\nDefense +45\nHP Regen +3\nCooldown Reduction +25%"
+        ,Title: "Queen of Hearts\n\nDefense +37\nHP Regen +3\nCooldown Reduction +25%"
         ,Rarity: "Legendary"
     }
 ];

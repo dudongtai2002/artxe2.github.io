@@ -324,7 +324,7 @@ const TwoHandedSword = [
          Type: "TwoHandedSword"
         ,Name: "Excalibur"
         ,Attack_Power: 60
-        ,Attack_Speed: 0
+        ,Attack_Speed: 10
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -338,7 +338,7 @@ const TwoHandedSword = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
-        ,Max_HP: 400
+        ,Max_HP: 360
         ,Max_SP: 0
         ,HP_Regen: 0
         ,HP_Regen_Percent: 200
@@ -349,7 +349,7 @@ const TwoHandedSword = [
         ,Attack_Range: 0
         ,Base_Range: 1.5
         ,Atk_Speed: 0.56
-        ,Title: "Excalibur\n\nAttack Power +60\nMax HP +400\nHP Regen +200%"
+        ,Title: "Excalibur\n\nAttack Power +60\nAttack Speed +10%\nMax HP +360\nHP Regen +200%"
         ,Rarity: "Epic"
     }
     ,{
@@ -389,7 +389,7 @@ const TwoHandedSword = [
         ,Name: "Hovud"
         ,Attack_Power: 50
         ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 20
+        ,Critical_Strike_Chance: 25
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
@@ -413,7 +413,7 @@ const TwoHandedSword = [
         ,Attack_Range: 0
         ,Base_Range: 1.5
         ,Atk_Speed: 0.56
-        ,Title: "Hovud\n\nAttack Power +50\nMax HP +300\nCritical Strike Chance +20%"
+        ,Title: "Hovud\n\nAttack Power +50\nMax HP +300\nCritical Strike Chance +25%"
         ,Rarity: "Epic"
     }
     ,{

@@ -162,7 +162,7 @@ const Crossbow = [
     ,{
          Type: "Crossbow"
         ,Name: "Heavy_Crossbow"
-        ,Attack_Power: 72
+        ,Attack_Power: 69
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -188,7 +188,7 @@ const Crossbow = [
         ,Attack_Range: 0
         ,Base_Range: 4.6
         ,Atk_Speed: 0.51
-        ,Title: "Heavy Crossbow\n\nAttack Power +72\nMovement Speed -0.1"
+        ,Title: "Heavy Crossbow\n\nAttack Power +69\nMovement Speed -0.1"
         ,Rarity: "Rare"
     }
     ,{

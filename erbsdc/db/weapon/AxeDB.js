@@ -227,7 +227,7 @@ const Axe = [
     ,{
          Type: "Axe"
         ,Name: "Beam_Axe"
-        ,Attack_Power: 137
+        ,Attack_Power: 127
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -253,7 +253,7 @@ const Axe = [
         ,Attack_Range: 0
         ,Base_Range: 1.15
         ,Atk_Speed: 0.455
-        ,Title: "Beam Axe\n\nAttack Power +137\nVision Range +4"
+        ,Title: "Beam Axe\n\nAttack Power +127\nVision Range +4"
         ,Rarity: "Epic"
     }
     ,{
@@ -291,7 +291,7 @@ const Axe = [
     ,{
          Type: "Axe"
         ,Name: "Scythe"
-        ,Attack_Power: 130
+        ,Attack_Power: 120
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -317,7 +317,7 @@ const Axe = [
         ,Attack_Range: 1
         ,Base_Range: 1.15
         ,Atk_Speed: 0.455
-        ,Title: "Scythe\n\nAttack Power +130\nAttack Range +1\nSkill Amplification +18%"
+        ,Title: "Scythe\n\nAttack Power +120\nAttack Range +1\nSkill Amplification +18%"
         ,Rarity: "Epic"
     }
     ,{

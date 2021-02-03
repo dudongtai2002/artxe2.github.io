@@ -26,7 +26,7 @@ const Nunchaku = [
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
-        ,Base_Range: 1.4
+        ,Base_Range: 1.3
         ,Atk_Speed: 0.57
         ,Title: "Steel Chain\n\nAttack Power +13"
         ,Rarity: "Common"
@@ -58,7 +58,7 @@ const Nunchaku = [
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
-        ,Base_Range: 1.4
+        ,Base_Range: 1.3
         ,Atk_Speed: 0.57
         ,Title: "Nunchaku\n\nAttack Power +29"
         ,Rarity: "Uncommon"
@@ -90,7 +90,7 @@ const Nunchaku = [
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
-        ,Base_Range: 1.4
+        ,Base_Range: 1.3
         ,Atk_Speed: 0.57
         ,Title: "Sharper\n\nAttack Power +29\nHealing Reduction (Skills) -40%"
         ,Rarity: "Rare"
@@ -122,7 +122,7 @@ const Nunchaku = [
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
-        ,Base_Range: 1.4
+        ,Base_Range: 1.3
         ,Atk_Speed: 0.57
         ,Title: "Bleeder\n\nAttack Power +38"
         ,Rarity: "Rare"
@@ -154,7 +154,7 @@ const Nunchaku = [
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
-        ,Base_Range: 1.4
+        ,Base_Range: 1.3
         ,Atk_Speed: 0.57
         ,Title: "The Smiting Dragon\n\nAttack Power +50\nSkill Amplification +17\nHealing Reduction (Skills) -40%"
         ,Rarity: "Epic"
@@ -186,7 +186,7 @@ const Nunchaku = [
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
-        ,Base_Range: 1.4
+        ,Base_Range: 1.3
         ,Atk_Speed: 0.57
         ,Title: "Vibro Nunchaku\n\nAttack Power +65\nAttack Speed +50%"
         ,Rarity: "Epic"

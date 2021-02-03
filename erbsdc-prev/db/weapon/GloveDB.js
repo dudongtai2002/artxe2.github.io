@@ -354,7 +354,7 @@ const Glove = [
     ,{
          Type: "Glove"
         ,Name: "Divine_Fist"
-        ,Attack_Power: 50
+        ,Attack_Power: 53
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -380,7 +380,7 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "Divine Fist\n\nAttack Power +50\nMovement Speed -0.05\nExtra Normal Attack Damage +33"
+        ,Title: "Divine Fist\n\nAttack Power +53\nMovement Speed -0.05\nExtra Normal Attack Damage +33"
         ,Rarity: "Epic"
     }
     ,{
@@ -418,7 +418,7 @@ const Glove = [
     ,{
          Type: "Glove"
         ,Name: "Frost_Petal_Hand"
-        ,Attack_Power: 27
+        ,Attack_Power: 30
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -444,7 +444,7 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "Frost Petal Hand\n\nAttack Power +27\nCooldown Reduction +15%\nSkill Amplification +38"
+        ,Title: "Frost Petal Hand\n\nAttack Power +30\nCooldown Reduction +15%\nSkill Amplification +38"
         ,Rarity: "Epic"
     }
     ,{

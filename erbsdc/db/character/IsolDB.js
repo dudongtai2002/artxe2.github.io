@@ -86,7 +86,7 @@ const Isol = {
         const w = character.W_LEVEL.selectedIndex - 1;
         if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 18 + w * 9, 0.5, 1);
-            const cool = 10000 / ((16 - w * 1.5) * (100 - character.cooldown_reduction) + 200);
+            const cool = 10000 / ((16 - w * 1) * (100 - character.cooldown_reduction) + 200);
             return "<b class='damage'>" + damage * 4 + '</b> ( ' + damage + " x 4 )<b> __sd/s: </b><b class='damage'>" + round((damage * 4) * cool) / 100 + '</b>';
         }
         return '-';
@@ -272,7 +272,7 @@ const Isol = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;

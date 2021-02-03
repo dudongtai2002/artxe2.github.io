@@ -103,7 +103,7 @@ const DualSwords = [
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
+        ,Extra_Normal_Attack_Damage: 8
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
@@ -124,7 +124,7 @@ const DualSwords = [
         ,Attack_Range: 0
         ,Base_Range: 1.05
         ,Atk_Speed: 0.47
-        ,Title: "Starsteel Twin Swords\n\nAttack Power +60\nAttack Speed +50%"
+        ,Title: "Starsteel Twin Swords\n\nAttack Power +60\nAttack Speed +50%\nExtra Normal Attack Damage +8"
         ,Rarity: "Epic"
     }
     ,{

@@ -38,8 +38,7 @@ const Fiora = {
             const min = baseAttackDamage(character, enemy, 0, 1, 0, 1);
             const max = baseAttackDamage(character, enemy, 0, 1, 100, 1);
             if (character.DIV.querySelector('.fiora_r').checked && r >= 0) {
-                const r = character.R_LEVEL.selectedIndex;
-                const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1)
+                const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1);
                 return "<b class='damage'>" + (damage + bonus) + '</b> ( ' +  min + ', ' + bonus + ' - ' + max + ', ' + bonus + ' ) ';
             }
             return "<b class='damage'>" + damage + '</b> ( ' +  min + ' - ' + max + ' )';
@@ -54,8 +53,7 @@ const Fiora = {
             const life = calcHeal(ba * (character.life_steal / 100), character.attack_speed, enemy);
             let damage;
             if (character.DIV.querySelector('.fiora_r').checked && r >= 0) {
-                const r = character.R_LEVEL.selectedIndex;
-                const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1)
+                const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1);
                 damage = round((ba + bonus) * character.attack_speed * 100) / 100;
             } else {
                 damage = round(ba * character.attack_speed * 100) / 100;
@@ -114,7 +112,8 @@ const Fiora = {
     ,R_Skill: (character, enemy) => {
         const r = character.R_LEVEL.selectedIndex - 1;
         if (character.weapon && r >= 0) {
-            return "<b class='damage'>" + calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1) + '</b>';
+            const damage = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1);
+            return "<b class='damage'>" + damage + '</b>';
         }
         return '-';
     }
@@ -199,7 +198,7 @@ const Fiora = {
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
             let f = 0, rr = false;
-            const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1)
+            const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1);
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
                 c = combo.charAt(i);
@@ -311,7 +310,7 @@ const Fiora = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;

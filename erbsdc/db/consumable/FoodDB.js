@@ -79,15 +79,15 @@ const Food = [
     ,{
         Type: "Food"
         ,Name: "Fish_And_Chips"
-        ,HP_Regen: 900
-        ,Title: "Fish And Chips\n\nHP Regen +900"
+        ,HP_Regen: 920
+        ,Title: "Fish And Chips\n\nHP Regen +920"
         ,Rarity: "Epic"
     }
     ,{
         Type: "Food"
         ,Name: "Fish_And_Chips_xiu"
-        ,HP_Regen: 1170
-        ,Title: "Fish And Chips xiu\n\nHP Regen +1170"
+        ,HP_Regen: 1196
+        ,Title: "Fish And Chips xiu\n\nHP Regen +1196"
         ,Rarity: "Epic"
     }
 ];

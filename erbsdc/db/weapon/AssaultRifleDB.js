@@ -162,7 +162,7 @@ const AssaultRifle = [
     ,{
          Type: "AssaultRifle"
         ,Name: "Gatling_Gun"
-        ,Attack_Power: 50
+        ,Attack_Power: 55
         ,Attack_Speed: 15
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -184,17 +184,17 @@ const AssaultRifle = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 1.5
+        ,Vision_Range: 2.5
         ,Attack_Range: 0
         ,Base_Range: 5
         ,Atk_Speed: 0.55
-        ,Title: "Gatling Gun\n\nAttack Power +50\nAttack Speed +15%\nVision Range +1.5\nExtra Normal Attack Damage +12"
+        ,Title: "Gatling Gun\n\nAttack Power +55\nAttack Speed +15%\nVision Range +2.5\nExtra Normal Attack Damage +12"
         ,Rarity: "Epic"
     }
     ,{
          Type: "AssaultRifle"
         ,Name: "AK-12"
-        ,Attack_Power: 94
+        ,Attack_Power: 89
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 20
         ,Critical_Strike_Damage: 0
@@ -220,7 +220,7 @@ const AssaultRifle = [
         ,Attack_Range: 0
         ,Base_Range: 5
         ,Atk_Speed: 0.55
-        ,Title: "AK-12\n\nAttack Power +94\nVision Range +1.5\nCritical Strike Chance +20%"
+        ,Title: "AK-12\n\nAttack Power +89\nVision Range +1.5\nCritical Strike Chance +20%"
         ,Rarity: "Epic"
     }
     ,{

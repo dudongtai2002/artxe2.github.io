@@ -483,7 +483,7 @@ const Guitar = [
          Type: "Guitar"
         ,Name: "Teen_Spirit"
         ,Attack_Power: 10
-        ,Attack_Speed: 30
+        ,Attack_Speed: 35
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -508,7 +508,7 @@ const Guitar = [
         ,Attack_Range: 0
         ,Base_Range: 3.85
         ,Atk_Speed: 0.43
-        ,Title: "Teen Spirit\n\nAttack Power +10\nAttack Speed +30%\nExtra Normal Attack Damage +20"
+        ,Title: "Teen Spirit\n\nAttack Power +10\nAttack Speed +35%\nExtra Normal Attack Damage +20"
         ,Rarity: "Epic"
     }
 ];

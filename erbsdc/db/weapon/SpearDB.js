@@ -98,7 +98,7 @@ const Spear = [
     ,{
          Type: "Spear"
         ,Name: "Pike"
-        ,Attack_Power: 67
+        ,Attack_Power: 60
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -124,7 +124,7 @@ const Spear = [
         ,Attack_Range: 0
         ,Base_Range: 2.15
         ,Atk_Speed: 0.445
-        ,Title: "Pike\n\nAttack Power +67\nMovement Speed -0.1"
+        ,Title: "Pike\n\nAttack Power +60\nMovement Speed -0.1"
         ,Rarity: "Rare"
     }
     ,{
@@ -214,13 +214,13 @@ const Spear = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.2
+        ,Move_Speed: 0.15
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 2.15
         ,Atk_Speed: 0.445
-        ,Title: "Gentian Silver Gun\n\nAttack Power +105\nMovement Speed +0.2"
+        ,Title: "Gentian Silver Gun\n\nAttack Power +105\nMovement Speed +0.15"
         ,Rarity: "Epic"
     }
     ,{
@@ -298,7 +298,7 @@ const Spear = [
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 17
+        ,Skill_Amplification_Percent: 21
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
@@ -316,7 +316,7 @@ const Spear = [
         ,Attack_Range: 0
         ,Base_Range: 2.15
         ,Atk_Speed: 0.445
-        ,Title: "Lance of Poseidon\n\nAttack Power +90\nSkill Amplification +17%"
+        ,Title: "Lance of Poseidon\n\nAttack Power +90\nSkill Amplification +21%"
         ,Rarity: "Epic"
     }
     ,{
@@ -369,7 +369,7 @@ const Spear = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
-        ,Max_HP: 300
+        ,Max_HP: 320
         ,Max_SP: 0
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
@@ -380,7 +380,7 @@ const Spear = [
         ,Attack_Range: 0
         ,Base_Range: 2.15
         ,Atk_Speed: 0.445
-        ,Title: "Dragon Guandao\n\nAttack Power +115\nMax HP +300\nMovement Speed -0.05"
+        ,Title: "Dragon Guandao\n\nAttack Power +115\nMax HP +320\nMovement Speed -0.05"
         ,Rarity: "Epic"
     }
     ,{

@@ -108,7 +108,7 @@ const Rozzi = {
     ,T_Skill: (character, enemy) => {
         if (character.weapon) {
             const t = character.T_LEVEL.selectedIndex;
-            const coe = 0.6 + t * 0.1;
+            const coe = 0.5 + t * 0.1;
             const damage1 = baseAttackDamage(character, enemy, 0, 0.7, character.critical_strike_chance, 1);
             const damage2 = baseAttackDamage(character, enemy, 0, coe, character.critical_strike_chance, 1);
             const min1 = baseAttackDamage(character, enemy, 0, 0.7, 0, 1);
@@ -155,7 +155,7 @@ const Rozzi = {
             const et = enemy.T_LEVEL.selectedIndex;
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
-            const coe = 0.6 + t * 0.1;
+            const coe = 0.5 + t * 0.1;
             let ee = false;
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
@@ -235,7 +235,7 @@ const Rozzi = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;

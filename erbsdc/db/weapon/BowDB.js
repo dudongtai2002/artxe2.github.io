@@ -331,7 +331,7 @@ const Bow = [
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 20
-        ,Cooldown_Reduction: 10
+        ,Cooldown_Reduction: 15
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
@@ -348,7 +348,7 @@ const Bow = [
         ,Attack_Range: 0
         ,Base_Range: 5.85
         ,Atk_Speed: 0.65
-        ,Title: "Golden-Ratio Bow\n\nAttack Power +68\nSkill Amplification +20%\nCooldown Reduction +10%"
+        ,Title: "Golden-Ratio Bow\n\nAttack Power +68\nSkill Amplification +20%\nCooldown Reduction +15%"
         ,Rarity: "Epic"
     }
     ,{
@@ -376,11 +376,11 @@ const Bow = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
+        ,Vision_Range: 1
         ,Attack_Range: 0
         ,Base_Range: 5.85
         ,Atk_Speed: 0.65
-        ,Title: "Twinbow\n\nAttack Power +70\nAttack Speed +55%\nHealing Reduction (Normal Attacks) -40%"
+        ,Title: "Twinbow\n\nAttack Power +70\nAttack Speed +55%\nVision Range +1\nHealing Reduction (Normal Attacks) -40%"
         ,Rarity: "Epic"
     }
     ,{
@@ -419,7 +419,7 @@ const Bow = [
          Type: "Bow"
         ,Name: "Failnaught"
         ,Attack_Power: 100
-        ,Attack_Speed: 15
+        ,Attack_Speed: 20
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 15
@@ -444,7 +444,7 @@ const Bow = [
         ,Attack_Range: 0
         ,Base_Range: 5.85
         ,Atk_Speed: 0.65
-        ,Title: "Failnaught\n\nAttack Power +100\nAttack Speed +15%\nLife Steal +15%"
+        ,Title: "Failnaught\n\nAttack Power +100\nAttack Speed +20%\nLife Steal +15%"
         ,Rarity: "Legendary"
     }
 ];

@@ -452,7 +452,7 @@ const Shuriken = [
         ,Name: "Cards_of_Tyranny"
         ,Attack_Power: 49
         ,Attack_Speed: 40
-        ,Critical_Strike_Chance: 20
+        ,Critical_Strike_Chance: 25
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
@@ -476,7 +476,7 @@ const Shuriken = [
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Cards of Tyranny\n\nAttack Power +49\nAttack Speed +40%\nCritical Strike Chance +20%"
+        ,Title: "Cards of Tyranny\n\nAttack Power +49\nAttack Speed +40%\nCritical Strike Chance +25%"
         ,Rarity: "Epic"
     }
     ,{
@@ -630,13 +630,13 @@ const Shuriken = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.2
+        ,Move_Speed: 0.25
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Flechette\n\nAttack Power +85\nMovement Speed +0.2\nCritical Damage +40%"
+        ,Title: "Flechette\n\nAttack Power +85\nMovement Speed +0.25\nCritical Damage +40%"
         ,Rarity: "Epic"
     }
     ,{

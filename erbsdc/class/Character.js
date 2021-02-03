@@ -705,7 +705,7 @@ class Character {
                 (jackie_t_w ? (jackie_t_w.checked ? jackie_tw[ t ] : 0) + 
                 (jackie_t_s.checked ? jackie_ts[ t ] : 0) : 0) + 
                 (axe_d_s ? axe_d_s.value * (axe_d_u.checked ? 0.05 + this.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02) : 0) + 
-                (hart_w_u && w >= 0 && hart_w_u.checked ? 0.12 + w * 0.07 : 0);
+                (hart_w_u && hart_w_u.checked && w >= 0 ? 0.12 + w * 0.07 : 0);
             this.attack_power = 
                 (this.character.Attack_Power + this.character.Attack_Power_Growth * level + 
                     calcEquip(this, 'Attack_Power', 2)) * attack_power_percent | 0;
@@ -718,11 +718,13 @@ class Character {
             const nadine_e = this.DIV.querySelector('.nadine_e');
             const lida_w = this.DIV.querySelector('.lida_w');
             const silvia_t = this.DIV.querySelector('.silvia_t');
+            const luke_w_u = this.DIV.querySelector('.luke_w_u');
             const attack_speed_bonus = 
-                (jackie_r && jackie_r.checked ? 20 + r * 5 : 0) + 
+                (jackie_r && jackie_r.checked && r >= 0 ? 20 + r * 5 : 0) + 
                 (nadine_e && e >= 0 ? (10 + e * 5) * (nadine_e.checked ? 2 : 1) : 0) + 
-                (lida_w && lida_w.checked ? 10 + t * 15 : 0) + 
-                (silvia_t ? silvia_t.value * (1 + t * 1) : 0);
+                (lida_w && lida_w.checked && w >= 0 ? 10 + t * 15 : 0) + 
+                (silvia_t ? silvia_t.value * (1 + t * 1) : 0) + 
+                (luke_w_u && luke_w_u.checked && w >= 0 ? this.DIV.querySelector('.luke_w_s').value * 12 : 0);
             this.attack_speed = 
                 round((this.character.Atk_Speed + (!this.weapon ? 0 : this.weapon.Atk_Speed)) * 
                     (100 + attack_speed_bonus + 
@@ -762,7 +764,7 @@ class Character {
                     (sissela_t.value < 10 ? 0 : (sissela_t.value >= 90 ? 5 : sissela_t.value / 20 + 0.5)) * 
                     (this.DIV.querySelector('.sissela_r').checked ? 2 : 1) : 0);
             const skill_amplification_percent_bonus = (hart_e && e >= 0 ? hart_e_s.value * (hart_ee.checked ? 25 : hart_e.checked ? 15 : 0) : 0) + 
-                (silvia_t && silvia_t.value == 15 ? 15 : 0);
+                (silvia_t && silvia_t.value == 15 ? 18 : 0);
             this.skill_amplification = 
                 round(calcEquip(this, 'Skill_Amplification', 2) + skill_amplification_bonus, 1);
             this.skill_amplification_percent = 
@@ -819,7 +821,7 @@ class Character {
                 (hammer_d && hammer_d.checked && ewm > 5? ewm < 13 ? 0.25 : 0.4 : 0) - 
                 (zahir_q ? 0.1 * zahir_q.value : 0) -
                 (hyunwoo_e && ee >= 0 && hyunwoo_e.checked ? 0.07 + ee * 0.02 : 0) - 
-                (hart_w_u && ew >= 0 && hart_w_u.checked ? hart_ww.checked ? 0.3 : hart_w.checked ? 0.15 : 0 : 0) - 
+                (hart_w_u && ew >= 0 && hart_w_u.checked ? hart_ww.checked ? 0.35 : hart_w.checked ? 0.2 : 0 : 0) - 
                 (isol_t && isol_t.checked ? 0.05 + et * 0.1 : 0) - 
                 (xiukai_r && xiukai_r.checked ? 0.1 + er * 0.05 : 0) - 
                 (chiara_t ? chiara_t.value * (0.02 + et * 0.02) : 0);

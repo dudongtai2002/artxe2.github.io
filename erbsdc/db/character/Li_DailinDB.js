@@ -10,7 +10,7 @@ const Li_Dailin = {
     ,Stamina_Regen: 0.2
     ,Stamina_Regen_Growth: 0.01
     ,Defense: 20
-    ,Defense_Growth: 2.5
+    ,Defense_Growth: 2.2
     ,Atk_Speed: 0.07
     ,Crit_Rate: 0
     ,Move_Speed: 3.1
@@ -23,7 +23,7 @@ const Li_Dailin = {
             [0, 0, 0]
         ],
         Nunchaku: [
-            [3, 3, 3],
+            [0, 3, 3],
             [0, 0, 0]
         ]
     }
@@ -121,7 +121,7 @@ const Li_Dailin = {
                 max = calcSkillDamage(character, enemy, 120 + r * 90, 0.6, 1);
                 over = calcSkillDamage(character, enemy, 120 + r * 90 * 1.19, 0.6 * 1.19, 1);
             }
-            return "<b class='damage'>" + min * 4 + ' ~ ' + max * 4 + '</b> / ' + over * 4 + ' ( [ ' + min + ' x 4 ] - [ ' + max + ' x 4 ] / [ ' + over + ' x 4 ] )';
+            return "<b class='damage'>" + min * 4 + ' ~ ' + max * 4 + '</b> / ' + over * 4 + ' ( [ ' + min + ' x 4 ] ~ [ ' + max + ' x 4 ] / [ ' + over + ' x 4 ] )';
         }
         return '-';
     }
@@ -191,7 +191,7 @@ const Li_Dailin = {
             'Q: "합산 강화 데미지" ( "1타 데미지", "2타 데미지", "3타 데미지" - "1타 강화", "2타 강화", "3타 강화" )\n' + 
             'W: _d/s: "만취 초당 데미지" __h/s: "만취 초당 흡혈량" __use "스킬 사용"\n' + 
             'E: "스킬 데미지"\n' + 
-            'R: "최소 합산 데미지" ~ "최대 막타 데미지" / "최대 강화 데미지" ( [ "최소 데미지" x "타수" ] - [ "최대 데미지" x "타수" ] / [ "최대 강화 데미지" x "타수" ] )\n' + 
+            'R: "최소 합산 데미지" ~ "최대 막타 데미지" / "최대 강화 데미지" ( [ "최소 데미지" x "타수" ] ~ [ "최대 데미지" x "타수" ] / [ "최대 강화 데미지" x "타수" ] )\n' + 
             'D: ' + skill + '\n' + 
             'T: "평균 데미지" ( "1타 데미지", "2타 데미지" - "1타 치명타", "2타 치명타" / "1타 최대 강화", "2타 최대 강화" )\n';
     }
@@ -404,7 +404,7 @@ const Li_Dailin = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;
@@ -453,7 +453,7 @@ const Li_Dailin = {
             'q & Q: Q스킬 1회 데미지\n' + 
             'w & W: W스킬 사용(최대 게이지 95)\n' +  
             'e & E: E스킬 데미지\n' + 
-            'r & R: R스킬 데미지(잃은 체력 비례)\n' + 
+            'r & R: R스킬 데미지( 잃은 체력 비례 Max 77% )\n' + 
             't: 패시브 데미지\n' + 
             'T: 패시브 치명타 데미지\n' + 
             d + 

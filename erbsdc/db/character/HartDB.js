@@ -263,7 +263,7 @@ const Hart = {
                         } else {
                             character.attack_power = character.calc_attack_power * (1 + 0.12 + w * 0.07) | 0;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - (hart_ww.checked ? 0.3 : hart_w.checked ? 0.15 : 0)) | 0;
+                                enemy.defense = enemy.calc_defense * (1 - (hart_ww.checked ? 0.35 : hart_w.checked ? 0.2 : 0)) | 0;
                             }
                         }
                         ww = !ww;
@@ -306,7 +306,7 @@ const Hart = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;
