@@ -100,12 +100,12 @@ function hartUp(s, x) {
         ['.hart_e', '.hart_ee'],
         ['.hart_r', '.hart_rr'],
         ['.hart_t', '.hart_tt'],
-    ]
+    ];
     for (let c = 0, i; c < characters.length; c++) {
         const div = characters[c].DIV;
         if (div.querySelector('.hart_q')) {
             let count = 0;
-            for (i = 0; i < 5; i++) {
+            for (i = 0; i < skill.length; i++) {
                 if (div.querySelector(skill[i][0]).checked) {
                     count++;
                     if (div.querySelector(skill[i][1]).checked) {
@@ -124,6 +124,30 @@ function hartUp(s, x) {
                 } else {
                     div.querySelector(skill[s][0]).checked = false;
                 }
+            }
+        }
+    }
+    updateDisplay();
+}
+
+function lukeUp(x) {
+    const skill = [
+        '.luke_q',
+        '.luke_w',
+        '.luke_e',
+        '.luke_r',
+    ];
+    for (let c = 0, i; c < characters.length; c++) {
+        const div = characters[c].DIV;
+        if (div.querySelector('.luke_q')) {
+            let count = 0;
+            for (i = 0; i < skill.length; i++) {
+                if (div.querySelector(skill[i]).checked) {
+                    count++;
+                }
+            }
+            if (count > 3) {
+                div.querySelector(skill[x]).checked = false;
             }
         }
     }

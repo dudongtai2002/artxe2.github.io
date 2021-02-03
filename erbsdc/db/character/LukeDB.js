@@ -62,11 +62,21 @@ const Luke = {
     ,Q_Skill: (character, enemy) => {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
+            const w = character.W_LEVEL.selectedIndex - 1;
             const damage1 = calcSkillDamage(character, enemy, 30 + q * 20, 0.5, 1);
             const damage2 = calcSkillDamage(character, enemy, 50 + q * 30, 1, 1);
             const cool = 10000 / ((10 - q * 0.5) * (100 - character.cooldown_reduction));
-            const cool2 = 10000 / ((10 - q * 0.5) * (100 - character.cooldown_reduction) / (1 + character.attack_speed * 0.5))
-            return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + " )<b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2) * cool) / 100 + ' ~ ' + round((damage1 + damage2) * cool2) / 100 + '</b>';
+            let cd;
+            if (character.DIV.querySelector('.luke_w').checked && w >= 0) {
+                cd = round((damage1 + damage2) * cool) / 100 + ' ~ ' + round((damage1 + damage2) * cool2) / 100;
+            } else {
+                cd = round((damage1 + damage2) * cool) / 100;
+            }
+            if (character.DIV.querySelector('.luke_q').checked) {
+                const heal = calcHeal(calcSkillDamage(character, enemy, 50 + q * 30, 1, 1) * 0.8, 1, enemy);
+                return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + " )</b><b> __h: </b><b class='heal'>" + heal + "</b><b> __sd/s: </b><b class='damage'>" + cd + '</b>';
+            }
+            return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + " )<b> __sd/s: </b><b class='damage'>" + cd + '</b>';
         }
         return '-';
     }
@@ -153,7 +163,7 @@ const Luke = {
                 'A: "평균 데미지" ( "평타 데미지", "강박증 데미지" - "치명타 데미지", "강박증 데미지" )\n' + 
                 'DPS: "초당 데미지" __h/s: "초당 흡혈량"\n' + 
                 'HPS: "초당 회복량"\n' + 
-                'Q: "합산 데미지" ( "1타 데미지", "2타 데미지" ) __up "스킬 강화"\n' + 
+                'Q: "합산 데미지" ( "1타 데미지", "2타 데미지" ) __h: "흡혈량" __up "스킬 강화"\n' + 
                 'W: "스킬 데미지" __up "스킬 강화" _ "스택" _use "스킬사용"\n' + 
                 'E: "스킬 데미지" __up "스킬 강화"\n' + 
                 'R: "최소 데미지" ~ "최대 막타 데미지" __up "스킬 강화"\n' + 
@@ -164,7 +174,7 @@ const Luke = {
             'A: "평균 데미지" ( "평타 데미지" - "치명타 데미지" )\n' + 
             'DPS: "초당 데미지" __h/s: "초당 흡혈량"\n' + 
             'HPS: "초당 회복량"\n' + 
-            'Q: "합산 데미지" ( "1타 데미지", "2타 데미지" ) __up "스킬 강화"\n' + 
+            'Q: "합산 데미지" ( "1타 데미지", "2타 데미지" ) __h: "흡혈량" __up "스킬 강화"\n' + 
             'W: "스킬 데미지" __up "스킬 강화" _ "스택" _use "스킬사용"\n' + 
             'E: "스킬 데미지" __up "스킬 강화"\n' + 
             'R: "최소 데미지" ~ "최대 막타 데미지" __up "스킬 강화"\n' + 
@@ -212,6 +222,9 @@ const Luke = {
                         if (qq) {
                             qq = false;
                             damage += calcSkillDamage(character, enemy, 50 + q * 30, 1, 1);
+                            if (character.DIV.querySelector('.luke_q').checked) {
+                                life += calcHeal(calcSkillDamage(character, enemy, 50 + q * 30, 1, 1) * 0.8, 1, enemy);
+                            }
                         } else {
                             qq = true;
                             damage += calcSkillDamage(character, enemy, 30 + q * 20, 0.5, 1);
