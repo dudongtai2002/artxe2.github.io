@@ -141,9 +141,18 @@ const Luke = {
         return '';
     }
     ,T_Skill: (character, enemy) => {
-        return '-';
+        if (character.weapon) {
+            const t = character.T_LEVEL.selectedIndex;
+            let stack = parseInt(character.DIV.querySelector('.luke_t').value);
+            stack = stack > 50 ? stack / 10 - 5 | 0 : 0;
+            console.log(stack);
+            const min = calcHeal(character.max_hp * ((t === 2 ? 0.01 : 0) + 0.05 + t * 0.03 + stack * 0.01), 1, enemy);
+            const max = calcHeal(character.max_hp * (0.2 + t * 0.05 + stack * 0.01), 1, enemy);
+            return "<b> _h: </b><b class='heal'> 0 ~ " + min + ' / ' + max + '</b>';
+        }
+        return ' - ';
     }
-    ,T_Option: ''
+    ,T_Option: " _ <input type='number' class='stack luke_t' value='0' onchange='fixLimitNum(this, 150)'><b>Stack"
     ,Help: (character) => {
         if (!character.character) {
             return 'select character plz';
@@ -168,7 +177,7 @@ const Luke = {
                 'E: "스킬 데미지" __up "스킬 강화"\n' + 
                 'R: "최소 데미지" ~ "최대 막타 데미지" __up "스킬 강화"\n' + 
                 'D: ' + skill + '\n' + 
-                'T: "데미지 없음"\n';
+                'T: _h: "회복량" _ "스택"\n';
         }
         return '루크 ( ' + type + ' )\n' + 
             'A: "평균 데미지" ( "평타 데미지" - "치명타 데미지" )\n' + 
@@ -179,7 +188,7 @@ const Luke = {
             'E: "스킬 데미지" __up "스킬 강화"\n' + 
             'R: "최소 데미지" ~ "최대 막타 데미지" __up "스킬 강화"\n' + 
             'D: ' + skill + '\n' + 
-            'T: "데미지 없음"\n';
+            'T: _h: "회복량" _ "스택"\n';
     }
     ,COMBO: (character, enemy) => {
         if (character.weapon) {
