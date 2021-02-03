@@ -679,6 +679,7 @@ class Character {
 
             this.heal_reduction = 
                 this.weapon && (
+                    this.weapon.Name === 'Dainsleif' || 
                     this.weapon.Name === 'Harpe' || 
                     this.weapon.Name === 'Divine_Dual_Swords' ||
                     this.weapon.Name === 'Fangtian_Huaji' ||
