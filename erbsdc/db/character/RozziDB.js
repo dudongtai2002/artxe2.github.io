@@ -213,7 +213,7 @@ const Rozzi = {
                      * (character.life_steal / 100), 1, enemy);
                 } else if (c === 'p' || c === 'P') {
                     if (character.trap) {
-                        damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+                        damage += floor(character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04));
                     }
                 }
                 if (enemy.character) {
@@ -222,25 +222,25 @@ const Rozzi = {
                         let as;
                         if (enemy.weapon) {
                             if (enemy.weapon.Type === 'AssaultRifle') {
-                                as = 10 / (9.5 / enemy.attack_speed + 2) * 6;
+                                as = 10 / (9.5 / enemy.attack_speed + 2) * 6 + 1;
                             } else {
-                                as = enemy.weapon.Ammo / ((enemy.weapon.Ammo - 1) / enemy.attack_speed + 2) * 2;
+                                as = enemy.weapon.Ammo / ((enemy.weapon.Ammo - 1) / enemy.attack_speed + 2) * 2 + 1;
                             }
                         } else {
                             as = 1;
                         }
-                        if (i === 0 || (as * (time * i / combo.length) / cool | 0) > (as * (time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
                     } else if (enemy.character === Emma) {
                         const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
-                        if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                        if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03));
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;
-                        if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += enemy.max_hp * 0.1 + 0.0001 | 0;
+                        if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(enemy.max_hp * 0.1);
                         }
                     } else if (enemy.character === Sissela) {
                         let  lost = damage > heal ? 100 - (enemy.max_hp - damage + heal) / enemy.max_hp * 100 | 0 : 0;

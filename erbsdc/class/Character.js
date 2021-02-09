@@ -417,7 +417,7 @@ class Character {
             while (skills-- > level) {
                 e.target.selectedIndex--;
             }
-            while (e.target.selectedIndex > (level / 2 | 0) + 1) {
+            while (e.target.selectedIndex > floor(level / 2) + 1) {
                 e.target.selectedIndex--;
             }
             this.savePreset()
@@ -433,7 +433,7 @@ class Character {
             while (skills-- > level) {
                 e.target.selectedIndex--;
             }
-            while (e.target.selectedIndex > (level / 2 | 0) + 1) {
+            while (e.target.selectedIndex > floor(level / 2) + 1) {
                 e.target.selectedIndex--;
             }
             this.savePreset()
@@ -449,7 +449,7 @@ class Character {
             while (skills-- > level) {
                 e.target.selectedIndex--;
             }
-            while (e.target.selectedIndex > (level / 2 | 0) + 1) {
+            while (e.target.selectedIndex > floor(level / 2) + 1) {
                 e.target.selectedIndex--;
             }
             this.savePreset()
@@ -465,7 +465,7 @@ class Character {
             while (skills-- > level) {
                 e.target.selectedIndex--;
             }
-            while (e.target.selectedIndex > (level / 5 | 0)) {
+            while (e.target.selectedIndex > floor(level / 5)) {
                 e.target.selectedIndex--;
             }
             this.savePreset()
@@ -481,7 +481,7 @@ class Character {
             while (skills-- > level) {
                 e.target.selectedIndex--;
             }
-            while (e.target.selectedIndex > ((level + 1) / 5 | 0)) {
+            while (e.target.selectedIndex > floor((level + 1) / 5)) {
                 e.target.selectedIndex--;
             }
             this.savePreset()
@@ -708,8 +708,9 @@ class Character {
                 (axe_d_s ? axe_d_s.value * (axe_d_u.checked ? 0.05 + this.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.015) : 0) + 
                 (hart_w_u && hart_w_u.checked && w >= 0 ? 0.12 + w * 0.07 : 0);
             this.attack_power = 
-                (this.character.Attack_Power + this.character.Attack_Power_Growth * level + 
-                    calcEquip(this, 'Attack_Power', 2)) * attack_power_percent | 0;
+                floor((this.character.Attack_Power + this.character.Attack_Power_Growth * level + 
+                    calcEquip(this, 'Attack_Power', 2)
+                    ) * attack_power_percent);
             this.ATTACK_POWER.innerText = this.attack_power;
             this.calc_attack_power = 
                 this.character.Attack_Power + this.character.Attack_Power_Growth * level + 
@@ -829,8 +830,8 @@ class Character {
             const defense_bonus = (hyunwoo_w && hyunwoo_w.checked ? 9 + w * 14 : 0) + 
                 (silvia_r && r >= 0 && silvia_r.checked ? 2 + er * 14 : 0)
             this.defense = 
-                (this.character.Defense + this.character.Defense_Growth * level + 
-                    calcEquip(this, 'Defense', 2) + defense_bonus) * defense_percent * defense_minus | 0;
+                floor((this.character.Defense + this.character.Defense_Growth * level + 
+                    calcEquip(this, 'Defense', 2) + defense_bonus) * defense_percent * defense_minus);
             this.DEFENSE.innerText = this.defense;
             this.pure_defense = 
                 this.character.Defense + this.character.Defense_Growth * level + 
@@ -845,13 +846,13 @@ class Character {
                 (xiukai_t ? xiukai_t.value * 7 : 0) + 
                 (chiara_r && chiara_r.checked ? 100 + r * 100 : 0);
             this.max_hp = 
-                (this.character.Health + this.character.Health_Growth * level + hp_bonus + 
-                    calcEquip(this, 'Max_HP', 2)) * (1 + (1 + this.HEALTH_MASTERY.selectedIndex) * 0.01) | 0;
+                floor((this.character.Health + this.character.Health_Growth * level + hp_bonus + 
+                    calcEquip(this, 'Max_HP', 2)) * (1 + (1 + this.HEALTH_MASTERY.selectedIndex) * 0.01));
             this.MAX_HP.innerText = this.max_hp;
 
             this.max_sp = 
-                (this.character.Stamina + this.character.Stamina_Growth * level + 
-                    calcEquip(this, 'Max_SP', 2)) * (1 + (1 + this.MEDITATION_MASTERY.selectedIndex) * 0.017) | 0;
+                floor((this.character.Stamina + this.character.Stamina_Growth * level + 
+                    calcEquip(this, 'Max_SP', 2)) * (1 + (1 + this.MEDITATION_MASTERY.selectedIndex) * 0.017));
             this.MAX_SP.innerText = this.max_sp;
 
             this.hp_regen = 

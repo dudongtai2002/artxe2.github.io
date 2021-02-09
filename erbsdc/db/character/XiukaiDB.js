@@ -239,7 +239,7 @@ const Xiukai = {
                    }
                } else if (c === 'p' || c === 'P') {
                    if (character.trap) {
-                       damage += character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+                       damage += floor(character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04));
                    }
                }
                if (enemy.character) {
