@@ -65,9 +65,10 @@ const Luke = {
             const w = character.W_LEVEL.selectedIndex - 1;
             const damage1 = calcSkillDamage(character, enemy, 30 + q * 20, 0.5, 1);
             const damage2 = calcSkillDamage(character, enemy, 50 + q * 30, 1, 1);
-            const cool = 10000 / ((10 - q * 0.5) * (100 - character.cooldown_reduction));
+            const cool = 10000 / ((14 - q * 1.5) * (100 - character.cooldown_reduction));
             let cd;
             if (character.DIV.querySelector('.luke_w').checked && w >= 0) {
+                const cool2 = 10000 / ((14 - q * 1.5) * (100 - character.cooldown_reduction) / (1 + character.attack_speed * 0.5));
                 cd = round((damage1 + damage2) * cool) / 100 + ' ~ ' + round((damage1 + damage2) * cool2) / 100;
             } else {
                 cd = round((damage1 + damage2) * cool) / 100;
@@ -84,7 +85,7 @@ const Luke = {
     ,W_Skill: (character, enemy) => {
         const w = character.W_LEVEL.selectedIndex - 1;
         if (character.weapon && w >= 0) {
-            const damage = calcSkillDamage(character, enemy, 20 + w * 15, 0.2, 1);
+            const damage = calcSkillDamage(character, enemy, 10 + w * 10, 0.2, 1);
             return "<b class='damage'>" + damage + '</b>';
         }
         return '-';
@@ -201,7 +202,7 @@ const Luke = {
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
             let qq = 0, ww = false;
-            const bonus = calcSkillDamage(character, enemy, 20 + w * 15, 0.2, 1);
+            const bonus = calcSkillDamage(character, enemy, 10 + w * 10, 0.2, 1);
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
                 c = combo.charAt(i);
