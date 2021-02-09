@@ -419,7 +419,7 @@ const TwoHandedSword = [
     ,{
          Type: "TwoHandedSword"
         ,Name: "Laevateinn"
-        ,Attack_Power: 75
+        ,Attack_Power: 78
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -429,14 +429,14 @@ const TwoHandedSword = [
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
-        ,SP_Regen: 1.5
+        ,SP_Regen: 2.0
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
         ,Max_HP: 0
         ,Max_SP: 0
-        ,HP_Regen:1.5
+        ,HP_Regen:2.0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
@@ -445,7 +445,7 @@ const TwoHandedSword = [
         ,Attack_Range: 0
         ,Base_Range: 1.5
         ,Atk_Speed: 0.56
-        ,Title: "Laevateinn\n\nAttack Power +75\nHP Regen +1.5\nSP Regen +1.5\nExtra Normal Attack Damage +20"
+        ,Title: "Laevateinn\n\nAttack Power +78\nHP Regen +2.0\nSP Regen +2.0\nExtra Normal Attack Damage +20"
         ,Rarity: "Legendary"
     }
     ,{

@@ -90,11 +90,11 @@ const Jackie = {
             let damage1, damage2;
             if (character.DIV.querySelector('.jackie_w').checked && w >= 0) {
                 const heal = calcHeal(12 + w * 7 + character.attack_power * 0.1, 2, enemy);
-                damage1 = calcSkillDamage(character, enemy, 20 + q * 20, 0.45 + 0.1 + w * 0.025, 1);
+                damage1 = calcSkillDamage(character, enemy, 45 + q * 35, 0.25 + 0.1 + w * 0.025, 1);
                 damage2 = calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1);
                 return "<b class='damage'>" + (damage1 + damage2 + damage3 * 5) + '</b> ( ' + damage1 + ', ' + damage2 + ', [ ' + damage3 + " x 5 ] ) <b> __h: </b><b class='heal'>" + heal + "</b><b> __sd/s: </b><b class='damage'>" +round((damage1 + damage2 + damage3 * 5) * cool) / 100 + '</b>';
             } else {
-                damage1 = calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1);
+                damage1 = calcSkillDamage(character, enemy, 45 + q * 35, 0.25, 1);
                 damage2 = calcSkillDamage(character, enemy, 30 + q * 25, 0.65, 1);
                 return "<b class='damage'>" + (damage1 + damage2 + damage3 * 5) + '</b> ( ' + damage1 + ', ' + damage2 + ', [ ' + damage3 + " x 5 ] )<b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2 + damage3 * 5) * cool) / 100 + '</b>';
             }
@@ -301,17 +301,17 @@ const Jackie = {
                         ap = 1 + 
                         (tt ? jackie_tw[ t ] : 0) + 
                         (ttt ? jackie_ts[ t ] : 0) + 
-                        stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02);
+                        stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.015);
                         character.attack_power = character.calc_attack_power * ap | 0;
                     }
                 } else if (c === 'q') {
                     if (q >= 0) {
                         if ((qq || rr > 1) && ww && w >= 0) {
-                            damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45 + 0.1 + w * 0.025, 1) + 
+                            damage += calcSkillDamage(character, enemy, 45 + q * 35, 0.25 + 0.1 + w * 0.025, 1) + 
                                 calcTrueDamage(character, enemy, 16 + q * 6) * 5;
                             life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                         } else {
-                            damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
+                            damage += calcSkillDamage(character, enemy, 45 + q * 35, 0.25, 1) + 
                                 calcTrueDamage(character, enemy, 16 + q * 6) * 5;
                         }
                         qq = true;
@@ -320,18 +320,18 @@ const Jackie = {
                     if (q >= 0) {
                         if (ww && w >= 0) {
                             if (qq || rr > 1) {
-                                damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45 + 0.1 + w * 0.025, 1) + 
+                                damage += calcSkillDamage(character, enemy, 45 + q * 35, 0.25 + 0.1 + w * 0.025, 1) + 
                                     calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1) + 
                                     calcTrueDamage(character, enemy, 16 + q * 6) * 5;
                                 life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy) * 2;
                             } else {
-                                damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
+                                damage += calcSkillDamage(character, enemy, 45 + q * 35, 0.25, 1) + 
                                     calcSkillDamage(character, enemy, 30 + q * 25, 0.65 + 0.1 + w * 0.025, 1) + 
                                     calcTrueDamage(character, enemy, 16 + q * 6) * 5;
                                 life += calcHeal(12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                             }
                         } else {
-                            damage += calcSkillDamage(character, enemy, 20 + q * 20, 0.45, 1) + 
+                            damage += calcSkillDamage(character, enemy, 45 + q * 35, 0.25, 1) + 
                                 calcSkillDamage(character, enemy, 30 + q * 25, 0.65, 1) + 
                                 calcTrueDamage(character, enemy, 16 + q * 6) * 5;
                         }
@@ -428,7 +428,7 @@ const Jackie = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

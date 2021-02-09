@@ -1,6 +1,6 @@
 const Lenox = {
      Attack_Power: 36
-    ,Attack_Power_Growth: 2.8
+    ,Attack_Power_Growth: 2.4
     ,Health: 550
     ,Health_Growth: 75
     ,Health_Regen: 0.8
@@ -19,7 +19,7 @@ const Lenox = {
     ,weapons: [Whip]
     ,correction: {
         Whip: [
-            [0, 0, -6],
+            [0, -6, -9],
             [0, 0, 0]
         ],
     }
@@ -50,8 +50,8 @@ const Lenox = {
     ,Q_Skill: (character, enemy) => {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
-            const min = calcSkillDamage(character, enemy, 30 + q * 30, 0.3, 1);
-            const max = calcSkillDamage(character, enemy, 30 + q * 30 + character.max_hp * (0.05 + q * 0.005), 0.3, 1);
+            const min = calcSkillDamage(character, enemy, (q === 0 ? 5 : q === 1 ? 10 : 0) + 10 + q * 30, 0.3, 1);
+            const max = calcSkillDamage(character, enemy, (q === 0 ? 5 : q === 1 ? 10 : 0) + 10 + q * 30 + character.max_hp * (0.055 + q * 0.005), 0.3, 1);
             const cool = 10000 / (2 * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + min + ' - ' + max  + "</b><b> __sd/s: </b><b class='damage'>" + round(max * cool) / 100 + '</b>';
         }
@@ -160,11 +160,11 @@ const Lenox = {
                      * (character.life_steal / 100), 1, enemy);
                 } else if (c === 'q') {
                     if (q >= 0) {
-                        damage += calcSkillDamage(character, enemy, 30 + q * 30, 0.3, 1);
+                        damage += calcSkillDamage(character, enemy, (q === 0 ? 5 : q === 1 ? 10 : 0) + 10 + q * 30, 0.3, 1);
                     }
                 } else if (c === 'Q') {
                     if (q >= 0) {
-                        damage += calcSkillDamage(character, enemy, 30 + q * 30 + character.max_hp * (0.05 + q * 0.005), 0.3, 1);
+                        damage += calcSkillDamage(character, enemy, (q === 0 ? 5 : q === 1 ? 10 : 0) + 10 + q * 30 + character.max_hp * (0.055 + q * 0.005), 0.3, 1);
                     }
                 } else if (c === 'w') {
                     if (w >= 0) {
@@ -219,7 +219,7 @@ const Lenox = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;

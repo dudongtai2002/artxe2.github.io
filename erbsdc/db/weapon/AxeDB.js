@@ -274,7 +274,7 @@ const Axe = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
-        ,Max_HP: 450
+        ,Max_HP: 410
         ,Max_SP: 0
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
@@ -285,7 +285,7 @@ const Axe = [
         ,Attack_Range: 0.5
         ,Base_Range: 1.15
         ,Atk_Speed: 0.455
-        ,Title: "Santa Muerte\n\nAttack Power +100\nMax HP +450\nLife Steal +15%\nAttack Range +0.5"
+        ,Title: "Santa Muerte\n\nAttack Power +100\nMax HP +410\nLife Steal +15%\nAttack Range +0.5"
         ,Rarity: "Epic"
     }
     ,{
@@ -299,7 +299,7 @@ const Axe = [
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 18
+        ,Skill_Amplification_Percent: 20
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
@@ -317,7 +317,7 @@ const Axe = [
         ,Attack_Range: 1
         ,Base_Range: 1.15
         ,Atk_Speed: 0.455
-        ,Title: "Scythe\n\nAttack Power +120\nAttack Range +1\nSkill Amplification +18%"
+        ,Title: "Scythe\n\nAttack Power +120\nAttack Range +1\nSkill Amplification +20%"
         ,Rarity: "Epic"
     }
     ,{

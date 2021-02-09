@@ -1,5 +1,5 @@
 const Isol = {
-     Attack_Power: 32
+     Attack_Power: 30
     ,Attack_Power_Growth: 2.6
     ,Health: 500
     ,Health_Growth: 60
@@ -10,7 +10,7 @@ const Isol = {
     ,Stamina_Regen: 1.8
     ,Stamina_Regen_Growth: 0.03
     ,Defense: 23
-    ,Defense_Growth: 1.6
+    ,Defense_Growth: 1.2
     ,Atk_Speed: 0.14
     ,Crit_Rate: 0
     ,Move_Speed: 3.05
@@ -270,7 +270,7 @@ const Isol = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

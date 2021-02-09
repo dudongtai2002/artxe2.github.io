@@ -66,11 +66,10 @@ const Xiukai = {
     ,W_Skill: (character, enemy) => {
         const w = character.W_LEVEL.selectedIndex - 1;
         if (character.weapon && w >= 0) {
-            const min = calcSkillDamage(character, enemy, 60 + w * 40, 0.5, 1);
-            const max = calcSkillDamage(character, enemy, 60 + w * 40 + character.max_hp * (0.03 + w * 0.005), 0.5, 1);
+            const damage = calcSkillDamage(character, enemy, 60 + w * 40 + character.max_hp * (0.03 + w * 0.005), 0.5, 1);
             const cost = 30 + w * 15;
             const cool = 10000 / ((16 - w * 2) * (100 - character.cooldown_reduction) + 34);
-            return min + " - <b class='damage'>" + max + "</b><b> __cost: </b><b class='heal'>-" + cost + "</b><b> __sd/s: </b><b class='damage'>" + round(max * cool) / 100 + '</b>';
+            return "<b class='damage'>" + damage + "</b><b> __cost: </b><b class='heal'>-" + cost + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
         return '-';
     }
@@ -142,7 +141,7 @@ const Xiukai = {
             'DPS: "초당 데미지" __h/s: "초당 흡혈량"\n' + 
             'HPS: "초당 회복량"\n' + 
             'Q: "스킬 데미지" __cost: "체력소모"\n' + 
-            'W: "최소 데미지" - "최대 데미지" __cost: "체력소모"\n' + 
+            'W: "스킬 데미지" __cost: "체력소모"\n' + 
             'E: "최소 데미지" - "최대 데미지" __cost: "체력소모"\n' + 
             'R: "합산 데미지" ( "틱당 데미지" x "타수" ) __cost: "체력소모" _use "스킬 사용"\n' + 
             'D: ' + skill + '\n' + 
@@ -189,11 +188,7 @@ const Xiukai = {
                     }
                 } else if (c === 'w' || c === 'W') {
                     if (w >= 0) {
-                        if (cc) {
-                            damage += calcSkillDamage(character, enemy, 60 + w * 40 + character.max_hp * (0.03 + w * 0.005), 0.5, 1);
-                        } else {
-                            damage += calcSkillDamage(character, enemy, 60 + w * 40, 0.5, 1);
-                        }
+                        damage += calcSkillDamage(character, enemy, 60 + w * 40 + character.max_hp * (0.03 + w * 0.005), 0.5, 1);
                         cc = true;
                         life -= 30 + w * 15;
                     }
@@ -266,7 +261,7 @@ const Xiukai = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;

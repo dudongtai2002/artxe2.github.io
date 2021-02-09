@@ -348,7 +348,7 @@ const Bow = [
         ,Attack_Range: 0
         ,Base_Range: 5.85
         ,Atk_Speed: 0.65
-        ,Title: "Golden-Ratio Bow\n\nAttack Power +68\nSkill Amplification +20%\nCooldown Reduction +15%"
+        ,Title: "Golden-Ratio Bow\n\nAttack Power +68\nCooldown Reduction +15%\nSkill Amplification +20%"
         ,Rarity: "Epic"
     }
     ,{

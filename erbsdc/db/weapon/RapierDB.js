@@ -196,8 +196,8 @@ const Rapier = [
         ,Name: "Meteor_Claymore"
         ,Attack_Power: 75
         ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 30
+        ,Critical_Strike_Chance: 15
+        ,Critical_Strike_Damage: 20
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
@@ -220,14 +220,14 @@ const Rapier = [
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.615
-        ,Title: "Meteor Claymore\n\nAttack Power +75\nCritical Damage +30%\nCooldown Reduction +10%"
+        ,Title: "Meteor Claymore\n\nAttack Power +75\nCritical Strike Chance +15%\nCritical Damage +20%\nCooldown Reduction +10%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Rapier"
         ,Name: "Joyeuse"
         ,Attack_Power: 75
-        ,Attack_Speed: 0
+        ,Attack_Speed: 12
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 30
         ,Life_Steal: 0
@@ -246,13 +246,13 @@ const Rapier = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.2
+        ,Move_Speed: 0.3
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.615
-        ,Title: "Joyeuse\n\nAttack Power +75\nMovement Speed +0.2\nCritical Damage +30%"
+        ,Title: "Joyeuse\n\nAttack Power +75\nAttack Speed +12%\nMovement Speed +0.3\nCritical Damage +30%"
         ,Rarity: "Epic"
     }
     ,{

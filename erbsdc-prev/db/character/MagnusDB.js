@@ -1,8 +1,8 @@
 const Magnus = {
      Attack_Power: 32
-    ,Attack_Power_Growth: 1.5
+    ,Attack_Power_Growth: 2.2
     ,Health: 600
-    ,Health_Growth: 91
+    ,Health_Growth: 82
     ,Health_Regen: 1
     ,Health_Regen_Growth: 0.05
     ,Stamina: 410
@@ -226,7 +226,7 @@ const Magnus = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;

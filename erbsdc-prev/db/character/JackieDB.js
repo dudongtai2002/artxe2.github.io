@@ -24,7 +24,7 @@ const Jackie = {
         ],
         TwoHandedSword: [
             [0, 0, 0],
-            [3, 2, 5]
+            [0, 2, 5]
         ],
         Axe: [
             [0, 0, 0],
@@ -182,7 +182,8 @@ const Jackie = {
     }
     ,D_Option: (character, enemy) => {
         return !character.weapon || character.weapon.Type !== 'Axe' ? '' : 
-            "<input type='number' class='stack axe_d_s' value='0' onchange='fixLimitNum(this, 5)'><b>Stack _use</b><input type='checkbox' class='axe_d_u' onchange='updateDisplay()'><br>" + 
+            "<input type='number' class='stack axe_d_s' value='0' onchange='fixLimitNum(this, 5)'><b>Stack _use</b>" + 
+            "<input type='checkbox' class='axe_d_u' onchange='updateDisplay()'><br>" + 
             "_LostHP: <input type='number' class='stack axe_d_hp' value='0' onchange='fixLimitNum(this, 100)'><b>%</b>";
     }
     ,T_Skill: (character, enemy) => {
@@ -429,7 +430,7 @@ const Jackie = {
                     } else if (enemy.character === Emma) {
                         const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
-                            shield += 90 + et * 30 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
+                            shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }
                     } else if (enemy.character === Lenox) {
                         const cool = (20 - et * 4) * (100 - enemy.cooldown_reduction) / 100;

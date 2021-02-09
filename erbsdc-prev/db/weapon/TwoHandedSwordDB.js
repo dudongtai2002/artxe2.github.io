@@ -355,11 +355,11 @@ const TwoHandedSword = [
     ,{
          Type: "TwoHandedSword"
         ,Name: "Monohoshizao"
-        ,Attack_Power: 74
+        ,Attack_Power: 77
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
-        ,Life_Steal: 21
+        ,Life_Steal: 25
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
@@ -381,7 +381,7 @@ const TwoHandedSword = [
         ,Attack_Range: 0
         ,Base_Range: 1.5
         ,Atk_Speed: 0.56
-        ,Title: "Monohoshizao\n\nAttack Power +74\nLife Steal +21%"
+        ,Title: "Monohoshizao\n\nAttack Power +77\nLife Steal +25%"
         ,Rarity: "Epic"
     }
     ,{
@@ -477,7 +477,7 @@ const TwoHandedSword = [
         ,Attack_Range: 0
         ,Base_Range: 1.5
         ,Atk_Speed: 0.56
-        ,Title: "Dainsleif\n\nAttack Power +80\nLife Steal +25%"
+        ,Title: "Dainsleif\n\nAttack Power +80\nLife Steal +25%\nHealing Reduction (Normal Attacks) -40%"
         ,Rarity: "Legendary"
     }
 ];

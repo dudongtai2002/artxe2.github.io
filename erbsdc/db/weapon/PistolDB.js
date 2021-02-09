@@ -266,7 +266,7 @@ const Pistol = [
     ,{
          Type: "Pistol"
         ,Name: "Electron_Blaster"
-        ,Attack_Power: 65
+        ,Attack_Power: 61
         ,Attack_Speed: 50
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -292,14 +292,14 @@ const Pistol = [
         ,Attack_Range: 0
         ,Base_Range: 4.2
         ,Atk_Speed: 0.505
-        ,Title: "Electron Blaster\n\nAttack Power +65\nAttack Speed +50%\nMovement Speed +0.1\nExtra Normal Attack Damage +28"
+        ,Title: "Electron Blaster\n\nAttack Power +61\nAttack Speed +50%\nMovement Speed +0.1\nExtra Normal Attack Damage +28"
         ,Rarity: "Epic"
         ,Ammo: 10
     }
     ,{
          Type: "Pistol"
         ,Name: "Magnum-Boa"
-        ,Attack_Power: 90
+        ,Attack_Power: 95
         ,Attack_Speed: 25
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -319,13 +319,13 @@ const Pistol = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Move_Speed: 0.15
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 3.5
         ,Attack_Range: 0
         ,Base_Range: 4.2
         ,Atk_Speed: 0.505
-        ,Title: "Magnum-Boa\n\nAttack Power +90\nAttack Speed +25%\nMovement Speed +0.1\nVision Range +3.5\nLife Steal +20%"
+        ,Title: "Magnum-Boa\n\nAttack Power +95\nAttack Speed +25%\nMovement Speed +0.15\nVision Range +3.5\nLife Steal +20%"
         ,Rarity: "Epic"
         ,Ammo: 6
     }

@@ -114,7 +114,7 @@ const Yuki = {
     ,E_Skill: (character, enemy) => {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
-            const damage = calcSkillDamage(character, enemy, 70 + e * 50, 0.4, 1);
+            const damage = calcSkillDamage(character, enemy, 70 + e * 55, 0.4, 1);
             const cool = 10000 / ((15 - e * 1) * (100 - character.cooldown_reduction));
             if (character.DIV.querySelector('.yuki_t').checked) {
                 const bonus = calcTrueDamage(character, enemy, 15 + t * 15);
@@ -294,7 +294,7 @@ const Yuki = {
                     }
                 } else if (c === 'e' || c === 'E') {
                     if (e >= 0) {
-                        damage += calcSkillDamage(character, enemy, 70 + e * 50, 0.4, 1);
+                        damage += calcSkillDamage(character, enemy, 70 + e * 55, 0.4, 1);
                         if (tt) {
                             tt--;
                             damage += calcTrueDamage(character, enemy, 15 + 15 * t);
@@ -339,7 +339,7 @@ const Yuki = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

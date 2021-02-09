@@ -390,7 +390,7 @@ const Accessory = [
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
-        ,Life_Steal: 11
+        ,Life_Steal: 12
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
@@ -412,7 +412,7 @@ const Accessory = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Doll\n\nSP Regen +100%\nLife Steal +11%"
+        ,Title: "Doll\n\nSP Regen +100%\nLife Steal +12%"
         ,Rarity: "Uncommon"
     }
     ,{
@@ -483,7 +483,7 @@ const Accessory = [
          Type: "Accessory"
         ,Name: "Quiver"
         ,Attack_Power: 0
-        ,Attack_Speed: 22
+        ,Attack_Speed: 25
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -508,7 +508,7 @@ const Accessory = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Quiver\n\nAttack Speed +22%"
+        ,Title: "Quiver\n\nAttack Speed +25%"
         ,Rarity: "Uncommon"
     }
     ,{
@@ -553,7 +553,7 @@ const Accessory = [
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 14
+        ,Skill_Amplification: 12
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
@@ -572,7 +572,7 @@ const Accessory = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Gilded Quill Fan\n\nSkill Amplification +14\nHealing Reductions (Skills) -40%"
+        ,Title: "Gilded Quill Fan\n\nSkill Amplification +12\nHealing Reductions (Skills) -40%"
         ,Rarity: "Uncommon"
     }
     ,{

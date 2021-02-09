@@ -196,7 +196,7 @@ const AssaultRifle = [
         ,Name: "AK-12"
         ,Attack_Power: 89
         ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 20
+        ,Critical_Strike_Chance: 17
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
@@ -220,13 +220,13 @@ const AssaultRifle = [
         ,Attack_Range: 0
         ,Base_Range: 5
         ,Atk_Speed: 0.55
-        ,Title: "AK-12\n\nAttack Power +89\nVision Range +1.5\nCritical Strike Chance +20%"
+        ,Title: "AK-12\n\nAttack Power +89\nVision Range +1.5\nCritical Strike Chance +17%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "AssaultRifle"
         ,Name: "XCR"
-        ,Attack_Power: 63
+        ,Attack_Power: 60
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -252,7 +252,7 @@ const AssaultRifle = [
         ,Attack_Range: 0
         ,Base_Range: 5
         ,Atk_Speed: 0.55
-        ,Title: "XCR\n\nAttack Power +63\nMax HP +350\nVision Range +1.5\nExtra Normal Attack Damage +10"
+        ,Title: "XCR\n\nAttack Power +60\nMax HP +350\nVision Range +1.5\nExtra Normal Attack Damage +10"
         ,Rarity: "Epic"
     }
 ];

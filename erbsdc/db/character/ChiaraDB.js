@@ -9,7 +9,7 @@ const Chiara = {
     ,Stamina_Growth: 13
     ,Stamina_Regen: 1.8
     ,Stamina_Regen_Growth: 0.03
-    ,Defense: 24
+    ,Defense: 27
     ,Defense_Growth: 1.5
     ,Atk_Speed: 0.12
     ,Crit_Rate: 0
@@ -84,7 +84,7 @@ const Chiara = {
         if (character.weapon && r >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 20 + r * 7, 0.15, 1);
             const damage2 = 200 + r * 100 + character.attack_power * 1.2 | 0;
-            const heal = calcHeal(damage1 * 0.3, 1, enemy);
+            const heal = calcHeal(damage1 * 0.2, 1, enemy);
             return "<b class='damage'>" + (damage1 * 12 + damage2) + '</b> ( ' + damage1 + " x 12, <b class='damage'>" + damage2 + "</b> ) <b> __h/s: </b><b class='heal'>" + heal + '</b>';
         }
         return ' - ';
@@ -224,7 +224,7 @@ const Chiara = {
                             }
                             damage += calcSkillDamage(character, enemy, 20 + r * 7, 0.15, 1);
                             life += calcHeal(
-                                calcSkillDamage(character, enemy, 20 + r * 7, 0.15, 1) * 0.3
+                                calcSkillDamage(character, enemy, 20 + r * 7, 0.15, 1) * 0.2
                             , 1, enemy);
                         }
                     }
@@ -272,7 +272,7 @@ const Chiara = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

@@ -2,8 +2,8 @@ const Food = [
     {
         Type: "Food"
         ,Name: "Bread"
-        ,HP_Regen: 200
-        ,Title: "Bread\n\nHP Regen +200"
+        ,HP_Regen: 225
+        ,Title: "Bread\n\nHP Regen +225"
         ,Rarity: "Common"
     }
     ,{
@@ -37,8 +37,8 @@ const Food = [
     ,{
         Type: "Food"
         ,Name: "Mocha_Bread_xiu"
-        ,HP_Regen: 910
-        ,Title: "Mocha Bread xiu\n\nHP Regen +910"
+        ,HP_Regen: 840
+        ,Title: "Mocha Bread xiu\n\nHP Regen +840"
         ,Rarity: "Rare"
     }
     ,{
@@ -51,8 +51,8 @@ const Food = [
     ,{
         Type: "Food"
         ,Name: "Choco_Pie_Box_xiu"
-        ,HP_Regen: 952
-        ,Title: "Choco Pie Box xiu\n\nHP Regen +952"
+        ,HP_Regen: 879
+        ,Title: "Choco Pie Box xiu\n\nHP Regen +879"
         ,Rarity: "Rare"
     }
     ,{
@@ -72,8 +72,8 @@ const Food = [
     ,{
         Type: "Food"
         ,Name: "Spicy_Fish_Stew_xiu"
-        ,HP_Regen: 715
-        ,Title: "Spicy Fish Stew xiu\n\nHP Regen +715"
+        ,HP_Regen: 660
+        ,Title: "Spicy Fish Stew xiu\n\nHP Regen +660"
         ,Rarity: "Rare"
     }
     ,{
@@ -86,8 +86,8 @@ const Food = [
     ,{
         Type: "Food"
         ,Name: "Fish_And_Chips_xiu"
-        ,HP_Regen: 1196
-        ,Title: "Fish And Chips xiu\n\nHP Regen +1196"
+        ,HP_Regen: 1104
+        ,Title: "Fish And Chips xiu\n\nHP Regen +1104"
         ,Rarity: "Epic"
     }
 ];

@@ -343,12 +343,12 @@ const Leg = [
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0.2
-        ,Out_of_Combat_Movement_Speed: 0.55
+        ,Out_of_Combat_Movement_Speed: 0.5
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Maverick Runner\n\nAttack Speed +15%\nMovement Speed +0.2\nMovement Speed while not in combat +0.55"
+        ,Title: "Maverick Runner\n\nAttack Speed +15%\nMovement Speed +0.2\nMovement Speed while not in combat +0.5"
         ,Rarity: "Rare"
     }
     ,{
@@ -496,7 +496,7 @@ const Leg = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 22
+        ,Defense: 26
         ,Max_HP: 0
         ,Max_SP: 0
         ,HP_Regen: 0
@@ -508,7 +508,7 @@ const Leg = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Mithril Boots\n\nDefense +22\nAttack Speed +12%\nMovement Speed +0.45"
+        ,Title: "Mithril Boots\n\nDefense +26\nAttack Speed +12%\nMovement Speed +0.45"
         ,Rarity: "Epic"
     }
     ,{
@@ -588,7 +588,7 @@ const Leg = [
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
+        ,SP_Regen: 0.5
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
@@ -604,7 +604,7 @@ const Leg = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "EOD Boots\n\nDefense +26\nHP Regen +1\nMovement Speed +0.33"
+        ,Title: "EOD Boots\n\nDefense +26\nHP Regen +1\nSP Regen +0.5\nMovement Speed +0.33"
         ,Rarity: "Legendary"
     }
     ,{

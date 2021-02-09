@@ -770,7 +770,7 @@ const Accessory = [
     ,{
          Type: "Accessory"
         ,Name: "Revenge_of_Goujian"
-        ,Attack_Power: 13
+        ,Attack_Power: 15
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -796,7 +796,7 @@ const Accessory = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Revenge of Goujian\n\nAttack Power +13\nSkill Amplification +20%"
+        ,Title: "Revenge of Goujian\n\nAttack Power +15\nSkill Amplification +20%"
         ,Rarity: "Rare"
     }
     ,{

@@ -194,7 +194,7 @@ const Dagger = [
     ,{
          Type: "Dagger"
         ,Name: "Mount_Slicer"
-        ,Attack_Power: 38
+        ,Attack_Power: 35
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -220,7 +220,7 @@ const Dagger = [
         ,Attack_Range: 0
         ,Base_Range: 1
         ,Atk_Speed: 0.58
-        ,Title: "Mount Slicer\n\nAttack Power +38\nMovement Speed +0.1\nCooldown Reduction +10%\nSkill Amplification +30"
+        ,Title: "Mount Slicer\n\nAttack Power +35\nMovement Speed +0.1\nCooldown Reduction +10%\nSkill Amplification +30"
         ,Rarity: "Epic"
     }
     ,{

@@ -354,7 +354,7 @@ const Guitar = [
     ,{
          Type: "Guitar"
         ,Name: "Purple_Haze"
-        ,Attack_Power: 85
+        ,Attack_Power: 89
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0

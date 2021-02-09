@@ -636,14 +636,14 @@ const Arm = [
         ,Skill_Amplification: 20
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
-        ,SP_Regen: 2
+        ,SP_Regen: 1.5
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
         ,Max_HP: 200
         ,Max_SP: 250
-        ,HP_Regen: 2
+        ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
@@ -652,7 +652,7 @@ const Arm = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Bracelet of Skadi\n\nMax HP +200\nMax SP +250\nHP Regen +2\nSP Regen +2\nSkill Amplification +20"
+        ,Title: "Bracelet of Skadi\n\nMax HP +200\nMax SP +250\nHP Regen +1.5\nSP Regen +1.5\nSkill Amplification +20"
         ,Rarity: "Legendary"
     }
     ,{

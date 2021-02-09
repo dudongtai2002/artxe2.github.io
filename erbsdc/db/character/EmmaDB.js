@@ -65,7 +65,7 @@ const Emma = {
             const e = character.E_LEVEL.selectedIndex;
             const damage = calcSkillDamage(character, enemy, 100 + w * 50, 0.75, 1);
             const heal = calcHeal((60 + w * 10) * (0.12 + e * 0.02), 1, enemy);
-            const cool = 10000 / ((12 - w * 1) * (100 - character.cooldown_reduction) - 279);
+            const cool = 10000 / ((11 - w * 1) * (100 - character.cooldown_reduction) - 279);
             return "<b class='damage'>" + damage + "</b><b> __h: </b><b class='heal'>" + heal + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
         return '-';
@@ -246,7 +246,7 @@ const Emma = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

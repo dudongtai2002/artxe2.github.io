@@ -222,11 +222,11 @@ const SniperRifle = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 4.5
+        ,Vision_Range: 5
         ,Attack_Range: 1
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "Intervention\n\nAttack Power +120\nVision Range +4.5\nAttack Range +1"
+        ,Title: "Intervention\n\nAttack Power +120\nVision Range +5\nAttack Range +1"
         ,Rarity: "Epic"
         ,Ammo: 2
     }
@@ -266,8 +266,8 @@ const SniperRifle = [
     ,{
          Type: "SniperRifle"
         ,Name: "Polaris"
-        ,Attack_Power: 130
-        ,Attack_Speed: 40
+        ,Attack_Power: 125
+        ,Attack_Speed: 35
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -292,7 +292,7 @@ const SniperRifle = [
         ,Attack_Range: 0
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "Polaris\n\nAttack Power +130\nAttack Speed +40%\nMovement Speed -0.03\nVision Range +2"
+        ,Title: "Polaris\n\nAttack Power +125\nAttack Speed +35%\nMovement Speed -0.03\nVision Range +2"
         ,Rarity: "Epic"
         ,Ammo: 3
     }

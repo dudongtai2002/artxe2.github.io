@@ -162,7 +162,7 @@ const Crossbow = [
     ,{
          Type: "Crossbow"
         ,Name: "Heavy_Crossbow"
-        ,Attack_Power: 69
+        ,Attack_Power: 66
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -188,7 +188,7 @@ const Crossbow = [
         ,Attack_Range: 0
         ,Base_Range: 4.6
         ,Atk_Speed: 0.51
-        ,Title: "Heavy Crossbow\n\nAttack Power +69\nMovement Speed -0.1"
+        ,Title: "Heavy Crossbow\n\nAttack Power +66\nMovement Speed -0.1"
         ,Rarity: "Rare"
     }
     ,{
@@ -266,7 +266,7 @@ const Crossbow = [
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
+        ,Skill_Amplification_Percent: 8
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
@@ -284,7 +284,7 @@ const Crossbow = [
         ,Attack_Range: 0
         ,Base_Range: 4.6
         ,Atk_Speed: 0.51
-        ,Title: "Ballista\n\nAttack Power +115\nAttack Speed -5%"
+        ,Title: "Ballista\n\nAttack Power +115\nAttack Speed -5%\nSkill Amplification +8%"
         ,Rarity: "Epic"
     }
     ,{

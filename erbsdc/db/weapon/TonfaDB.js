@@ -66,7 +66,7 @@ const Tonfa = [
     ,{
          Type: "Tonfa"
         ,Name: "Police_Baton"
-        ,Attack_Power: 35
+        ,Attack_Power: 31
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -80,7 +80,7 @@ const Tonfa = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 8
+        ,Defense: 10
         ,Max_HP: 0
         ,Max_SP: 0
         ,HP_Regen: 0
@@ -92,7 +92,7 @@ const Tonfa = [
         ,Attack_Range: 0
         ,Base_Range: 1
         ,Atk_Speed: 0.5
-        ,Title: "Police Baton\n\nAttack Power +35\nDefense +8"
+        ,Title: "Police Baton\n\nAttack Power +31\nDefense +10"
         ,Rarity: "Rare"
     }
     ,{

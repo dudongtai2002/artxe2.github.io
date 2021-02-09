@@ -453,7 +453,7 @@ const Shuriken = [
         ,Attack_Power: 49
         ,Attack_Speed: 40
         ,Critical_Strike_Chance: 25
-        ,Critical_Strike_Damage: 0
+        ,Critical_Strike_Damage: 10
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
@@ -476,7 +476,7 @@ const Shuriken = [
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Cards of Tyranny\n\nAttack Power +49\nAttack Speed +40%\nCritical Strike Chance +25%"
+        ,Title: "Cards of Tyranny\n\nAttack Power +49\nAttack Speed +40%\nCritical Strike Chance +25%\nCritical Damage +10%"
         ,Rarity: "Epic"
     }
     ,{
@@ -514,7 +514,7 @@ const Shuriken = [
     ,{
          Type: "Shuriken"
         ,Name: "Fuhma_Shuriken"
-        ,Attack_Power: 52
+        ,Attack_Power: 55
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -540,7 +540,7 @@ const Shuriken = [
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Fuhma Shuriken\n\nAttack Power +52\nCooldown Reduction +15%\nExtra Normal Attack Damage +36"
+        ,Title: "Fuhma Shuriken\n\nAttack Power +55\nCooldown Reduction +15%\nExtra Normal Attack Damage +36"
         ,Rarity: "Epic"
     }
     ,{
@@ -585,7 +585,7 @@ const Shuriken = [
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 29
         ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 24
+        ,Skill_Amplification: 21
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
@@ -604,7 +604,7 @@ const Shuriken = [
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Azure Dagger\n\nAttack Power +20\nExtra Normal Attack Damage +29\nSkill Amplification +24"
+        ,Title: "Azure Dagger\n\nAttack Power +20\nExtra Normal Attack Damage +29\nSkill Amplification +21"
         ,Rarity: "Epic"
     }
     ,{
@@ -650,7 +650,7 @@ const Shuriken = [
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 20
+        ,Skill_Amplification_Percent: 23
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
@@ -668,7 +668,7 @@ const Shuriken = [
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Wind and Fire Wheels\n\nAttack Power +55\nSkill Amplification +20%"
+        ,Title: "Wind and Fire Wheels\n\nAttack Power +55\nSkill Amplification +23%"
         ,Rarity: "Epic"
     }
     ,{

@@ -248,7 +248,7 @@ const Head = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
-        ,Max_HP: 210
+        ,Max_HP: 200
         ,Max_SP: 0
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
@@ -260,7 +260,7 @@ const Head = [
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 4
-        ,Title: "Safety Helmet\n\nMax HP +210\nCritical Damage Reduction +4%"
+        ,Title: "Safety Helmet\n\nMax HP +200\nCritical Damage Reduction +4%"
         ,Rarity: "Uncommon"
     }
     ,{
@@ -314,7 +314,7 @@ const Head = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
-        ,Max_HP: 280
+        ,Max_HP: 250
         ,Max_SP: 0
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
@@ -326,7 +326,7 @@ const Head = [
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 7
-        ,Title: "Fire Helmet\n\nMax HP +280\nCritical Damage Reduction +7%"
+        ,Title: "Fire Helmet\n\nMax HP +250\nCritical Damage Reduction +7%"
         ,Rarity: "Rare"
     }
     ,{
@@ -346,9 +346,9 @@ const Head = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 14
+        ,Defense: 16
         ,Max_HP: 0
-        ,Max_SP: 460
+        ,Max_SP: 400
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
@@ -359,7 +359,7 @@ const Head = [
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 7
-        ,Title: "Tiara\n\nDefense +14\nMax SP +460\nCritical Damage Reduction +7%"
+        ,Title: "Tiara\n\nDefense +16\nMax SP +400\nCritical Damage Reduction +7%"
         ,Rarity: "Rare"
     }
     ,{
@@ -511,9 +511,9 @@ const Head = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 14
+        ,Defense: 21
         ,Max_HP: 0
-        ,Max_SP: 700
+        ,Max_SP: 600
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
@@ -524,7 +524,7 @@ const Head = [
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 10
-        ,Title: "Crystal Tiara\n\nDefense +14\nMax SP +700\nCritical Strike Chance +20%\nCritical Damage Reduction +10%"
+        ,Title: "Crystal Tiara\n\nDefense +21\nMax SP +600\nCritical Strike Chance +20%\nCritical Damage Reduction +10%"
         ,Rarity: "Epic"
     }
     ,{

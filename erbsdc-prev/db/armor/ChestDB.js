@@ -624,7 +624,7 @@ const Chest = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 28
+        ,Defense: 22
         ,Max_HP: 360
         ,Max_SP: 0
         ,HP_Regen: 0
@@ -636,7 +636,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Sunset Armor\n\nDefense +28\nMax HP +360"
+        ,Title: "Sunset Armor\n\nDefense +22\nMax HP +360"
         ,Rarity: "Rare"
     }
     ,{
@@ -664,11 +664,11 @@ const Chest = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
+        ,Vision_Range: 1
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Convert Agent Uniform\n\nDefense +23\nHP Regen +2.5\nCooldown Reduction +15%"
+        ,Title: "Convert Agent Uniform\n\nDefense +23\nHP Regen +2.5\nVision Range +1\nCooldown Reduction +15%"
         ,Rarity: "Rare"
     }
     ,{
@@ -752,7 +752,7 @@ const Chest = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 65
+        ,Defense: 69
         ,Max_HP: 0
         ,Max_SP: 0
         ,HP_Regen: 0
@@ -764,7 +764,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Mithril Armor\n\nDefense +65\nAttack Speed +12%\n Movement Speed +0.2"
+        ,Title: "Mithril Armor\n\nDefense +69\nAttack Speed +12%\n Movement Speed +0.2"
         ,Rarity: "Epic"
     }
     ,{

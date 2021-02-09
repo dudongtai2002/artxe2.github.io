@@ -453,12 +453,12 @@ const Head = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 1.5
+        ,Vision_Range: 1
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 7
-        ,Title: "Motorcycle Helmet\n\nAttack Power +10\nMax HP +300\nVision Range +1.5\nCritical Damage Reduction +7%"
+        ,Title: "Motorcycle Helmet\n\nAttack Power +10\nMax HP +300\nVision Range +1\nCritical Damage Reduction +7%"
         ,Rarity: "Rare"
     }
     ,{
@@ -682,14 +682,14 @@ const Head = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
-        ,Out_of_Combat_Movement_Speed: 0.4
+        ,Move_Speed: 0.2
+        ,Out_of_Combat_Movement_Speed: 0.3
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Critical_Strike_Damage_Reduction: 10
-        ,Title: "Chinese Opera Mask\n\nDefense +16\nMax SP +300\nMovement Speed +0.1\nCritical Damage Reduction +10%\nLife Steal +22%\nMovement speed while not in combat +0.4"
+        ,Title: "Chinese Opera Mask\n\nDefense +16\nMax SP +300\nMovement Speed +0.2\nCritical Damage Reduction +10%\nLife Steal +22%\nMovement speed while not in combat +0.3"
         ,Rarity: "Epic"
     }
     ,{
@@ -721,8 +721,8 @@ const Head = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Critical_Strike_Damage_Reduction: 10
-        ,Title: "Laurel Wreath\n\nDefense +18\nMax SP +580\nHP Regen +1.5\nSP Regen +2\nCritical Damage Reduction +10%\nExtra Normal Attack Damage +15"
+        ,Critical_Strike_Damage_Reduction: 12
+        ,Title: "Laurel Wreath\n\nDefense +18\nMax SP +580\nHP Regen +1.5\nSP Regen +2\nCritical Damage Reduction +12%\nExtra Normal Attack Damage +15"
         ,Rarity: "Legendary"
     }
 ];

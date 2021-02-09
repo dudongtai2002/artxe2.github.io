@@ -130,7 +130,7 @@ const Glove = [
     ,{
          Type: "Glove"
         ,Name: "Gauntlet"
-        ,Attack_Power: 32
+        ,Attack_Power: 28
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -156,7 +156,7 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "Gauntlet\n\nAttack Power +32\nMovement Speed -0.1"
+        ,Title: "Gauntlet\n\nAttack Power +28\nMovement Speed -0.1"
         ,Rarity: "Rare"
     }
     ,{
@@ -459,7 +459,7 @@ const Glove = [
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 18
-        ,Cooldown_Reduction: 10
+        ,Cooldown_Reduction: 15
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
@@ -476,14 +476,14 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "Buddha`s Palm\n\nAttack Power +37\nCooldown Reduction +10%\nSkill Amplification +18%"
+        ,Title: "Buddha`s Palm\n\nAttack Power +37\nCooldown Reduction +15%\nSkill Amplification +18%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Glove"
         ,Name: "Brasil_Gauntlet"
-        ,Attack_Power: 53
-        ,Attack_Speed: 30
+        ,Attack_Power: 50
+        ,Attack_Speed: 35
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
@@ -492,14 +492,14 @@ const Glove = [
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
-        ,SP_Regen: 0.7
+        ,SP_Regen: 1.2
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 13
+        ,Defense: 10
         ,Max_HP: 0
         ,Max_SP: 0
-        ,HP_Regen: 1
+        ,HP_Regen: 1.2
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: -0.05
@@ -508,7 +508,7 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "Brasil Gauntlet\n\nAttack Power +53\nDefense +13\nHP Regen +1\nSP Regen +0.7\nAttack Speed +30%\nMovement Speed -0.05"
+        ,Title: "Brasil Gauntlet\n\nAttack Power +50\nDefense +10\nHP Regen +1.2\nSP Regen +1.2\nAttack Speed +35%\nMovement Speed -0.05"
         ,Rarity: "Epic"
     }
     ,{

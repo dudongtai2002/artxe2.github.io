@@ -21,7 +21,7 @@ const Silvia = {
         Pistol: [
             [3, -9, -18],
             [0, 0, 0],
-            [10, -5, -5]
+            [0, -15, -15]
         ]
     }
     ,Base_Attack: (character, enemy) => {
@@ -62,12 +62,9 @@ const Silvia = {
                 return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
             }
             damage = calcSkillDamage(character, enemy, 30 + q * 35, 0.4, 1);
-            let heal;
-            if (character.MODE.selectedIndex == 0) {
-                heal = calcHeal((40 + q * 20 + character.attack_power * 0.3) * 1.1, 1, enemy);
-            } else {
-                heal = calcHeal((40 + q * 20 + character.attack_power * 0.3) * 0.95, 1, enemy);
-            }
+            console.log((100 + character.character.correction[character.weapon.Type][2][character.MODE.selectedIndex]) / 100);
+            let heal = calcHeal((40 + q * 20 + character.attack_power * 0.5) * 
+                (100 + character.character.correction[character.weapon.Type][2][character.MODE.selectedIndex]) / 100, 1, enemy);
             cool = 10000 / ((7.5 - q * 0.75) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage + "</b><b> __h: </b><b class='heal'>" + heal + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
@@ -280,7 +277,7 @@ const Silvia = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

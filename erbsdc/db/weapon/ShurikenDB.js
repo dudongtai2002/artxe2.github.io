@@ -100,7 +100,7 @@ const Shuriken = [
         ,Name: "Dart"
         ,Attack_Power: 16
         ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 20
+        ,Critical_Strike_Chance: 15
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
@@ -124,7 +124,7 @@ const Shuriken = [
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Dart\n\nAttack Power +16\nMovement Speed +0.1\nCritical Damage +20%"
+        ,Title: "Dart\n\nAttack Power +16\nMovement Speed +0.1\nCritical Damage +15%"
         ,Rarity: "Uncommon"
     }
     ,{
@@ -421,7 +421,7 @@ const Shuriken = [
         ,Attack_Power: 48
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 25
+        ,Critical_Strike_Damage: 15
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
@@ -438,13 +438,13 @@ const Shuriken = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Move_Speed: 0.18
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Plumbata\n\nAttack Power +48\nMovement Speed +0.1\nCritical Damage +25%"
+        ,Title: "Plumbata\n\nAttack Power +48\nMovement Speed +0.18\nCritical Damage +15%"
         ,Rarity: "Rare"
     }
     ,{
@@ -613,7 +613,7 @@ const Shuriken = [
         ,Attack_Power: 85
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 40
+        ,Critical_Strike_Damage: 15
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
@@ -633,10 +633,10 @@ const Shuriken = [
         ,Move_Speed: 0.25
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
-        ,Attack_Range: 0
+        ,Attack_Range: 0.5
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Flechette\n\nAttack Power +85\nMovement Speed +0.25\nCritical Damage +40%"
+        ,Title: "Flechette\n\nAttack Power +85\nAttack Range +0.5\nMovement Speed +0.25\nCritical Damage +15%"
         ,Rarity: "Epic"
     }
     ,{
@@ -706,7 +706,7 @@ const Shuriken = [
     ,{
          Type: "Shuriken"
         ,Name: "Sudarsana"
-        ,Attack_Power: 125
+        ,Attack_Power: 130
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -732,7 +732,7 @@ const Shuriken = [
         ,Attack_Range: 0
         ,Base_Range: 4.4
         ,Atk_Speed: 0.55
-        ,Title: "Sudarsana\n\nAttack Power +125"
+        ,Title: "Sudarsana\n\nAttack Power +130"
         ,Rarity: "Legendary"
     }
     ,{

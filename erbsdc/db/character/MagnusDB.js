@@ -84,7 +84,7 @@ const Magnus = {
     ,R_Skill: (character, enemy) => {
         const r = character.R_LEVEL.selectedIndex - 1;
         if (character.weapon && r >= 0) {
-            const damage = calcSkillDamage(character, enemy, 200 + r * 200, 2, 1);
+            const damage = calcSkillDamage(character, enemy, 200 + r * 175, 2, 1);
             return "<b class='damage'>" + damage + '</b>';
         }
         return '-';
@@ -185,14 +185,14 @@ const Magnus = {
                     }
                 } else if (c === 'r' || c === 'R') {
                     if (r >= 0) {
-                        damage += calcSkillDamage(character, enemy, 200 + r * 200, 2, 1);
+                        damage += calcSkillDamage(character, enemy, 200 + r * 175, 2, 1);
                     }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Hammer') {
                             if (!dd && enemy.defense) {
                                 dd = true;
-                                enemy.defense = enemy.calc_defense * (1 - (wm < 13 ? 0.25 : 0.4)) | 0;
+                                enemy.defense = enemy.calc_defense * (1 - (wm < 13 ? 0.2 : 0.35)) | 0;
                             }
                             damage +=  calcSkillDamage(character, enemy, wm < 13 ? 150 + character.defense : 300 + character.defense * 2, 0, 1);
                         }
@@ -224,7 +224,7 @@ const Magnus = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

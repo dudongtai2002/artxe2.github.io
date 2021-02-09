@@ -1,6 +1,6 @@
 class Character {
     calcTrapDamage() {
-        return this.trap ? "<b class='damage'>" + (this.trap.Trap_Damage * (1.04 + this.TRAP_MASTERY.selectedIndex * 0.04) | 0) + '</b>' : '-';
+        return this.trap ? "<b class='damage'>" + floor(this.trap.Trap_Damage * (1.04 + this.TRAP_MASTERY.selectedIndex * 0.04)) + '</b>' : '-';
     }
     
     updateDisplay() {
@@ -705,7 +705,7 @@ class Character {
             const attack_power_percent = 1 + 
                 (jackie_t_w ? (jackie_t_w.checked ? jackie_tw[ t ] : 0) + 
                 (jackie_t_s.checked ? jackie_ts[ t ] : 0) : 0) + 
-                (axe_d_s ? axe_d_s.value * (axe_d_u.checked ? 0.05 + this.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02) : 0) + 
+                (axe_d_s ? axe_d_s.value * (axe_d_u.checked ? 0.05 + this.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.015) : 0) + 
                 (hart_w_u && hart_w_u.checked && w >= 0 ? 0.12 + w * 0.07 : 0);
             this.attack_power = 
                 (this.character.Attack_Power + this.character.Attack_Power_Growth * level + 
@@ -734,7 +734,7 @@ class Character {
             this.ATTACK_SPEED.innerText = this.attack_speed;
 
             const shoichi_t = this.DIV.querySelector('.shoichi_t');
-            const cri_bonus = (shoichi_t ? shoichi_t.value * (3 + t * 3) : 0);
+            const cri_bonus = (shoichi_t ? shoichi_t.value * (5 + t * 2) : 0);
             this.critical_strike_chance = 
                 calcEquip(this, 'Critical_Strike_Chance') + cri_bonus;
                 if (this.critical_strike_chance > 100) {
@@ -764,7 +764,7 @@ class Character {
                 (sissela_t ? (2 + t * 3) * 
                     (sissela_t.value < 10 ? 0 : (sissela_t.value >= 90 ? 5 : sissela_t.value / 20 + 0.5)) * 
                     (this.DIV.querySelector('.sissela_r').checked ? 2 : 1) : 0);
-            const skill_amplification_percent_bonus = (hart_e && e >= 0 ? hart_e_s.value * (hart_ee.checked ? 25 : hart_e.checked ? 15 : 0) : 0) + 
+            const skill_amplification_percent_bonus = (hart_e && e >= 0 ? hart_e_s.value * (hart_ee.checked ? 25 : hart_e.checked ? 18 : 0) : 0) + 
                 (silvia_t && silvia_t.value == 15 ? 18 : 0);
             this.skill_amplification = 
                 round(calcEquip(this, 'Skill_Amplification', 2) + skill_amplification_bonus, 1);
@@ -819,14 +819,14 @@ class Character {
                 (hyunwoo_w && w >= 0 && hyunwoo_w.checked ? 0.1 : 0) + 
                 (yuki_w && w >= 0 && yuki_w.checked ? 0.5 : 0);
             const defense_minus = 1 - 
-                (hammer_d && hammer_d.checked && ewm > 5? ewm < 13 ? 0.25 : 0.4 : 0) - 
+                (hammer_d && hammer_d.checked && ewm > 5? ewm < 13 ? 0.2 : 0.35 : 0) - 
                 (zahir_q ? 0.1 * zahir_q.value : 0) -
                 (hyunwoo_e && ee >= 0 && hyunwoo_e.checked ? 0.07 + ee * 0.02 : 0) - 
-                (hart_w_u && ew >= 0 && hart_w_u.checked ? hart_ww.checked ? 0.35 : hart_w.checked ? 0.2 : 0 : 0) - 
+                (hart_w_u && ew >= 0 && hart_w_u.checked ? hart_ww.checked ? 0.35 : hart_w.checked ? 0.25 : 0 : 0) - 
                 (isol_t && isol_t.checked ? 0.05 + et * 0.1 : 0) - 
                 (xiukai_r && xiukai_r.checked ? 0.1 + er * 0.05 : 0) - 
                 (chiara_t ? chiara_t.value * (0.02 + et * 0.02) : 0);
-            const defense_bonus = (hyunwoo_w && hyunwoo_w.checked ? 4 + w * 14 : 0) + 
+            const defense_bonus = (hyunwoo_w && hyunwoo_w.checked ? 9 + w * 14 : 0) + 
                 (silvia_r && r >= 0 && silvia_r.checked ? 2 + er * 14 : 0)
             this.defense = 
                 (this.character.Defense + this.character.Defense_Growth * level + 
@@ -877,19 +877,19 @@ class Character {
                 (chiara_t && chiara_t.value == 4 ? 0.04 + t * 0.02 : 0) + 
                 (silvia_r && silvia_r.checked ? 0.7 : 0);
             const move_bonus = 
-                (silvia_r && silvia_r.checked ? 0.2 + r * 0.05 : 0);
+                (silvia_r && silvia_r.checked ? 0.15 + r * 0.1 : 0);
             this.movement_speed = 
-                round((this.character.Move_Speed + move_bonus + 
+                (this.character.Move_Speed + move_bonus + 
                     (1 + this.MOVE_MASTERY.selectedIndex) * 0.01 + 
-                    calcEquip(this, 'Move_Speed', 2)) * move_percent, 2);
+                    calcEquip(this, 'Move_Speed', 2)) * move_percent;
                 if (this.movement_speed > 7) {
                     this.movement_speed = 7;
                 }
-            this.MOVEMENT_SPEED.innerText = this.movement_speed;
+            this.MOVEMENT_SPEED.innerText = round(this.movement_speed, 2);
 
             this.out_of_combat_movement_speed = 
-                round(((1 + this.MOVE_MASTERY.selectedIndex) * 0.02 + 
-                    calcEquip(this, 'Out_of_Combat_Movement_Speed', 2)) * move_percent, 2);
+                ((1 + this.MOVE_MASTERY.selectedIndex) * 0.02 + 
+                    calcEquip(this, 'Out_of_Combat_Movement_Speed', 2)) * move_percent;
                 if (this.movement_speed + this.out_of_combat_movement_speed > 7) {
                     this.out_of_combat_movement_speed = 7 - this.movement_speed;
                 }

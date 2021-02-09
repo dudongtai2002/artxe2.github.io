@@ -93,6 +93,21 @@ function fixLimitNum(target, max) {
     updateDisplay();
 }
 
+function floor(n, d) {
+    if (d) {
+        for (let i = 0; i < d; i++) {
+            n *= 10;
+        }
+        n = n + 0.0001 | 0;
+        let v = 1;
+        for (let i = 0; i < d; i++) {
+            v *= 10;
+        }
+        return n / v;
+    }
+    return n + 0.0001 | 0;
+}
+
 function hartUp(s, x) {
     const skill = [
         ['.hart_q', '.hart_qq'],
@@ -159,10 +174,10 @@ function round(n, d) {
         for (let i = 0; i < d; i++) {
             n *= 10;
         }
-        if (n % 1 >= 0.5) {
-            n = (n | 0) + 1;
+        if (n % 1 + 0.0001 >= 0.5) {
+            n = (n + 0.0001 | 0) + 1;
         } else {
-            n = n | 0;
+            n = n + 0.0001 | 0;
         }
         let v = 1;
         for (let i = 0; i < d; i++) {
@@ -170,10 +185,10 @@ function round(n, d) {
         }
         return n / v;
     }
-    if (n % 1 >= 0.5) {
-        return (n | 0) + 1;
+    if (n % 1 + 0.0001 >= 0.5) {
+        return (n + 0.0001 | 0) + 1;
     }
-    return n | 0;
+    return n + 0.0001 | 0;
 }
 
 function round6(n, d) {
@@ -181,10 +196,10 @@ function round6(n, d) {
         for (let i = 0; i < d; i++) {
             n *= 10;
         }
-        if (n % 1 >= 0.6) {
-            n = (n | 0) + 1;
+        if (n % 1 + 0.0001 >= 0.6) {
+            n = (n + 0.0001 | 0) + 1;
         } else {
-            n = n | 0;
+            n = n + 0.0001 | 0;
         }
         let v = 1;
         for (let i = 0; i < d; i++) {
@@ -192,10 +207,10 @@ function round6(n, d) {
         }
         return n / v;
     }
-    if (n % 1 >= 0.6) {
-        return (n | 0) + 1;
+    if (n % 1 + 0.0001 >= 0.6) {
+        return (n + 0.0001 | 0) + 1;
     }
-    return n | 0;
+    return n + 0.0001 | 0;
 }
 
 function updateDisplay() {

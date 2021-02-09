@@ -120,11 +120,11 @@ const Rapier = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
+        ,Vision_Range: 1
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.615
-        ,Title: "Sword of Justice\n\nAttack Power +30\nHP Regen +1.5\nSP Regen +200%\nCritical Damage +25%\nCooldown Reduction +12%"
+        ,Title: "Sword of Justice\n\nAttack Power +30\nHP Regen +1.5\nSP Regen +200%\nVision Range +1\nCritical Damage +25%\nCooldown Reduction +12%"
         ,Rarity: "Epic"
     }
     ,{
@@ -134,7 +134,7 @@ const Rapier = [
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 10
         ,Critical_Strike_Damage: 30
-        ,Life_Steal: 0
+        ,Life_Steal: 8
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
@@ -156,7 +156,7 @@ const Rapier = [
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.615
-        ,Title: "Durendal Mk2\n\nAttack Power +55\nVision Range +3\nCritical Strike Chance +10%\nCritical Damage +30%\nCooldown Reduction +10%"
+        ,Title: "Durendal Mk2\n\nAttack Power +55\nVision Range +3\nCritical Strike Chance +10%\nCritical Damage +30%\nCooldown Reduction +10%\nLife Steal +8%"
         ,Rarity: "Epic"
     }
     ,{
@@ -280,11 +280,11 @@ const Rapier = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
+        ,Vision_Range: 1
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.615
-        ,Title: "Mistilteinn\n\nAttack Power +30\nHP Regen +1.5\nSP Regen +200%\nCritical Damage +25%\nCooldown Reduction +12%\nSkill Amplification +15%"
+        ,Title: "Mistilteinn\n\nAttack Power +30\nHP Regen +1.5\nSP Regen +200%\nVision Range +1\nCritical Damage +25%\nCooldown Reduction +12%\nSkill Amplification +15%"
         ,Rarity: "Legendary"
     }
 ];

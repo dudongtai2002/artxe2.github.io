@@ -354,11 +354,11 @@ const Pistol = [
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0.2
         ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
+        ,Vision_Range: 1
         ,Attack_Range: 0
         ,Base_Range: 4.2
         ,Atk_Speed: 0.505
-        ,Title: "Kelte\n\nAttack Power +120\nMovement Speed +0.2"
+        ,Title: "Kelte\n\nAttack Power +120\nVision Range +1\nMovement Speed +0.2"
         ,Rarity: "Legendary"
         ,Ammo: 10
     }

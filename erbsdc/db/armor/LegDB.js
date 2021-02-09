@@ -528,7 +528,7 @@ const Leg = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 5
+        ,Defense: 10
         ,Max_HP: 0
         ,Max_SP: 0
         ,HP_Regen: 0
@@ -540,7 +540,7 @@ const Leg = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Bucephalus\n\nAttack Power +5\nDefense +5\nSP Regen +1\nMovement Speed +0.33\nCriticall Strike Chance +15%"
+        ,Title: "Bucephalus\n\nAttack Power +5\nDefense +10\nSP Regen +1\nMovement Speed +0.33\nCriticall Strike Chance +15%"
         ,Rarity: "Epic"
     }
     ,{
@@ -620,14 +620,14 @@ const Leg = [
         ,Skill_Amplification: 15
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
-        ,SP_Regen: 2
+        ,SP_Regen: 1.5
         ,SP_Regen_Percent: 60
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 0
         ,Max_HP: 0
         ,Max_SP: 0
-        ,HP_Regen: 2
+        ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
         ,Move_Speed: 0.25
@@ -636,7 +636,7 @@ const Leg = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Glacial Shoes\n\nHP Regen +2\nSP Regen +2\n SP Regen +60%\nMovement Speed +0.25\nMovement speed while not in combat +0.4\nSkill Amplification +15"
+        ,Title: "Glacial Shoes\n\nHP Regen +1.5\nSP Regen +1.5\n SP Regen +60%\nMovement Speed +0.25\nMovement speed while not in combat +0.4\nSkill Amplification +15"
         ,Rarity: "Legendary"
     }
     ,{

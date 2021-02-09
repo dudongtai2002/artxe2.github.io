@@ -24,7 +24,7 @@ const Hyejin = {
         ],
         Bow: [
             [0, -13, -18],
-            [-6, -3, -3]
+            [0, -3, -3]
         ]
     }
     ,Base_Attack: (character, enemy) => {
@@ -237,7 +237,7 @@ const Hyejin = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

@@ -1,7 +1,7 @@
 const Nadine = {
      Attack_Power: 32
     ,Attack_Power_Growth: 2.2
-    ,Health: 520
+    ,Health: 535
     ,Health_Growth: 60
     ,Health_Regen: 0.4
     ,Health_Regen_Growth: 0.03
@@ -9,7 +9,7 @@ const Nadine = {
     ,Stamina_Growth: 13
     ,Stamina_Regen: 1.9
     ,Stamina_Regen_Growth: 0.05
-    ,Defense: 21
+    ,Defense: 23
     ,Defense_Growth: 1.5
     ,Atk_Speed: 0.12
     ,Crit_Rate: 0
@@ -246,7 +246,7 @@ const Nadine = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

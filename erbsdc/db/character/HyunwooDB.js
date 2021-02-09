@@ -1,5 +1,5 @@
 const Hyunwoo = {
-     Attack_Power: 40
+     Attack_Power: 38
     ,Attack_Power_Growth: 3.1
     ,Health: 500
     ,Health_Growth: 85
@@ -9,7 +9,7 @@ const Hyunwoo = {
     ,Stamina_Growth: 16
     ,Stamina_Regen: 1.8
     ,Stamina_Regen_Growth: 0.04
-    ,Defense: 26
+    ,Defense: 23
     ,Defense_Growth: 2.2
     ,Atk_Speed: 0.12
     ,Crit_Rate: 0
@@ -68,8 +68,8 @@ const Hyunwoo = {
     ,E_Skill: (character, enemy) => {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
-            const min = calcSkillDamage(character, enemy, character.defense, 0, 1);
-            const max = calcSkillDamage(character, enemy, (enemy.max_hp ? enemy.max_hp * (0.05 + e * 0.03) : 0) + character.defense, 0, 1);
+            const min = calcSkillDamage(character, enemy, character.defense * 0.8, 0, 1);
+            const max = calcSkillDamage(character, enemy, (enemy.max_hp ? enemy.max_hp * (0.05 + e * 0.03) : 0) + character.defense * 0.8, 0, 1);
             const bonus = calcSkillDamage(character, enemy, 60 + e * 35, 0, 1);
             const cool = 10000 / ((13 - e * 0.5) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + (max + bonus) + '</b> ( ' + min + ' ~ ' + max + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round((min + max + bonus) / 2 * cool) / 100 + '</b>';
@@ -187,7 +187,7 @@ const Hyunwoo = {
                     if (w >= 0) {
                         if (!ww) {
                             ww = true;
-                            character.defense = (character.pure_defense + 4 + w * 14) * 1.1 | 0
+                            character.defense = (character.pure_defense + 9 + w * 14) * 1.1 | 0
                         }
                     }
                 } else if (c === 'e') {
@@ -200,7 +200,7 @@ const Hyunwoo = {
                         if (currHp > enemy.max_hp) {
                             currHp = enemy.max_hp;
                         }
-                        damage += calcSkillDamage(character, enemy, (enemy.max_hp ? currHp * (0.05 + e * 0.03) : 0) + character.defense, 0, 1);
+                        damage += calcSkillDamage(character, enemy, (enemy.max_hp ? currHp * (0.05 + e * 0.03) : 0) + character.defense * 0.8, 0, 1);
                         if (ww) {
                             ww = false;
                             character.defense = character.pure_defense | 0;
@@ -214,7 +214,7 @@ const Hyunwoo = {
                         }
                         const lost = enemy.max_hp ? damage - calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
                             (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * character.DIV.querySelector('.combo_time').value * (i / combo.length) : 0;
-                        damage += calcSkillDamage(character, enemy, (enemy.max_hp ? (enemy.max_hp - lost) * (0.05 + e * 0.03) : 0) + character.defense, 0, 1) + 
+                        damage += calcSkillDamage(character, enemy, (enemy.max_hp ? (enemy.max_hp - lost) * (0.05 + e * 0.03) : 0) + character.defense * 0.8, 0, 1) + 
                             calcSkillDamage(character, enemy, 60 + e * 35, 0, 1);
                         if (ww) {
                             ww = false;
@@ -276,7 +276,7 @@ const Hyunwoo = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

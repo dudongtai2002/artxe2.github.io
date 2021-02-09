@@ -492,7 +492,7 @@ const Glove = [
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
+        ,SP_Regen: 0.7
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
@@ -508,7 +508,7 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "Brasil Gauntlet\n\nAttack Power +53\nDefense +13\nHP Regen +1\nAttack Speed +30%\nMovement Speed -0.05"
+        ,Title: "Brasil Gauntlet\n\nAttack Power +53\nDefense +13\nHP Regen +1\nSP Regen +0.7\nAttack Speed +30%\nMovement Speed -0.05"
         ,Rarity: "Epic"
     }
     ,{

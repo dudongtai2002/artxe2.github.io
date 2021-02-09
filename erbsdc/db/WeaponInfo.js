@@ -3,6 +3,7 @@ const WeaponInfo = {
         weapon_mastery_attack_speed
         weapon_mastery_extra_normal_attack_damage_percent
         weapon_mastery_skill_amplification_percent
+        attack_range
     ]*/
      Dagger:            [2.7, 5.0, 1.5]
     ,TwoHandedSword:    [3.3, 5.0, 1.5]
@@ -17,7 +18,7 @@ const WeaponInfo = {
     ,Bat:               [3.0, 4.0, 1.2]
     ,Throws:            [0.9, 5.0, 2.0]
     ,Shuriken:          [1.8, 4.0, 1.8]
-    ,Bow:               [2.2, 3.0, 2.0]
+    ,Bow:               [2.4, 3.0, 2.0]
     ,Crossbow:          [2.0, 5.0, 1.8]
     ,Glove:             [3.6, 2.5, 1.6]
     ,Tonfa:             [1.8, 3.8, 3.7]

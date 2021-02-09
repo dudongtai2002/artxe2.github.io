@@ -19,7 +19,7 @@ const Lenox = {
     ,weapons: [Whip]
     ,correction: {
         Whip: [
-            [0, -6, -9],
+            [0, -8, -11],
             [0, 0, 0]
         ],
     }
@@ -61,8 +61,8 @@ const Lenox = {
     ,W_Skill: (character, enemy) => {
         const w = character.W_LEVEL.selectedIndex - 1;
         if (character.weapon && w >= 0) {
-            const damage1 = calcSkillDamage(character, enemy, 30 + w * 10, 0.3, 1);
-            const damage2 = calcSkillDamage(character, enemy, 40 + w * 35, 0.6, 1);
+            const damage1 = calcSkillDamage(character, enemy, 20 + w * 10, 0.3, 1);
+            const damage2 = calcSkillDamage(character, enemy, 50 + w * 35, 0.6, 1);
             const cool = 10000 / ((12 - w * 1) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage1 + ' - ' + (damage1 + damage2)  + '</b> ( ' + damage1 + ', ' + damage2 + " )<b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2) * cool) / 100 + '</b>';
         }
@@ -172,8 +172,8 @@ const Lenox = {
                     }
                 } else if (c === 'W') {
                     if (w >= 0) {
-                        damage += calcSkillDamage(character, enemy, 30 + w * 10, 0.3, 1) + 
-                            calcSkillDamage(character, enemy, 40 + w * 35, 0.6, 1);
+                        damage += calcSkillDamage(character, enemy, 20 + w * 10, 0.3, 1) + 
+                            calcSkillDamage(character, enemy, 50 + w * 35, 0.6, 1);
                     }
                 } else if (c === 'e' || c === 'E') {
                     if (e >= 0) {
@@ -217,7 +217,7 @@ const Lenox = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

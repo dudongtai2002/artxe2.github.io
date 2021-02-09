@@ -331,7 +331,7 @@ const Guitar = [
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 20
-        ,Cooldown_Reduction: 0
+        ,Cooldown_Reduction: 10
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
@@ -348,7 +348,7 @@ const Guitar = [
         ,Attack_Range: 0
         ,Base_Range: 3.85
         ,Atk_Speed: 0.43
-        ,Title: "Stairway to Heaven\n\nAttack Power +61\nHP Regen +200%\nVision Range +4\nSkill Amplification +20%"
+        ,Title: "Stairway to Heaven\n\nAttack Power +61\nHP Regen +200%\nVision Range +4\nCooldown Reduction +10%\nSkill Amplification +20%"
         ,Rarity: "Epic"
     }
     ,{
@@ -505,10 +505,10 @@ const Guitar = [
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
-        ,Attack_Range: 0
+        ,Attack_Range: 1
         ,Base_Range: 3.85
         ,Atk_Speed: 0.43
-        ,Title: "Teen Spirit\n\nAttack Power +10\nAttack Speed +35%\nExtra Normal Attack Damage +20"
+        ,Title: "Teen Spirit\n\nAttack Power +10\nAttack Speed +35%\nAttack Range +1\nExtra Normal Attack Damage +20"
         ,Rarity: "Epic"
     }
 ];

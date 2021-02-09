@@ -171,7 +171,7 @@ const SniperRifle = [
         ,Attack_Speed: 20
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
+        ,Life_Steal: 30
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
@@ -193,7 +193,7 @@ const SniperRifle = [
         ,Attack_Range: 0
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "Tac-50\n\nAttack Power +140\nVision Range +2.5\nLife Steal +20%"
+        ,Title: "Tac-50\n\nAttack Power +140\nVision Range +2.5\nLife Steal +30%"
         ,Rarity: "Epic"
         ,Ammo: 2
     }
@@ -223,10 +223,10 @@ const SniperRifle = [
         ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 5
-        ,Attack_Range: 1
+        ,Attack_Range: 1.5
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "Intervention\n\nAttack Power +120\nVision Range +5\nAttack Range +1"
+        ,Title: "Intervention\n\nAttack Power +120\nVision Range +5\nAttack Range +1.5"
         ,Rarity: "Epic"
         ,Ammo: 2
     }
@@ -266,7 +266,7 @@ const SniperRifle = [
     ,{
          Type: "SniperRifle"
         ,Name: "Polaris"
-        ,Attack_Power: 125
+        ,Attack_Power: 120
         ,Attack_Speed: 35
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -292,7 +292,7 @@ const SniperRifle = [
         ,Attack_Range: 0
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "Polaris\n\nAttack Power +125\nAttack Speed +35%\nMovement Speed -0.03\nVision Range +2"
+        ,Title: "Polaris\n\nAttack Power +120\nAttack Speed +35%\nMovement Speed -0.03\nVision Range +2"
         ,Rarity: "Epic"
         ,Ammo: 3
     }

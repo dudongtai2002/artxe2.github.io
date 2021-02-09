@@ -66,7 +66,7 @@ const Bat = [
     ,{
          Type: "Bat"
         ,Name: "Long_Rod"
-        ,Attack_Power: 25
+        ,Attack_Power: 22
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -92,13 +92,13 @@ const Bat = [
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.56
-        ,Title: "Long Rod\n\nAttack Power +25"
+        ,Title: "Long Rod\n\nAttack Power +22"
         ,Rarity: "Uncommon"
     }
     ,{
          Type: "Bat"
         ,Name: "Goblin_Bat"
-        ,Attack_Power: 30
+        ,Attack_Power: 27
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -124,7 +124,7 @@ const Bat = [
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.56
-        ,Title: "Goblin Bat\n\nAttack Power +30\nHealing Reduction (Normal Attacks) -40%"
+        ,Title: "Goblin Bat\n\nAttack Power +27\nHealing Reduction (Normal Attacks) -40%"
         ,Rarity: "Rare"
     }
     ,{
@@ -162,7 +162,7 @@ const Bat = [
     ,{
          Type: "Bat"
         ,Name: "Torch"
-        ,Attack_Power: 40
+        ,Attack_Power: 36
         ,Attack_Speed: 10
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -188,17 +188,17 @@ const Bat = [
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.56
-        ,Title: "Torch\n\nAttack Power +40\nHP Regen +0.5\nAttack Speed +10%"
+        ,Title: "Torch\n\nAttack Power +36\nHP Regen +0.5\nAttack Speed +10%"
         ,Rarity: "Rare"
     }
     ,{
          Type: "Bat"
         ,Name: "Statue_of_Soteria"
-        ,Attack_Power: 90
+        ,Attack_Power: 82
         ,Attack_Speed: 15
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
-        ,Life_Steal: 10
+        ,Life_Steal: 12
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
@@ -220,7 +220,7 @@ const Bat = [
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.56
-        ,Title: "Statue of Soteria\n\nAttack Power +90\nHP Regen +0.6\nHP Regen +1.2\nSP Regen +60%\nAttack Speed +15%\nLife Steal +10%"
+        ,Title: "Statue of Soteria\n\nAttack Power +82\nHP Regen +0.6\nHP Regen +1.2\nSP Regen +60%\nAttack Speed +15%\nLife Steal +12%"
         ,Rarity: "Epic"
     }
     ,{

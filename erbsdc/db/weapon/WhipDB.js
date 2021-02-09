@@ -231,7 +231,7 @@ const Whip = [
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
+        ,Extra_Normal_Attack_Damage: 12
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 0
@@ -252,7 +252,7 @@ const Whip = [
         ,Attack_Range: 0
         ,Base_Range: 2.35
         ,Atk_Speed: 0.55
-        ,Title: "Plasma Whip\n\nAttack Power +60\nAttack Speed +30%\nVision Range +2.3"
+        ,Title: "Plasma Whip\n\nAttack Power +60\nAttack Speed +30%\nVision Range +2.3\nExtra Normal Attack Damage +12"
         ,Rarity: "Epic"
     }
     ,{
@@ -262,7 +262,7 @@ const Whip = [
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
-        ,Life_Steal: 20
+        ,Life_Steal: 25
         ,Extra_Normal_Attack_Damage: 0
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 40
@@ -284,7 +284,7 @@ const Whip = [
         ,Attack_Range: 0
         ,Base_Range: 2.35
         ,Atk_Speed: 0.55
-        ,Title: "Whip of Nine Bloody Tails\n\nAttack Power +65\nLife Steal +20%\nSkill Amplification +40"
+        ,Title: "Whip of Nine Bloody Tails\n\nAttack Power +65\nLife Steal +25%\nSkill Amplification +40"
         ,Rarity: "Legendary"
     }
 ];

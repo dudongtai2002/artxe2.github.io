@@ -91,7 +91,7 @@ const Hart = {
             const skill_amplification_percent = character.skill_amplification_percent;
             character.skill_amplification_percent = character.calc_skill_amplification_percent;
 
-            const sap = character.DIV.querySelector('.hart_ee').checked ? 25 : character.DIV.querySelector('.hart_e').checked ? 15 : 0;
+            const sap = character.DIV.querySelector('.hart_ee').checked ? 25 : character.DIV.querySelector('.hart_e').checked ? 18 : 0;
             character.skill_amplification_percent += sap;
             const damage1 = calcSkillDamage(character, enemy, 20 + e * 10, 0.4, 1);
             character.skill_amplification_percent += sap;
@@ -195,7 +195,7 @@ const Hart = {
             const et = enemy.T_LEVEL.selectedIndex;
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
-            const sap = character.DIV.querySelector('.hart_ee').checked ? 25 : character.DIV.querySelector('.hart_e').checked ? 15 : 0;
+            const sap = character.DIV.querySelector('.hart_ee').checked ? 25 : character.DIV.querySelector('.hart_e').checked ? 18 : 0;
             let ww = false, stack = 0;
 
             const hart_w = character.DIV.querySelector('.hart_w');
@@ -263,7 +263,7 @@ const Hart = {
                         } else {
                             character.attack_power = character.calc_attack_power * (1 + 0.12 + w * 0.07) | 0;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - (hart_ww.checked ? 0.35 : hart_w.checked ? 0.2 : 0)) | 0;
+                                enemy.defense = enemy.calc_defense * (1 - (hart_ww.checked ? 0.35 : hart_w.checked ? 0.25 : 0)) | 0;
                             }
                         }
                         ww = !ww;
@@ -304,7 +304,7 @@ const Hart = {
                             shield += 100 + et * 50 + enemy.attack_power * 0.3 + 0.0001 | 0;
                         }
                     } else if (enemy.character === Emma) {
-                        const cool = (16 - et * 3) * (100 - enemy.cooldown_reduction) / 100;
+                        const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || ((time * i / combo.length) / cool | 0) > ((time * (i - 1) / combo.length) / cool | 0)) {
                             shield += 100 + et * 25 + enemy.max_sp * (0.03 + et * 0.03) + 0.0001 | 0;
                         }

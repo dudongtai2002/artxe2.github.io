@@ -144,7 +144,7 @@ const Chest = [
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 22
+        ,Defense: 15
         ,Max_HP: 0
         ,Max_SP: 0
         ,HP_Regen: 0
@@ -156,7 +156,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Leather Armor\n\nDefense +22"
+        ,Title: "Leather Armor\n\nDefense +15"
         ,Rarity: "Uncommon"
     }
     ,{
@@ -817,7 +817,7 @@ const Chest = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 20
         ,Defense: 28
-        ,Max_HP: 120
+        ,Max_HP: 140
         ,Max_SP: 0
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
@@ -828,7 +828,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Amazoness Armor\n\nDefense +28\nMax HP +120\nSkill Damage Reduction +20%"
+        ,Title: "Amazoness Armor\n\nDefense +28\nMax HP +140\nSkill Damage Reduction +20%"
         ,Rarity: "Epic"
     }
     ,{
@@ -945,7 +945,7 @@ const Chest = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 12
         ,Defense: 25
-        ,Max_HP: 140
+        ,Max_HP: 170
         ,Max_SP: 0
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
@@ -956,7 +956,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Battle Suit\n\nDefense +25\nMax HP +140\nNormal Attack Damage Reduction +12\nSkill Damage Reduction +12%"
+        ,Title: "Battle Suit\n\nDefense +25\nMax HP +170\nNormal Attack Damage Reduction +12\nSkill Damage Reduction +12%"
         ,Rarity: "Epic"
     }
     ,{
@@ -994,7 +994,7 @@ const Chest = [
     ,{
          Type: "Chest"
         ,Name: "Blazing_Dress"
-        ,Attack_Power: 0
+        ,Attack_Power: 10
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -1020,7 +1020,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Blazing Dress\n\nDefense +30\nHP Regen +2.5\nSP Regen +3\nSP Regen +75%\nExtra Normal Attack Damage +18"
+        ,Title: "Blazing Dress\n\nAttack Power +10\nDefense +30\nHP Regen +2.5\nSP Regen +3\nSP Regen +75%\nExtra Normal Attack Damage +18"
         ,Rarity: "Legendary"
     }
     ,{

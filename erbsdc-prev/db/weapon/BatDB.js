@@ -182,13 +182,13 @@ const Bat = [
         ,HP_Regen: 0.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.56
-        ,Title: "Torch\n\nAttack Power +40\nHP Regen +0.5\nAttack Speed +10%\nMovement Speed +0.1"
+        ,Title: "Torch\n\nAttack Power +40\nHP Regen +0.5\nAttack Speed +10%"
         ,Rarity: "Rare"
     }
     ,{
@@ -214,13 +214,13 @@ const Bat = [
         ,HP_Regen: 0.6
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Move_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.56
-        ,Title: "Statue of Soteria\n\nAttack Power +90\nHP Regen +0.6\nHP Regen +1.2\nSP Regen +60%\nAttack Speed +15%\nMovement Speed +0.1\nLife Steal +10%"
+        ,Title: "Statue of Soteria\n\nAttack Power +90\nHP Regen +0.6\nHP Regen +1.2\nSP Regen +60%\nAttack Speed +15%\nLife Steal +10%"
         ,Rarity: "Epic"
     }
     ,{
