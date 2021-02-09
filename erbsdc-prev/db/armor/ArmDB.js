@@ -192,13 +192,6 @@ const Arm = [
         ,Rarity: "Uncommon"
     }
     ,{
-        Type: "Arm"
-       ,Name: "Broken_Watch"
-       ,Cooldown_Reduction: 5
-       ,Title: "Broken Watch\n\nCooldown Reduction +5%"
-       ,Rarity: "Epic"
-   }
-    ,{
          Type: "Arm"
         ,Name: "Sheath"
         ,Attack_Power: 18
@@ -452,7 +445,7 @@ const Arm = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Draupnir\n\nDefense +10\nMax HP +240\nHP Regen +1\nSkill Amplification +17%"
+        ,Title: "Draupnir\n\nDefense +10\nMax HP +240\nHP Regen +1\n Skill Amplification +17%"
         ,Rarity: "Epic"
     }
     ,{
@@ -601,7 +594,7 @@ const Arm = [
         ,Skill_Damage_Reduction: 0
         ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 10
-        ,Max_HP: 320
+        ,Max_HP: 350
         ,Max_SP: 250
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
@@ -612,17 +605,9 @@ const Arm = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Burnished Aegis\n\nAttack Power +10\nDefense +10\nMax HP +320\nMax SP +250"
+        ,Title: "Burnished Aegis\n\nAttack Power +10\nDefense +10\nMax HP +350\nMax SP +250"
         ,Rarity: "Epic"
     }
-    ,{
-        Type: "Arm"
-       ,Name: "Tindalos_Band"
-       ,Skill_Amplification_Percent: 12
-       ,Cooldown_Reduction: 12
-       ,Title: "Tindalos Band\n\nCooldown Reduction +12%\nSkill Amplification +12%"
-       ,Rarity: "Epic"
-   }
     ,{
          Type: "Arm"
         ,Name: "Bracelet_of_Skadi"
@@ -690,7 +675,7 @@ const Arm = [
     ,{
          Type: "Arm"
         ,Name: "Auto-arms"
-        ,Attack_Power:45
+        ,Attack_Power:40
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -716,7 +701,7 @@ const Arm = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Auto-arms\n\nAttack Power +45\nDefense +35\nHP Regen +1"
+        ,Title: "Auto-arms\n\nAttack Power +40\nDefense +35\nHP Regen +1"
         ,Rarity: "Legendary"
     }
 ];
