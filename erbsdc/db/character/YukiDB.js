@@ -114,6 +114,7 @@ const Yuki = {
     ,E_Skill: (character, enemy) => {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
+            const t = character.E_LEVEL.selectedIndex;
             const damage = calcSkillDamage(character, enemy, 70 + e * 55, 0.4, 1);
             const cool = 10000 / ((15 - e * 1) * (100 - character.cooldown_reduction));
             if (character.DIV.querySelector('.yuki_t').checked) {
