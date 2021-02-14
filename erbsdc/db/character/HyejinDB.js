@@ -24,7 +24,7 @@ const Hyejin = {
         ],
         Bow: [
             [0, -13, -18],
-            [0, -3, -3]
+            [0, 0, 0]
         ]
     }
     ,Base_Attack: (character, enemy) => {
