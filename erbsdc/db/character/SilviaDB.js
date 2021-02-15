@@ -180,6 +180,7 @@ const Silvia = {
             const w = character.W_LEVEL.selectedIndex - 1;
             const e = character.E_LEVEL.selectedIndex - 1;
             const r = character.R_LEVEL.selectedIndex - 1;
+            const ew = enemy.W_LEVEL.selectedIndex - 1;
             const et = enemy.T_LEVEL.selectedIndex;
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
@@ -275,6 +276,11 @@ const Silvia = {
                         }
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
+                        }
+                    } else if (enemy.character === Chiara) {
+                        const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
+                        if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(90 + ew * 35 + enemy.attack_power * 0.6);
                         }
                     } else if (enemy.character === Emma) {
                         const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;

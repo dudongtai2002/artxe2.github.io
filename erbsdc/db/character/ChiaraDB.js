@@ -61,7 +61,7 @@ const Chiara = {
         const w = character.W_LEVEL.selectedIndex - 1;
         if (character.weapon && w >= 0) {
             const damage = calcSkillDamage(character, enemy, 80 + w * 40, 0.75, 1);
-            const shield = 90 + w * 35 + character.attack_power * 0.6 | 0;
+            const shield = floor(90 + w * 35 + character.attack_power * 0.6);
             const cool = 10000 / ((16 - w * 1) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage + "</b><b> __s: </b><b class='shield'>" + shield + "</b><b> __s/s: </b><b class='shield'>" + round(shield * cool) / 100 + '</b>';
         }
@@ -142,6 +142,7 @@ const Chiara = {
             const r = character.R_LEVEL.selectedIndex - 1;
             const t = character.T_LEVEL.selectedIndex;
             const wm = character.WEAPON_MASTERY.selectedIndex;
+            const ew = enemy.W_LEVEL.selectedIndex - 1;
             const et = enemy.T_LEVEL.selectedIndex;
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
@@ -270,6 +271,11 @@ const Chiara = {
                         }
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
+                        }
+                    } else if (enemy.character === Chiara) {
+                        const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
+                        if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(90 + ew * 35 + enemy.attack_power * 0.6);
                         }
                     } else if (enemy.character === Emma) {
                         const cool = (15 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
