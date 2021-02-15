@@ -344,7 +344,7 @@ const Hart = {
         }
         return '-';
     }
-    ,COMBO_Option: 'waeeeadQa'
+    ,COMBO_Option: 'wAdeaeaeadQa'
     ,COMBO_Help: (character) => {
         if (!character.character) {
             return 'select character plz';
