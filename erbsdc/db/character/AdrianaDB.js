@@ -388,7 +388,7 @@ const Adriana = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
-                    } else if (enemy.character === Chiara) {
+                    } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
                             shield += floor(90 + ew * 35 + enemy.attack_power * 0.6);
