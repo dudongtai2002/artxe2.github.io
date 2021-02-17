@@ -49,7 +49,7 @@ const Shoichi = {
             } else {
                 ba = baseAttackDamage(character, enemy, 0, 1, character.critical_strike_chance, 1);
             }
-            const damage = (ba * character.attack_speed * 100 | 0) / 100;
+            const damage = floor(ba * character.attack_speed * 100) / 100;
             const life = calcHeal(ba * (character.life_steal / 100), character.attack_speed, enemy);
             return "<b class='damage'>" + damage + "</b><b> __h/s: </b><b class='heal'>" + life + '</b>';
         }

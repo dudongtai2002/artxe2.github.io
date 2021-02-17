@@ -63,9 +63,9 @@ const Magnus = {
     ,W_Skill: (character, enemy) => {
         const w = character.W_LEVEL.selectedIndex - 1;
         if (character.weapon && w >= 0) {
-            const damage = calcSkillDamage(character, enemy, (1.5 + w * 0.5 | 0) * 10 + character.defense * 0.3, 0.3, 1);
+            const damage = calcSkillDamage(character, enemy, floor(1.5 + w * 0.5) * 10 + character.defense * 0.3, 0.3, 1);
             const cool = 10000 / (10 * (100 - character.cooldown_reduction) + 400);
-            return "<b class='damage'>" + damage * (6 + w * 0.5 | 0) + '</b> ( ' + damage + ' x ' + (6 + w * 0.5 | 0) + " )<b> __sd/s: </b><b class='damage'>" + round((damage * (6 + w * 0.5 | 0)) * cool) / 100 + '</b>';
+            return "<b class='damage'>" + damage * floor(6 + w * 0.5) + '</b> ( ' + damage + ' x ' + floor(6 + w * 0.5) + " )<b> __sd/s: </b><b class='damage'>" + round((damage * floor(6 + w * 0.5)) * cool) / 100 + '</b>';
         }
         return '-';
     }
@@ -154,7 +154,7 @@ const Magnus = {
             let enemy_defense;
             if (enemy.calc_defense) {
                 enemy_defense = enemy.defense;
-                enemy.defense = enemy.calc_defense | 0;
+                enemy.defense = floor(enemy.calc_defense);
             }
 
             const combo = character.COMBO_OPTION.value;
@@ -176,8 +176,8 @@ const Magnus = {
                     }
                 } else if (c === 'w' || c === 'W') {
                     if (w >= 0) {
-                        damage += calcSkillDamage(character, enemy, (1.5 + w * 0.5 | 0) * 10 + character.defense * 0.3, 0.3, 1) * 
-                            (6 + w * 0.5 | 0);
+                        damage += calcSkillDamage(character, enemy, floor(1.5 + w * 0.5) * 10 + character.defense * 0.3, 0.3, 1) * 
+                            floor(6 + w * 0.5);
                     }
                 } else if (c === 'e' || c === 'E') {
                     if (e >= 0) {

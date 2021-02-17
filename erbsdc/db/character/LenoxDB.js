@@ -83,7 +83,7 @@ const Lenox = {
         if (character.weapon && r >= 0) {
             const damage = calcSkillDamage(character, enemy, 50 + r * 50, 0.8, 1);
             const add = calcTrueDamage(character, enemy, 10 + r * 5);
-            const hit = enemy.movement_speed ? enemy.movement_speed * (3 + r) | 0 : 0;
+            const hit = enemy.movement_speed ? floor(enemy.movement_speed * (3 + r)) : 0;
             return "<b class='damage'>" + (damage * 2) + ' ~ ' + (damage * 2 + add * 2 * hit) + '</b> ( ' + damage + ' x 2, [' + add + ' x 2] x ' + hit + ' )';
         }
         return '-';
@@ -103,7 +103,7 @@ const Lenox = {
     }
     ,T_Skill: (character, enemy) => {
         if (character.weapon) {
-            return "<b> _s: </b><b class='shield'>" + (character.max_hp * 0.1 + 0.0001 | 0) + '</b>';
+            return "<b> _s: </b><b class='shield'>" + floor(character.max_hp * 0.1) + '</b>';
         }
         return '-';
     }
@@ -182,12 +182,12 @@ const Lenox = {
                 } else if (c === 'r') {
                     if (r >= 0) {
                         damage += calcSkillDamage(character, enemy, 50 + r * 50, 0.8, 1) + 
-                            calcTrueDamage(character, enemy, 10 + r * 5) * (enemy.movement_speed ? enemy.movement_speed * (3 + r) | 0 : 0);
+                            calcTrueDamage(character, enemy, 10 + r * 5) * (enemy.movement_speed ? floor(enemy.movement_speed * (3 + r)) : 0);
                     }
                 } else if (c === 'R') {
                     if (r >= 0) {
                         damage += (calcSkillDamage(character, enemy, 50 + r * 50, 0.8, 1) + 
-                            calcTrueDamage(character, enemy, 10 + r * 5) * (enemy.movement_speed ? enemy.movement_speed * (3 + r) | 0 : 0)) * 2;
+                            calcTrueDamage(character, enemy, 10 + r * 5) * (enemy.movement_speed ? floor(enemy.movement_speed * (3 + r)) : 0)) * 2;
                     }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {

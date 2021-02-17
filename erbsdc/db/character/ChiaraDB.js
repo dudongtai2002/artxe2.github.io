@@ -82,7 +82,7 @@ const Chiara = {
         const r = character.R_LEVEL.selectedIndex - 1;
         if (character.weapon && r >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 20 + r * 7, 0.15, 1);
-            const damage2 = 200 + r * 100 + character.attack_power * 1.2 | 0;
+            const damage2 = floor(200 + r * 100 + character.attack_power * 1.2);
             const heal = calcHeal(damage1 * 0.2, 1, enemy);
             return "<b class='damage'>" + (damage1 * 12 + damage2) + '</b> ( ' + damage1 + " x 12, <b class='damage'>" + damage2 + "</b> ) <b> __h/s: </b><b class='heal'>" + heal + '</b>';
         }
@@ -151,7 +151,7 @@ const Chiara = {
             let enemy_defense;
             if (enemy.calc_defense) {
                 enemy_defense = enemy.defense;
-                enemy.defense = enemy.calc_defense | 0;
+                enemy.defense = floor(enemy.calc_defense);
             }
 
             const combo = character.COMBO_OPTION.value;
@@ -172,7 +172,7 @@ const Chiara = {
                         if (stack < 4) {
                             stack++;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                             }
                         }
                         damage += calcSkillDamage(character, enemy, 60 + q * 40, 0.6, 1);
@@ -182,7 +182,7 @@ const Chiara = {
                         if (stack < 4) {
                             stack++;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                             }
                         }
                         damage += calcSkillDamage(character, enemy, 80 + w * 40, 0.75, 1);
@@ -192,7 +192,7 @@ const Chiara = {
                         if (stack < 4) {
                             stack++;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                             }
                         }
                         damage += calcSkillDamage(character, enemy, 40 + e * 20, 0.3, 1);
@@ -202,14 +202,14 @@ const Chiara = {
                         if (stack < 4) {
                             stack++;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                             }
                         }
                         damage += calcSkillDamage(character, enemy, 40 + e * 20, 0.3, 1);
                         if (stack < 4) {
                             stack++;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                             }
                         }
                         damage += calcSkillDamage(character, enemy, 70 + e * 40, 0.7, 1);
@@ -220,7 +220,7 @@ const Chiara = {
                             if (stack < 4) {
                                 stack++;
                                 if (enemy.defense) {
-                                    enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                    enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                                 }
                             }
                             damage += calcSkillDamage(character, enemy, 20 + r * 7, 0.15, 1);
@@ -234,10 +234,10 @@ const Chiara = {
                         if (stack < 4) {
                             stack++;
                             if (enemy.defense) {
-                                enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                             }
                         }
-                        damage += 200 + r * 100 + character.attack_power * 1.2 | 0;
+                        damage += floor(200 + r * 100 + character.attack_power * 1.2);
                     }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
@@ -245,7 +245,7 @@ const Chiara = {
                             if (stack < 4) {
                                 stack++;
                                 if (enemy.defense) {
-                                    enemy.defense = enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)) | 0;
+                                    enemy.defense = floor(enemy.calc_defense * (1 - stack * (0.02 + t * 0.02)));
                                 }
                             }
                             damage += calcSkillDamage(character, enemy, 0, 

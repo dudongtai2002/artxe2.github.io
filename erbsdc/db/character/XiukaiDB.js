@@ -76,8 +76,8 @@ const Xiukai = {
     ,E_Skill: (character, enemy) => {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
-            const min = calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.03 - (0.3 * e | 0) * 10, 0.5, 1);
-            const max = calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.06 - (0.3 * e | 0) * 10, 0.5, 1);
+            const min = calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.03 - floor(0.3 * e) * 10, 0.5, 1);
+            const max = calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.06 - floor(0.3 * e) * 10, 0.5, 1);
             const cost = 30 + e * 15;
             const cool = 10000 / ((21 - e * 3) * (100 - character.cooldown_reduction));
             return min + " - <b class='damage'>" + max + "</b><b> __cost: </b><b class='heal'>-" + cost + "</b><b> __sd/s: </b><b class='damage'>" + round(max * cool) / 100 + '</b>';
@@ -163,7 +163,7 @@ const Xiukai = {
             let enemy_defense;
             if (enemy.calc_defense) {
                 enemy_defense = enemy.defense;
-                enemy.defense = enemy.calc_defense | 0;
+                enemy.defense = floor(enemy.calc_defense);
             }
 
             const combo = character.COMBO_OPTION.value;
@@ -194,9 +194,9 @@ const Xiukai = {
                 } else if (c === 'e' || c === 'E') {
                     if (e >= 0) {
                         if (cc) {
-                            damage += calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.06 - (0.3 * e | 0) * 10, 0.5, 1);
+                            damage += calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.06 - floor(0.3 * e) * 10, 0.5, 1);
                         } else {
-                            damage += calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.03 - (0.3 * e | 0) * 10, 0.5, 1);
+                            damage += calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.03 - floor(0.3 * e) * 10, 0.5, 1);
                         }
                         cc = true;
                         life -= 30 + e * 15;
@@ -295,8 +295,8 @@ const Xiukai = {
                 enemy.defense = enemy_defense;
             }
 
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }

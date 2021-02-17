@@ -302,7 +302,7 @@ const Jackie = {
                         (tt ? jackie_tw[ t ] : 0) + 
                         (ttt ? jackie_ts[ t ] : 0) + 
                         stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.015);
-                        character.attack_power = character.calc_attack_power * ap | 0;
+                        character.attack_power = floor(character.calc_attack_power * ap);
                     }
                 } else if (c === 'q') {
                     if (q >= 0) {
@@ -365,14 +365,14 @@ const Jackie = {
                     (tt ? jackie_tw[ t ] : 0) + 
                     (ttt ? jackie_ts[ t ] : 0) + 
                     stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02);
-                    character.attack_power = character.calc_attack_power * ap | 0;
+                    character.attack_power = floor(character.calc_attack_power * ap);
                 } else if (c === 'T') {
                     ttt = !ttt;
                     ap = 1 + 
                     (tt ? jackie_tw[ t ] : 0) + 
                     (ttt ? jackie_ts[ t ] : 0) + 
                     stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02);
-                    character.attack_power = character.calc_attack_power * ap | 0;
+                    character.attack_power = floor(character.calc_attack_power * ap);
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Dagger') {
@@ -403,7 +403,7 @@ const Jackie = {
                             (tt ? jackie_tw[ t ] : 0) + 
                             (ttt ? jackie_ts[ t ] : 0) + 
                             stack * (dd ? 0.05 + character.DIV.querySelector('.axe_d_hp').value * 0.001 : 0.02);
-                            character.attack_power = character.calc_attack_power * ap | 0;
+                            character.attack_power = floor(character.calc_attack_power * ap);
                         }
                     }
                 } else if (c === 'p' || c === 'P') {

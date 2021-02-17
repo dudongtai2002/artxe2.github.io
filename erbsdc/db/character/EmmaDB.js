@@ -114,7 +114,7 @@ const Emma = {
             const bonus = calcSkillDamage(character, enemy, character.max_sp * (0.03 + t * 0.005), 0, 1);
             const min = baseAttackDamage(character, enemy, 0, 1, 0, 1);
             const max = baseAttackDamage(character, enemy, 0, 1, 100, 1);
-            const shield = 100 + t * 25 + character.max_sp * (0.03 + t * 0.03) + 0.0001 | 0;
+            const shield = floor(100 + t * 25 + character.max_sp * (0.03 + t * 0.03));
             return "<b class='damage'>" + (damage + bonus) + '</b> ( ' +  min + ', ' + bonus + ' - ' + max + ', ' + bonus + " ) <b> __s: </b><b class='shield'>" + shield + '</b>';
         }
         return '-';

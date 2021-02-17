@@ -98,7 +98,7 @@ const Isol = {
     ,R_Skill: (character, enemy) => {
         const r = character.R_LEVEL.selectedIndex - 1;
         if (character.weapon && r >= 0) {
-            const damage = (100 + r * 50 + character.attack_power * 0.3) * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+            const damage = floor((100 + r * 50 + character.attack_power * 0.3) * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04));
             const cool = 10000 / ((30 - r * 5) * (100 - character.cooldown_reduction) + 54);
             return "<b class='damage'>" + damage + "</b><b> __d/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
@@ -176,7 +176,7 @@ const Isol = {
             let enemy_defense;
             if (enemy.calc_defense) {
                 enemy_defense = enemy.defense;
-                enemy.defense = enemy.calc_defense | 0;
+                enemy.defense = floor(enemy.calc_defense);
             }
 
             const combo = character.COMBO_OPTION.value;
@@ -240,15 +240,15 @@ const Isol = {
                     if (r >= 0) {
                         if (!pp && enemy.defense) {
                             pp = true;
-                            enemy.defense = enemy.calc_defense * (1 - (0.05 + t * 0.1)) | 0;
+                            enemy.defense = floor(enemy.calc_defense * (1 - (0.05 + t * 0.1)));
                         }
-                        damage += (100 + r * 50 + character.attack_power * 0.3) * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04) | 0;
+                        damage += floor((100 + r * 50 + character.attack_power * 0.3) * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04));
                     }
                 } else if (c === 'p' || c === 'P') {
                     if (character.trap) {
                         if (!pp && enemy.defense) {
                             pp = true;
-                            enemy.defense = enemy.calc_defense * (1 - (0.05 + t * 0.1)) | 0;
+                            enemy.defense = floor(enemy.calc_defense * (1 - (0.05 + t * 0.1)));
                         }
                         damage += floor(character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04));
                     }

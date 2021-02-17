@@ -201,13 +201,13 @@ const Hart = {
             const hart_w = character.DIV.querySelector('.hart_w');
             const hart_ww = character.DIV.querySelector('.hart_ww');
             const attack_power = character.attack_power;
-            character.attack_power = character.calc_attack_power | 0;
+            character.attack_power = floor(character.calc_attack_power);
             const skill_amplification_percent = character.skill_amplification_percent;
             character.skill_amplification_percent = round(character.calc_skill_amplification_percent);
             let enemy_defense;
             if (enemy.calc_defense) {
                 enemy_defense = enemy.defense;
-                enemy.defense = enemy.calc_defense | 0;
+                enemy.defense = floor(enemy.calc_defense);
             }
 
             const combo = character.COMBO_OPTION.value;

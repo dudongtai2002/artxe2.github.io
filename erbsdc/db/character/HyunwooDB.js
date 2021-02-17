@@ -162,11 +162,11 @@ const Hyunwoo = {
             let ww = false, ee = false;
 
             const defense = character.defense;
-            character.defense = character.pure_defense | 0;
+            character.defense = floor(character.pure_defense);
             let enemy_defense;
             if (enemy.calc_defense) {
                 enemy_defense = enemy.defense;
-                enemy.defense = enemy.calc_defense | 0;
+                enemy.defense = floor(enemy.calc_defense);
             }
 
             const combo = character.COMBO_OPTION.value;
@@ -190,14 +190,14 @@ const Hyunwoo = {
                     if (w >= 0) {
                         if (!ww) {
                             ww = true;
-                            character.defense = (character.pure_defense + 9 + w * 14) * 1.1 | 0
+                            character.defense = floor((character.pure_defense + 9 + w * 14) * 1.1);
                         }
                     }
                 } else if (c === 'e') {
                     if (e >= 0) {
                         if (!ee && enemy.defense) {
                             ee = true;
-                            enemy.defense = enemy.calc_defense * (1 - (0.07 + e * 0.02)) | 0;
+                            enemy.defense = floor(enemy.calc_defense * (1 - (0.07 + e * 0.02)));
                         }
                         let currHp = enemy.max_hp ? enemy.max_hp - damage + heal + shield : 0;
                         if (currHp > enemy.max_hp) {
@@ -206,14 +206,14 @@ const Hyunwoo = {
                         damage += calcSkillDamage(character, enemy, (enemy.max_hp ? currHp * (0.05 + e * 0.03) : 0) + character.defense * 0.8, 0, 1);
                         if (ww) {
                             ww = false;
-                            character.defense = character.pure_defense | 0;
+                            character.defense = floor(character.pure_defense);
                         }
                     }
                 } else if (c === 'E') {
                     if (e >= 0) {
                         if (!ee && enemy.defense) {
                             ee = true;
-                            enemy.defense = enemy.calc_defense * (1 - (0.07 + e * 0.02)) | 0;
+                            enemy.defense = floor(enemy.calc_defense * (1 - (0.07 + e * 0.02)));
                         }
                         const lost = enemy.max_hp ? damage - calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
                             (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * character.DIV.querySelector('.combo_time').value * (i / combo.length) : 0;
