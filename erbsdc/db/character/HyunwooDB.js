@@ -300,7 +300,7 @@ const Hyunwoo = {
                             shield += floor(enemy.max_hp * 0.1);
                         }
                     } else if (enemy.character === Sissela) {
-                        let  lost = damage > heal ? 100 - (enemy.max_hp - damage + heal) / enemy.max_hp * 100 | 0 : 0;
+                        let  lost = damage > heal ? floor(100 - (enemy.max_hp - damage + heal) / enemy.max_hp * 100) : 0;
                         if (lost > 100) {
                             lost = 100;
                         }

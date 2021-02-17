@@ -2,64 +2,14 @@ const Accessory = [
     {
          Type: "Accessory"
         ,Name: "Feather"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.06
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Feather\n\nMovement Speed +0.06"
         ,Rarity: "Common"
     }
     ,{
          Type: "Accessory"
         ,Name: "Flower"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 7
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Flower\n\nCooldown Reduction +7%"
         ,Rarity: "Common"
     }

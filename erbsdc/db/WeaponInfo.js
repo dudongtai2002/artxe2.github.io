@@ -4,13 +4,14 @@ const WeaponInfo = {
         weapon_mastery_extra_normal_attack_damage_percent
         weapon_mastery_skill_amplification_percent
         attack_range
+        base_attack_speed
     ]*/
      Dagger:            [2.7, 5.0, 1.5]
     ,TwoHandedSword:    [3.3, 5.0, 1.5]
-    ,Axe:               [0.0, 4.0, 2.0]
+    ,Axe:               [0.0, 4.0, 2.0, 1.15, 0.455]
     ,DualSwords:        [2.0, 2.8, 0.8]
     ,Pistol:            [3.0, 4.5, 2.4]
-    ,AssaultRifle:      [4.0, 1.5, 2.0]
+    ,AssaultRifle:      [4.0, 1.5, 2.0, 5.00, 0.550]
     ,SniperRifle:       [0.0, 4.8, 2.3]
     ,Rapier:            [2.7, 4.0, 2.0]
     ,Spear:             [0.7, 3.8, 1.2]
