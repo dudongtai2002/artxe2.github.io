@@ -22,7 +22,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.06
+        ,Movement_Speed: 0.06
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -30,23 +30,6 @@ const Accessory = [
         ,Atk_Speed: 0
         ,Title: "Feather\n\nMovement Speed +0.06"
         ,Rarity: "Common"
-    }
-    ,{
-         Type: "Accessory"
-        ,Name: "캐리비안_장식총"
-        ,Attack_Power: 10
-        ,Life_Steal: 8
-        ,Title: "캐리비안 장식총\n\nAttack Power +10\nLife Steal +8%"
-        ,Rarity: "Uncommon"
-    }
-    ,{
-         Type: "Accessory"
-        ,Name: "해적의_증표"
-        ,Attack_Power: 15
-        ,Critical_Strike_Chance: 8
-        ,Life_Steal: 8
-        ,Title: "해적의 증표\n\nAttack Power +15\nCritical Strike Chance +8%\nLife Steal +8%"
-        ,Rarity: "Rare"
     }
     ,{
          Type: "Accessory"
@@ -71,7 +54,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -103,7 +86,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -135,7 +118,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -167,7 +150,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -199,7 +182,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -231,7 +214,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 120
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -263,7 +246,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -295,7 +278,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 1.5
         ,Attack_Range: 0
@@ -327,7 +310,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 150
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -359,7 +342,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -391,7 +374,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -423,7 +406,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -455,7 +438,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 4.5
         ,Attack_Range: 0
@@ -487,7 +470,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -519,7 +502,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -551,7 +534,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Movement_Speed: 0.1
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -583,7 +566,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -615,13 +598,21 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Title: "Shaman`s Bronze\n\nAttack Power +5\nSkill Amplification +8%"
+        ,Rarity: "Uncommon"
+    }
+    ,{
+         Type: "Accessory"
+        ,Name: "Decorative_Flintlock"
+        ,Attack_Power: 10
+        ,Life_Steal: 8
+        ,Title: "Decorative Flintlock\n\nAttack Power +10\nLife Steal +8%"
         ,Rarity: "Uncommon"
     }
     ,{
@@ -647,7 +638,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Movement_Speed: 0.1
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -679,7 +670,7 @@ const Accessory = [
         ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -711,7 +702,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -743,7 +734,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 6
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -775,7 +766,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Movement_Speed: 0.1
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -807,13 +798,22 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
         ,Title: "Revenge of Goujian\n\nAttack Power +15\nSkill Amplification +20%"
+        ,Rarity: "Rare"
+    }
+    ,{
+         Type: "Accessory"
+        ,Name: "Buccaneer_Doubloon"
+        ,Attack_Power: 15
+        ,Critical_Strike_Chance: 8
+        ,Life_Steal: 8
+        ,Title: "Buccaneer Doubloon\n\nAttack Power +15\nCritical Strike Chance +8%\nLife Steal +8%"
         ,Rarity: "Rare"
     }
     ,{
@@ -839,7 +839,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -871,7 +871,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -903,7 +903,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 150
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -935,7 +935,7 @@ const Accessory = [
         ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -967,7 +967,7 @@ const Accessory = [
         ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -999,7 +999,7 @@ const Accessory = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0

@@ -12,8 +12,7 @@ const Isol = {
     ,Defense: 23
     ,Defense_Growth: 1.2
     ,Atk_Speed: 0.14
-    ,Crit_Rate: 0
-    ,Move_Speed: 3.05
+    ,Movement_Speed: 3.05
     ,Sight_Range: 8
     ,Attack_Range: 0.45
     ,weapons: [Pistol, AssaultRifle]

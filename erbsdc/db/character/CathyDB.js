@@ -1,19 +1,18 @@
 const Cathy = {
-     Attack_Power: 32
-    ,Attack_Power_Growth: 2.5
-    ,Health: 585
-    ,Health_Growth: 84
-    ,Health_Regen: 1
+     Attack_Power: 37
+    ,Attack_Power_Growth: 2.8
+    ,Health: 550
+    ,Health_Growth: 87
+    ,Health_Regen: 0.8
     ,Health_Regen_Growth: 0.06
-    ,Stamina: 427
-    ,Stamina_Growth: 15
-    ,Stamina_Regen: 1.9
+    ,Stamina: 430
+    ,Stamina_Growth: 13
+    ,Stamina_Regen: 2.2
     ,Stamina_Regen_Growth: 0.06
-    ,Defense: 28
-    ,Defense_Growth: 2
-    ,Atk_Speed: 0.12
-    ,Crit_Rate: 0
-    ,Move_Speed: 3.15
+    ,Defense: 25
+    ,Defense_Growth: 2.2
+    ,Atk_Speed: 0.22
+    ,Movement_Speed: 3.15
     ,Sight_Range: 8
     ,Attack_Range: 0.4
     ,weapons: [Dagger]
@@ -403,7 +402,7 @@ const Cathy = {
         }
         return '-';
     }
-    ,COMBO_Option: 'dqeAqaAawr'
+    ,COMBO_Option: 'dqeAaqAawr'
     ,COMBO_Help: (character) => {
         if (!character.character) {
             return 'select character plz';

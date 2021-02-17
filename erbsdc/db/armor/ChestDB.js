@@ -22,7 +22,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 3
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -54,7 +54,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -86,7 +86,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 3
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -118,7 +118,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -150,7 +150,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -182,7 +182,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 6
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -214,7 +214,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -246,7 +246,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 10
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -278,7 +278,7 @@ const Chest = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 3
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -310,7 +310,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -342,7 +342,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -374,7 +374,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -406,7 +406,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 9
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -438,7 +438,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -470,7 +470,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 12
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -502,7 +502,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -534,7 +534,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: -0.1
+        ,Movement_Speed: -0.1
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -566,7 +566,7 @@ const Chest = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -598,7 +598,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 10
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -630,7 +630,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -662,7 +662,7 @@ const Chest = [
         ,HP_Regen: 2.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 1
         ,Attack_Range: 0
@@ -694,7 +694,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -726,7 +726,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 11
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0.1
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -758,7 +758,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.2
+        ,Movement_Speed: 0.2
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -790,7 +790,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 150
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: -0.02
+        ,Movement_Speed: -0.02
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -822,7 +822,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -854,7 +854,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 3
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 1
@@ -886,7 +886,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -918,7 +918,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 10
-        ,Move_Speed: 0.1
+        ,Movement_Speed: 0.1
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -950,7 +950,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 12
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -982,7 +982,7 @@ const Chest = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 12
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -1014,7 +1014,7 @@ const Chest = [
         ,HP_Regen: 2.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -1046,7 +1046,7 @@ const Chest = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -1078,7 +1078,7 @@ const Chest = [
         ,HP_Regen: 3
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0

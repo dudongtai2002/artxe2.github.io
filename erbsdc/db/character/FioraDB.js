@@ -12,8 +12,7 @@ const Fiora = {
     ,Defense: 25
     ,Defense_Growth: 2.2
     ,Atk_Speed: 0.22
-    ,Crit_Rate: 0
-    ,Move_Speed: 3.15
+    ,Movement_Speed: 3.15
     ,Sight_Range: 8
     ,Attack_Range: 0.4
     ,weapons: [TwoHandedSword, Rapier, Spear]

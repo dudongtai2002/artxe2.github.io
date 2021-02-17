@@ -12,8 +12,7 @@ const Li_Dailin = {
     ,Defense: 20
     ,Defense_Growth: 2.2
     ,Atk_Speed: 0.07
-    ,Crit_Rate: 0
-    ,Move_Speed: 3.1
+    ,Movement_Speed: 3.1
     ,Sight_Range: 8
     ,Attack_Range: 0.4
     ,weapons: [Glove, Nunchaku]

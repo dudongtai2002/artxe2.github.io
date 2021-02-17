@@ -882,9 +882,9 @@ class Character {
             const move_bonus = 
                 (silvia_r && silvia_r.checked ? 0.15 + r * 0.1 : 0);
             this.movement_speed = 
-                (this.character.Move_Speed + move_bonus + 
+                (this.character.Movement_Speed + move_bonus + 
                     (1 + this.MOVE_MASTERY.selectedIndex) * 0.01 + 
-                    calcEquip(this, 'Move_Speed', 2)) * move_percent;
+                    calcEquip(this, 'Movement_Speed', 2)) * move_percent;
                 if (this.movement_speed > 7) {
                     this.movement_speed = 7;
                 }

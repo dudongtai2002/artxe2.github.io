@@ -22,7 +22,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.04
+        ,Movement_Speed: 0.04
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -54,7 +54,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.08
+        ,Movement_Speed: 0.08
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -86,7 +86,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.04
+        ,Movement_Speed: 0.04
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -118,7 +118,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.16
+        ,Movement_Speed: 0.16
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -150,7 +150,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.14
+        ,Movement_Speed: 0.14
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -182,7 +182,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.17
+        ,Movement_Speed: 0.17
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -214,7 +214,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.12
+        ,Movement_Speed: 0.12
         ,Out_of_Combat_Movement_Speed: 0.2
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -246,7 +246,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.16
+        ,Movement_Speed: 0.16
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -278,7 +278,7 @@ const Leg = [
         ,HP_Regen: 0.6
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.22
+        ,Movement_Speed: 0.22
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -310,7 +310,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.24
+        ,Movement_Speed: 0.24
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -342,7 +342,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.2
+        ,Movement_Speed: 0.2
         ,Out_of_Combat_Movement_Speed: 0.5
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -374,7 +374,7 @@ const Leg = [
         ,HP_Regen: 0.6
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.27
+        ,Movement_Speed: 0.27
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -406,7 +406,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.16
+        ,Movement_Speed: 0.16
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -438,7 +438,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.35
+        ,Movement_Speed: 0.35
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -470,7 +470,7 @@ const Leg = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.4
+        ,Movement_Speed: 0.4
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -502,7 +502,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.45
+        ,Movement_Speed: 0.45
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -534,7 +534,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.33
+        ,Movement_Speed: 0.33
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -566,7 +566,7 @@ const Leg = [
         ,HP_Regen: 0.7
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.35
+        ,Movement_Speed: 0.35
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -598,7 +598,7 @@ const Leg = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.33
+        ,Movement_Speed: 0.33
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -630,7 +630,7 @@ const Leg = [
         ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.25
+        ,Movement_Speed: 0.25
         ,Out_of_Combat_Movement_Speed: 0.4
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -662,7 +662,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.4
+        ,Movement_Speed: 0.4
         ,Out_of_Combat_Movement_Speed: 0.2
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -694,7 +694,7 @@ const Leg = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.4
+        ,Movement_Speed: 0.4
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0

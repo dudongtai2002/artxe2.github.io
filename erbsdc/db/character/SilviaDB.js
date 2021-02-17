@@ -12,8 +12,7 @@ const Silvia = {
     ,Defense: 20
     ,Defense_Growth: 1.4
     ,Atk_Speed: 0.12
-    ,Crit_Rate: 0
-    ,Move_Speed: 3
+    ,Movement_Speed: 3
     ,Sight_Range: 8
     ,Attack_Range: 0.4
     ,weapons: [Pistol]

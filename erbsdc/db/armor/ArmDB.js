@@ -22,7 +22,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -54,7 +54,7 @@ const Arm = [
         ,HP_Regen: 0.8
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -86,7 +86,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -118,7 +118,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -150,7 +150,7 @@ const Arm = [
         ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -182,7 +182,7 @@ const Arm = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -221,7 +221,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -253,7 +253,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -285,7 +285,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 8
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -317,7 +317,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -349,7 +349,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: -0.05
+        ,Movement_Speed: -0.05
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -381,7 +381,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -413,7 +413,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 11
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -446,7 +446,7 @@ const Arm = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -478,7 +478,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.1
+        ,Movement_Speed: 0.1
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -510,7 +510,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -542,7 +542,7 @@ const Arm = [
         ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: -0.05
+        ,Movement_Speed: -0.05
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -574,7 +574,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 2
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -606,7 +606,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -646,7 +646,7 @@ const Arm = [
         ,HP_Regen: 1.5
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -678,7 +678,7 @@ const Arm = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -710,7 +710,7 @@ const Arm = [
         ,HP_Regen: 1
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0

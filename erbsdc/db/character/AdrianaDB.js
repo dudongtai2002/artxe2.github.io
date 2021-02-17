@@ -12,8 +12,7 @@ const Adriana = {
     ,Defense: 27
     ,Defense_Growth: 1.7
     ,Atk_Speed: 0.04
-    ,Crit_Rate: 0
-    ,Move_Speed: 3
+    ,Movement_Speed: 3
     ,Sight_Range: 8
     ,Attack_Range: 0.4
     ,weapons: [Throws]

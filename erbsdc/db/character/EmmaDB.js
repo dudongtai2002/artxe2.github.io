@@ -12,8 +12,7 @@ const Emma = {
     ,Defense: 28
     ,Defense_Growth: 1.6
     ,Atk_Speed: 0.12
-    ,Crit_Rate: 0
-    ,Move_Speed: 3
+    ,Movement_Speed: 3
     ,Sight_Range: 8
     ,Attack_Range: 0.4
     ,weapons: [Shuriken]

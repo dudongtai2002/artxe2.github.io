@@ -22,7 +22,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -54,7 +54,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -86,7 +86,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -118,7 +118,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -150,7 +150,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 3
         ,Attack_Range: 0
@@ -182,7 +182,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -214,7 +214,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -246,7 +246,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -278,7 +278,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -310,7 +310,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -342,7 +342,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 200
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 4
         ,Attack_Range: 0
@@ -374,7 +374,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -406,7 +406,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -438,7 +438,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -470,7 +470,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
@@ -502,7 +502,7 @@ const Guitar = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0
+        ,Movement_Speed: 0
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 1
