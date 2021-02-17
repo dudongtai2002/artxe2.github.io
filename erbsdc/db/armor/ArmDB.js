@@ -554,7 +554,7 @@ const Arm = [
     ,{
          Type: "Arm"
         ,Name: "Sword_of_Shah_Jahan"
-        ,Attack_Power: 25
+        ,Attack_Power: 28
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -580,7 +580,7 @@ const Arm = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Sword of Shah Jahan\n\nAttack Power +25\nMax HP +300\nNormal Attack Damage Reduction +2"
+        ,Title: "Sword of Shah Jahan\n\nAttack Power +28\nMax HP +300\nNormal Attack Damage Reduction +2"
         ,Rarity: "Epic"
     }
     ,{

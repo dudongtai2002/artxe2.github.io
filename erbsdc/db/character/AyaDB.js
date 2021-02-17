@@ -19,11 +19,11 @@ const Aya = {
     ,weapons: [Pistol, AssaultRifle, SniperRifle]
     ,correction: {
         Pistol: [
-            [0, -15, -11],
-            [0, 0, 0]
+            [0, -12, -11],
+            [0, 0, -2]
         ],
         AssaultRifle: [
-            [0, -12, -13],
+            [0, -10, -13],
             [0, 0, 0]
         ],
         SniperRifle: [
@@ -78,7 +78,7 @@ const Aya = {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
             const damage1 = calcSkillDamage(character, enemy, 0, 1, 1);
-            const damage2 = calcSkillDamage(character, enemy, 20 + q * 50, 0.2, 1);
+            const damage2 = calcSkillDamage(character, enemy, 40 + q * 45, 0.2, 1);
             const cool = 10000 / ((7 - q * 0.5) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + (damage1 + damage2) + '</b> ( ' + damage1 + ', ' + damage2 + " )<b> __sd/s: </b><b class='damage'>" + round((damage1 + damage2) * cool) / 100 + '</b>';
         }
@@ -126,10 +126,10 @@ const Aya = {
                 const damage2 = round(shot * as2 * 100) / 100;
                 const life1 = calcHeal(shot * (character.life_steal / 100), as1, enemy);
                 const life2 = calcHeal(shot * (character.life_steal / 100), as2, enemy);
-                const cool = 0.3 * (100 - character.cooldown_reduction) / 100;
-                const shield = 100 + t * 50 + character.attack_power * 0.3 | 0;
+                const cool = 30 * (100 - character.cooldown_reduction) / 100;
+                const shield = floor(100 + t * 50 + character.attack_power * 0.3);
                 return "<b> _d/s: </b><b class='damage'>" + damage1 + '</b> - ' + damage2 + "<b> __h/s: </b><b class='heal'>" + life1 + '</b> - ' + life2 + 
-                    "<b> __s/s: </b><b class='shield'>" + (shield * (1 + as1 * 6) / cool | 0) / 100 + '</b> - ' + (shield * (1 + as2 * 6) / cool | 0) / 100;
+                    "<b> __s/s: </b><b class='shield'>" + floor(shield * (1 + as1 * 6) / cool, 2) + '</b> - ' + floor(shield * (1 + as2 * 6) / cool, 2);
             }
             if (type === 'SniperRifle') {
                 const damage = calcSkillDamage(character, enemy, 0, wm < 13 ? 2.5 : 3, 1);
@@ -144,15 +144,15 @@ const Aya = {
     ,T_Skill: (character, enemy) => {
         if (character.weapon) {
             const t = character.T_LEVEL.selectedIndex;
-            const cool = 0.3 * (100 - character.cooldown_reduction) / 100;
-            const shield = 100 + t * 50 + character.attack_power * 0.3 + 0.0001 | 0;
+            const shield = floor(100 + t * 50 + character.attack_power * 0.3);
+            const cool = 30 * (100 - character.cooldown_reduction) / 100;
             let as;
             if (character.weapon.Type === 'AssaultRifle') {
                 as = 10 / (9.5 / character.attack_speed + 2) * 6;
             } else {
                 as = character.weapon.Ammo / ((character.weapon.Ammo - 1) / character.attack_speed + 2) * 2;
             }
-            return "<b> _s: </b><b class='shield'>" + shield + "</b><b> __s/s: </b><b class='shield'>" + (shield * (1 + as) / cool | 0) / 100 + '</b>';
+            return "<b> _s: </b><b class='shield'>" + shield + "</b><b> __s/s: </b><b class='shield'>" + floor(shield * (1 + as) / cool, 2) + '</b>';
         }
         return '-';
     }
@@ -228,7 +228,7 @@ const Aya = {
                     }
                 } else if (c === 'q' || c === 'Q') {
                     if (q >= 0) {
-                        damage += calcSkillDamage(character, enemy, 0, 1, 1) + calcSkillDamage(character, enemy, 20 + q * 50, 0.2, 1);
+                        damage += calcSkillDamage(character, enemy, 0, 1, 1) + calcSkillDamage(character, enemy, 40 + q * 45, 0.2, 1);
                     }
                 } else if (c === 'w') {
                     if (w >= 0) {
@@ -273,6 +273,12 @@ const Aya = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
+                        }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
@@ -300,8 +306,8 @@ const Aya = {
                     heal += calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * time / combo.length;
                 }
             }
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }

@@ -459,7 +459,7 @@ const Glove = [
         ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 18
-        ,Cooldown_Reduction: 15
+        ,Cooldown_Reduction: 18
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
         ,Skill_Damage_Reduction: 0
@@ -476,7 +476,7 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "Buddha`s Palm\n\nAttack Power +37\nCooldown Reduction +15%\nSkill Amplification +18%"
+        ,Title: "Buddha`s Palm\n\nAttack Power +37\nCooldown Reduction +18%\nSkill Amplification +18%"
         ,Rarity: "Epic"
     }
     ,{
@@ -516,7 +516,7 @@ const Glove = [
         ,Name: "White_Claw_Punch"
         ,Attack_Power: 55
         ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 20
+        ,Critical_Strike_Chance: 22
         ,Critical_Strike_Damage: 0
         ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 0
@@ -540,7 +540,7 @@ const Glove = [
         ,Attack_Range: 0
         ,Base_Range: 0.85
         ,Atk_Speed: 0.63
-        ,Title: "White Claw Punch\n\nAttack Power +55\nCritical Strike Chance +20%"
+        ,Title: "White Claw Punch\n\nAttack Power +55\nCritical Strike Chance +22%"
         ,Rarity: "Epic"
     }
     ,{

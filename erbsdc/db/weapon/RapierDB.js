@@ -246,13 +246,13 @@ const Rapier = [
         ,HP_Regen: 0
         ,HP_Regen_Percent: 0
         ,Normal_Attack_Damage_Reduction: 0
-        ,Move_Speed: 0.3
+        ,Move_Speed: 0.2
         ,Out_of_Combat_Movement_Speed: 0
         ,Vision_Range: 0
         ,Attack_Range: 0
         ,Base_Range: 1.2
         ,Atk_Speed: 0.615
-        ,Title: "Joyeuse\n\nAttack Power +75\nAttack Speed +12%\nMovement Speed +0.3\nCritical Damage +30%"
+        ,Title: "Joyeuse\n\nAttack Power +75\nAttack Speed +12%\nMovement Speed +0.2\nCritical Damage +30%"
         ,Rarity: "Epic"
     }
     ,{

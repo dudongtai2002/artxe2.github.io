@@ -167,7 +167,7 @@ const SniperRifle = [
     ,{
          Type: "SniperRifle"
         ,Name: "Tac-50"
-        ,Attack_Power: 140
+        ,Attack_Power: 134
         ,Attack_Speed: 20
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -193,7 +193,7 @@ const SniperRifle = [
         ,Attack_Range: 0
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "Tac-50\n\nAttack Power +140\nVision Range +2.5\nLife Steal +30%"
+        ,Title: "Tac-50\n\nAttack Power +134\nVision Range +2.5\nLife Steal +30%"
         ,Rarity: "Epic"
         ,Ammo: 2
     }
@@ -233,7 +233,7 @@ const SniperRifle = [
     ,{
          Type: "SniperRifle"
         ,Name: "NTW-20"
-        ,Attack_Power: 100
+        ,Attack_Power: 92
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -259,14 +259,14 @@ const SniperRifle = [
         ,Attack_Range: 0
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "NTW-20\n\nAttack Power +100\nMovement Speed -0.07\nVision Range +2.5\nSkill Amplification +24%"
+        ,Title: "NTW-20\n\nAttack Power +92\nMovement Speed -0.07\nVision Range +2.5\nSkill Amplification +24%"
         ,Rarity: "Epic"
         ,Ammo: 1
     }
     ,{
          Type: "SniperRifle"
         ,Name: "Polaris"
-        ,Attack_Power: 120
+        ,Attack_Power: 117
         ,Attack_Speed: 35
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -292,7 +292,7 @@ const SniperRifle = [
         ,Attack_Range: 0
         ,Base_Range: 6.7
         ,Atk_Speed: 0.43
-        ,Title: "Polaris\n\nAttack Power +120\nAttack Speed +35%\nMovement Speed -0.03\nVision Range +2"
+        ,Title: "Polaris\n\nAttack Power +117\nAttack Speed +35%\nMovement Speed -0.03\nVision Range +2"
         ,Rarity: "Epic"
         ,Ammo: 3
     }

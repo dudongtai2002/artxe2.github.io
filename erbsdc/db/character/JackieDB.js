@@ -20,19 +20,19 @@ const Jackie = {
     ,correction: {
         Dagger: [
             [0, 0, 5],
-            [0, 2, 5]
+            [0, -2, -5]
         ],
         TwoHandedSword: [
             [0, 0, 0],
-            [0, 2, 5]
+            [0, -4, -5]
         ],
         Axe: [
             [0, 0, 0],
-            [0, 2, 5]
+            [0, -2, -5]
         ],
         DualSwords: [
             [0, 0, 0],
-            [0, 2, 5]
+            [0, -2, -8]
         ]
     }
     ,Base_Attack: (character, enemy) => {
@@ -148,12 +148,12 @@ const Jackie = {
                     const w = character.W_LEVEL.selectedIndex - 1;
                     if (character.DIV.querySelector('.jackie_w').checked && w >= 0) {
                         damage = baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 100, 1);
-                        heal = calcHeal((damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) + 0.0001 | 0) * (character.life_steal / 100) + 12 + w * 7 + character.attack_power * 0.1, 1, enemy);
+                        heal = calcHeal(floor(damage + (enemy.max_hp ? enemy.max_hp *0.08 : 0)) * (character.life_steal / 100) + 12 + w * 7 + character.attack_power * 0.1, 1, enemy);
                     } else {
                         damage = baseAttackDamage(character, enemy, 0, 1, 100, 1);
-                        heal = calcHeal((damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) + 0.0001 | 0) * (character.life_steal / 100), 1, enemy);
+                        heal = calcHeal(floor(damage + (enemy.max_hp ? enemy.max_hp *0.08 : 0)) * (character.life_steal / 100), 1, enemy);
                     }
-                    return "<b class='damage'>" + damage + ' ~ ' + (damage + (enemy.max_hp ? enemy.max_hp / 10 : 0) + 0.0001 | 0) + "</b><b> __h: </b><b class='heal'>" + heal + '</b>';
+                    return "<b class='damage'>" + damage + ' ~ ' + floor(damage + calcTrueDamage(character, enemy, enemy.max_hp ? enemy.max_hp * 0.08 : 0)) + "</b><b> __h: </b><b class='heal'>" + heal + '</b>';
                 }
                 if (type === 'TwoHandedSword') {
                     const w = character.W_LEVEL.selectedIndex - 1;
@@ -259,7 +259,7 @@ const Jackie = {
             let ap = 1, ba, qq = false, ww = false, rr = 0, tt = false, ttt = false, dd = false, stack = 0;
 
             const attack_power = character.attack_power;
-            character.attack_power = character.calc_attack_power | 0;
+            character.attack_power = floor(character.calc_attack_power);
 
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
@@ -382,9 +382,9 @@ const Jackie = {
                                 currHp = enemy.max_hp;
                             }
                             if ((qq || rr > 1) && ww) {
-                                damage += baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 100, 1) + (enemy.max_hp ? currHp / 10 : 0) + 0.0001 | 0;
+                                damage += floor(baseAttackDamage(character, enemy, 0, 1 + 0.1 + w * 0.025, 100, 1) + calcTrueDamage(character, enemy, enemy.max_hp ? currHp * 0.08 : 0));
                             } else {
-                                damage += baseAttackDamage(character, enemy, 0, 1, 100, 1) + (enemy.max_hp ? currHp / 10 : 0) + 0.0001 | 0;
+                                damage += floor(baseAttackDamage(character, enemy, 0, 1, 100, 1) + calcTrueDamage(character, enemy, enemy.max_hp ? currHp * 0.08 : 0));
                             }
                         } else if (type === 'TwoHandedSword') {
                             if ((qq || rr > 1) && ww) {
@@ -428,6 +428,12 @@ const Jackie = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
+                        }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
@@ -458,8 +464,8 @@ const Jackie = {
 
             character.attack_power = attack_power;
 
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }

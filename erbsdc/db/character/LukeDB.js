@@ -10,7 +10,7 @@ const Luke = {
     ,Stamina_Regen: 1.9
     ,Stamina_Regen_Growth: 0.06
     ,Defense: 28
-    ,Defense_Growth: 1.8
+    ,Defense_Growth: 2
     ,Atk_Speed: 0.12
     ,Crit_Rate: 0
     ,Move_Speed: 3.15
@@ -110,10 +110,10 @@ const Luke = {
             let max;
             if (enemy.max_hp) {
                 const hp = enemy.max_hp;
-                let start = 0, mid, end = (hp * 0.77 | 0) + 1, coe;
+                let start = 0, mid, end = floor(hp * 0.75) + 1, coe;
                 while (start < end) {
                     mid = (start + end + 1) / 2;
-                    coe = (mid * 100.0 / hp > 77 ? 77 : mid * 100.0 / hp) / 77 + 1;
+                    coe = (mid * 100.0 / hp > 75 ? 75 : mid * 100.0 / hp) / 75 + 1;
                     max = calcSkillDamage(character, enemy, (250 + r * 50) * coe, 0.8 * coe, 1);
                     if (max + mid > hp) {
                         end = mid - 1;
@@ -254,7 +254,7 @@ const Luke = {
                         if (lost < 0) {
                             lost = 0;
                         }
-                        const coe = enemy.max_hp ? (lost * 100.0 / enemy.max_hp > 77 ? 77 : lost * 100.0 / enemy.max_hp) / 77 + 1 : 2;
+                        const coe = enemy.max_hp ? (lost * 100.0 / enemy.max_hp > 75 ? 75 : lost * 100.0 / enemy.max_hp) / 75 + 1 : 2;
                         damage += calcSkillDamage(character, enemy, (250 + r * 50) * coe, 0.8 * coe, 1);
                     }
                 } else if (c === 'd' || c === 'D') {
@@ -284,6 +284,12 @@ const Luke = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
+                        }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
@@ -311,8 +317,8 @@ const Luke = {
                     heal += calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * time / combo.length;
                 }
             }
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }
@@ -340,7 +346,7 @@ const Luke = {
             'q & Q: Q스킬 1타 데미지, 재사용시 2타 데미지 ( 쉴드 브레이크 적용 x )\n' + 
             'w & W: W스킬 On / Off\n' +  
             'e & E: E스킬 데미지\n' + 
-            'r & R: R스킬 데미지( 잃은 체력 비례 Max 77% ? )\n' + 
+            'r & R: R스킬 데미지( 잃은 체력 비례 Max 75% ? )\n' + 
             't & T: 데미지 없음\n' + 
             d + 
             'p & P: 트랩 데미지';

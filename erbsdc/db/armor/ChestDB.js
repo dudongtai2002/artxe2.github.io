@@ -750,9 +750,9 @@ const Chest = [
         ,Cooldown_Reduction: 0
         ,SP_Regen: 0
         ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
+        ,Skill_Damage_Reduction: 10
         ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 69
+        ,Defense: 63
         ,Max_HP: 0
         ,Max_SP: 0
         ,HP_Regen: 0
@@ -764,7 +764,7 @@ const Chest = [
         ,Attack_Range: 0
         ,Base_Range: 0
         ,Atk_Speed: 0
-        ,Title: "Mithril Armor\n\nDefense +69\nAttack Speed +12%\n Movement Speed +0.2"
+        ,Title: "Mithril Armor\n\nDefense +63\nAttack Speed +12%\n Movement Speed +0.2\nSkill Damage Reduction +10"
         ,Rarity: "Epic"
     }
     ,{

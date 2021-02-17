@@ -19,7 +19,7 @@ const Silvia = {
     ,weapons: [Pistol]
     ,correction: {
         Pistol: [
-            [3, -9, -18],
+            [0, -10, -14],
             [0, 0, 0],
             [0, -15, -15]
         ]
@@ -62,7 +62,6 @@ const Silvia = {
                 return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
             }
             damage = calcSkillDamage(character, enemy, 30 + q * 35, 0.4, 1);
-            console.log((100 + character.character.correction[character.weapon.Type][2][character.MODE.selectedIndex]) / 100);
             let heal = calcHeal((40 + q * 20 + character.attack_power * 0.5) * 
                 (100 + character.character.correction[character.weapon.Type][2][character.MODE.selectedIndex]) / 100, 1, enemy);
             cool = 10000 / ((7.5 - q * 0.75) * (100 - character.cooldown_reduction));
@@ -277,6 +276,12 @@ const Silvia = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
+                        }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
@@ -304,8 +309,8 @@ const Silvia = {
                     heal += calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * time / combo.length;
                 }
             }
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }

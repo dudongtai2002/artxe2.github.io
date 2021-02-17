@@ -98,8 +98,8 @@ const Yuki = {
             const e = character.E_LEVEL.selectedIndex - 1;
             if (e >= 0) {
                 const t = character.T_LEVEL.selectedIndex;
-                const damage = calcSkillDamage(character, enemy, 70 + character.E_LEVEL.selectedIndex * 50, 0.4, 1);
-                const cool = (600 + w * 50) / ((15 - e * 1) * (100 - character.cooldown_reduction)) * 
+                const damage = calcSkillDamage(character, enemy, 65 + e * 55, 0.4, 1);
+                const cool = (600 + w * 50) / ((14 - e * 1) * (100 - character.cooldown_reduction)) * 
                     10000 / ((18 - w * 2) * (100 - character.cooldown_reduction));
                 if (character.DIV.querySelector('.yuki_t').checked) {
                     const bonus = calcTrueDamage(character, enemy, 15 + t * 15);
@@ -115,8 +115,8 @@ const Yuki = {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
             const t = character.E_LEVEL.selectedIndex;
-            const damage = calcSkillDamage(character, enemy, 70 + e * 55, 0.4, 1);
-            const cool = 10000 / ((15 - e * 1) * (100 - character.cooldown_reduction));
+            const damage = calcSkillDamage(character, enemy, 65 + e * 55, 0.4, 1);
+            const cool = 10000 / ((14 - e * 1) * (100 - character.cooldown_reduction));
             if (character.DIV.querySelector('.yuki_t').checked) {
                 const bonus = calcTrueDamage(character, enemy, 15 + t * 15);
                 return "<b class='damage'>" + (damage + bonus) + '</b> ( ' + damage + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round((damage + bonus) * cool) / 100 + '</b>';
@@ -160,7 +160,8 @@ const Yuki = {
     }
     ,T_Skill: (character, enemy) => {
         if (character.weapon) {
-            const damage = calcTrueDamage(character, enemy, 15 + 15 * character.T_LEVEL.selectedIndex);
+            const t = character.T_LEVEL.selectedIndex;
+            const damage = calcTrueDamage(character, enemy, 15 + t * 15);
             return "<b class='damage'>" + damage + '</b>';
         }
         return '-';
@@ -296,7 +297,7 @@ const Yuki = {
                     }
                 } else if (c === 'e' || c === 'E') {
                     if (e >= 0) {
-                        damage += calcSkillDamage(character, enemy, 70 + e * 55, 0.4, 1);
+                        damage += calcSkillDamage(character, enemy, 65 + e * 55, 0.4, 1);
                         if (tt) {
                             tt--;
                             damage += calcTrueDamage(character, enemy, 15 + 15 * t);
@@ -340,6 +341,12 @@ const Yuki = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
+                        }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
@@ -367,8 +374,8 @@ const Yuki = {
                     heal += calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * time / combo.length;
                 }
             }
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }

@@ -33,6 +33,23 @@ const Accessory = [
     }
     ,{
          Type: "Accessory"
+        ,Name: "캐리비안_장식총"
+        ,Attack_Power: 10
+        ,Life_Steal: 8
+        ,Title: "캐리비안 장식총\n\nAttack Power +10\nLife Steal +8%"
+        ,Rarity: "Uncommon"
+    }
+    ,{
+         Type: "Accessory"
+        ,Name: "해적의_증표"
+        ,Attack_Power: 15
+        ,Critical_Strike_Chance: 8
+        ,Life_Steal: 8
+        ,Title: "해적의 증표\n\nAttack Power +15\nCritical Strike Chance +8%\nLife Steal +8%"
+        ,Rarity: "Rare"
+    }
+    ,{
+         Type: "Accessory"
         ,Name: "Flower"
         ,Attack_Power: 0
         ,Attack_Speed: 0

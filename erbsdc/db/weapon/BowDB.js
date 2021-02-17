@@ -258,7 +258,7 @@ const Bow = [
     ,{
          Type: "Bow"
         ,Name: "Scorchbow"
-        ,Attack_Power: 25
+        ,Attack_Power: 22
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -284,7 +284,7 @@ const Bow = [
         ,Attack_Range: 0
         ,Base_Range: 5.85
         ,Atk_Speed: 0.65
-        ,Title: "Scorchbow\n\nAttack Power +25\nSkill Amplification +18"
+        ,Title: "Scorchbow\n\nAttack Power +22\nSkill Amplification +18"
         ,Rarity: "Rare"
     }
     ,{

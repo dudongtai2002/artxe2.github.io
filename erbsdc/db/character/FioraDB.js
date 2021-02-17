@@ -1,6 +1,6 @@
 const Fiora = {
-     Attack_Power: 37
-    ,Attack_Power_Growth: 2.5
+     Attack_Power: 33
+    ,Attack_Power_Growth: 3.4
     ,Health: 550
     ,Health_Growth: 87
     ,Health_Regen: 0.8
@@ -20,15 +20,15 @@ const Fiora = {
     ,correction: {
         TwoHandedSword: [
             [0, 0, -3],
-            [0, 3, 6]
+            [0, 0, -3]
         ],
         Rapier: [
             [0, -2, -3],
-            [0, 3, 6]
+            [0, -3, -6]
         ],
         Spear: [
-            [0, -2, -3],
-            [0, 3, 6]
+            [0, -2, -6],
+            [0, 0, -6]
         ]
     }
     ,Base_Attack: (character, enemy) => {
@@ -70,8 +70,9 @@ const Fiora = {
     ,Q_Skill: (character, enemy) => {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
+            const crid = (1.2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
             const min = calcSkillDamage(character, enemy, 60 + q * 60, 0.25, 1);
-            const max = calcSkillDamage(character, enemy, (60 + q * 60) * (1.2 +character.critical_strike_damage / 100), 0.25 * (1.2 + character.critical_strike_damage / 100), 1);
+            const max = calcSkillDamage(character, enemy, (60 + q * 60) * crid, 0.25 * crid, 1);
             const cool = 10000 / ((9 - q * 1) * (100 - character.cooldown_reduction));
             return min + " - <b class='damage'>" + max + "</b><b> __sd/s: </b><b class='damage'>" + round(max * cool) / 100 + '</b>';
         }
@@ -101,8 +102,9 @@ const Fiora = {
     ,E_Skill: (character, enemy) => {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
+            const crid = (1.2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
             const min = calcSkillDamage(character, enemy, 90 + e * 40, 0.4, 1);
-            const max = calcSkillDamage(character, enemy, (90 + e * 40) * (1.2 +character.critical_strike_damage / 100), 0.4 * (1.2 + character.critical_strike_damage / 100), 1);
+            const max = calcSkillDamage(character, enemy, (90 + e * 40) * crid, 0.4 * crid, 1);
             const cool = 10000 / ((16 - e * 2) * (100 - character.cooldown_reduction) + 200);
             return "<b class='damage'>" + min + '</b> - ' + max + "<b> __sd/s: </b><b class='damage'>" + round(min * cool) / 100 + '</b>';
         }
@@ -126,7 +128,8 @@ const Fiora = {
                 return "<b class='damage'>" + calcSkillDamage(character, enemy, 0, wm < 13 ? 2 : 2.5, 1) + '</b>';
             }
             if (type === 'Rapier') {
-                const damage = calcSkillDamage(character, enemy, 0, (2 + character.critical_strike_damage / 100), 1);
+                const damage = calcSkillDamage(character, enemy, 0, 
+                    2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100, 1);
                 const cool = 10000 / ((wm < 13 ? 20 : 12) * (100 - character.cooldown_reduction));
                 return "<b class='damage'>" + damage + "</b><b> __d/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
             }
@@ -198,7 +201,7 @@ const Fiora = {
             const et = enemy.T_LEVEL.selectedIndex;
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
-            let f = 0, rr = false;
+            let f = 0, rr = false, crid = (1.2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
             const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1);
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
@@ -228,7 +231,7 @@ const Fiora = {
                 } else if (c === 'q' || c === 'Q') {
                     if (q >= 0) {
                         if (f >= 3 && t === 2 || f >= 4 && t === 1 || f >= 5 && t === 0) {
-                            damage += calcSkillDamage(character, enemy, (60 + q * 60) * (1.2 +character.critical_strike_damage / 100), 0.25 * (1.2 + character.critical_strike_damage / 100), 1);
+                            damage += calcSkillDamage(character, enemy, (60 + q * 60) * crid, 0.25 * crid, 1);
                         } else {
                             damage += calcSkillDamage(character, enemy, 60 + q * 60, 0.25, 1);
                         }
@@ -278,7 +281,8 @@ const Fiora = {
                         if (type === 'TwoHandedSword') {
                             damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 2 : 2.5, 1);
                         } else if (type === 'Rapier') {
-                            damage += calcSkillDamage(character, enemy, 0, (2 + character.critical_strike_damage / 100), 1);
+                            damage += calcSkillDamage(character, enemy, 0, 
+                                2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100, 1);
                         } else if (type === 'Spear') {
                             if (c === 'd') {
                                 damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 1 : 1.5, 1);
@@ -308,6 +312,12 @@ const Fiora = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
+                        }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
@@ -335,8 +345,8 @@ const Fiora = {
                     heal += calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * time / combo.length;
                 }
             }
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }

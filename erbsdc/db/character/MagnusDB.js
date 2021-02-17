@@ -191,11 +191,12 @@ const Magnus = {
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Hammer') {
-                            if (!dd && enemy.defense) {
-                                dd = true;
-                                enemy.defense = enemy.calc_defense * (1 - (wm < 13 ? 0.2 : 0.35)) | 0;
+                            if (c === 'd') {
+                                enemy.defense = floor(enemy.calc_defense);
+                            } else {
+                                enemy.defense = floor(enemy.calc_defense * (1 - (wm < 13 ? 0.2 : 0.35)));
+                                damage +=  calcSkillDamage(character, enemy, wm < 13 ? 150 + character.defense : 300 + character.defense * 2, 0, 1);
                             }
-                            damage +=  calcSkillDamage(character, enemy, wm < 13 ? 150 + character.defense : 300 + character.defense * 2, 0, 1);
                         }
                         if (type === 'Bat') {
                             damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 2 : 3, 1);
@@ -223,6 +224,12 @@ const Magnus = {
                         }
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
+                        }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
                         }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
@@ -256,8 +263,8 @@ const Magnus = {
                 enemy.defense = enemy_defense;
             }
 
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }
@@ -268,7 +275,7 @@ const Magnus = {
         }
         return '-';
     }
-    ,COMBO_Option: 'qedwarq'
+    ,COMBO_Option: 'qeDwarq'
     ,COMBO_Help: (character) => {
         if (!character.character) {
             return 'select character plz';
@@ -278,7 +285,7 @@ const Magnus = {
         }
         const weapon = character.weapon.Type;
         const d = 
-            weapon === 'Hammer' ? 'd & D: 무스 데미지\n' : 
+            weapon === 'Hammer' ? 'd: 무스 방깎 Off\n' + 'D: 무스 데미지 + 방깎 On\n' : 
             weapon === 'Bat' ? 'd & D: 무스 데미지\n' : 
             '';
         return 'a: 기본공격 데미지\n' + 

@@ -70,7 +70,7 @@ const Hyunwoo = {
         if (character.weapon && e >= 0) {
             const min = calcSkillDamage(character, enemy, character.defense * 0.8, 0, 1);
             const max = calcSkillDamage(character, enemy, (enemy.max_hp ? enemy.max_hp * (0.05 + e * 0.03) : 0) + character.defense * 0.8, 0, 1);
-            const bonus = calcSkillDamage(character, enemy, 60 + e * 35, 0, 1);
+            const bonus = calcSkillDamage(character, enemy, 60 + e * 35 + character.defense * 0.15, 0, 1);
             const cool = 10000 / ((13 - e * 0.5) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + (max + bonus) + '</b> ( ' + min + ' ~ ' + max + ', ' + bonus + " )<b> __sd/s: </b><b class='damage'>" + round((min + max + bonus) / 2 * cool) / 100 + '</b>';
         }
@@ -94,11 +94,13 @@ const Hyunwoo = {
             if (type === 'Glove') {
                 const coe = wm < 13 ? 1 : 2;
                 const bonus = calcTrueDamage(character, enemy, wm < 13 ? 50 : 100);
-                const damage = baseAttackDamage(character, enemy, 0, 1 + coe, character.critical_strike_chance, 1) + bonus;
+                // const damage = baseAttackDamage(character, enemy, 0, 1 + coe, character.critical_strike_chance, 1) + bonus;
                 const min = baseAttackDamage(character, enemy, 0, 1 + coe, 0, 1) + bonus;
-                const max = baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus;
-                const life = calcHeal(damage * (character.life_steal / 100), 1, enemy);
-                return "<b class='damage'>" + damage + '</b> ( ' +  min + " - <b class='damage'>" + max + "</b> )<b> __h: </b><b class='heal'>" + life + '</b>';
+                // const max = baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus;
+                const life = calcHeal(min * (character.life_steal / 100), 1, enemy);
+                // const life = calcHeal(damage * (character.life_steal / 100), 1, enemy);
+                return "<b class='damage'>" + min + "</b><b> __h: </b><b class='heal'>" + life + '</b>';
+                // return "<b class='damage'>" + damage + '</b> ( ' +  min + " - <b class='damage'>" + max + "</b> )<b> __h: </b><b class='heal'>" + life + '</b>';
             }
             if (type === 'Tonfa') {
                 return "<b class='damage'>" + (wm < 13 ? 50 : 70) + '%</b>';
@@ -130,7 +132,8 @@ const Hyunwoo = {
             weapon === 'Tonfa' ? '톤파' : 
             '';
         const skill = 
-            weapon === 'Glove' ? '"평균 데미지" ( "평타 데미지" - "치명타 데미지" ) __h: "평균 흡혈량"' : 
+            // weapon === 'Glove' ? '"평균 데미지" ( "평타 데미지" - "치명타 데미지" ) __h: "평균 흡혈량"' : 
+            weapon === 'Glove' ? '"스킬 데미지"  __h: "평균 흡혈량"' : 
             weapon === 'Tonfa' ? '"반사 데미지"' : 
             '';
         return '현우 ( ' + type + ' )\n' + 
@@ -216,7 +219,7 @@ const Hyunwoo = {
                         const lost = enemy.max_hp ? damage - calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
                             (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * character.DIV.querySelector('.combo_time').value * (i / combo.length) : 0;
                         damage += calcSkillDamage(character, enemy, (enemy.max_hp ? (enemy.max_hp - lost) * (0.05 + e * 0.03) : 0) + character.defense * 0.8, 0, 1) + 
-                            calcSkillDamage(character, enemy, 60 + e * 35, 0, 1);
+                            calcSkillDamage(character, enemy, 60 + e * 35 + character.defense * 0.15, 0, 1);
                         if (ww) {
                             ww = false;
                         }
@@ -229,7 +232,7 @@ const Hyunwoo = {
                     if (r >= 0) {
                         damage += calcSkillDamage(character, enemy, 600 + r * 300, 2.1, 1);
                     }
-                } else if (c === 'd') {
+                } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'Glove') {
                             const coe = wm < 13 ? 1 : 2;
@@ -242,19 +245,19 @@ const Hyunwoo = {
                             damage += 0;
                         }
                     }
-                } else if (c === 'D') {
-                    if (wm > 5) {
-                        if (type === 'Glove') {
-                            const coe = wm < 13 ? 1 : 2;
-                            const bonus = calcTrueDamage(character, enemy, wm < 13 ? 50 : 100);
-                            damage += baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus;
-                            life += calcHeal(
-                                (baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus)
-                             * (character.life_steal / 100), 1, enemy);
-                        } else if (type === 'Tonfa') {
-                            damage += 0;
-                        }
-                    }
+                // } else if (c === 'D') {
+                //     if (wm > 5) {
+                //         if (type === 'Glove') {
+                //             const coe = wm < 13 ? 1 : 2;
+                //             const bonus = calcTrueDamage(character, enemy, wm < 13 ? 50 : 100);
+                //             damage += baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus;
+                //             life += calcHeal(
+                //                 (baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus)
+                //              * (character.life_steal / 100), 1, enemy);
+                //         } else if (type === 'Tonfa') {
+                //             damage += 0;
+                //         }
+                //     }
                 } else if (c === 'p' || c === 'P') {
                     if (character.trap) {
                         damage += floor(character.trap.Trap_Damage * (1.04 + character.TRAP_MASTERY.selectedIndex * 0.04));
@@ -275,6 +278,12 @@ const Hyunwoo = {
                         }
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
+                        }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
                         }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
@@ -309,8 +318,8 @@ const Hyunwoo = {
                 enemy.defense = enemy_defense;
             }
 
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }
@@ -331,7 +340,8 @@ const Hyunwoo = {
         }
         const weapon = character.weapon.Type;
         const d = 
-            weapon === 'Glove' ? 'd: 무스 데미지\n' + 'D: 무스 치명타 데미지\n' : 
+            // weapon === 'Glove' ? 'd: 무스 데미지\n' + 'D: 무스 치명타 데미지\n' : 
+            weapon === 'Glove' ? 'd & D: 무스 데미지\n' : 
             weapon === 'Tonfa' ? 'd & D: 데미지 없음\n' : 
             '';
         return 'a: 기본공격 데미지\n' + 

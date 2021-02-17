@@ -98,7 +98,7 @@ const Spear = [
     ,{
          Type: "Spear"
         ,Name: "Pike"
-        ,Attack_Power: 57
+        ,Attack_Power: 53
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -124,7 +124,7 @@ const Spear = [
         ,Attack_Range: 0
         ,Base_Range: 2.15
         ,Atk_Speed: 0.445
-        ,Title: "Pike\n\nAttack Power +57\nMovement Speed -0.1"
+        ,Title: "Pike\n\nAttack Power +53\nMovement Speed -0.1"
         ,Rarity: "Rare"
     }
     ,{
@@ -418,7 +418,7 @@ const Spear = [
     ,{
          Type: "Spear"
         ,Name: "Spear_of_Longinus"
-        ,Attack_Power: 150
+        ,Attack_Power: 135
         ,Attack_Speed: 0
         ,Critical_Strike_Chance: 0
         ,Critical_Strike_Damage: 0
@@ -444,7 +444,7 @@ const Spear = [
         ,Attack_Range: 0
         ,Base_Range: 2.15
         ,Atk_Speed: 0.445
-        ,Title: "Spear of Longinus\n\nAttack Power +140\nLife Steal +20%"
+        ,Title: "Spear of Longinus\n\nAttack Power +135\nLife Steal +20%"
         ,Rarity: "Legendary"
     }
 ];

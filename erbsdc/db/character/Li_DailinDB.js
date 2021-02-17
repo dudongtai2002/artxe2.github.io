@@ -94,10 +94,10 @@ const Li_Dailin = {
                 const hp = enemy.max_hp;
                 const heal = calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + 
                     (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character);
-                let start = 0, mid, end = (hp * 0.77 | 0) + 1, coe;
+                let start = 0, mid, end = floor(hp * 0.75) + 1, coe;
                 while (start < end) {
                     mid = (start + end + 1) / 2;
-                    coe = 2 * (mid * 100.0 / hp > 77 ? 77 : mid * 100.0 / hp) / 77 + 1;
+                    coe = 2 * (mid * 100.0 / hp > 75 ? 75 : mid * 100.0 / hp) / 75 + 1;
                     max = calcSkillDamage(character, enemy, (40 + r * 30) * coe, 0.2 * coe, 1);
                     if (max * 4 + mid > hp + heal) {
                         end = mid - 1;
@@ -106,10 +106,10 @@ const Li_Dailin = {
                     }
                 }
                 start = 0;
-                end = (hp * 0.77 | 0) + 1;
+                end = floor(hp * 0.75) + 1;
                 while (start < end) {
                     mid = (start + end + 1) / 2;
-                    coe = 2 * (mid * 100.0 / hp > 77 ? 77 : mid * 100.0 / hp) / 77 + 1;
+                    coe = 2 * (mid * 100.0 / hp > 75 ? 75 : mid * 100.0 / hp) / 75 + 1;
                     over = calcSkillDamage(character, enemy, (40 + r * 30) * coe * 1.19, 0.2 * coe * 1.19, 1);
                     if (max * 4 + mid > hp + heal) {
                         end = mid - 1;
@@ -133,12 +133,14 @@ const Li_Dailin = {
             if (type === 'Glove') {
                 const coe = wm < 13 ? 1 : 2;
                 const bonus = calcTrueDamage(character, enemy, wm < 13 ? 50 : 100);
-                const damage = baseAttackDamage(character, enemy, 0, 1 + coe, character.critical_strike_chance, 1) + bonus;
+                // const damage = baseAttackDamage(character, enemy, 0, 1 + coe, character.critical_strike_chance, 1) + bonus;
                 const min = baseAttackDamage(character, enemy, 0, 1 + coe, 0, 1) + bonus;
-                const max = baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus;
-                const over = baseAttackDamage(character, enemy, 0, (1 + coe) * 1.19, 100, 1) + bonus;
-                const life = calcHeal(damage * (character.life_steal / 100), 1, enemy);
-                return "<b class='damage'>" + damage + '</b> ( ' +  min + " - <b class='damage'>" + max + '</b> / ' + over + " )<b> __h: </b><b class='heal'>" + life + '</b>';
+                // const max = baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus;
+                const over = baseAttackDamage(character, enemy, 0, (1 + coe) * 1.19, 0, 1) + bonus;
+                const life = calcHeal(min * (character.life_steal / 100), 1, enemy);
+                // const life = calcHeal(damage * (character.life_steal / 100), 1, enemy);
+                return "<b class='damage'>" + min + '</b> ( ' +  min + ' ~ ' + over + " )<b> __h: </b><b class='heal'>" + life + '</b>';
+                // return "<b class='damage'>" + damage + '</b> ( ' +  min + " - <b class='damage'>" + max + '</b> / ' + over + " )<b> __h: </b><b class='heal'>" + life + '</b>';
             }
             if (type === 'Nunchaku') {
                 const min = calcSkillDamage(character, enemy, wm < 13 ? 150 : 300, 0.5, 1);
@@ -181,7 +183,8 @@ const Li_Dailin = {
             weapon === 'Nunchaku' ? '쌍절곤' : 
             '';
         const skill = 
-            weapon === 'Glove' ? '"평균 데미지" ( "평타 데미지" - "치명타 데미지" / "최대 강화 데미지" ) __h: "평균 흡혈량"' : 
+            // weapon === 'Glove' ? '"평균 데미지" ( "평타 데미지" - "치명타 데미지" / "최대 강화 데미지" ) __h: "평균 흡혈량"' : 
+            weapon === 'Glove' ? '"스킬 데미지" ( "스킬 데미지" ~ "최대 강화 데미지" ) __h: "스킬 흡혈량"' : 
             weapon === 'Nunchaku' ? '"최소 데미지" ~ "최대 데미지"' : 
             '';
         return '리 다이린 ( ' + type + ' )\n' + 
@@ -262,8 +265,10 @@ const Li_Dailin = {
                     }
                 } else if (c === 'w' || c === 'W') {
                     if (w >= 0) {
-                        liquid = 2;
                         if (bac < 55) {
+                            if (bac >= 40) {
+                                liquid = 2;
+                            }
                             bac += 45;
                         } else {
                             bac = 95;
@@ -285,7 +290,7 @@ const Li_Dailin = {
                         if (lost < 0) {
                             lost = 0;
                         }
-                        const coe = enemy.max_hp ? 2 * (lost * 100.0 / enemy.max_hp > 77 ? 77 : lost * 100.0 / enemy.max_hp) / 77 + 1 : 3;
+                        const coe = enemy.max_hp ? 2 * (lost * 100.0 / enemy.max_hp > 75 ? 75 : lost * 100.0 / enemy.max_hp) / 75 + 1 : 3;
                         if (bac >= 40) {
                             if (liquid > 1) {
                                 damage += calcSkillDamage(character, enemy, (40 + r * 30) * coe * (1 + bac * 0.002), 0.2 * coe * (1 + bac * 0.002), 1) * 4;
@@ -305,7 +310,7 @@ const Li_Dailin = {
                 } else if (c === 'd') {
                     if (wm > 5) {
                         if (type === 'Glove') {
-                            const coe = wm < 13 ? 1 : 2;
+                            const coe = wm < 13 ? 1.2 : 2.2;
                             const bonus = calcTrueDamage(character, enemy, wm < 13 ? 50 : 100);
                             if (liquid) {
                                 damage += baseAttackDamage(character, enemy, 0, (1 + coe) * (1 + bac * 0.002), 0, 1) + bonus;
@@ -329,18 +334,18 @@ const Li_Dailin = {
                 } else if (c === 'D') {
                     if (wm > 5) {
                         if (type === 'Glove') {
-                            const coe = wm < 13 ? 1 : 2;
+                            const coe = wm < 13 ? 1.2 : 2.2;
                             const bonus = calcTrueDamage(character, enemy, wm < 13 ? 50 : 100);
                             if (liquid) {
                                 liquid = 0;
-                                damage += baseAttackDamage(character, enemy, 0, (1 + coe) * (1 + bac * 0.002), 100, 1) + bonus;
+                                damage += baseAttackDamage(character, enemy, 0, (1 + coe) * (1 + bac * 0.002), 0, 1) + bonus;
                                 life += calcHeal(
-                                    (baseAttackDamage(character, enemy, 0, (1 + coe) * (1 + bac * 0.002), 100, 1) + bonus)
+                                    (baseAttackDamage(character, enemy, 0, (1 + coe) * (1 + bac * 0.002), 0, 1) + bonus)
                                  * (character.life_steal / 100), 1, enemy);
                             } else {
-                                damage += baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus;
+                                damage += baseAttackDamage(character, enemy, 0, 1 + coe, 0, 1) + bonus;
                                 life += calcHeal(
-                                    (baseAttackDamage(character, enemy, 0, 1 + coe, 100, 1) + bonus)
+                                    (baseAttackDamage(character, enemy, 0, 1 + coe, 0, 1) + bonus)
                                  * (character.life_steal / 100), 1, enemy);
                             }
                         } else if (type === 'Nunchaku') {
@@ -349,7 +354,7 @@ const Li_Dailin = {
                     }
                 } else if (c === 't') {
                     if (liquid) {
-                        liquid = false;
+                        liquid = 0;
                         damage += baseAttackDamage(character, enemy, 0, 1 * (1 + bac * 0.002), 0, 1) + 
                             baseAttackDamage(character, enemy, 0, (0.5 + t * 0.25) * (1 + bac * 0.002), 0, 1);
                         life += calcHeal(
@@ -366,7 +371,7 @@ const Li_Dailin = {
                     }
                 } else if (c === 'T') {
                     if (liquid) {
-                        liquid = false;
+                        liquid = 0;
                         damage += baseAttackDamage(character, enemy, 0, 1 * (1 + bac * 0.002), 100, 1) + 
                             baseAttackDamage(character, enemy, 0, (0.5 + t * 0.25) * (1 + bac * 0.002), 100, 1);
                         life += calcHeal(
@@ -402,6 +407,12 @@ const Li_Dailin = {
                         if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
                             shield += floor(100 + et * 50 + enemy.attack_power * 0.3);
                         }
+                    } else if (enemy.character === Cathy) {
+                        const cool = (20 - et * 2) * (100 - enemy.cooldown_reduction) / 100;
+                        const as = enemy.attack_speed * enemy.critical_strike_chance / 100 + 1;
+                        if (i === 0 || floor(as * (time * i / combo.length) / cool) > floor(as * (time * (i - 1) / combo.length) / cool)) {
+                            shield += floor(110 + et * 55 + enemy.attack_power * 0.4);
+                        }
                     } else if (enemy.character === Chiara && ew >= 0) {
                         const cool = (16 - ew * 1) * (100 - enemy.cooldown_reduction) / 100;
                         if (i === 0 || floor((time * i / combo.length) / cool) > floor((time * (i - 1) / combo.length) / cool)) {
@@ -429,8 +440,8 @@ const Li_Dailin = {
                     heal += calcHeal(enemy.hp_regen * (enemy.hp_regen_percent + 100) / 100 + (enemy.food ? enemy.food.HP_Regen / 30 : 0), 2, character) * time / combo.length;
                 }
             }
-            const percent = (enemy.max_hp ? ((damage - heal - shield) / enemy.max_hp  * 10000 | 0) / 100 : '-');
-            const healPercent = (life / character.max_hp * 10000 | 0) / 100;
+            const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
+            const healPercent = floor(life / character.max_hp * 100, 2);
             if (shield) {
                 return "<b class='damage'>" + damage + " - </b><b class='heal'>" + round(heal, 1) + "</b><b class='damage'> - </b><b class='shield'>" + shield + '</b><b> _ : ' + (percent < 0 ? 0 : percent) + "%</b><b> __heal: </b><b class='heal'>" + round(life, 1) + '</b><b> _ : ' + healPercent + '%</b>';
             }
@@ -451,7 +462,8 @@ const Li_Dailin = {
         }
         const weapon = character.weapon.Type;
         const d = 
-            weapon === 'Glove' ? 'd: 무스 데미지\n' + 'D: 무스 치명타 데미지\n' : 
+            // weapon === 'Glove' ? 'd: 무스 데미지\n' + 'D: 무스 치명타 데미지\n' : 
+            weapon === 'Glove' ? 'd & D: 무스 데미지\n' : 
             weapon === 'Nunchaku' ? 'd: 무스 즉발 데미지\n' + 'D: 무스 최대 데미지\n' : 
             '';
         return 'a: 기본공격 데미지\n' + 
@@ -459,7 +471,7 @@ const Li_Dailin = {
             'q & Q: Q스킬 1회 데미지\n' + 
             'w & W: W스킬 사용(최대 게이지 95)\n' +  
             'e & E: E스킬 데미지\n' + 
-            'r & R: R스킬 데미지( 잃은 체력 비례 Max 77% )\n' + 
+            'r & R: R스킬 데미지( 잃은 체력 비례 Max 75% )\n' + 
             't: 패시브 데미지\n' + 
             'T: 패시브 치명타 데미지\n' + 
             d + 

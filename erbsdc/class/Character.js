@@ -726,7 +726,7 @@ class Character {
                 (nadine_e && e >= 0 ? (10 + e * 5) * (nadine_e.checked ? 2 : 1) : 0) + 
                 (lida_w && lida_w.checked && w >= 0 ? 10 + t * 15 : 0) + 
                 (silvia_t ? silvia_t.value * (1 + t * 1) : 0) + 
-                (luke_w_u && luke_w_u.checked && w >= 0 ? this.DIV.querySelector('.luke_w_s').value * 8 : 0);
+                (luke_w_u && luke_w_u.checked && w >= 0 ? this.DIV.querySelector('.luke_w_s').value * 10 : 0);
             this.attack_speed = 
                 round((this.character.Atk_Speed + (!this.weapon ? 0 : this.weapon.Atk_Speed)) * 
                     (100 + attack_speed_bonus + 
@@ -743,8 +743,10 @@ class Character {
                 }
             this.CRITICAL_STRIKE_CHANCE.innerText = this.critical_strike_chance + '%';
 
+            const cathy_t = this.DIV.querySelector('.cathy_t');
+            const critical_damage_bonus = (cathy_t && cathy_t.checked ? 10 + t * 15 : 0);
             this.critical_strike_damage = 
-                calcEquip(this, 'Critical_Strike_Damage');
+                calcEquip(this, 'Critical_Strike_Damage') + critical_damage_bonus;
             this.CRITICAL_STRIKE_DAMAGE.innerText = this.critical_strike_damage + '%';
 
             this.life_steal = 
