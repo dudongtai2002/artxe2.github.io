@@ -90,7 +90,7 @@ const Silvia = {
         if (character.weapon && e >= 0) {
             let min, max, cool;
             if (character.DIV.querySelector('.silvia_r').checked) {
-                const move = character.movement_speed + character.out_of_combat_movement_speed;
+                const move = character.movement_speed + character.movement_speed_while_not_in_combat;
                 min = calcSkillDamage(character, enemy, 40 + e * 25 + move / 17 * 2 * (6 + e * 4), 0.6, 1);
                 max = calcSkillDamage(character, enemy, 40 + e * 25 + move * (6 + e * 4), 0.6, 1);
                 cool = 10000 / ((12 - e * 1) * (100 - character.cooldown_reduction));
@@ -233,7 +233,7 @@ const Silvia = {
                         if (rr) {
                             damage += calcSkillDamage(character, enemy, 80 + e * 20, 0.5, 1);
                         } else {
-                            const move = character.movement_speed + character.out_of_combat_movement_speed;
+                            const move = character.movement_speed + character.movement_speed_while_not_in_combat;
                             damage += calcSkillDamage(character, enemy, 40 + e * 25 + move / 17 * 2 * (6 + e * 4), 0.6, 1);
                         }
                     }
@@ -242,7 +242,7 @@ const Silvia = {
                         if (rr) {
                             damage += calcSkillDamage(character, enemy, 154 + e * 33, 1.32, 1);
                         } else {
-                            const move = character.movement_speed + character.out_of_combat_movement_speed;
+                            const move = character.movement_speed + character.movement_speed_while_not_in_combat;
                             damage += calcSkillDamage(character, enemy, 40 + e * 25 + move * (6 + e * 4), 0.6, 1);
                         }
                     }

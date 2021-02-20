@@ -50,7 +50,7 @@ const Cathy = {
     ,Q_Skill: (character, enemy) => {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
-            const crid = (1.5 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
+            const crid = (1.5 + (character.critical_damage - (!enemy.critical_damage_reduction ? 0 : enemy.critical_damage_reduction)) / 100);
             const min = calcSkillDamage(character, enemy, 30 + q * 30, 0.7, 1);
             const max = calcSkillDamage(character, enemy, (30 + q * 30) * crid, 0.7 * crid, 1);
             const cool = 10000 / ((12 - q * 0.5) * (100 - character.cooldown_reduction));
@@ -180,8 +180,8 @@ const Cathy = {
             const ftra = calcTrueDamage(character, enemy, character.attack_power * 0.2 + character.max_hp * 0.01);
             const bleeding = new Array(time).fill(0);
 
-            const critical_strike_damage = character.critical_strike_damage;
-            character.critical_strike_damage = calcEquip(character, 'Critical_Strike_Damage');
+            const critical_damage = character.critical_damage;
+            character.critical_damage = calcEquip(character, 'critical_damage');
 
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
@@ -212,7 +212,7 @@ const Cathy = {
                     x = floor(time * i / combo.length);
                     if (bleeding[x] === 5 && !tt) {
                         tt = true;
-                        character.critical_strike_damage += 10 + t * 15;
+                        character.critical_damage += 10 + t * 15;
                     }
                     if (bleeding[x] >= 4) {
                         for (let j = x; j < time && j < x + 6; j++) {
@@ -242,7 +242,7 @@ const Cathy = {
                     }
                 } else if (c === 'Q') {
                     if (q >= 0) {
-                        crid = (1.5 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
+                        crid = (1.5 + (character.critical_damage - (!enemy.critical_damage_reduction ? 0 : enemy.critical_damage_reduction)) / 100);
                         damage += calcSkillDamage(character, enemy, (30 + q * 30) * crid, 0.7 * crid, 1);
 
                         x = floor(time * i / combo.length);
@@ -315,7 +315,7 @@ const Cathy = {
                             x = floor(time * i / combo.length);
                             if (bleeding[x] === 5 && !tt) {
                                 tt = true;
-                                character.critical_strike_damage += 10 + t * 15;
+                                character.critical_damage += 10 + t * 15;
                             }
                             if (bleeding[x] >= 4) {
                                 for (let j = x; j < time && j < x + 6; j++) {
@@ -388,7 +388,7 @@ const Cathy = {
                 damage += bleeding[i] ? bleeding[i] === 5 ? ftra : tra : 0;
             }
 
-            character.critical_strike_damage = critical_strike_damage;
+            character.critical_damage = critical_damage;
 
             const percent = (enemy.max_hp ? floor((damage - heal - shield) / enemy.max_hp  * 100, 2) : '-');
             const healPercent = floor(life / character.max_hp * 100, 2);

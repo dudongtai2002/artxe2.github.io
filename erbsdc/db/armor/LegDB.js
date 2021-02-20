@@ -2,384 +2,99 @@ const Leg = [
     {
          Type: "Leg"
         ,Name: "Slippers"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
         ,SP_Regen: 0.5
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.04
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Slippers\n\nSP Regen +0.5\nMovement Speed +0.04"
         ,Rarity: "Common"
     }
     ,{
          Type: "Leg"
         ,Name: "Running_Shoes"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.08
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Running Shoes\n\nMovement Speed +0.08"
         ,Rarity: "Common"
     }
     ,{
          Type: "Leg"
         ,Name: "Tights"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 5
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.04
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Tights\n\nDefense +5\nMovement Speed +0.04"
         ,Rarity: "Common"
     }
     ,{
          Type: "Leg"
         ,Name: "Knee_Pads"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 8
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.16
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Knee Pads\n\nDefense +0.8\nMovement Speed +0.16"
         ,Rarity: "Uncommon"
     }
     ,{
          Type: "Leg"
         ,Name: "Chain_Leggings"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 10
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.14
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Chain Leggings\n\nDefense +10\nMovement Speed +0.14"
         ,Rarity: "Uncommon"
     }
     ,{
          Type: "Leg"
         ,Name: "High_Heels"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
         ,SP_Regen: 0.8
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.17
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "High Heels\n\nSP Regen +0.8\nMovement Speed +0.17"
         ,Rarity: "Uncommon"
     }
     ,{
          Type: "Leg"
         ,Name: "Heelys"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.12
-        ,Out_of_Combat_Movement_Speed: 0.2
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Movement_speed_while_not_in_combat: 0.2
         ,Title: "Heelys\n\nMovement Speed +0.12\nMovement speed while not in combat +0.2"
         ,Rarity: "Uncommon"
     }
     ,{
          Type: "Leg"
         ,Name: "Repaired_Slippers"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
         ,SP_Regen: 0.5
         ,SP_Regen_Percent: 30
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.16
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Repaired Slippers\n\nSP Regen +0.5\nSP Regen +30%\nMovement Speed +0.16"
         ,Rarity: "Uncommon"
     }
     ,{
          Type: "Leg"
         ,Name: "Boots"
-        ,Attack_Power: 0
-        ,Attack_Speed: 2
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
         ,HP_Regen: 0.6
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
+        ,Attack_Speed: 2
         ,Movement_Speed: 0.22
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Boots\n\nHP Regen +0.6\nAttack Speed +2%\nMovement Speed +0.22"
         ,Rarity: "Rare"
     }
     ,{
          Type: "Leg"
         ,Name: "Steel_Knee_Pads"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 20
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.24
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Steel Knee Pads\n\nDefense +20\nMovement Speed +0.24"
         ,Rarity: "Rare"
     }
     ,{
          Type: "Leg"
         ,Name: "Maverick_Runner"
-        ,Attack_Power: 0
         ,Attack_Speed: 15
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.2
-        ,Out_of_Combat_Movement_Speed: 0.5
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Movement_speed_while_not_in_combat: 0.5
         ,Title: "Maverick Runner\n\nAttack Speed +15%\nMovement Speed +0.2\nMovement Speed while not in combat +0.5"
         ,Rarity: "Rare"
     }
     ,{
          Type: "Leg"
         ,Name: "Combat_Boots"
-        ,Attack_Power: 0
-        ,Attack_Speed: 7
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
         ,HP_Regen: 0.6
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
+        ,Attack_Speed: 7
         ,Movement_Speed: 0.27
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Combat Boots\n\nHP Regen +0.6\nAttack Speed +7%\nMovement Speed +0.27"
         ,Rarity: "Rare"
     }
@@ -387,127 +102,37 @@ const Leg = [
          Type: "Leg"
         ,Name: "Killer_Heels"
         ,Attack_Power: 5
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 10
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
         ,SP_Regen: 0.8
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.16
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Critical_Strike_Chance: 10
         ,Title: "Killer Heels\n\nAttack Power +5\nSP Regen +0.8\nMovement Speed +0.16\nCritical Strike Chance +10%"
         ,Rarity: "Rare"
     }
     ,{
          Type: "Leg"
         ,Name: "Straitjacket_Sneakers"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 10
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
         ,SP_Regen: 0.7
         ,SP_Regen_Percent: 50
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.35
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Skill_Amplification: 10
         ,Title: "Straitjacket Sneakers\n\nSP Regen +0.7\nSP Regen +50%\nMovement Speed +0.35\nSkill Amplification +10"
         ,Rarity: "Rare"
     }
     ,{
          Type: "Leg"
         ,Name: "Feather_Boots"
-        ,Attack_Power: 0
-        ,Attack_Speed: 35
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
         ,HP_Regen: 1
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
+        ,Attack_Speed: 35
         ,Movement_Speed: 0.4
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Feather Boots\n\nHP Regen +1\nAttack Speed +35%\nMovement Speed +0.4"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Leg"
         ,Name: "Mithril_Boots"
-        ,Attack_Power: 0
-        ,Attack_Speed: 12
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 26
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
+        ,Attack_Speed: 12
         ,Movement_Speed: 0.45
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "Mithril Boots\n\nDefense +26\nAttack Speed +12%\nMovement Speed +0.45"
         ,Rarity: "Epic"
     }
@@ -515,159 +140,50 @@ const Leg = [
          Type: "Leg"
         ,Name: "Bucephalus"
         ,Attack_Power: 5
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 15
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 1
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 10
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
+        ,SP_Regen: 1
         ,Movement_Speed: 0.33
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Critical_Strike_Chance: 15
         ,Title: "Bucephalus\n\nAttack Power +5\nDefense +10\nSP Regen +1\nMovement Speed +0.33\nCriticall Strike Chance +15%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Leg"
         ,Name: "White_Rhinos"
-        ,Attack_Power: 0
-        ,Attack_Speed: 15
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
         ,HP_Regen: 0.7
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
+        ,Attack_Speed: 15
         ,Movement_Speed: 0.35
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "White Rhinos\n\nHP Regen +0.7\nAttack Speed +15%\nMovement Speed +0.35\nHealing Reduction (Normal Attacks) -40%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Leg"
         ,Name: "EOD_Boots"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0.5
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 26
-        ,Max_HP: 0
-        ,Max_SP: 0
         ,HP_Regen: 1
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
+        ,SP_Regen: 0.5
         ,Movement_Speed: 0.33
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
         ,Title: "EOD Boots\n\nDefense +26\nHP Regen +1\nSP Regen +0.5\nMovement Speed +0.33"
         ,Rarity: "Legendary"
     }
     ,{
          Type: "Leg"
         ,Name: "Glacial_Shoes"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 15
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
+        ,HP_Regen: 1.5
         ,SP_Regen: 1.5
         ,SP_Regen_Percent: 60
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 1.5
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.25
-        ,Out_of_Combat_Movement_Speed: 0.4
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Movement_speed_while_not_in_combat: 0.4
+        ,Skill_Amplification: 15
         ,Title: "Glacial Shoes\n\nHP Regen +1.5\nSP Regen +1.5\n SP Regen +60%\nMovement Speed +0.25\nMovement speed while not in combat +0.4\nSkill Amplification +15"
         ,Rarity: "Legendary"
     }
     ,{
          Type: "Leg"
         ,Name: "Boots_of_Hermes"
-        ,Attack_Power: 0
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
         ,Defense: 40
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.4
-        ,Out_of_Combat_Movement_Speed: 0.2
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Movement_speed_while_not_in_combat: 0.2
         ,Title: "Boots of Hermes\n\nDefense +40\nMovement Speed +0.4\nMovement speed while not in combat +0.2"
         ,Rarity: "Legendary"
     }
@@ -675,31 +191,10 @@ const Leg = [
          Type: "Leg"
         ,Name: "Red_Shoes"
         ,Attack_Power: 5
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 10
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 15
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
         ,SP_Regen: 1
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.4
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 0
-        ,Atk_Speed: 0
+        ,Critical_Strike_Chance: 10
+        ,Life_Steal: 15
         ,Title: "Red Shoes\n\nAttack Power +5\nSP Regen +1\n Movement Speed +0.4\nCritical Strike Chance +10%\nLife Steal +15%"
         ,Rarity: "Legendary"
     }

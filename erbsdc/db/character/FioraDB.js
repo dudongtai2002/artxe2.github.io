@@ -69,7 +69,7 @@ const Fiora = {
     ,Q_Skill: (character, enemy) => {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
-            const crid = (1.2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
+            const crid = (1.2 + (character.critical_damage - (!enemy.critical_damage_reduction ? 0 : enemy.critical_damage_reduction)) / 100);
             const min = calcSkillDamage(character, enemy, 60 + q * 60, 0.25, 1);
             const max = calcSkillDamage(character, enemy, (60 + q * 60) * crid, 0.25 * crid, 1);
             const cool = 10000 / ((9 - q * 1) * (100 - character.cooldown_reduction));
@@ -101,7 +101,7 @@ const Fiora = {
     ,E_Skill: (character, enemy) => {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
-            const crid = (1.2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
+            const crid = (1.2 + (character.critical_damage - (!enemy.critical_damage_reduction ? 0 : enemy.critical_damage_reduction)) / 100);
             const min = calcSkillDamage(character, enemy, 90 + e * 40, 0.4, 1);
             const max = calcSkillDamage(character, enemy, (90 + e * 40) * crid, 0.4 * crid, 1);
             const cool = 10000 / ((16 - e * 2) * (100 - character.cooldown_reduction) + 200);
@@ -128,7 +128,7 @@ const Fiora = {
             }
             if (type === 'Rapier') {
                 const damage = calcSkillDamage(character, enemy, 0, 
-                    2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100, 1);
+                    2 + (character.critical_damage - (!enemy.critical_damage_reduction ? 0 : enemy.critical_damage_reduction)) / 100, 1);
                 const cool = 10000 / ((wm < 13 ? 20 : 12) * (100 - character.cooldown_reduction));
                 return "<b class='damage'>" + damage + "</b><b> __d/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
             }
@@ -200,7 +200,7 @@ const Fiora = {
             const et = enemy.T_LEVEL.selectedIndex;
             const time = character.DIV.querySelector('.combo_time').value;
             let damage = 0, life = 0, heal = 0, shield = 0, c;
-            let f = 0, rr = false, crid = (1.2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100);
+            let f = 0, rr = false, crid = (1.2 + (character.critical_damage - (!enemy.critical_damage_reduction ? 0 : enemy.critical_damage_reduction)) / 100);
             const bonus = calcSkillDamage(character, enemy, 30 + r * 5, 0.06 + r * 0.12, 1);
             const combo = character.COMBO_OPTION.value;
             for (let i = 0; i < combo.length; i++) {
@@ -266,7 +266,7 @@ const Fiora = {
                 } else if (c === 'e' || c === 'E') {
                     if (e >= 0) {
                         if (f >= 3 && t === 2 || f >= 4 && t === 1 || f >= 5 && t === 0) {
-                            damage += calcSkillDamage(character, enemy, (90 + e * 40) * (1.2 +character.critical_strike_damage / 100), 0.4 * (1.2 + character.critical_strike_damage / 100), 1);
+                            damage += calcSkillDamage(character, enemy, (90 + e * 40) * (1.2 +character.critical_damage / 100), 0.4 * (1.2 + character.critical_damage / 100), 1);
                         } else {
                             damage += calcSkillDamage(character, enemy, 90 + e * 40, 0.4, 1);
                         }
@@ -281,7 +281,7 @@ const Fiora = {
                             damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 2 : 2.5, 1);
                         } else if (type === 'Rapier') {
                             damage += calcSkillDamage(character, enemy, 0, 
-                                2 + (character.critical_strike_damage - (!enemy.critical_strike_damage_reduction ? 0 : enemy.critical_strike_damage_reduction)) / 100, 1);
+                                2 + (character.critical_damage - (!enemy.critical_damage_reduction ? 0 : enemy.critical_damage_reduction)) / 100, 1);
                         } else if (type === 'Spear') {
                             if (c === 'd') {
                                 damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 1 : 1.5, 1);

@@ -82,7 +82,7 @@ class Character {
         this.ATTACK_POWER = DIV.querySelector('.attack_power');
         this.ATTACK_SPEED = DIV.querySelector('.attack_speed');
         this.CRITICAL_STRIKE_CHANCE = DIV.querySelector('.critical_strike_chance');
-        this.CRITICAL_STRIKE_DAMAGE = DIV.querySelector('.critical_strike_damage');
+        this.CRITICAL_DAMAGE = DIV.querySelector('.critical_damage');
         this.LIFE_STEAL = DIV.querySelector('.life_steal');
         this.EXTRA_NORMAL_ATTACK_DAMAGE = DIV.querySelector('.extra_normal_attack_damage');
         this.SKILL_AMPLIFICATION = DIV.querySelector('.skill_amplification');
@@ -96,10 +96,10 @@ class Character {
         this.HP_REGEN = DIV.querySelector('.hp_regen');
         this.NORMAL_ATTACK_DAMAGE_REDUCTION = DIV.querySelector('.normal_attack_damage_reduction');
         this.MOVEMENT_SPEED = DIV.querySelector('.movement_speed');
-        this.OUT_OF_COMBAT_MOVEMENT_SPEED = DIV.querySelector('.out_of_combat_movement_speed');
+        this.MOVEMENT_SPEED_WHILE_NOT_IN_COMBAT = DIV.querySelector('.movement_speed_while_not_in_combat');
         this.VISION_RANGE = DIV.querySelector('.vision_range');
         this.ATTACK_RANGE = DIV.querySelector('.attack_range');
-        this.CRITICAL_STRIKE_DAMAGE_REDUCTION = DIV.querySelector('.critical_strike_damage_reduction');
+        this.CRITICAL_DAMAGE_REDUCTION = DIV.querySelector('.critical_damage_reduction');
 
         this.BASE_ATTACK_DAMAGE = DIV.querySelector('.base_attack_damage');
         this.BASE_ATTACK_OPTION = DIV.querySelector('.base_attack_option');
@@ -566,6 +566,9 @@ class Character {
         this.weapon_mastery_attack_speed = WeaponInfo[this.weapon.Type][0];
         this.weapon_mastery_extra_normal_attack_damage_percent = WeaponInfo[this.weapon.Type][1];
         this.weapon_mastery_skill_amplification_percent = WeaponInfo[this.weapon.Type][2];
+        this.weapon_attack_range = WeaponInfo[this.weapon.Type][3];
+        this.weapon_attack_speed = WeaponInfo[this.weapon.Type][4];
+        
         this.WEAPON.innerHTML = "<img class = '" + this.weapon.Rarity + "' title = '" + this.weapon.Title + "' src = './img/weapon/" + this.weapon.Name + ".png' width = '80px' height = '44px'>";
         this.ITEM_LIST.style.display = 'none';
         this.D_OPTION.innerHTML = this.character.D_Option(this, this.enemy);
@@ -686,14 +689,15 @@ class Character {
                     this.weapon.Name === 'Goblin_Bat' || this.weapon.Name === 'Mallet' ||
                     this.weapon.Name === 'Spiky_Bouncy_Ball' || this.weapon.Name === 'Ruthenium_Marble' ||
                     this.weapon.Name === 'Composite_Bow' || this.weapon.Name === 'Twinbow' || this.weapon.Name === 'Elemental_Bow' ||
-                    this.weapon.Name === 'The_Smiting_Dragon') ||
+                    this.weapon.Name === 'The_Smiting_Dragon' ||
+                    this.weapon.Name === 'Ruthenium_Marble') ||
                 this.chest && this.chest.Name === 'Rocker`s_Jacket' ||
                 this.arm && this.arm.Name === 'Sword_Stopper' ||
                 this.leg && this.leg.Name === 'White_Rhinos' ||
                 this.accessory && (this.accessory.Name === 'Gilded_Quill_Fan' || this.accessory.Name === 'White_Crane_Fan');
 
-            this.critical_strike_damage_reduction = calcEquip(this, 'Critical_Strike_Damage_Reduction');
-            this.CRITICAL_STRIKE_DAMAGE_REDUCTION.innerText = this.critical_strike_damage_reduction + '%';
+            this.critical_damage_reduction = calcEquip(this, 'Critical_Damage_Reduction');
+            this.CRITICAL_DAMAGE_REDUCTION.innerText = this.critical_damage_reduction + '%';
 
             const jackie_tw = [0.03, 0.08, 0.15];
             const jackie_ts = [0.05, 0.12, 0.25];
@@ -728,7 +732,7 @@ class Character {
                 (silvia_t ? silvia_t.value * (1 + t * 1) : 0) + 
                 (luke_w_u && luke_w_u.checked && w >= 0 ? this.DIV.querySelector('.luke_w_s').value * 10 : 0);
             this.attack_speed = 
-                round((this.character.Atk_Speed + (!this.weapon ? 0 : this.weapon.Atk_Speed)) * 
+                round((this.character.Atk_Speed + this.weapon_attack_speed) * 
                     (100 + attack_speed_bonus + 
                     (!this.weapon ? 0 : (1 + wm) * this.weapon_mastery_attack_speed) + 
                     calcEquip(this, 'Attack_Speed'))) / 100;			
@@ -745,9 +749,9 @@ class Character {
 
             const cathy_t = this.DIV.querySelector('.cathy_t');
             const critical_damage_bonus = (cathy_t && cathy_t.checked ? 10 + t * 15 : 0);
-            this.critical_strike_damage = 
-                calcEquip(this, 'Critical_Strike_Damage') + critical_damage_bonus;
-            this.CRITICAL_STRIKE_DAMAGE.innerText = this.critical_strike_damage + '%';
+            this.critical_damage = 
+                calcEquip(this, 'Critical_Damage') + critical_damage_bonus;
+            this.CRITICAL_DAMAGE.innerText = this.critical_damage + '%';
 
             this.life_steal = 
                 calcEquip(this, 'Life_Steal');
@@ -890,13 +894,13 @@ class Character {
                 }
             this.MOVEMENT_SPEED.innerText = round(this.movement_speed, 2);
 
-            this.out_of_combat_movement_speed = 
+            this.movement_speed_while_not_in_combat = 
                 ((1 + this.MOVE_MASTERY.selectedIndex) * 0.02 + 
-                    calcEquip(this, 'Out_of_Combat_Movement_Speed', 2)) * move_percent;
-                if (this.movement_speed + this.out_of_combat_movement_speed > 7) {
-                    this.out_of_combat_movement_speed = 7 - this.movement_speed;
+                    calcEquip(this, 'Movement_speed_while_not_in_combat', 2)) * move_percent;
+                if (this.movement_speed + this.movement_speed_while_not_in_combat > 7) {
+                    this.movement_speed_while_not_in_combat = 7 - this.movement_speed;
                 }
-            this.OUT_OF_COMBAT_MOVEMENT_SPEED.innerText = round(this.movement_speed + this.out_of_combat_movement_speed, 2);
+            this.MOVEMENT_SPEED_WHILE_NOT_IN_COMBAT.innerText = round(this.movement_speed + this.movement_speed_while_not_in_combat, 2);
 
             this.vision_range = 
                 round(this.character.Sight_Range + 0.1 + 
@@ -907,7 +911,7 @@ class Character {
             const attack_range_bonus = 
                 (chiara_r && chiara_r.checked ? 3.65 : 0);
             this.attack_range = 
-                round(this.character.Attack_Range + (this.weapon == null ? 0 : this.weapon.Base_Range) + 
+                round(this.character.Attack_Range + this.weapon_attack_range + 
                     attack_range_bonus + calcEquip(this, 'Attack_Range', 2), 2);
             this.ATTACK_RANGE.innerText = this.attack_range;
         } else {
@@ -923,8 +927,8 @@ class Character {
             this.critical_strike_chance = '';
             this.CRITICAL_STRIKE_CHANCE.innerText = '%';
 
-            this.critical_strike_damage = '';
-            this.CRITICAL_STRIKE_DAMAGE.innerText = '%';
+            this.critical_damage = '';
+            this.CRITICAL_DAMAGE.innerText = '%';
 
             this.life_steal = '';
             this.LIFE_STEAL.innerText = '%';
@@ -972,8 +976,8 @@ class Character {
             this.movement_speed = '';
             this.MOVEMENT_SPEED.innerText = '';
 
-            this.out_of_combat_movement_speed = '';
-            this.OUT_OF_COMBAT_MOVEMENT_SPEED.innerText = '';
+            this.movement_speed_while_not_in_combat = '';
+            this.MOVEMENT_SPEED_WHILE_NOT_IN_COMBAT.innerText = '';
 
             this.vision_range = '';
             this.VISION_RANGE.innerText = '';

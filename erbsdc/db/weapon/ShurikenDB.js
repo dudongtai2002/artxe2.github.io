@@ -3,31 +3,6 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Razor"
         ,Attack_Power: 11
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Razor\n\nAttack Power +11"
         ,Rarity: "Common"
     }
@@ -35,31 +10,7 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Playing_Cards"
         ,Attack_Power: 4
-        ,Attack_Speed: 0
         ,Critical_Strike_Chance: 5
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Playing Cards\n\nAttack Power +4\nCritical Strike Chance +5%"
         ,Rarity: "Common"
     }
@@ -67,31 +18,6 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Chalk"
         ,Attack_Power: 12
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Chalk\n\nAttack Power +12"
         ,Rarity: "Common"
     }
@@ -99,31 +25,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Dart"
         ,Attack_Power: 16
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 15
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.1
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
+        ,Critical_Strike_Chance: 15
         ,Title: "Dart\n\nAttack Power +16\nMovement Speed +0.1\nCritical Damage +15%"
         ,Rarity: "Uncommon"
     }
@@ -131,31 +34,7 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Vintage_Card"
         ,Attack_Power: 15
-        ,Attack_Speed: 0
         ,Critical_Strike_Chance: 10
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Vintage Cards\n\nAttack Power +15\nCritical Strike Chance +10%"
         ,Rarity: "Uncommon"
     }
@@ -163,31 +42,6 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Throwing_Stars"
         ,Attack_Power: 27
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Throwing Stars\n\nAttack Power +27"
         ,Rarity: "Uncommon"
     }
@@ -195,31 +49,7 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Onyx_Dagger"
         ,Attack_Power: 17
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 10
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Onyx Dagger\n\nAttack Power +17\nExtra Normal Attack Damage +10"
         ,Rarity: "Uncommon"
     }
@@ -227,31 +57,7 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Charm"
         ,Attack_Power: 40
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 10
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Charm\n\nAttack Power +40\nSkill Amplification +10%"
         ,Rarity: "Rare"
     }
@@ -259,31 +65,7 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Willow_Leaf_Spike"
         ,Attack_Power: 17
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 20
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Willow Leaf Spike\n\nAttack Power +17\nExtra Normal Attack Damage +20"
         ,Rarity: "Rare"
     }
@@ -291,31 +73,6 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Chakram"
         ,Attack_Power: 38
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Chakram\n\nAttack Power +38"
         ,Rarity: "Rare"
     }
@@ -323,31 +80,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Apricot_Flower_Tag"
         ,Attack_Power: 17
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 30
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 10
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
+        ,Extra_Normal_Attack_Damage: 30
         ,Title: "Apricot Flower Tag\n\nAttack Power +17\nCooldown Reduction +10%\nExtra Normal Attack Damage +30"
         ,Rarity: "Rare"
     }
@@ -355,31 +89,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Venom_Dart"
         ,Attack_Power: 55
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 20
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
+        ,Critical_Damage: 20
         ,Skill_Amplification: 15
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Venom Dart\n\nAttack Power +55\nCritical Damage +20%\nSkill Amplification +15"
         ,Rarity: "Rare"
     }
@@ -387,31 +98,7 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Dharma_Chakram"
         ,Attack_Power: 38
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 15
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Dharma Chakram\n\nAttack Power +38\nSkill Amplification +15%"
         ,Rarity: "Rare"
     }
@@ -419,31 +106,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Plumbata"
         ,Attack_Power: 48
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 15
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.18
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
+        ,Critical_Damage: 15
         ,Title: "Plumbata\n\nAttack Power +48\nMovement Speed +0.18\nCritical Damage +15%"
         ,Rarity: "Rare"
     }
@@ -453,29 +117,7 @@ const Shuriken = [
         ,Attack_Power: 49
         ,Attack_Speed: 40
         ,Critical_Strike_Chance: 25
-        ,Critical_Strike_Damage: 10
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
+        ,Critical_Damage: 10
         ,Title: "Cards of Tyranny\n\nAttack Power +49\nAttack Speed +40%\nCritical Strike Chance +25%\nCritical Damage +10%"
         ,Rarity: "Epic"
     }
@@ -483,31 +125,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Mystic_Jade_Charm"
         ,Attack_Power: 60
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 12
         ,Skill_Amplification_Percent: 15
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Mystic Jade Charm\n\nAttack Power +60\nSkill Amplification +12\nSkill Amplification +15%"
         ,Rarity: "Epic"
     }
@@ -515,31 +134,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Fuhma_Shuriken"
         ,Attack_Power: 55
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 36
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
         ,Cooldown_Reduction: 15
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
+        ,Extra_Normal_Attack_Damage: 36
         ,Title: "Fuhma Shuriken\n\nAttack Power +55\nCooldown Reduction +15%\nExtra Normal Attack Damage +36"
         ,Rarity: "Epic"
     }
@@ -547,31 +143,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Frost_Venom_Dart"
         ,Attack_Power: 80
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 50
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
+        ,Critical_Damage: 50
         ,Skill_Amplification: 20
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Frost Venom Dart\n\nAttack Power +80\nCritical Damage +50%\nSkill Amplification +20"
         ,Rarity: "Epic"
     }
@@ -579,31 +152,8 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Azure_Dagger"
         ,Attack_Power: 20
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
         ,Extra_Normal_Attack_Damage: 29
-        ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 21
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Azure Dagger\n\nAttack Power +20\nExtra Normal Attack Damage +29\nSkill Amplification +21"
         ,Rarity: "Epic"
     }
@@ -611,63 +161,17 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Flechette"
         ,Attack_Power: 85
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 15
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
         ,Movement_Speed: 0.25
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
+        ,Critical_Damage: 15
         ,Attack_Range: 0.5
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
-        ,Title: "Flechette\n\nAttack Power +85\nAttack Range +0.5\nMovement Speed +0.25\nCritical Damage +15%"
+        ,Title: "Flechette\n\nAttack Power +85\nMovement Speed +0.25\nCritical Damage +15%\nAttack Range +0.5"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Shuriken"
         ,Name: "Wind_and_Fire_Wheels"
         ,Attack_Power: 55
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 23
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Wind and Fire Wheels\n\nAttack Power +55\nSkill Amplification +23%"
         ,Rarity: "Epic"
     }
@@ -675,31 +179,7 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Death_Rune"
         ,Attack_Power: 80
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
         ,Skill_Amplification_Percent: 23
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Death Rune\n\nAttack Power +80\nSkill Amplification +23%"
         ,Rarity: "Epic"
     }
@@ -707,31 +187,6 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Sudarsana"
         ,Attack_Power: 130
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 0
-        ,Life_Steal: 0
-        ,Extra_Normal_Attack_Damage: 0
-        ,Extra_Normal_Attack_Damage_Percent: 0
-        ,Skill_Amplification: 0
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Sudarsana\n\nAttack Power +130"
         ,Rarity: "Legendary"
     }
@@ -739,31 +194,9 @@ const Shuriken = [
          Type: "Shuriken"
         ,Name: "Petal_Torrent"
         ,Attack_Power: 80
-        ,Attack_Speed: 0
-        ,Critical_Strike_Chance: 0
-        ,Critical_Strike_Damage: 50
-        ,Life_Steal: 0
+        ,Critical_Damage: 50
         ,Extra_Normal_Attack_Damage: 130
-        ,Extra_Normal_Attack_Damage_Percent: 0
         ,Skill_Amplification: 25
-        ,Skill_Amplification_Percent: 0
-        ,Cooldown_Reduction: 0
-        ,SP_Regen: 0
-        ,SP_Regen_Percent: 0
-        ,Skill_Damage_Reduction: 0
-        ,Skill_Damage_Reduction_Percent: 0
-        ,Defense: 0
-        ,Max_HP: 0
-        ,Max_SP: 0
-        ,HP_Regen: 0
-        ,HP_Regen_Percent: 0
-        ,Normal_Attack_Damage_Reduction: 0
-        ,Movement_Speed: 0
-        ,Out_of_Combat_Movement_Speed: 0
-        ,Vision_Range: 0
-        ,Attack_Range: 0
-        ,Base_Range: 4.4
-        ,Atk_Speed: 0.55
         ,Title: "Petal Torrent\n\nAttack Power +80\nCritical Damage +50%\nExtra Normal Attack Damage +130\nSkill Amplification +25"
         ,Rarity: "Legendary"
     }
