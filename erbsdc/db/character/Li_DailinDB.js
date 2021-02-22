@@ -216,7 +216,7 @@ const Li_Dailin = {
                 c = combo.charAt(i);
                 if (c === 'a') {
                     if (liquid > 1) {
-                        liquid = 1;
+                        liquid = liquid === 2 ? 1 : 0;
                         damage += baseAttackDamage(character, enemy, 0, 1 * (1 + bac * 0.002), 0, 1);
                         life += calcHeal(
                             baseAttackDamage(character, enemy, 0, 1 * (1 + bac * 0.002), 0, 1)
@@ -230,7 +230,7 @@ const Li_Dailin = {
                     }
                 } else if (c === 'A') {
                     if (liquid > 1) {
-                        liquid = 1;
+                        liquid = liquid === 2 ? 1 : 0;
                         damage += baseAttackDamage(character, enemy, 0, 1 * (1 + bac * 0.002), 100, 1);
                         life += calcHeal(
                             baseAttackDamage(character, enemy, 0, 1 * (1 + bac * 0.002), 100, 1)
@@ -267,6 +267,8 @@ const Li_Dailin = {
                         if (bac < 55) {
                             if (bac >= 40) {
                                 liquid = 2;
+                            } else {
+                                liquid = 1.5;
                             }
                             bac += 45;
                         } else {
