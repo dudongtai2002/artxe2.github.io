@@ -368,6 +368,33 @@ class Character {
         });
 
         this.LEVEL.addEventListener('change', (e) => {
+            const level = this.LEVEL.selectedIndex
+            while (this.R_LEVEL.selectedIndex > floor(level / 5)) {
+                this.R_LEVEL.selectedIndex--;
+            }
+            while (this.T_LEVEL.selectedIndex > floor(level / 4)) {
+                this.T_LEVEL.selectedIndex--;
+            }
+            let skills = this.Q_LEVEL.selectedIndex + 
+                this.W_LEVEL.selectedIndex + 
+                this.E_LEVEL.selectedIndex + 
+                this.R_LEVEL.selectedIndex + 
+                this.T_LEVEL.selectedIndex - 1;
+            while (skills-- > level) {
+                if (this.W_LEVEL.selectedIndex > 1) {
+                    this.W_LEVEL.selectedIndex--;
+                } else if (this.E_LEVEL.selectedIndex > 1) {
+                    this.E_LEVEL.selectedIndex--;
+                } else if (this.Q_LEVEL.selectedIndex > 1) {
+                    this.Q_LEVEL.selectedIndex--;
+                } else if (this.W_LEVEL.selectedIndex) {
+                    this.W_LEVEL.selectedIndex--;
+                } else if (this.E_LEVEL.selectedIndex) {
+                    this.E_LEVEL.selectedIndex--;
+                } else {
+                    this.Q_LEVEL.selectedIndex--;
+                }
+            }
             this.savePreset()
             updateDisplay();
         });
@@ -481,7 +508,7 @@ class Character {
             while (skills-- > level) {
                 e.target.selectedIndex--;
             }
-            while (e.target.selectedIndex > floor((level + 1) / 5)) {
+            while (e.target.selectedIndex > floor(level / 4)) {
                 e.target.selectedIndex--;
             }
             this.savePreset()
