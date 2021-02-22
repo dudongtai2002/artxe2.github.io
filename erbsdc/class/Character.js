@@ -336,7 +336,7 @@ class Character {
                 this.T_OPTION.innerHTML = '';
                 this.COMBO_OPTION.value = '';
                 this.COMBO_DAMAGE.innerHTML = '';
-                this.COMBO_TIME.value = '0';
+                comboTime(0);
             } else {
                 this.I_CHARACTER.innerHTML = "<img class='character_image' src='./img/character/" + select + ".png'>";
                 this.character = eval(select);
@@ -362,7 +362,7 @@ class Character {
                 this.D_OPTION.innerHTML = this.character.D_Option(this, this.enemy);
                 this.T_OPTION.innerHTML = this.character.T_Option;
                 this.COMBO_OPTION.value = this.character.COMBO_Option;
-                this.COMBO_TIME.value = '5';
+                comboTime(5);
             }
             updateDisplay();
         });
@@ -518,7 +518,7 @@ class Character {
             updateDisplay();
         });
         this.COMBO_TIME.addEventListener('change', (e) => {
-            fixLimitNum(e.target, 30);
+            comboTime(e.target.value);
         });
 
         this.ITEM_LIST.querySelector('.close_button').addEventListener('click', (e) => {

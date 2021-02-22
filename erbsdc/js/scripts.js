@@ -93,6 +93,19 @@ function fixLimitNum(target, max) {
     updateDisplay();
 }
 
+function comboTime(value) {
+    if (value === '' || value < 0) {
+        value = 0;
+    } else if (value > 60) {
+        value = 60;
+    }
+    for (let c = 0; c < characters.length; c++) {
+        const div = characters[c].DIV;
+        div.querySelector('.combo_time').value = value;
+    }
+    updateDisplay();
+} 
+
 function floor(n, d) {
     if (d) {
         for (let i = 0; i < d; i++) {
