@@ -55,7 +55,7 @@ const Pistol = [
         ,Life_Steal: 10
         ,Title: "Magnum-Anaconda\n\nAttack Power +43\nAttack Speed +10%\nMovement Speed +0.1\nLife Steal +10%"
         ,Rarity: "Rare"
-        ,Ammo: 6
+        ,Ammo: 7
     }
     ,{
          Type: "Pistol"

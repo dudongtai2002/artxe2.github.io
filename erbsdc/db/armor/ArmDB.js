@@ -71,8 +71,9 @@ const Arm = [
          Type: "Arm"
         ,Name: "Bazuband"
         ,Defense: 25
+        ,Critical_Damage_Reduction: 6
         ,Normal_Attack_Damage_Reduction: 8
-        ,Title: "Bazuband\n\nDefense +25\nNormal Attack Damage Reduction +8"
+        ,Title: "Bazuband\n\nDefense +25\nCritical Damage Reduction + 6%\nNormal Attack Damage Reduction +8"
         ,Rarity: "Rare"
     }
     ,{

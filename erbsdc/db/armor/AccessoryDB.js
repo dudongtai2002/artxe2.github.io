@@ -202,9 +202,9 @@ const Accessory = [
          Type: "Accessory"
         ,Name: "Buccaneer_Doubloon"
         ,Attack_Power: 15
-        ,Critical_Strike_Chance: 8
+        ,Critical_Strike_Chance: 12
         ,Life_Steal: 8
-        ,Title: "Buccaneer Doubloon\n\nAttack Power +15\nCritical Strike Chance +8%\nLife Steal +8%"
+        ,Title: "Buccaneer Doubloon\n\nAttack Power +15\nCritical Strike Chance +12%\nLife Steal +8%"
         ,Rarity: "Rare"
     }
     ,{

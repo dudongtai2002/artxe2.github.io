@@ -97,8 +97,8 @@ const Emma = {
         if (character.weapon && wm > 5) {
             const type = character.weapon.Type;
             if (type === 'Shuriken') {
-                const damage = calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
-                const add = calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                const damage = calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
+                const add = calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                 return "<b class='damage'>" + damage + ' ~ ' + (damage + add * 11) + '</b> ( ' + damage + ', ' + add + ' x 11 )';
             }
         }
@@ -203,13 +203,13 @@ const Emma = {
                 } else if (c === 'd') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                         }
                     }
                 } else if (c === 'D') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
                         }
                     }
                 } else if (c === 't') {

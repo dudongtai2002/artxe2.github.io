@@ -81,28 +81,28 @@ const Glove = [
          Type: "Glove"
         ,Name: "One_Inch_Punch"
         ,Attack_Power: 50
-        ,Defense: 25
+        ,Defense: 21
         ,SP_Regen_Percent: 50
         ,Life_Steal: 10
-        ,Title: "One Inch Punch\n\nAttack Power +50\nDefense +25\nSP Regen +50%\nLife Steal +10%"
+        ,Title: "One Inch Punch\n\nAttack Power +50\nDefense +21\nSP Regen +50%\nLife Steal +10%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Glove"
         ,Name: "Divine_Fist"
         ,Attack_Power: 53
-        ,Movement_Speed: -0.05
+        ,Movement_Speed: -0.07
         ,Extra_Normal_Attack_Damage: 33
-        ,Title: "Divine Fist\n\nAttack Power +53\nMovement Speed -0.05\nExtra Normal Attack Damage +33"
+        ,Title: "Divine Fist\n\nAttack Power +53\nMovement Speed -0.07\nExtra Normal Attack Damage +33"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Glove"
         ,Name: "Bloodwing_Knuckles"
         ,Attack_Power: 53
-        ,Max_HP: 250
+        ,Max_HP: 210
         ,Movement_Speed: 0.1
-        ,Title: "Bloodwing Knuckles\n\nAttack Power +53\nMax HP +250\nMovement Speed +0.1"
+        ,Title: "Bloodwing Knuckles\n\nAttack Power +53\nMax HP +210\nMovement Speed +0.1"
         ,Rarity: "Epic"
     }
     ,{
@@ -131,16 +131,16 @@ const Glove = [
         ,HP_Regen: 1.2
         ,SP_Regen: 1.2
         ,Attack_Speed: 35
-        ,Movement_Speed: -0.05
-        ,Title: "Brasil Gauntlet\n\nAttack Power +50\nDefense +10\nHP Regen +1.2\nSP Regen +1.2\nAttack Speed +35%\nMovement Speed -0.05"
+        ,Movement_Speed: -0.07
+        ,Title: "Brasil Gauntlet\n\nAttack Power +50\nDefense +10\nHP Regen +1.2\nSP Regen +1.2\nAttack Speed +35%\nMovement Speed -0.07"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Glove"
         ,Name: "White_Claw_Punch"
         ,Attack_Power: 55
-        ,Critical_Strike_Chance: 22
-        ,Title: "White Claw Punch\n\nAttack Power +55\nCritical Strike Chance +22%"
+        ,Critical_Strike_Chance: 25
+        ,Title: "White Claw Punch\n\nAttack Power +55\nCritical Strike Chance +25%"
         ,Rarity: "Epic"
     }
     ,{

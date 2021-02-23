@@ -69,9 +69,9 @@ const Bow = [
     ,{
          Type: "Bow"
         ,Name: "Ancient_Bolt"
-        ,Attack_Power: 55
+        ,Attack_Power: 58
         ,Extra_Normal_Attack_Damage: 40
-        ,Title: "Ancient Bolt\n\nAttack Power +55\nExtra Normal Attack Damage +40"
+        ,Title: "Ancient Bolt\n\nAttack Power +58\nExtra Normal Attack Damage +40"
         ,Rarity: "Epic"
     }
     ,{

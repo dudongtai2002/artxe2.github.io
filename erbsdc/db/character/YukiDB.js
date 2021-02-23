@@ -19,7 +19,7 @@ const Yuki = {
     ,correction: {
         TwoHandedSword: [
             [0, -8, -10],
-            [0, 0, 0]
+            [0, 2, 0]
         ],
         DualSwords: [
             [3, 1, 1],

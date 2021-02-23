@@ -77,9 +77,9 @@ const Throws = [
          Type: "Throws"
         ,Name: "Incendiary_Bomb"
         ,Attack_Power: 70
-        ,Attack_Speed: 50
+        ,Attack_Speed: 60
         ,Cooldown_Reduction: 10
-        ,Title: "Incendiary Bomb\n\nAttack Power +70\nAttack Speed +50%\nCooldown Reduction +10%"
+        ,Title: "Incendiary Bomb\n\nAttack Power +70\nAttack Speed +60%\nCooldown Reduction +10%"
         ,Rarity: "Epic"
     }
     ,{

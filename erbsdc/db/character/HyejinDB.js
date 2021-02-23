@@ -18,8 +18,8 @@ const Hyejin = {
     ,weapons: [Shuriken, Bow]
     ,correction: {
         Shuriken: [
-            [12, 5, 0],
-            [-10, -7, -7]
+            [8, 5, 0],
+            [-6, -7, -7]
         ],
         Bow: [
             [0, -13, -18],
@@ -97,8 +97,8 @@ const Hyejin = {
         if (character.weapon && wm > 5) {
             const type = character.weapon.Type;
             if (type === 'Shuriken') {
-                const damage = calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
-                const add = calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                const damage = calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
+                const add = calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                 return "<b class='damage'>" + damage + ' ~ ' + (damage + add * 11) + '</b> ( ' + damage + ', ' + add + ' x 11 )';
             }
             if (type === 'Bow') {
@@ -202,7 +202,7 @@ const Hyejin = {
                 } else if (c === 'd') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                         } else if (type === 'Bow') {
                             damage += calcSkillDamage(character, enemy, wm < 13 ? 150 : 250, 1, 1);
                         }
@@ -210,7 +210,7 @@ const Hyejin = {
                 } else if (c === 'D') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
                         } else if (type === 'Bow') {
                             damage += calcSkillDamage(character, enemy, wm < 13 ? 300 : 500, 2, 1);
                         }

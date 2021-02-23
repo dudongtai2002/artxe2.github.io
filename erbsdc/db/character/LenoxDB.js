@@ -51,7 +51,7 @@ const Lenox = {
         if (character.weapon && q >= 0) {
             const min = calcSkillDamage(character, enemy, (q === 0 ? 5 : q === 1 ? 10 : 0) + 10 + q * 30, 0.3, 1);
             const max = calcSkillDamage(character, enemy, (q === 0 ? 5 : q === 1 ? 10 : 0) + 10 + q * 30 + character.max_hp * (0.055 + q * 0.005), 0.3, 1);
-            const cool = 10000 / (2 * (100 - character.cooldown_reduction));
+            const cool = 10000 / (3 * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + min + ' - ' + max  + "</b><b> __sd/s: </b><b class='damage'>" + round(max * cool) / 100 + '</b>';
         }
         return '-';

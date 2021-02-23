@@ -48,8 +48,8 @@ const Spear = [
          Type: "Spear"
         ,Name: "Gentian_Silver_Gun"
         ,Attack_Power: 105
-        ,Movement_Speed: 0.15
-        ,Title: "Gentian Silver Gun\n\nAttack Power +105\nMovement Speed +0.15"
+        ,Movement_Speed: 0.12
+        ,Title: "Gentian Silver Gun\n\nAttack Power +105\nMovement Speed +0.12"
         ,Rarity: "Epic"
     }
     ,{
@@ -97,19 +97,19 @@ const Spear = [
     ,{
          Type: "Spear"
         ,Name: "Blazing_Lance"
-        ,Attack_Power: 110
+        ,Attack_Power: 115
         ,HP_Regen: 1.5
         ,SP_Regen: 1.5
         ,Extra_Normal_Attack_Damage: 30
-        ,Title: "Blazing Lance\n\nAttack Power +110\nHP Regen +1.5\nSP Regen +1.5\nExtra Normal Attack Damage +30"
+        ,Title: "Blazing Lance\n\nAttack Power +115\nHP Regen +1.5\nSP Regen +1.5\nExtra Normal Attack Damage +30"
         ,Rarity: "Legendary"
     }
     ,{
          Type: "Spear"
         ,Name: "Spear_of_Longinus"
-        ,Attack_Power: 135
+        ,Attack_Power: 130
         ,Life_Steal: 20
-        ,Title: "Spear of Longinus\n\nAttack Power +135\nLife Steal +20%"
+        ,Title: "Spear of Longinus\n\nAttack Power +130\nLife Steal +20%"
         ,Rarity: "Legendary"
     }
 ];

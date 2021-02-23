@@ -79,7 +79,7 @@ const Xiukai = {
             const min = calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.03 - floor(0.3 * e) * 10, 0.5, 1);
             const max = calcSkillDamage(character, enemy, 80 + e * 30 + character.max_hp * 0.06 - floor(0.3 * e) * 10, 0.5, 1);
             const cost = 30 + e * 15;
-            const cool = 10000 / ((21 - e * 3) * (100 - character.cooldown_reduction));
+            const cool = 10000 / ((18 - e * 2) * (100 - character.cooldown_reduction));
             return min + " - <b class='damage'>" + max + "</b><b> __cost: </b><b class='heal'>-" + cost + "</b><b> __sd/s: </b><b class='damage'>" + round(max * cool) / 100 + '</b>';
         }
         return '-';

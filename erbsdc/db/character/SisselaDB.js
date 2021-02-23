@@ -82,7 +82,7 @@ const Sissela = {
         const e = character.E_LEVEL.selectedIndex - 1;
         if (character.weapon && e >= 0) {
             const damage = calcSkillDamage(character, enemy, 40 + e * 50, 0.6, 1);
-            const shield = 60 + e * 50 + character.attack_power * 0.5;
+            const shield = 75 + e * 50 + character.attack_power * 0.5;
             const cool = 10000 / ((14 - e * 1) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage + "</b><b> __s: </b><b class='shield'>" + shield + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
@@ -117,8 +117,8 @@ const Sissela = {
                 return '-';
             }
             if (type === 'Shuriken') {
-                const damage = calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
-                const add = calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                const damage = calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
+                const add = calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                 return "<b class='damage'>" + damage + ' ~ ' + (damage + add * 11) + '</b> ( ' + damage + ', ' + add + ' x 11 )';
             }
         }
@@ -226,13 +226,13 @@ const Sissela = {
                 } else if (c === 'd') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                         }
                     }
                 } else if (c === 'D') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
                         }
                     }
                 } else if (c === 't') {

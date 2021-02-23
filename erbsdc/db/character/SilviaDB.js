@@ -1,5 +1,5 @@
 const Silvia = {
-     Attack_Power: 28
+     Attack_Power: 25
     ,Attack_Power_Growth: 2.3
     ,Health: 500
     ,Health_Growth: 63

@@ -41,12 +41,12 @@ const Dagger = [
     ,{
          Type: "Dagger"
         ,Name: "Carnwennan"
-        ,Attack_Power: 44
+        ,Attack_Power: 41
         ,HP_Regen: 1.2
         ,Movement_Speed: 0.1
-        ,Cooldown_Reduction: 12
+        ,Cooldown_Reduction: 10
         ,Extra_Normal_Attack_Damage: 29
-        ,Title: "Carnwennan\n\nAttack Power +44\nHP Regen +1.2\nMovement Speed +0.1\nCooldown Reduction +12%\nExtra Normal Attack Damage +29"
+        ,Title: "Carnwennan\n\nAttack Power +41\nHP Regen +1.2\nMovement Speed +0.1\nCooldown Reduction +10%\nExtra Normal Attack Damage +29"
         ,Rarity: "Epic"
     }
     ,{
@@ -62,10 +62,10 @@ const Dagger = [
     ,{
          Type: "Dagger"
         ,Name: "Vibroblade"
-        ,Attack_Power: 57
+        ,Attack_Power: 55
         ,Attack_Speed: 40
         ,Movement_Speed: 0.1
-        ,Title: "Vibroblade\n\nAttack Power +57\nAttack Speed +40%\nMovement Speed +0.1"
+        ,Title: "Vibroblade\n\nAttack Power +55\nAttack Speed +40%\nMovement Speed +0.1"
         ,Rarity: "Epic"
     }
     ,{

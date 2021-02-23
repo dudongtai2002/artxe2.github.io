@@ -18,7 +18,7 @@ const Chiara = {
     ,weapons: [Rapier]
     ,correction: {
         Rapier: [
-            [0, -5, -3],
+            [0, -5, -7],
             [0, 0, 0]
         ]
     }
@@ -50,7 +50,7 @@ const Chiara = {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
             const damage = calcSkillDamage(character, enemy, 60 + q * 40, 0.6, 1);
-            const cool = 10000 / ((10 - q * 0.5) * (100 - character.cooldown_reduction));
+            const cool = 10000 / ((10 - q * 1) * (100 - character.cooldown_reduction));
             return "<b class='damage'>" + damage + "</b><b> __sd/s: </b><b class='damage'>" + round(damage * cool) / 100 + '</b>';
         }
         return '-';

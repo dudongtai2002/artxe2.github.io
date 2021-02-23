@@ -1,6 +1,6 @@
 const Zahir = {
      Attack_Power: 25
-    ,Attack_Power_Growth: 2.8
+    ,Attack_Power_Growth: 2.5
     ,Health: 520
     ,Health_Growth: 64
     ,Health_Regen: 0.6
@@ -103,14 +103,15 @@ const Zahir = {
     }
     ,R_Option: ''
     ,D_Skill: (character, enemy) => {
-        if (character.weapon && character.WEAPON_MASTERY.selectedIndex > 5) {
+        const wm = character.WEAPON_MASTERY.selectedIndex;
+        if (character.weapon && wm > 5) {
             const type = character.weapon.Type;
             if (type === 'Throws') {
                 return '-';
             }
             if (type === 'Shuriken') {
-                const damage = calcSkillDamage(character, enemy, character.WEAPON_MASTERY.selectedIndex < 13 ? 110 : 180, 0.3, 1);
-                const add = calcSkillDamage(character, enemy, (character.WEAPON_MASTERY.selectedIndex < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                const damage = calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
+                const add = calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                 return "<b class='damage'>" + damage + ' ~ ' + (damage + add * 11) + '</b> ( ' + damage + ', ' + add + ' x 11 )';
             }
         }
@@ -228,13 +229,13 @@ const Zahir = {
                 } else if (c === 'd') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 110 : 180) * 0.3, 0.3 * 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, (wm < 13 ? 80 : 160) * 0.3, 0.3 * 0.3, 1);
                         }
                     }
                 } else if (c === 'D') {
                     if (wm > 5) {
                         if (type === 'Shuriken') {
-                            damage += calcSkillDamage(character, enemy, wm < 13 ? 110 : 180, 0.3, 1);
+                            damage += calcSkillDamage(character, enemy, wm < 13 ? 80 : 160, 0.3, 1);
                         }
                     }
                 } else if (c === 'p' || c === 'P') {

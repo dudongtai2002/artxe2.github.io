@@ -33,27 +33,27 @@ const Tonfa = [
          Type: "Tonfa"
         ,Name: "Tactical_Tonfa"
         ,Attack_Power: 74
-        ,Defense: 10
+        ,Defense: 13
         ,Life_Steal: 25
-        ,Title: "Tactical Tonfa\n\nAttack Power +74\nDefense +10\nLife Steal +25%"
+        ,Title: "Tactical Tonfa\n\nAttack Power +74\nDefense +13\nLife Steal +25%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Tonfa"
         ,Name: "Mai_Sok"
         ,Attack_Power: 63
-        ,Defense: 20
+        ,Defense: 22
         ,HP_Regen_Percent: 100
-        ,Title: "Mai Sok\n\nAttack Power +63\nDefense +20\nHP Regen +100%"
+        ,Title: "Mai Sok\n\nAttack Power +63\nDefense +22\nHP Regen +100%"
         ,Rarity: "Epic"
     }
     ,{
          Type: "Tonfa"
         ,Name: "Plasma_Tonfa"
         ,Attack_Power: 65
-        ,Defense: 18
+        ,Defense: 21
         ,Vision_Range: 2.5
-        ,Title: "Plasma Tonfa\n\nAttack Power +65\nDefense +18\nVision Range +2.5"
+        ,Title: "Plasma Tonfa\n\nAttack Power +65\nDefense +21\nVision Range +2.5"
         ,Rarity: "Epic"
     }
 ];

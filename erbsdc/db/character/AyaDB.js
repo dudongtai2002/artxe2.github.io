@@ -27,7 +27,7 @@ const Aya = {
         ],
         SniperRifle: [
             [0, -15, -15],
-            [-3, 0, 0]
+            [0, 0, 0]
         ]
     }
     ,Base_Attack: (character, enemy) => {
@@ -101,8 +101,8 @@ const Aya = {
     ,R_Skill: (character, enemy) => {
         const r = character.R_LEVEL.selectedIndex - 1;
         if (character.weapon && r >= 0) {
-            const min = calcSkillDamage(character, enemy, 200 + r * 100, 0.7, 1);
-            const max = calcSkillDamage(character, enemy, 400 + r * 200, 1.4, 1);
+            const min = calcSkillDamage(character, enemy, 200 + r * 100, 0.6, 1);
+            const max = calcSkillDamage(character, enemy, 400 + r * 200, 1.2, 1);
             return "<b class='damage'>" + min + ' ~ ' + max + "</b>";
         }
         return '-';
@@ -131,7 +131,7 @@ const Aya = {
                     "<b> __s/s: </b><b class='shield'>" + floor(shield * (1 + as1 * 6) / cool, 2) + '</b> - ' + floor(shield * (1 + as2 * 6) / cool, 2);
             }
             if (type === 'SniperRifle') {
-                const damage = calcSkillDamage(character, enemy, 0, wm < 13 ? 2.5 : 3, 1);
+                const damage = calcSkillDamage(character, enemy, 0, wm < 13 ? 2.2 : 2.8, 1);
                 return "<b class='damage'>" + damage + ' ~ ' + damage * 3 + '</b> ( ' + damage + ' x 3 )';
             }
         }
@@ -239,16 +239,16 @@ const Aya = {
                     }
                 } else if (c === 'r') {
                     if (r >= 0) {
-                        damage += calcSkillDamage(character, enemy, 200 + r * 100, 0.7, 1);
+                        damage += calcSkillDamage(character, enemy, 200 + r * 100, 0.6, 1);
                     }
                 } else if (c === 'R') {
                     if (r >= 0) {
-                        damage += calcSkillDamage(character, enemy, 400 + r * 200, 1.4, 1);
+                        damage += calcSkillDamage(character, enemy, 400 + r * 200, 1.2, 1);
                     }
                 } else if (c === 'd' || c === 'D') {
                     if (wm > 5) {
                         if (type === 'SniperRifle') {
-                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 2.5 : 3, 1);
+                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 2.2 : 2.8, 1);
                         }
                     }
                 } else if (c === 'p' || c === 'P') {

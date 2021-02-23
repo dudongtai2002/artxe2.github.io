@@ -143,8 +143,8 @@ const Chest = [
         ,Name: "Hanbok"
         ,Defense: 12
         ,HP_Regen: 1
-        ,Cooldown_Reduction: 8
-        ,Title: "Hanbok\n\nDefense +12\nHP Regen +1\nCooldown Reduction +8%"
+        ,Cooldown_Reduction: 10
+        ,Title: "Hanbok\n\nDefense +12\nHP Regen +1\nCooldown Reduction +10%"
         ,Rarity: "Rare"
     }
     ,{
@@ -188,10 +188,10 @@ const Chest = [
          Type: "Chest"
         ,Name: "Rocker`s_Jacket"
         ,Attack_Power: 30
-        ,Defense: 11
+        ,Defense: 14
         ,Movement_speed_while_not_in_combat: 0.1
         ,Normal_Attack_Damage_Reduction: 11
-        ,Title: "Rocker`s Jacket\n\nAttack Power +30\nDefense +11\nMovement speed while not in combat +0.1\nNormal Attack Damage Reduction +11\nHealing Reduction (Skills) -40%"
+        ,Title: "Rocker`s Jacket\n\nAttack Power +30\nDefense +14\nMovement speed while not in combat +0.1\nNormal Attack Damage Reduction +11\nHealing Reduction (Skills) -40%"
         ,Rarity: "Epic"
     }
     ,{
@@ -200,8 +200,8 @@ const Chest = [
         ,Defense: 63
         ,Attack_Speed: 12
         ,Movement_Speed: 0.2
-        ,Skill_Damage_Reduction: 10
-        ,Title: "Mithril Armor\n\nDefense +63\nAttack Speed +12%\n Movement Speed +0.2\nSkill Damage Reduction +10"
+        ,Skill_Damage_Reduction: 13
+        ,Title: "Mithril Armor\n\nDefense +63\nAttack Speed +12%\n Movement Speed +0.2\nSkill Damage Reduction +13"
         ,Rarity: "Epic"
     }
     ,{
