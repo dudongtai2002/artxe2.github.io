@@ -104,10 +104,10 @@ const Arm = [
     ,{
          Type: "Arm"
         ,Name: "Sword_Stopper"
-        ,Defense: 36
+        ,Defense: 30
         ,Critical_Damage_Reduction: 10
         ,Normal_Attack_Damage_Reduction: 11
-        ,Title: "Sword Stopper\n\nDefense +36\nCritical Damage Reduction + 10%\nNormal Attack Damage Reduction +11\nHealing Reduction (Normal Attacks) -40%"
+        ,Title: "Sword Stopper\n\nDefense +30\nCritical Damage Reduction + 10%\nNormal Attack Damage Reduction +11\nHealing Reduction (Normal Attacks) -40%"
         ,Rarity: "Epic"
     }
     ,{
