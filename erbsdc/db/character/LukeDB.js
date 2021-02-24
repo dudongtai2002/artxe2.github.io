@@ -62,7 +62,7 @@ const Luke = {
         const q = character.Q_LEVEL.selectedIndex - 1;
         if (character.weapon && q >= 0) {
             const w = character.W_LEVEL.selectedIndex - 1;
-            const damage1 = calcSkillDamage(character, enemy, 30 + q * 20, 0.5, 1);
+            const damage1 = calcSkillDamage(character, enemy, 15 + q * 25, 0.5, 1);
             const damage2 = calcSkillDamage(character, enemy, 50 + q * 30, 1, 1);
             const cool = 10000 / ((14 - q * 1.5) * (100 - character.cooldown_reduction));
             let cd;
@@ -236,7 +236,7 @@ const Luke = {
                             }
                         } else {
                             qq = true;
-                            damage += calcSkillDamage(character, enemy, 30 + q * 20, 0.5, 1);
+                            damage += calcSkillDamage(character, enemy, 15 + q * 25, 0.5, 1);
                         }
                     }
                 } else if (c === 'w' || c === 'W') {

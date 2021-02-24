@@ -1,5 +1,5 @@
 const Cathy = {
-     Attack_Power: 37
+     Attack_Power: 26
     ,Attack_Power_Growth: 2.8
     ,Health: 550
     ,Health_Growth: 87
