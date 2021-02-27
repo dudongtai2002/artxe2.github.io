@@ -103,7 +103,7 @@ const Nadine = {
             }
             if (type === 'Crossbow') {
                 const damage = calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1);
-                return "<b class='damage'>" + damage * 2 + '</b> ( ' + damage + ', ' + damage + ' )';
+                return "<b class='damage'>" + damage * 10 + '</b> ( ' + damage + ' x 9, ' + damage + ' )';
             }
         }
         return '-';
@@ -129,7 +129,7 @@ const Nadine = {
             '';
         const skill = 
             weapon === 'Bow' ? '"최소 데미지" - "최대 데미지"' : 
-            weapon === 'Crossbow' ? '"합산 데미지" ( "1타 데미지", "벽꿍 데미지" )' : 
+            weapon === 'Crossbow' ? '"합산 데미지" ( "산탄 데미지" x "타수", "벽꿍 데미지" )' : 
             '';
         return '나딘 ( ' + type + ' )\n' + 
             'A: "평균 데미지" ( "평타 데미지" - "치명타 데미지" )\n' + 
@@ -213,7 +213,7 @@ const Nadine = {
                         if (type === 'Bow') {
                             damage += calcSkillDamage(character, enemy, wm < 13 ? 150 : 250, 1, 1);
                         } else if (type === 'Crossbow') {
-                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1);
+                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1) * 5;
                         }
                     }
                 } else if (c === 'D') {
@@ -221,7 +221,7 @@ const Nadine = {
                         if (type === 'Bow') {
                             damage += calcSkillDamage(character, enemy, wm < 13 ? 300 : 500, 2, 1);
                         } else if (type === 'Crossbow') {
-                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1) * 2;
+                            damage += calcSkillDamage(character, enemy, 0, wm < 13 ? 0.6 : 1, 1) * 10;
                         }
                     }
                 } else if (c === 'p' || c === 'P') {
@@ -301,7 +301,7 @@ const Nadine = {
         const weapon = character.weapon.Type;
         const d = 
             weapon === 'Bow' ? 'd: 무스 외곽 데미지\n' + 'D: 무스 중앙 데미지\n' : 
-            weapon === 'Crossbow' ? 'd: 무스 데미지\n' + 'D: 무스 벽꿍 데미지\n' : 
+            weapon === 'Crossbow' ? 'd: 무스 데미지 x 5\n' + 'D: 무스 데미지 x 10\n' : 
             '';
         return 'a: 기본공격 데미지\n' + 
             'A: 치명타 데미지\n' +
